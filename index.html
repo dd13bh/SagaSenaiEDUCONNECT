@@ -283,6 +283,287 @@
             box-shadow: 0 4px 15px #13233c08
         }
 
+        /* ===== KPI CARDS WITH SUBTLE HOVER ANIMATIONS ===== */
+        .kpi-card {
+            position: relative;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px 22px;
+            box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04), 0 2px 4px -1px rgba(15, 23, 42, 0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease;
+            overflow: hidden;
+            cursor: default;
+        }
+
+        .kpi-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--kpi-accent, linear-gradient(90deg, #2563eb, #60a5fa));
+            opacity: 0.85;
+            transition: height 0.25s ease, opacity 0.25s ease;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 32px -4px rgba(37, 99, 235, 0.14), 0 6px 14px -2px rgba(15, 23, 42, 0.06);
+            border-color: #cbd5e1;
+        }
+
+        .kpi-card:hover::before {
+            height: 5px;
+            opacity: 1;
+        }
+
+        .kpi-card:hover .kpi-icon-box {
+            transform: scale(1.12) rotate(-4deg);
+        }
+
+        .kpi-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .kpi-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+
+        .kpi-icon-box {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--kpi-icon-bg, #eff6ff);
+            color: var(--kpi-icon-color, #2563eb);
+            display: grid;
+            place-items: center;
+            font-size: 20px;
+            transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .kpi-number-row {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+
+        .kpi-number {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--text);
+            line-height: 1;
+            letter-spacing: -0.5px;
+        }
+
+        .kpi-pill {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .kpi-pill.blue { background: #eff6ff; color: #1d4ed8; }
+        .kpi-pill.green { background: #ecfdf5; color: #047857; }
+        .kpi-pill.amber { background: #fffbeb; color: #b45309; }
+        .kpi-pill.purple { background: #f5f3ff; color: #6d28d9; }
+        .kpi-pill.red { background: #fef2f2; color: #b91c1c; }
+
+        .kpi-subtext {
+            font-size: 12px;
+            color: var(--muted);
+            border-top: 1px dashed var(--border);
+            padding-top: 10px;
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* ===== DYNAMIC FILTER BARS ===== */
+        .filter-bar {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 14px 18px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 14px;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+        }
+
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .filter-badge-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: #fff;
+            display: grid;
+            place-items: center;
+            font-size: 17px;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+        }
+
+        .filter-title {
+            display: block;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .filter-subtitle {
+            display: block;
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        .filter-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            flex: 1;
+        }
+
+        .filter-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-item label {
+            margin: 0;
+            font-size: 12px;
+            font-weight: 700;
+            color: #475569;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .filter-select {
+            min-width: 200px;
+            padding: 8px 12px;
+            font-size: 13px;
+            border: 1px solid #cbd5e1;
+            border-radius: 9px;
+            background-color: #f8fafc;
+            color: #1e293b;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filter-select:hover {
+            border-color: #94a3b8;
+            background-color: #fff;
+        }
+
+        .filter-select:focus {
+            border-color: var(--blue);
+            background-color: #fff;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+
+        .filter-reset-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #475569;
+            background: #f1f5f9;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filter-reset-btn:hover {
+            background: #fee2e2;
+            color: #dc2626;
+            border-color: #fca5a5;
+        }
+
+        .reset-icon {
+            font-size: 14px;
+        }
+
+        .filter-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #475569;
+            background: #f8fafc;
+            padding: 7px 14px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            max-width: 100%;
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #10b981;
+            display: inline-block;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+            flex-shrink: 0;
+        }
+
+        .badge-dot.active {
+            background: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+        }
+
+        .chart-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .chart-card:hover {
+            border-color: #cbd5e1;
+            box-shadow: 0 8px 24px -2px rgba(15, 23, 42, 0.08);
+        }
+
+        .chart-badge {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: 12px;
+        }
+
+        .chart-badge.info { background: #eff6ff; color: #2563eb; }
+        .chart-badge.success { background: #ecfdf5; color: #059669; }
+        .chart-badge.warning { background: #fffbeb; color: #d97706; }
+        .chart-badge.purple { background: #f5f3ff; color: #7c3aed; }
+
         .kpi {
             display: flex;
             align-items: center;
@@ -565,6 +846,33 @@
             .grid2 {
                 grid-template-columns: 1fr
             }
+
+            .filter-bar {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+            }
+
+            .filter-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .filter-item {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .filter-select {
+                width: 100%;
+            }
+
+            .filter-reset-btn {
+                width: 100%;
+                justify-content: center;
+            }
         }
 
         @media(max-width:600px) {
@@ -662,20 +970,86 @@
             </header>
 
             <div id="dashboard" class="page">
+                <!-- Barra de Filtros Dinâmicos -->
+                <div class="filter-bar">
+                    <div class="filter-group">
+                        <div class="filter-badge-icon">⚡</div>
+                        <div>
+                            <span class="filter-title">Filtros Dinâmicos</span>
+                            <span class="filter-subtitle">Cruzamento analítico em tempo real</span>
+                        </div>
+                    </div>
+                    <div class="filter-controls">
+                        <div class="filter-item">
+                            <label for="dashboardCourseFilter">Curso</label>
+                            <select id="dashboardCourseFilter" class="filter-select" onchange="onFilterChange('dashboard')">
+                                <option value="">Todos os Cursos</option>
+                            </select>
+                        </div>
+                        <div class="filter-item">
+                            <label for="dashboardUnitFilter">Unidade</label>
+                            <select id="dashboardUnitFilter" class="filter-select" onchange="onFilterChange('dashboard')">
+                                <option value="">Todas as Unidades</option>
+                            </select>
+                        </div>
+                        <button class="filter-reset-btn" onclick="resetFilters('dashboard')" title="Limpar todos os filtros">
+                            <span class="reset-icon">↺</span> Limpar Filtros
+                        </button>
+                    </div>
+                    <div class="filter-status" id="dashboardFilterBadge">
+                        <span class="badge-dot"></span>
+                        <span class="filter-status-text">Carregando dados...</span>
+                    </div>
+                </div>
+
+                <!-- Cards de KPI com Animações Sutis de Hover -->
                 <div class="grid4" id="kpis"></div>
-                <div class="grid2" style="margin-top:16px">
-                    <div class="card">
+
+                <!-- Linha 1 de Gráficos: Rendimento e Médias por Disciplina -->
+                <div class="grid2" style="margin-top:18px">
+                    <div class="card chart-card">
                         <div class="sectionhead">
-                            <h3>Rendimento Acadêmico</h3><small style="color:var(--muted)">Distribuição das
-                                notas</small>
+                            <div>
+                                <h3>Rendimento Acadêmico</h3>
+                                <small style="color:var(--muted)">Distribuição das notas por faixa de desempenho</small>
+                            </div>
+                            <span class="chart-badge info">Faixas 0 a 10</span>
                         </div>
                         <div class="chartbox"><canvas id="gradeDistributionChart"></canvas></div>
                     </div>
-                    <div class="card">
+                    <div class="card chart-card">
                         <div class="sectionhead">
-                            <h3>Média por Disciplina</h3><small style="color:var(--muted)">Desempenho</small>
+                            <div>
+                                <h3>Média por Disciplina</h3>
+                                <small style="color:var(--muted)">Desempenho acadêmico por matéria</small>
+                            </div>
+                            <span class="chart-badge purple">Média Ponderada</span>
                         </div>
                         <div class="chartbox"><canvas id="subjectAverageChart"></canvas></div>
+                    </div>
+                </div>
+
+                <!-- Linha 2 de Gráficos: Proporção Ativos/Inativos e Desempenho Consolidado por Unidade -->
+                <div class="grid2" style="margin-top:18px">
+                    <div class="card chart-card">
+                        <div class="sectionhead">
+                            <div>
+                                <h3>Proporção de Alunos</h3>
+                                <small style="color:var(--muted)">Alunos ativos vs. inativos no recorte selecionado</small>
+                            </div>
+                            <span class="chart-badge success">Status Cadastral</span>
+                        </div>
+                        <div class="chartbox"><canvas id="studentStatusChart"></canvas></div>
+                    </div>
+                    <div class="card chart-card">
+                        <div class="sectionhead">
+                            <div>
+                                <h3>Desempenho por Unidade</h3>
+                                <small style="color:var(--muted)">Média acadêmica consolidada por polo com meta</small>
+                            </div>
+                            <span class="chart-badge warning">Meta: 7,0</span>
+                        </div>
+                        <div class="chartbox"><canvas id="unitPerformanceChart"></canvas></div>
                     </div>
                 </div>
             </div>
@@ -818,17 +1192,84 @@
                 </div>
             </div>
             <div id="reports" class="page hidden">
-                <div class="grid2">
-                    <div class="card">
-                        <div class="sectionhead">
-                            <h3>Indicadores de Rendimento</h3>
+                <!-- Barra de Filtros Dinâmicos -->
+                <div class="filter-bar">
+                    <div class="filter-group">
+                        <div class="filter-badge-icon">⚡</div>
+                        <div>
+                            <span class="filter-title">Filtros de Indicadores</span>
+                            <span class="filter-subtitle">Segmentação e consolidação em tempo real</span>
                         </div>
-                        <div id="reportContent"></div>
+                    </div>
+                    <div class="filter-controls">
+                        <div class="filter-item">
+                            <label for="reportCourseFilter">Curso</label>
+                            <select id="reportCourseFilter" class="filter-select" onchange="onFilterChange('report')">
+                                <option value="">Todos os Cursos</option>
+                            </select>
+                        </div>
+                        <div class="filter-item">
+                            <label for="reportUnitFilter">Unidade</label>
+                            <select id="reportUnitFilter" class="filter-select" onchange="onFilterChange('report')">
+                                <option value="">Todas as Unidades</option>
+                            </select>
+                        </div>
+                        <button class="filter-reset-btn" onclick="resetFilters('report')" title="Limpar todos os filtros">
+                            <span class="reset-icon">↺</span> Limpar Filtros
+                        </button>
+                    </div>
+                    <div class="filter-status" id="reportFilterBadge">
+                        <span class="badge-dot"></span>
+                        <span class="filter-status-text">Carregando indicadores...</span>
+                    </div>
+                </div>
+
+                <!-- Cards de Métricas e KPIs com Animações Sutis de Hover -->
+                <div class="grid4" id="reportKPIs" style="margin-bottom:18px"></div>
+
+                <!-- Linha 1 de Gráficos: Desempenho Consolidado por Unidade e Proporção Ativos/Inativos -->
+                <div class="grid2">
+                    <div class="card chart-card">
+                        <div class="sectionhead">
+                            <div>
+                                <h3>Desempenho Consolidado por Unidade</h3>
+                                <small style="color:var(--muted)">Comparativo de rendimento e meta acadêmica institucional</small>
+                            </div>
+                            <span class="chart-badge warning">Meta: 7,0</span>
+                        </div>
+                        <div class="chartbox tall"><canvas id="reportUnitPerformanceChart"></canvas></div>
+                    </div>
+                    <div class="card chart-card">
+                        <div class="sectionhead">
+                            <div>
+                                <h3>Proporção de Alunos (Ativos vs. Inativos)</h3>
+                                <small style="color:var(--muted)">Distribuição percentual da base discente</small>
+                            </div>
+                            <span class="chart-badge success">Taxa de Retenção</span>
+                        </div>
+                        <div class="chartbox tall"><canvas id="reportStudentStatusChart"></canvas></div>
+                    </div>
+                </div>
+
+                <!-- Linha 2 de Gráficos: Curva de Tendência e Distribuição por Faixas -->
+                <div class="grid2" style="margin-top:18px">
+                    <div class="card chart-card">
+                        <div class="sectionhead">
+                            <div>
+                                <h3>Curva de Tendência de Notas</h3>
+                                <small style="color:var(--muted)">Densidade e dispersão das notas registradas</small>
+                            </div>
+                            <span class="chart-badge info">Volume Avaliativo</span>
+                        </div>
                         <div class="chartbox tall"><canvas id="reportTrendChart"></canvas></div>
                     </div>
-                    <div class="card">
+                    <div class="card chart-card">
                         <div class="sectionhead">
-                            <h3>Distribuição das Notas</h3>
+                            <div>
+                                <h3>Distribuição das Notas</h3>
+                                <small style="color:var(--muted)">Segmentação de resultados por status de aprovação</small>
+                            </div>
+                            <span class="chart-badge purple">Classificação</span>
                         </div>
                         <div class="chartbox tall"><canvas id="reportDistributionChart"></canvas></div>
                     </div>
@@ -906,21 +1347,628 @@
         function closeModal() { document.getElementById('modal').classList.remove('show') }
         function modal(title, text, fields, onSave) { document.getElementById('modalTitle').textContent = title; document.getElementById('modalText').textContent = text; document.getElementById('modalForm').innerHTML = '<div class="formgrid">' + fields + '</div><div class="modalfoot"><button type="button" class="btn secondary" onclick="closeModal()">Cancelar</button><button class="btn primary">Salvar</button></div>'; document.getElementById('modalForm').onsubmit = async e => { e.preventDefault(); await onSave(new FormData(e.target)); closeModal(); showPage(currentPage) }; document.getElementById('modal').classList.add('show') }
         const opt = (arr, selected = '') => arr.map(x => `<option value="${x.id}" ${String(x.id) === String(selected) ? 'selected' : ''}>${esc(x.name)}</option>`).join('');
-        async function renderDashboard() {
-            let [s, t, c, u, cl, g] = await Promise.all(['students', 'teachers', 'courses', 'units', 'classes', 'grades'].map(all));
-            let active = s.filter(x => x.status === 'ATIVO').length;
-            let avg = g.length ? (g.reduce((a, x) => a + Number(x.value), 0) / g.length) : 0;
-            document.getElementById('kpis').innerHTML = [['🎓', 'Alunos', s.length], ['👨‍🏫', 'Professores', t.length], ['👥', 'Turmas', cl.length], ['📊', 'Média Geral', avg.toFixed(1)]].map(x => `<div class="card kpi"><div class="kpiicon">${x[0]}</div><div><small>${x[1]}</small><strong>${x[2]}</strong></div></div>`).join('');
-            document.getElementById('summary').innerHTML = `<p><b>${active}</b> alunos ativos de ${s.length} cadastrados.</p><p><b>${c.length}</b> cursos e <b>${u.length}</b> unidades cadastradas.</p><p>${g.length ? `Baseado em <b>${g.length}</b> lançamentos de notas.` : 'Nenhuma nota lançada ainda. Cadastre notas para alimentar os gráficos.'}</p>`;
-            renderGradeDistributionChart(g);
-            renderSubjectAverageChart(g);
+        /* ==================== FILTROS DINÂMICOS & ESTADO GLOBAL ==================== */
+        let currentFilters = { courseId: '', unitId: '' };
+
+        function onFilterChange(source) {
+            const courseEl = document.getElementById(source === 'dashboard' ? 'dashboardCourseFilter' : 'reportCourseFilter');
+            const unitEl = document.getElementById(source === 'dashboard' ? 'dashboardUnitFilter' : 'reportUnitFilter');
+            if (courseEl) currentFilters.courseId = courseEl.value;
+            if (unitEl) currentFilters.unitId = unitEl.value;
+
+            syncFilterInputs();
+
+            if (currentPage === 'dashboard') renderDashboard();
+            else if (currentPage === 'reports') renderReports();
         }
-        function prepCanvas(canvas) { const dpr = window.devicePixelRatio || 1; const rect = canvas.getBoundingClientRect(); const w = Math.max(300, rect.width); const h = Math.max(200, rect.height); canvas.width = w * dpr; canvas.height = h * dpr; const ctx = canvas.getContext('2d'); ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, w, h); return { ctx, w, h } }
-        function drawEmpty(canvas, msg = 'Sem dados para exibir') { const box = canvas.parentElement; if (!box) return; box.innerHTML = `<div class="chart-empty">${esc(msg)}</div>` }
-        function renderGradeDistributionChart(g) { const canvas = document.getElementById('gradeDistributionChart'); if (!canvas) return; if (!g.length) { drawEmpty(canvas, 'Nenhuma nota cadastrada'); return } const { ctx, w, h } = prepCanvas(canvas); const groups = [['0–5,9', g.filter(x => Number(x.value) < 6).length], ['6–7,9', g.filter(x => Number(x.value) >= 6 && Number(x.value) < 8).length], ['8–10', g.filter(x => Number(x.value) >= 8).length]]; drawBarChart(ctx, w, h, groups, 'Quantidade de notas') }
-        function renderSubjectAverageChart(g) { const canvas = document.getElementById('subjectAverageChart'); if (!canvas) return; if (!g.length) { drawEmpty(canvas, 'Nenhuma nota cadastrada'); return } const map = {}; g.forEach(x => { const k = x.subject || 'Sem disciplina'; if (!map[k]) map[k] = []; map[k].push(Number(x.value) || 0) }); const rows = Object.entries(map).map(([k, v]) => [k, v.reduce((a, b) => a + b, 0) / v.length]).sort((a, b) => b[1] - a[1]).slice(0, 8); const { ctx, w, h } = prepCanvas(canvas); drawHorizontalBars(ctx, w, h, rows, 'Média') }
-        function drawBarChart(ctx, w, h, data, ylabel) { const pad = { l: 48, r: 18, t: 22, b: 45 }; const plotW = w - pad.l - pad.r, plotH = h - pad.t - pad.b; const max = Math.max(1, ...data.map(x => x[1])); ctx.fillStyle = '#64748b'; ctx.font = '11px Segoe UI, Arial'; ctx.textAlign = 'right'; for (let i = 0; i <= 4; i++) { let y = pad.t + plotH - i * plotH / 4; ctx.strokeStyle = '#e8edf4'; ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(w - pad.r, y); ctx.stroke(); ctx.fillText(Math.round(max * i / 4), pad.l - 8, y + 4) } const bw = Math.min(70, plotW / data.length * .55); data.forEach((d, i) => { const x = pad.l + (i + .5) * plotW / data.length; const bh = d[1] / max * plotH; ctx.fillStyle = '#2563eb'; ctx.fillRect(x - bw / 2, pad.t + plotH - bh, bw, bh); ctx.fillStyle = '#334155'; ctx.textAlign = 'center'; ctx.fillText(d[0], x, h - 15); ctx.fillText(String(d[1]), x, pad.t + plotH - bh - 7) }); }
-        function drawHorizontalBars(ctx, w, h, data) { const pad = { l: 115, r: 35, t: 20, b: 20 }; const plotW = w - pad.l - pad.r, plotH = h - pad.t - pad.b; const max = 10; const rowH = plotH / Math.max(1, data.length); ctx.font = '11px Segoe UI, Arial'; data.forEach((d, i) => { const y = pad.t + i * rowH + rowH * .28; ctx.fillStyle = '#eef2f8'; ctx.fillRect(pad.l, y, plotW, rowH * .42); ctx.fillStyle = '#2563eb'; ctx.fillRect(pad.l, y, plotW * (d[1] / max), rowH * .42); ctx.fillStyle = '#334155'; ctx.textAlign = 'right'; ctx.fillText(String(d[0]).slice(0, 18), pad.l - 8, y + rowH * .31); ctx.textAlign = 'left'; ctx.fillText(d[1].toFixed(1), pad.l + plotW + 8, y + rowH * .31) }); ctx.fillStyle = '#94a3b8'; ctx.textAlign = 'left'; ctx.fillText('0', pad.l, h - 3); ctx.textAlign = 'right'; ctx.fillText('10', w - pad.r, h - 3) }
+
+        function resetFilters(source) {
+            currentFilters.courseId = '';
+            currentFilters.unitId = '';
+            syncFilterInputs();
+
+            if (currentPage === 'dashboard') renderDashboard();
+            else if (currentPage === 'reports') renderReports();
+        }
+
+        function syncFilterInputs() {
+            const courseVal = currentFilters.courseId || '';
+            const unitVal = currentFilters.unitId || '';
+            ['dashboardCourseFilter', 'reportCourseFilter'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.value = courseVal;
+            });
+            ['dashboardUnitFilter', 'reportUnitFilter'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.value = unitVal;
+            });
+        }
+
+        function populateFilterSelects(courses, units) {
+            ['dashboardCourseFilter', 'reportCourseFilter'].forEach(id => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                const selected = currentFilters.courseId || '';
+                el.innerHTML = '<option value="">Todos os Cursos</option>' + courses.map(c =>
+                    `<option value="${c.id}" ${String(c.id) === String(selected) ? 'selected' : ''}>${esc(c.name)}</option>`
+                ).join('');
+            });
+
+            ['dashboardUnitFilter', 'reportUnitFilter'].forEach(id => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                const selected = currentFilters.unitId || '';
+                el.innerHTML = '<option value="">Todas as Unidades</option>' + units.map(u =>
+                    `<option value="${u.id}" ${String(u.id) === String(selected) ? 'selected' : ''}>${esc(u.name)}</option>`
+                ).join('');
+            });
+        }
+
+        function updateFilterBadge(badgeId, filteredCount, totalCount, filteredGradesCount, totalGradesCount, coursesMap, unitsMap) {
+            const el = document.getElementById(badgeId);
+            if (!el) return;
+            const isFiltered = !!(currentFilters.courseId || currentFilters.unitId);
+            let text = '';
+            if (!isFiltered) {
+                text = `Base completa: <b>${filteredCount}</b> alunos · <b>${filteredGradesCount.toLocaleString('pt-BR')}</b> notas`;
+            } else {
+                const filters = [];
+                if (currentFilters.courseId) filters.push(`Curso: <b>${esc(coursesMap[currentFilters.courseId] || 'Selecionado')}</b>`);
+                if (currentFilters.unitId) filters.push(`Unidade: <b>${esc(unitsMap[currentFilters.unitId] || 'Selecionada')}</b>`);
+                text = `Filtro ativo: ${filters.join(' · ')} &mdash; <b>${filteredCount}</b> alunos (${filteredGradesCount.toLocaleString('pt-BR')} notas)`;
+            }
+            el.innerHTML = `<span class="badge-dot ${isFiltered ? 'active' : ''}"></span><span class="filter-status-text">${text}</span>`;
+        }
+
+        /* ==================== UTILITÁRIOS CANVAS PURO ==================== */
+        function prepCanvas(canvas) {
+            if (!canvas) return null;
+            const dpr = window.devicePixelRatio || 1;
+            const rect = canvas.getBoundingClientRect();
+            const w = Math.max(260, rect.width || canvas.clientWidth || 300);
+            const h = Math.max(180, rect.height || canvas.clientHeight || 260);
+            canvas.width = Math.round(w * dpr);
+            canvas.height = Math.round(h * dpr);
+            const ctx = canvas.getContext('2d');
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            ctx.clearRect(0, 0, w, h);
+            return { ctx, w, h, dpr };
+        }
+
+        function drawEmpty(canvas, msg = 'Sem dados para exibir') {
+            const p = prepCanvas(canvas);
+            if (!p) return;
+            const { ctx, w, h } = p;
+            ctx.save();
+            ctx.strokeStyle = '#e2e8f0';
+            ctx.lineWidth = 1.5;
+            ctx.setLineDash([5, 5]);
+            drawRoundRect(ctx, 16, 16, w - 32, h - 32, 12);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            ctx.fillStyle = '#94a3b8';
+            ctx.font = '500 13px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('📊 ' + msg, w / 2, h / 2);
+            ctx.restore();
+        }
+
+        function drawRoundRect(ctx, x, y, w, h, r = 6) {
+            if (w <= 0 || h <= 0) return;
+            r = Math.min(r, w / 2, h / 2);
+            ctx.beginPath();
+            ctx.moveTo(x + r, y);
+            ctx.lineTo(x + w - r, y);
+            ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+            ctx.lineTo(x + w, y + h - r);
+            ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+            ctx.lineTo(x + r, y + h);
+            ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+            ctx.lineTo(x, y + r);
+            ctx.quadraticCurveTo(x, y, x + r, y);
+            ctx.closePath();
+        }
+
+        function drawTopRoundRect(ctx, x, y, w, h, r = 6) {
+            if (w <= 0 || h <= 0) return;
+            r = Math.min(r, w / 2, h);
+            ctx.beginPath();
+            ctx.moveTo(x, y + h);
+            ctx.lineTo(x, y + r);
+            ctx.quadraticCurveTo(x, y, x + r, y);
+            ctx.lineTo(x + w - r, y);
+            ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+            ctx.lineTo(x + w, y + h);
+            ctx.closePath();
+        }
+
+        /* ==================== GRÁFICOS MODERNOS CANVAS ==================== */
+        function renderGradeDistributionChart(grades, canvasId = 'gradeDistributionChart') {
+            const canvas = document.getElementById(canvasId);
+            if (!canvas) return;
+            if (!grades.length) {
+                drawEmpty(canvas, 'Nenhuma nota cadastrada para este filtro');
+                return;
+            }
+            const p = prepCanvas(canvas);
+            if (!p) return;
+            const { ctx, w, h } = p;
+
+            const g1 = grades.filter(x => Number(x.value) < 6).length;
+            const g2 = grades.filter(x => Number(x.value) >= 6 && Number(x.value) < 8).length;
+            const g3 = grades.filter(x => Number(x.value) >= 8).length;
+            const total = grades.length;
+
+            const data = [
+                { label: '0–5,9', sub: 'Recuperação', count: g1, pct: total ? ((g1 / total) * 100).toFixed(1) : 0, color1: '#ef4444', color2: '#dc2626' },
+                { label: '6–7,9', sub: 'Regular / Bom', count: g2, pct: total ? ((g2 / total) * 100).toFixed(1) : 0, color1: '#f59e0b', color2: '#d97706' },
+                { label: '8–10', sub: 'Excelente', count: g3, pct: total ? ((g3 / total) * 100).toFixed(1) : 0, color1: '#10b981', color2: '#059669' }
+            ];
+
+            const pad = { l: 48, r: 24, t: 36, b: 50 };
+            const plotW = w - pad.l - pad.r;
+            const plotH = h - pad.t - pad.b;
+            const maxVal = Math.max(1, ...data.map(d => d.count));
+
+            ctx.save();
+            ctx.font = '10px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.fillStyle = '#94a3b8';
+            ctx.textAlign = 'right';
+            for (let i = 0; i <= 4; i++) {
+                const y = pad.t + plotH - i * plotH / 4;
+                ctx.strokeStyle = '#f1f5f9';
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(pad.l, y);
+                ctx.lineTo(w - pad.r, y);
+                ctx.stroke();
+                ctx.fillText(Math.round(maxVal * i / 4).toLocaleString('pt-BR'), pad.l - 8, y + 3);
+            }
+            ctx.restore();
+
+            const bw = Math.min(84, (plotW / data.length) * 0.56);
+            data.forEach((d, i) => {
+                const x = pad.l + (i + 0.5) * (plotW / data.length);
+                const bh = (d.count / maxVal) * plotH;
+                const y = pad.t + plotH - bh;
+
+                ctx.save();
+                const grad = ctx.createLinearGradient(x, y, x, y + bh);
+                grad.addColorStop(0, d.color1);
+                grad.addColorStop(1, d.color2);
+                ctx.fillStyle = grad;
+
+                if (bh > 0) {
+                    drawTopRoundRect(ctx, x - bw / 2, y, bw, bh, 8);
+                    ctx.fill();
+                }
+
+                ctx.fillStyle = '#1e293b';
+                ctx.font = 'bold 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText(d.count.toLocaleString('pt-BR'), x, y - 14);
+
+                ctx.fillStyle = '#64748b';
+                ctx.font = '600 10px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                ctx.fillText(`${d.pct}%`, x, y - 3);
+
+                ctx.fillStyle = '#1e293b';
+                ctx.font = 'bold 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                ctx.fillText(d.label, x, h - 22);
+
+                ctx.fillStyle = '#64748b';
+                ctx.font = '500 10px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                ctx.fillText(d.sub, x, h - 8);
+
+                ctx.restore();
+            });
+        }
+
+        function renderSubjectAverageChart(grades, canvasId = 'subjectAverageChart') {
+            const canvas = document.getElementById(canvasId);
+            if (!canvas) return;
+            if (!grades.length) {
+                drawEmpty(canvas, 'Nenhuma nota cadastrada para este filtro');
+                return;
+            }
+            const p = prepCanvas(canvas);
+            if (!p) return;
+            const { ctx, w, h } = p;
+
+            const map = {};
+            grades.forEach(x => {
+                const k = x.subject || 'Sem disciplina';
+                if (!map[k]) map[k] = [];
+                map[k].push(Number(x.value) || 0);
+            });
+
+            const rows = Object.entries(map).map(([k, v]) => [
+                k,
+                v.reduce((a, b) => a + b, 0) / v.length,
+                v.length
+            ]).sort((a, b) => b[1] - a[1]).slice(0, 6);
+
+            const pad = { l: 130, r: 45, t: 20, b: 24 };
+            const plotW = w - pad.l - pad.r;
+            const plotH = h - pad.t - pad.b;
+            const maxVal = 10;
+            const rowH = plotH / Math.max(1, rows.length);
+            const barH = Math.min(20, rowH * 0.44);
+
+            rows.forEach((r, i) => {
+                const y = pad.t + i * rowH + (rowH - barH) / 2;
+                const val = r[1];
+
+                ctx.save();
+                ctx.fillStyle = '#334155';
+                ctx.font = '600 11px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                ctx.textAlign = 'right';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(r[0].slice(0, 16), pad.l - 10, y + barH / 2);
+
+                ctx.fillStyle = '#f1f5f9';
+                drawRoundRect(ctx, pad.l, y, plotW, barH, barH / 2);
+                ctx.fill();
+
+                const barW = Math.max(8, plotW * (val / maxVal));
+                const grad = ctx.createLinearGradient(pad.l, y, pad.l + barW, y);
+                if (val >= 7.5) {
+                    grad.addColorStop(0, '#2563eb');
+                    grad.addColorStop(1, '#3b82f6');
+                } else if (val >= 6.0) {
+                    grad.addColorStop(0, '#6366f1');
+                    grad.addColorStop(1, '#818cf8');
+                } else {
+                    grad.addColorStop(0, '#f59e0b');
+                    grad.addColorStop(1, '#ef4444');
+                }
+                ctx.fillStyle = grad;
+                drawRoundRect(ctx, pad.l, y, barW, barH, barH / 2);
+                ctx.fill();
+
+                ctx.fillStyle = '#0f172a';
+                ctx.font = 'bold 11px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(val.toFixed(1), pad.l + plotW + 8, y + barH / 2);
+                ctx.restore();
+            });
+
+            ctx.save();
+            ctx.fillStyle = '#94a3b8';
+            ctx.font = '10px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.textAlign = 'left';
+            ctx.fillText('0', pad.l, h - 6);
+            ctx.textAlign = 'right';
+            ctx.fillText('10,0', pad.l + plotW, h - 6);
+            ctx.restore();
+        }
+
+        function renderStudentStatusChart(students, canvasId) {
+            const canvas = document.getElementById(canvasId);
+            if (!canvas) return;
+            if (!students.length) {
+                drawEmpty(canvas, 'Nenhum aluno encontrado para este filtro');
+                return;
+            }
+            const p = prepCanvas(canvas);
+            if (!p) return;
+            const { ctx, w, h } = p;
+
+            const active = students.filter(s => s.status === 'ATIVO').length;
+            const inactive = students.filter(s => s.status === 'INATIVO').length;
+            const total = students.length;
+            const activePct = total ? ((active / total) * 100).toFixed(1) : '0';
+            const inactivePct = total ? ((inactive / total) * 100).toFixed(1) : '0';
+
+            const cx = w * 0.36;
+            const cy = h * 0.50;
+            const outerR = Math.min(w * 0.28, h * 0.38);
+            const innerR = outerR * 0.65;
+
+            const data = [
+                { label: 'Ativos', value: active, pct: activePct, color1: '#10b981', color2: '#059669' },
+                { label: 'Inativos', value: inactive, pct: inactivePct, color1: '#ef4444', color2: '#dc2626' }
+            ];
+
+            let startAngle = -Math.PI / 2;
+            data.forEach(slice => {
+                if (slice.value === 0) return;
+                const sliceAngle = (slice.value / total) * (Math.PI * 2);
+                const endAngle = startAngle + sliceAngle;
+
+                ctx.save();
+                const grad = ctx.createLinearGradient(cx - outerR, cy - outerR, cx + outerR, cy + outerR);
+                grad.addColorStop(0, slice.color1);
+                grad.addColorStop(1, slice.color2);
+                ctx.fillStyle = grad;
+
+                ctx.beginPath();
+                ctx.arc(cx, cy, outerR, startAngle, endAngle);
+                ctx.arc(cx, cy, innerR, endAngle, startAngle, true);
+                ctx.closePath();
+                ctx.fill();
+
+                ctx.restore();
+                startAngle = endAngle;
+            });
+
+            ctx.save();
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.font = 'bold 22px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.fillStyle = '#0f172a';
+            ctx.fillText(`${activePct}%`, cx, cy - 4);
+            ctx.font = '600 11px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.fillStyle = '#64748b';
+            ctx.fillText('ATIVOS', cx, cy + 16);
+            ctx.restore();
+
+            const legendX = Math.max(w * 0.66, cx + outerR + 24);
+            const legendY = cy - 35;
+
+            data.forEach((d, i) => {
+                const itemY = legendY + i * 44;
+
+                ctx.save();
+                ctx.fillStyle = d.color1;
+                ctx.beginPath();
+                ctx.arc(legendX, itemY + 6, 6, 0, Math.PI * 2);
+                ctx.fill();
+
+                ctx.font = 'bold 13px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                ctx.fillStyle = '#1e293b';
+                ctx.textAlign = 'left';
+                ctx.fillText(d.label, legendX + 14, itemY + 5);
+
+                ctx.font = '500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                ctx.fillStyle = '#64748b';
+                ctx.fillText(`${d.value.toLocaleString('pt-BR')} (${d.pct}%)`, legendX + 14, itemY + 22);
+                ctx.restore();
+            });
+        }
+
+        function renderUnitPerformanceChart(students, allGrades, units, canvasId) {
+            const canvas = document.getElementById(canvasId);
+            if (!canvas) return;
+            if (!units.length || !students.length) {
+                drawEmpty(canvas, 'Sem dados de unidades para os filtros');
+                return;
+            }
+            const p = prepCanvas(canvas);
+            if (!p) return;
+            const { ctx, w, h } = p;
+
+            const unitStats = units.map(u => {
+                const stInUnit = students.filter(s => s.unitId === u.id);
+                const stIds = new Set(stInUnit.map(s => s.id));
+                const gr = allGrades.filter(g => stIds.has(g.studentId));
+                const avg = gr.length ? (gr.reduce((acc, v) => acc + Number(v.value), 0) / gr.length) : 0;
+                return {
+                    id: u.id,
+                    name: u.name.replace(/^Unidade\s+/i, ''),
+                    fullName: u.name,
+                    studentsCount: stInUnit.length,
+                    gradesCount: gr.length,
+                    avg: Number(avg.toFixed(2)),
+                    isSelected: String(currentFilters.unitId) === String(u.id)
+                };
+            }).filter(item => !currentFilters.unitId || String(item.id) === String(currentFilters.unitId) || item.studentsCount > 0);
+
+            if (!unitStats.length || unitStats.every(u => u.gradesCount === 0 && u.studentsCount === 0)) {
+                drawEmpty(canvas, 'Nenhuma nota registrada nas unidades selecionadas');
+                return;
+            }
+
+            const pad = { l: 125, r: 50, t: 28, b: 35 };
+            const plotW = w - pad.l - pad.r;
+            const plotH = h - pad.t - pad.b;
+            const maxVal = 10;
+            const rowH = plotH / Math.max(1, unitStats.length);
+            const barH = Math.min(26, rowH * 0.45);
+
+            const benchmarkX = pad.l + plotW * (7.0 / maxVal);
+            ctx.save();
+            ctx.strokeStyle = '#10b981';
+            ctx.lineWidth = 1.5;
+            ctx.setLineDash([4, 4]);
+            ctx.beginPath();
+            ctx.moveTo(benchmarkX, pad.t);
+            ctx.lineTo(benchmarkX, pad.t + plotH);
+            ctx.stroke();
+
+            ctx.fillStyle = '#059669';
+            ctx.font = '600 10px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('Meta: 7,0', benchmarkX, pad.t - 8);
+            ctx.restore();
+
+            unitStats.forEach((u, i) => {
+                const y = pad.t + i * rowH + (rowH - barH) / 2;
+
+                ctx.save();
+                ctx.fillStyle = u.isSelected ? '#2563eb' : '#1e293b';
+                ctx.font = `${u.isSelected ? 'bold' : '600'} 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`;
+                ctx.textAlign = 'right';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(u.name.slice(0, 16), pad.l - 12, y + barH / 2);
+                ctx.restore();
+
+                ctx.save();
+                ctx.fillStyle = '#f1f5f9';
+                drawRoundRect(ctx, pad.l, y, plotW, barH, barH / 2);
+                ctx.fill();
+
+                if (u.avg > 0) {
+                    const barW = Math.max(12, plotW * (u.avg / maxVal));
+                    const grad = ctx.createLinearGradient(pad.l, y, pad.l + barW, y);
+                    if (u.avg >= 7.0) {
+                        grad.addColorStop(0, '#10b981');
+                        grad.addColorStop(1, '#059669');
+                    } else if (u.avg >= 6.0) {
+                        grad.addColorStop(0, '#3b82f6');
+                        grad.addColorStop(1, '#1d4ed8');
+                    } else {
+                        grad.addColorStop(0, '#f59e0b');
+                        grad.addColorStop(1, '#ef4444');
+                    }
+                    ctx.fillStyle = grad;
+                    drawRoundRect(ctx, pad.l, y, barW, barH, barH / 2);
+                    ctx.fill();
+                }
+
+                ctx.fillStyle = u.avg >= 7.0 ? '#047857' : (u.avg >= 6.0 ? '#1e40af' : '#b45309');
+                ctx.font = 'bold 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'middle';
+                const valText = u.avg > 0 ? `${u.avg.toFixed(1)} ★` : 'S/N';
+                ctx.fillText(valText, pad.l + plotW + 10, y + barH / 2);
+
+                ctx.fillStyle = '#94a3b8';
+                ctx.font = '500 10px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                ctx.textAlign = 'left';
+                ctx.fillText(`${u.studentsCount} alunos · ${u.gradesCount} notas`, pad.l, y + barH + 11);
+                ctx.restore();
+            });
+
+            ctx.save();
+            ctx.fillStyle = '#94a3b8';
+            ctx.font = '10px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.textAlign = 'left';
+            ctx.fillText('0', pad.l, h - 10);
+            ctx.textAlign = 'center';
+            ctx.fillText('5,0', pad.l + plotW * 0.5, h - 10);
+            ctx.textAlign = 'right';
+            ctx.fillText('10,0', pad.l + plotW, h - 10);
+            ctx.restore();
+        }
+
+        /* ==================== RENDERIZAÇÃO DO DASHBOARD ==================== */
+        async function renderDashboard() {
+            const [students, teachers, courses, units, classes, grades] = await Promise.all(
+                ['students', 'teachers', 'courses', 'units', 'classes', 'grades'].map(all)
+            );
+            populateFilterSelects(courses, units);
+
+            const filteredStudents = students.filter(s => {
+                const matchCourse = !currentFilters.courseId || String(s.courseId) === String(currentFilters.courseId);
+                const matchUnit = !currentFilters.unitId || String(s.unitId) === String(currentFilters.unitId);
+                return matchCourse && matchUnit;
+            });
+
+            const studentIdSet = new Set(filteredStudents.map(s => s.id));
+            const filteredGrades = grades.filter(g => studentIdSet.has(g.studentId));
+
+            const filteredClasses = classes.filter(c => {
+                const matchCourse = !currentFilters.courseId || String(c.courseId) === String(currentFilters.courseId);
+                const matchUnit = !currentFilters.unitId || String(c.unitId) === String(currentFilters.unitId);
+                return matchCourse && matchUnit;
+            });
+
+            const activeCount = filteredStudents.filter(s => s.status === 'ATIVO').length;
+            const inactiveCount = filteredStudents.filter(s => s.status === 'INATIVO').length;
+            const activeRate = filteredStudents.length ? ((activeCount / filteredStudents.length) * 100).toFixed(1) : 0;
+            const avgGrade = filteredGrades.length ? (filteredGrades.reduce((a, x) => a + Number(x.value), 0) / filteredGrades.length) : 0;
+            const passCount = filteredGrades.filter(x => Number(x.value) >= 6).length;
+            const passRate = filteredGrades.length ? ((passCount / filteredGrades.length) * 100).toFixed(1) : 0;
+
+            const cm = Object.fromEntries(courses.map(x => [x.id, x.name]));
+            const um = Object.fromEntries(units.map(x => [x.id, x.name]));
+
+            updateFilterBadge('dashboardFilterBadge', filteredStudents.length, students.length, filteredGrades.length, grades.length, cm, um);
+
+            renderDashboardKPIs({
+                totalStudents: filteredStudents.length,
+                activeCount,
+                inactiveCount,
+                activeRate,
+                totalClasses: filteredClasses.length,
+                teacherCount: teachers.length,
+                avgGrade,
+                passRate,
+                isFiltered: !!(currentFilters.courseId || currentFilters.unitId)
+            });
+
+            renderGradeDistributionChart(filteredGrades, 'gradeDistributionChart');
+            renderSubjectAverageChart(filteredGrades, 'subjectAverageChart');
+            renderStudentStatusChart(filteredStudents, 'studentStatusChart');
+            renderUnitPerformanceChart(filteredStudents, grades, units, 'unitPerformanceChart');
+        }
+
+        function renderDashboardKPIs(data) {
+            const { totalStudents, activeCount, inactiveCount, activeRate, totalClasses, teacherCount, avgGrade, passRate, isFiltered } = data;
+
+            const cards = [
+                {
+                    label: 'Total de Alunos',
+                    value: totalStudents.toLocaleString('pt-BR'),
+                    pill: `${activeRate}% ativos`,
+                    pillClass: 'blue',
+                    icon: '🎓',
+                    accent: 'linear-gradient(90deg, #2563eb, #60a5fa)',
+                    iconBg: '#eff6ff',
+                    iconColor: '#2563eb',
+                    subLeft: `<b>${activeCount}</b> ativos · <b>${inactiveCount}</b> inativos`,
+                    subRight: isFiltered ? 'Recorte Filtrado' : 'Total Geral'
+                },
+                {
+                    label: 'Taxa de Atividade',
+                    value: `${activeRate}%`,
+                    pill: activeRate >= 90 ? 'Excelente' : (activeRate >= 75 ? 'Estável' : 'Atenção'),
+                    pillClass: activeRate >= 90 ? 'green' : (activeRate >= 75 ? 'blue' : 'amber'),
+                    icon: '🟢',
+                    accent: 'linear-gradient(90deg, #10b981, #34d399)',
+                    iconBg: '#ecfdf5',
+                    iconColor: '#10b981',
+                    subLeft: `Retenção Discente`,
+                    subRight: `${activeCount}/${totalStudents}`
+                },
+                {
+                    label: 'Turmas & Docentes',
+                    value: totalClasses.toLocaleString('pt-BR'),
+                    pill: `${teacherCount} docentes`,
+                    pillClass: 'purple',
+                    icon: '👥',
+                    accent: 'linear-gradient(90deg, #8b5cf6, #a78bfa)',
+                    iconBg: '#f5f3ff',
+                    iconColor: '#8b5cf6',
+                    subLeft: `Turmas Alocadas`,
+                    subRight: 'Corpo Ativo'
+                },
+                {
+                    label: 'Média Acadêmica Geral',
+                    value: avgGrade ? avgGrade.toFixed(1) : '—',
+                    pill: `${passRate}% Aprovados`,
+                    pillClass: avgGrade >= 7 ? 'green' : (avgGrade >= 6 ? 'blue' : 'amber'),
+                    icon: '📊',
+                    accent: 'linear-gradient(90deg, #f59e0b, #fbbf24)',
+                    iconBg: '#fffbeb',
+                    iconColor: '#d97706',
+                    subLeft: `Meta Institucional: 7,0`,
+                    subRight: avgGrade >= 7 ? '★ Superou meta' : 'Em acompanhamento'
+                }
+            ];
+
+            document.getElementById('kpis').innerHTML = cards.map(c => `
+                <div class="kpi-card" style="--kpi-accent:${c.accent};">
+                    <div>
+                        <div class="kpi-top">
+                            <span class="kpi-label">${c.label}</span>
+                            <div class="kpi-icon-box" style="background:${c.iconBg};color:${c.iconColor};">${c.icon}</div>
+                        </div>
+                        <div class="kpi-number-row">
+                            <span class="kpi-number">${c.value}</span>
+                            <span class="kpi-pill ${c.pillClass}">${c.pill}</span>
+                        </div>
+                    </div>
+                    <div class="kpi-subtext">
+                        <span>${c.subLeft}</span>
+                        <span>${c.subRight}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
         async function renderStudents() { let [s, c, u, cl] = await Promise.all([all('students'), all('courses'), all('units'), all('classes')]); let search = (document.getElementById('studentSearch')?.value || '').toLowerCase(), filter = document.getElementById('studentFilter')?.value || ''; s = s.filter(x => (!search || x.name.toLowerCase().includes(search) || x.registration.includes(search)) && (!filter || x.status === filter)); let map = a => Object.fromEntries(a.map(x => [x.id, x.name])); let cm = map(c), um = map(u), clm = map(cl); document.getElementById('studentsBody').innerHTML = s.length ? s.map(x => `<tr><td><b>${esc(x.registration)}</b></td><td>${esc(x.name)}<br><small>${esc(x.email || '')}</small></td><td>${esc(cm[x.courseId] || '-')}</td><td>${esc(um[x.unitId] || '-')}</td><td>${esc(clm[x.classId] || '-')}</td><td><span class="status ${x.status === 'ATIVO' ? 'ativo' : 'inativo'}">${x.status}</span></td><td class="actions"><button class="iconbtn" onclick="openStudent(${x.id})">✏</button><button class="iconbtn danger" onclick="removeItem('students',${x.id})">🗑</button></td></tr>`).join('') : '<tr><td colspan="7" class="empty">Nenhum aluno encontrado.</td></tr>' }
         async function openStudent(id) { let [students, c, u, cl] = await Promise.all([all('students'), all('courses'), all('units'), all('classes')]); let x = students.find(a => a.id === id) || { status: 'ATIVO' }; modal(id ? 'Editar aluno' : 'Novo aluno', 'Dados acadêmicos e pessoais', `<div class="full"><label>Nome completo *</label><input name="name" required value="${esc(x.name || '')}"></div><div><label>E-mail</label><input name="email" type="email" value="${esc(x.email || '')}"></div><div><label>Telefone</label><input name="phone" value="${esc(x.phone || '')}"></div><div><label>Curso</label><select name="courseId"><option value="">Selecione</option>${opt(c, x.courseId)}</select></div><div><label>Unidade</label><select name="unitId"><option value="">Selecione</option>${opt(u, x.unitId)}</select></div><div><label>Turma</label><select name="classId"><option value="">Selecione</option>${opt(cl, x.classId)}</select></div><div><label>Status</label><select name="status"><option ${x.status === 'ATIVO' ? 'selected' : ''}>ATIVO</option><option ${x.status === 'INATIVO' ? 'selected' : ''}>INATIVO</option></select></div>`, async f => { let o = { ...x, ...Object.fromEntries(f), courseId: num(f.get('courseId')), unitId: num(f.get('unitId')), classId: num(f.get('classId')) }; if (!id) o.registration = String(new Date().getFullYear()) + String(Math.floor(10000 + Math.random() * 90000)); await put('students', o) }) }
         function num(v) { return v ? Number(v) : null }
@@ -934,8 +1982,224 @@
         async function openClass(id) { let [a, c, u, t] = await Promise.all([all('classes'), all('courses'), all('units'), all('teachers')]), x = a.find(y => y.id === id) || {}; modal(id ? 'Editar turma' : 'Nova turma', 'Vincule curso, unidade e professor', `<div class="full"><label>Nome *</label><input name="name" required value="${esc(x.name || '')}"></div><div><label>Curso</label><select name="courseId"><option value="">Selecione</option>${opt(c, x.courseId)}</select></div><div><label>Unidade</label><select name="unitId"><option value="">Selecione</option>${opt(u, x.unitId)}</select></div><div class="full"><label>Professor responsável</label><select name="teacherId"><option value="">Selecione</option>${opt(t, x.teacherId)}</select></div>`, async f => put('classes', { ...x, name: f.get('name'), courseId: num(f.get('courseId')), unitId: num(f.get('unitId')), teacherId: num(f.get('teacherId')) })) }
         async function renderGrades() { let [g, s] = await Promise.all([all('grades'), all('students')]), sm = Object.fromEntries(s.map(x => [x.id, x.name])); document.getElementById('gradesBody').innerHTML = g.length ? g.map(x => `<tr><td>${esc(sm[x.studentId] || 'Aluno removido')}</td><td>${esc(x.subject)}</td><td><b>${Number(x.value).toFixed(1)}</b></td><td><span class="status ${x.value >= 6 ? 'ativo' : 'inativo'}">${x.value >= 6 ? 'APROVADO' : 'RECUPERAÇÃO'}</span></td><td class="actions"><button class="iconbtn" onclick="openGrade(${x.id})">✏</button><button class="iconbtn danger" onclick="removeItem('grades',${x.id})">🗑</button></td></tr>`).join('') : '<tr><td colspan="5" class="empty">Nenhuma nota lançada.</td></tr>' }
         async function openGrade(id) { let [g, s] = await Promise.all([all('grades'), all('students')]), x = g.find(y => y.id === id) || {}; modal(id ? 'Editar nota' : 'Lançar nota', 'A nota alimentará automaticamente os indicadores', `<div class="full"><label>Aluno *</label><select name="studentId" required><option value="">Selecione</option>${opt(s, x.studentId)}</select></div><div><label>Disciplina *</label><input name="subject" required value="${esc(x.subject || '')}"></div><div><label>Nota (0 a 10) *</label><input name="value" type="number" min="0" max="10" step=".1" required value="${esc(x.value ?? '')}"></div>`, async f => put('grades', { ...x, studentId: Number(f.get('studentId')), subject: f.get('subject'), value: Number(f.get('value')) })) }
-        async function renderReports() { let g = await all('grades'), avg = g.length ? g.reduce((a, x) => a + Number(x.value), 0) / g.length : 0, pass = g.length ? g.filter(x => Number(x.value) >= 6).length / g.length * 100 : 0; document.getElementById('reportContent').innerHTML = `<h1 style="margin:0;font-size:38px">${avg.toFixed(2)}</h1><p>Média geral das notas lançadas</p><p style="margin-top:18px"><b>${pass.toFixed(1)}%</b> dos lançamentos atingem média 6,0.</p>`; const d = document.getElementById('reportDistributionChart'); if (g.length) { const { ctx, w, h } = prepCanvas(d); drawBarChart(ctx, w, h, [['0–5,9', g.filter(x => Number(x.value) < 6).length], ['6–7,9', g.filter(x => Number(x.value) >= 6 && Number(x.value) < 8).length], ['8–10', g.filter(x => Number(x.value) >= 8).length]], 'Quantidade') } else drawEmpty(d, 'Nenhuma nota cadastrada'); const tr = document.getElementById('reportTrendChart'); if (g.length) { const { ctx, w, h } = prepCanvas(tr); const vals = g.map(x => Number(x.value)).filter(Number.isFinite); const bins = [0, 0, 0, 0, 0]; vals.forEach(v => bins[Math.min(4, Math.floor(v / 2))]++); drawLineChart(ctx, w, h, [['0–1,9', bins[0]], ['2–3,9', bins[1]], ['4–5,9', bins[2]], ['6–7,9', bins[3]], ['8–10', bins[4]]]) } else drawEmpty(tr, 'Cadastre notas para gerar o gráfico') }
-        function drawLineChart(ctx, w, h, data) { const pad = { l: 48, r: 18, t: 22, b: 45 }; const plotW = w - pad.l - pad.r, plotH = h - pad.t - pad.b, max = Math.max(1, ...data.map(x => x[1])); ctx.strokeStyle = '#e8edf4'; ctx.fillStyle = '#64748b'; ctx.font = '11px Segoe UI, Arial'; ctx.textAlign = 'right'; for (let i = 0; i <= 4; i++) { let y = pad.t + plotH - i * plotH / 4; ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(w - pad.r, y); ctx.stroke(); ctx.fillText(Math.round(max * i / 4), pad.l - 8, y + 4) } const pts = data.map((d, i) => [pad.l + i * (plotW / (data.length - 1 || 1)), pad.t + plotH - (d[1] / max) * plotH]); ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 3; ctx.beginPath(); pts.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke(); pts.forEach((p, i) => { ctx.fillStyle = '#2563eb'; ctx.beginPath(); ctx.arc(p[0], p[1], 4, 0, Math.PI * 2); ctx.fill(); ctx.fillStyle = '#334155'; ctx.textAlign = 'center'; ctx.fillText(data[i][0], p[0], h - 15); ctx.fillText(String(data[i][1]), p[0], p[1] - 9) }) }
+        /* ==================== RENDERIZAÇÃO DE INDICADORES (RELATÓRIOS) ==================== */
+        async function renderReports() {
+            const [students, teachers, courses, units, classes, grades] = await Promise.all(
+                ['students', 'teachers', 'courses', 'units', 'classes', 'grades'].map(all)
+            );
+            populateFilterSelects(courses, units);
+
+            const filteredStudents = students.filter(s => {
+                const matchCourse = !currentFilters.courseId || String(s.courseId) === String(currentFilters.courseId);
+                const matchUnit = !currentFilters.unitId || String(s.unitId) === String(currentFilters.unitId);
+                return matchCourse && matchUnit;
+            });
+
+            const studentIdSet = new Set(filteredStudents.map(s => s.id));
+            const filteredGrades = grades.filter(g => studentIdSet.has(g.studentId));
+
+            const avgGrade = filteredGrades.length ? (filteredGrades.reduce((a, x) => a + Number(x.value), 0) / filteredGrades.length) : 0;
+            const passCount = filteredGrades.filter(x => Number(x.value) >= 6).length;
+            const passRate = filteredGrades.length ? ((passCount / filteredGrades.length) * 100).toFixed(1) : 0;
+            const evaluatedStudentsCount = new Set(filteredGrades.map(g => g.studentId)).size;
+
+            const cm = Object.fromEntries(courses.map(x => [x.id, x.name]));
+            const um = Object.fromEntries(units.map(x => [x.id, x.name]));
+
+            updateFilterBadge('reportFilterBadge', filteredStudents.length, students.length, filteredGrades.length, grades.length, cm, um);
+
+            renderReportKPIs({
+                avgGrade,
+                passRate,
+                totalGrades: filteredGrades.length,
+                evaluatedStudents: evaluatedStudentsCount,
+                totalStudents: filteredStudents.length,
+                isFiltered: !!(currentFilters.courseId || currentFilters.unitId)
+            });
+
+            renderUnitPerformanceChart(filteredStudents, grades, units, 'reportUnitPerformanceChart');
+            renderStudentStatusChart(filteredStudents, 'reportStudentStatusChart');
+            renderReportTrendChart(filteredGrades, 'reportTrendChart');
+            renderGradeDistributionChart(filteredGrades, 'reportDistributionChart');
+        }
+
+        function renderReportKPIs(data) {
+            const { avgGrade, passRate, totalGrades, evaluatedStudents, totalStudents, isFiltered } = data;
+            const evalRate = totalStudents ? ((evaluatedStudents / totalStudents) * 100).toFixed(0) : 0;
+
+            const cards = [
+                {
+                    label: 'Média Consolidada',
+                    value: avgGrade ? avgGrade.toFixed(2) : '—',
+                    pill: avgGrade >= 7.0 ? 'Meta Superada' : (avgGrade >= 6.0 ? 'Regular' : 'Atenção'),
+                    pillClass: avgGrade >= 7.0 ? 'green' : (avgGrade >= 6.0 ? 'blue' : 'amber'),
+                    icon: '🎯',
+                    accent: 'linear-gradient(90deg, #2563eb, #38bdf8)',
+                    iconBg: '#eff6ff',
+                    iconColor: '#2563eb',
+                    subLeft: 'Média ponderada do recorte',
+                    subRight: 'Escala 0 a 10'
+                },
+                {
+                    label: 'Taxa de Aprovação',
+                    value: `${passRate}%`,
+                    pill: passRate >= 80 ? 'Alta' : 'Moderada',
+                    pillClass: passRate >= 80 ? 'green' : 'amber',
+                    icon: '✅',
+                    accent: 'linear-gradient(90deg, #10b981, #6ee7b7)',
+                    iconBg: '#ecfdf5',
+                    iconColor: '#059669',
+                    subLeft: 'Critério: Nota >= 6,0',
+                    subRight: `${passRate}% de aprovação`
+                },
+                {
+                    label: 'Lançamentos de Notas',
+                    value: totalGrades.toLocaleString('pt-BR'),
+                    pill: `${totalGrades} avaliações`,
+                    pillClass: 'purple',
+                    icon: '📝',
+                    accent: 'linear-gradient(90deg, #8b5cf6, #c084fc)',
+                    iconBg: '#f5f3ff',
+                    iconColor: '#7c3aed',
+                    subLeft: 'Notas computadas',
+                    subRight: isFiltered ? 'Subconjunto' : 'Total Geral'
+                },
+                {
+                    label: 'Alunos Avaliados',
+                    value: evaluatedStudents.toLocaleString('pt-BR'),
+                    pill: `${evalRate}% cobertos`,
+                    pillClass: 'blue',
+                    icon: '🎓',
+                    accent: 'linear-gradient(90deg, #0ea5e9, #7dd3fc)',
+                    iconBg: '#f0f9ff',
+                    iconColor: '#0284c7',
+                    subLeft: `De ${totalStudents} alunos`,
+                    subRight: 'Cobertura'
+                }
+            ];
+
+            document.getElementById('reportKPIs').innerHTML = cards.map(c => `
+                <div class="kpi-card" style="--kpi-accent:${c.accent};">
+                    <div>
+                        <div class="kpi-top">
+                            <span class="kpi-label">${c.label}</span>
+                            <div class="kpi-icon-box" style="background:${c.iconBg};color:${c.iconColor};">${c.icon}</div>
+                        </div>
+                        <div class="kpi-number-row">
+                            <span class="kpi-number">${c.value}</span>
+                            <span class="kpi-pill ${c.pillClass}">${c.pill}</span>
+                        </div>
+                    </div>
+                    <div class="kpi-subtext">
+                        <span>${c.subLeft}</span>
+                        <span>${c.subRight}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderReportTrendChart(grades, canvasId = 'reportTrendChart') {
+            const canvas = document.getElementById(canvasId);
+            if (!canvas) return;
+            if (!grades.length) {
+                drawEmpty(canvas, 'Nenhuma nota cadastrada para este filtro');
+                return;
+            }
+            const p = prepCanvas(canvas);
+            if (!p) return;
+            const { ctx, w, h } = p;
+
+            const vals = grades.map(x => Number(x.value)).filter(Number.isFinite);
+            const bins = [0, 0, 0, 0, 0];
+            vals.forEach(v => bins[Math.min(4, Math.floor(v / 2))]++);
+            const data = [
+                ['0–1,9', bins[0]],
+                ['2–3,9', bins[1]],
+                ['4–5,9', bins[2]],
+                ['6–7,9', bins[3]],
+                ['8–10', bins[4]]
+            ];
+
+            const pad = { l: 48, r: 24, t: 28, b: 45 };
+            const plotW = w - pad.l - pad.r;
+            const plotH = h - pad.t - pad.b;
+            const maxVal = Math.max(1, ...data.map(x => x[1]));
+
+            ctx.save();
+            ctx.strokeStyle = '#f1f5f9';
+            ctx.fillStyle = '#94a3b8';
+            ctx.font = '10px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+            ctx.textAlign = 'right';
+            for (let i = 0; i <= 4; i++) {
+                const y = pad.t + plotH - i * plotH / 4;
+                ctx.beginPath();
+                ctx.moveTo(pad.l, y);
+                ctx.lineTo(w - pad.r, y);
+                ctx.stroke();
+                ctx.fillText(Math.round(maxVal * i / 4).toLocaleString('pt-BR'), pad.l - 8, y + 4);
+            }
+            ctx.restore();
+
+            const pts = data.map((d, i) => [
+                pad.l + i * (plotW / (data.length - 1 || 1)),
+                pad.t + plotH - (d[1] / maxVal) * plotH
+            ]);
+
+            ctx.save();
+            const areaGrad = ctx.createLinearGradient(0, pad.t, 0, pad.t + plotH);
+            areaGrad.addColorStop(0, 'rgba(37, 99, 235, 0.22)');
+            areaGrad.addColorStop(1, 'rgba(37, 99, 235, 0.01)');
+            ctx.fillStyle = areaGrad;
+            ctx.beginPath();
+            ctx.moveTo(pts[0][0], pad.t + plotH);
+            pts.forEach((p, i) => {
+                if (i === 0) ctx.lineTo(p[0], p[1]);
+                else {
+                    const prev = pts[i - 1];
+                    const cpX = (prev[0] + p[0]) / 2;
+                    ctx.bezierCurveTo(cpX, prev[1], cpX, p[1], p[0], p[1]);
+                }
+            });
+            ctx.lineTo(pts[pts.length - 1][0], pad.t + plotH);
+            ctx.closePath();
+            ctx.fill();
+
+            ctx.strokeStyle = '#2563eb';
+            ctx.lineWidth = 3;
+            ctx.lineCap = 'round';
+            ctx.beginPath();
+            pts.forEach((p, i) => {
+                if (i === 0) ctx.moveTo(p[0], p[1]);
+                else {
+                    const prev = pts[i - 1];
+                    const cpX = (prev[0] + p[0]) / 2;
+                    ctx.bezierCurveTo(cpX, prev[1], cpX, p[1], p[0], p[1]);
+                }
+            });
+            ctx.stroke();
+
+            pts.forEach((p, i) => {
+                ctx.fillStyle = '#2563eb';
+                ctx.beginPath();
+                ctx.arc(p[0], p[1], 5, 0, Math.PI * 2);
+                ctx.fill();
+
+                ctx.fillStyle = '#ffffff';
+                ctx.beginPath();
+                ctx.arc(p[0], p[1], 2.5, 0, Math.PI * 2);
+                ctx.fill();
+
+                ctx.fillStyle = '#0f172a';
+                ctx.font = 'bold 11px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText(data[i][1].toLocaleString('pt-BR'), p[0], p[1] - 10);
+
+                ctx.fillStyle = '#64748b';
+                ctx.font = '600 11px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                ctx.fillText(data[i][0], p[0], h - 14);
+            });
+            ctx.restore();
+        }
         async function renderUsers() { let a = await all('users'); document.getElementById('usersBody').innerHTML = a.map(x => { let action = x.id === currentUser.id ? '' : `<button class="iconbtn danger" onclick="removeItem('users',${x.id})">🗑</button>`; return `<tr><td>${esc(x.name)}</td><td>${esc(x.username)}</td><td><span class="status ativo">${esc(x.role)}</span></td><td class="actions">${action}</td></tr>` }).join('') }
         async function openUser() { modal('Novo usuário', 'Defina o perfil e as credenciais de acesso', `<div class="full"><label>Nome *</label><input name="name" required></div><div><label>Usuário *</label><input name="username" required></div><div><label>Senha *</label><input name="password" type="password" required></div><div class="full"><label>Perfil</label><select name="role"><option>PROFESSOR</option><option>PEDAGOGO</option><option>GERENTE</option><option>TI</option><option>ADMIN</option></select></div>`, async f => { let users = await all('users'); if (users.some(x => x.username === f.get('username'))) throw alert('Este usuário já existe.'); await put('users', Object.fromEntries(f)) }) }
         async function removeItem(store, id) { if (!confirm('Deseja excluir este registro?')) return; await del(store, id); showPage(currentPage) }
