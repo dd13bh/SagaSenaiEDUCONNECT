@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>EDUCONNECT | Gestão Escolar</title>
+    <style>
+        :root {
+            --nav: #071a33;
+            --blue: #2563eb;
+            --bg: #f3f6fb;
+            --card: #fff;
+            --text: #182235;
+            --muted: #6b7890;
+            --border: #dfe6f0;
+            --green: #159447;
+            --red: #d63b3b;
+            --gold: #f4b942
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            font-family: Segoe UI, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text)
+        }
+
+        button,
+        input,
+        select {
+            font: inherit
+        }
+
+        .hidden {
+            display: none !important
+        }
+
+        #login {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, #071a33, #123d78)
+        }
+
+        .loginbox {
+            width: min(440px, 92vw);
+            background: #fff;
+            padding: 38px;
+            border-radius: 20px;
+            box-shadow: 0 25px 80px #0007
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 28px
+        }
+
+        .logo {
+            width: 55px;
+            height: 55px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, var(--blue), #153c87);
+            display: grid;
+            place-items: center;
+            font-size: 28px;
+            box-shadow: 0 8px 20px #2563eb55
+        }
+
+        .brand h1 {
+            margin: 0;
+            font-size: 22px
+        }
+
+        .brand small {
+            color: var(--muted)
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin: 13px 0 6px
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 11px 12px;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            background: #fff;
+            outline: none
+        }
+
+        input:focus,
+        select:focus {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px #2563eb18
+        }
+
+        .btn {
+            border: 0;
+            border-radius: 9px;
+            padding: 11px 16px;
+            cursor: pointer;
+            font-weight: 600
+        }
+
+        .primary {
+            background: var(--blue);
+            color: #fff
+        }
+
+        .secondary {
+            background: #eef2f8;
+            color: #25334b
+        }
+
+        .danger {
+            background: #fee8e8;
+            color: #b42318
+        }
+
+        .btn:disabled {
+            opacity: .45;
+            cursor: not-allowed
+        }
+
+        .loginbtn {
+            width: 100%;
+            margin-top: 22px
+        }
+
+        .hint {
+            margin-top: 20px;
+            padding: 12px;
+            background: #f4f7fb;
+            border-radius: 10px;
+            font-size: 12px;
+            color: var(--muted)
+        }
+
+        #app {
+            display: flex;
+            min-height: 100vh
+        }
+
+        .sidebar {
+            width: 260px;
+            background: var(--nav);
+            color: #fff;
+            padding: 18px 12px;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            bottom: 0
+        }
+
+        .sidebrand {
+            padding: 8px 10px 22px;
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .sidebrand .logo {
+            width: 42px;
+            height: 42px;
+            font-size: 22px
+        }
+
+        .sidebrand b {
+            font-size: 17px
+        }
+
+        .sidebrand small {
+            display: block;
+            color: #90a6c7;
+            font-size: 10px;
+            margin-top: 3px
+        }
+
+        .navtitle {
+            font-size: 10px;
+            color: #7891b6;
+            font-weight: 700;
+            letter-spacing: .8px;
+            margin: 20px 12px 7px
+        }
+
+        .navitem {
+            width: 100%;
+            text-align: left;
+            color: #b9c9df;
+            background: transparent;
+            border: 0;
+            border-radius: 8px;
+            padding: 11px 12px;
+            margin: 2px 0;
+            cursor: pointer
+        }
+
+        .navitem:hover,
+        .navitem.active {
+            background: #173a70;
+            color: #fff
+        }
+
+        .navitem span {
+            display: inline-block;
+            width: 28px
+        }
+
+        .sidebottom {
+            margin-top: auto
+        }
+
+        .sideuser {
+            padding: 12px;
+            color: #b9c9df;
+            font-size: 12px;
+            border-top: 1px solid #ffffff18;
+            margin-top: 8px
+        }
+
+        .main {
+            margin-left: 260px;
+            width: calc(100% - 260px);
+            padding: 26px
+        }
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px
+        }
+
+        .top h2 {
+            margin: 0;
+            font-size: 25px
+        }
+
+        .top p {
+            margin: 5px 0 0;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        .userbadge {
+            background: #fff;
+            border: 1px solid var(--border);
+            padding: 9px 14px;
+            border-radius: 10px;
+            font-size: 13px
+        }
+
+        .grid4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px
+        }
+
+        .grid2 {
+            display: grid;
+            grid-template-columns: 1.3fr .7fr;
+            gap: 16px
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px;
+            box-shadow: 0 4px 15px #13233c08
+        }
+
+        .kpi {
+            display: flex;
+            align-items: center;
+            gap: 15px
+        }
+
+        .kpiicon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: #eff5ff;
+            display: grid;
+            place-items: center;
+            font-size: 23px
+        }
+
+        .kpi small {
+            color: var(--muted);
+            display: block
+        }
+
+        .kpi strong {
+            font-size: 26px
+        }
+
+        .sectionhead {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 17px
+        }
+
+        .sectionhead h3 {
+            margin: 0
+        }
+
+        .toolbar {
+            display: flex;
+            gap: 10px;
+            align-items: end;
+            flex-wrap: wrap;
+            margin-bottom: 16px
+        }
+
+        .toolbar .grow {
+            flex: 1;
+            min-width: 220px
+        }
+
+        .tablewrap {
+            overflow: auto
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px
+        }
+
+        th {
+            text-align: left;
+            color: var(--muted);
+            background: #f8fafc;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: .5px
+        }
+
+        th,
+        td {
+            padding: 13px;
+            border-bottom: 1px solid var(--border);
+            white-space: nowrap
+        }
+
+        tr:hover td {
+            background: #fafcff
+        }
+
+        .status {
+            padding: 5px 9px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 700
+        }
+
+        .ativo {
+            background: #e5f7ec;
+            color: #13763b
+        }
+
+        .inativo {
+            background: #fdeaea;
+            color: #b42318
+        }
+
+        .actions {
+            display: flex;
+            gap: 6px
+        }
+
+        .iconbtn {
+            border: 0;
+            border-radius: 7px;
+            padding: 7px;
+            cursor: pointer;
+            background: #eef4ff
+        }
+
+        .empty {
+            text-align: center;
+            color: var(--muted);
+            padding: 35px
+        }
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: #061326a8;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            z-index: 5
+        }
+
+        .modal.show {
+            display: flex
+        }
+
+        .modalbox {
+            background: #fff;
+            width: min(780px, 100%);
+            max-height: 90vh;
+            overflow: auto;
+            border-radius: 16px;
+            padding: 25px
+        }
+
+        .modalhead {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 10px
+        }
+
+        .modalhead h3 {
+            margin: 0
+        }
+
+        .close {
+            border: 0;
+            background: #eef2f7;
+            border-radius: 8px;
+            width: 35px;
+            height: 35px;
+            font-size: 22px;
+            cursor: pointer
+        }
+
+        .formgrid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 16px
+        }
+
+        .full {
+            grid-column: 1/-1
+        }
+
+        .modalfoot {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 25px
+        }
+
+        .notice {
+            padding: 13px;
+            border-radius: 10px;
+            background: #eff6ff;
+            color: #1d4ed8;
+            font-size: 13px
+        }
+
+        .bar {
+            height: 13px;
+            background: #edf1f6;
+            border-radius: 10px;
+            overflow: hidden
+        }
+
+        .bar i {
+            display: block;
+            height: 100%;
+            background: var(--blue);
+            border-radius: 10px
+        }
+
+        .role {
+            font-size: 10px;
+            color: var(--muted);
+            margin-top: 3px
+        }
+
+        .warning {
+            background: #fff7df;
+            color: #8a6100;
+            padding: 10px;
+            border-radius: 9px;
+            font-size: 12px;
+            margin-top: 15px
+        }
+
+        .chartbox {
+            height: 290px;
+            position: relative;
+            margin-top: 8px
+        }
+
+        .chartbox.tall {
+            height: 330px
+        }
+
+        .chartbox canvas {
+            width: 100%;
+            height: 100%;
+            display: block
+        }
+
+        .chart-empty {
+            height: 100%;
+            display: grid;
+            place-items: center;
+            color: var(--muted);
+            font-size: 13px;
+            background: #f8fafc;
+            border-radius: 10px;
+            border: 1px dashed var(--border)
+        }
+
+        @media(max-width:900px) {
+            .sidebar {
+                width: 70px;
+                padding: 12px 8px
+            }
+
+            .sidebrand b,
+            .sidebrand small,
+            .navitem em,
+            .navtitle,
+            .sideuser {
+                display: none
+            }
+
+            .sidebrand {
+                justify-content: center;
+                padding-bottom: 15px
+            }
+
+            .navitem {
+                text-align: center;
+                padding: 12px 4px
+            }
+
+            .navitem span {
+                width: auto
+            }
+
+            .main {
+                margin-left: 70px;
+                width: calc(100% - 70px);
+                padding: 18px
+            }
+
+            .grid4 {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .grid2 {
+                grid-template-columns: 1fr
+            }
+        }
+
+        @media(max-width:600px) {
+            .main {
+                padding: 12px
+            }
+
+            .grid4 {
+                grid-template-columns: 1fr
+            }
+
+            .formgrid {
+                grid-template-columns: 1fr
+            }
+
+            .full {
+                grid-column: auto
+            }
+
+            .top {
+                align-items: start
+            }
+
+            .top h2 {
+                font-size: 20px
+            }
+
+            .userbadge {
+                display: none
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section id="login">
+        <div class="loginbox">
+            <div class="brand">
+                <div class="logo">🎓</div>
+                <div>
+                    <h1>EDUCONNECT</h1><small>Gestão Escolar Inteligente</small>
+                </div>
+            </div>
+            <h2>Entrar no sistema</h2>
+            <label>Usuário</label><input id="loginUser" value="admin" autocomplete="username">
+            <label>Senha</label><input id="loginPass" type="password" value="admin123" autocomplete="current-password">
+            <button class="btn primary loginbtn" onclick="login()">Entrar</button>
+            <div class="hint"><b>Acesso inicial:</b><br>Usuário: <b>admin</b> · Senha: <b>admin123</b><br><br>Esta
+                versão é portátil e armazena os dados no navegador deste computador.</div>
+        </div>
+    </section>
+
+    <section id="app" class="hidden">
+        <aside class="sidebar">
+            <div class="sidebrand">
+                <div class="logo">🎓</div>
+                <div><b>EDUCONNECT</b><small>GESTÃO ESCOLAR</small></div>
+            </div>
+            <button class="navitem active" data-page="dashboard" onclick="showPage('dashboard')"><span>▦</span><em>
+                    Dashboard</em></button>
+            <div class="navtitle">GESTÃO ACADÊMICA</div>
+            <button class="navitem" data-page="students" onclick="showPage('students')"><span>🎓</span><em>
+                    Alunos</em></button>
+            <button class="navitem" data-page="teachers" onclick="showPage('teachers')"><span>👨‍🏫</span><em>
+                    Professores</em></button>
+            <button class="navitem" data-page="courses" onclick="showPage('courses')"><span>📚</span><em>
+                    Cursos</em></button>
+            <button class="navitem" data-page="units" onclick="showPage('units')"><span>🏢</span><em>
+                    Unidades</em></button>
+            <button class="navitem" data-page="classes" onclick="showPage('classes')"><span>👥</span><em>
+                    Turmas</em></button>
+            <button class="navitem" data-page="grades" onclick="showPage('grades')"><span>📝</span><em>
+                    Notas</em></button>
+            <div class="navtitle">ANÁLISES</div>
+            <button class="navitem" data-page="reports" onclick="showPage('reports')"><span>📈</span><em>
+                    Indicadores</em></button>
+            <div class="navtitle">ADMINISTRAÇÃO</div>
+            <button class="navitem admin-only" data-page="users" onclick="showPage('users')"><span>🛡</span><em>
+                    Usuários</em></button>
+            <button class="navitem admin-only" data-page="data" onclick="showPage('data')"><span>⇅</span><em> Importar /
+                    Exportar</em></button>
+            <div class="sidebottom"><button class="navitem" onclick="logout()"><span>⇥</span><em> Sair</em></button>
+                <div class="sideuser" id="sideUser"></div>
+            </div>
+        </aside>
+        <main class="main">
+            <header class="top">
+                <div>
+                    <h2 id="pageTitle">Dashboard</h2>
+                    <p id="pageSubtitle">Visão geral da instituição</p>
+                </div>
+                <div class="userbadge"><b id="currentName"></b>
+                    <div class="role" id="currentRole"></div>
+                </div>
+            </header>
+
+            <div id="dashboard" class="page">
+                <div class="grid4" id="kpis"></div>
+                <div class="grid2" style="margin-top:16px">
+                    <div class="card">
+                        <div class="sectionhead">
+                            <h3>Rendimento Acadêmico</h3><small style="color:var(--muted)">Distribuição das
+                                notas</small>
+                        </div>
+                        <div class="chartbox"><canvas id="gradeDistributionChart"></canvas></div>
+                    </div>
+                    <div class="card">
+                        <div class="sectionhead">
+                            <h3>Média por Disciplina</h3><small style="color:var(--muted)">Desempenho</small>
+                        </div>
+                        <div class="chartbox"><canvas id="subjectAverageChart"></canvas></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="students" class="page hidden">
+                <div class="sectionhead">
+                    <h3>Alunos</h3><button class="btn primary" onclick="openStudent()">＋ Novo aluno</button>
+                </div>
+                <div class="card">
+                    <div class="toolbar">
+                        <div class="grow"><label>Pesquisar</label><input id="studentSearch"
+                                placeholder="Nome ou matrícula..." oninput="renderStudents()"></div>
+                        <div><label>Status</label><select id="studentFilter" onchange="renderStudents()">
+                                <option value="">Todos</option>
+                                <option>ATIVO</option>
+                                <option>INATIVO</option>
+                            </select></div>
+                    </div>
+                    <div class="tablewrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Matrícula</th>
+                                    <th>Aluno</th>
+                                    <th>Curso</th>
+                                    <th>Unidade</th>
+                                    <th>Turma</th>
+                                    <th>Status</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="studentsBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="teachers" class="page hidden">
+                <div class="sectionhead">
+                    <h3>Professores</h3><button class="btn primary" onclick="openTeacher()">＋ Novo professor</button>
+                </div>
+                <div class="card">
+                    <div class="tablewrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>E-mail</th>
+                                    <th>Área</th>
+                                    <th>Status</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="teachersBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="courses" class="page hidden">
+                <div class="sectionhead">
+                    <h3>Cursos</h3><button class="btn primary" onclick="openSimple('course')">＋ Novo curso</button>
+                </div>
+                <div class="card">
+                    <div class="tablewrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Código</th>
+                                    <th>Carga horária</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="coursesBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="units" class="page hidden">
+                <div class="sectionhead">
+                    <h3>Unidades</h3><button class="btn primary" onclick="openSimple('unit')">＋ Nova unidade</button>
+                </div>
+                <div class="card">
+                    <div class="tablewrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Cidade</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="unitsBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="classes" class="page hidden">
+                <div class="sectionhead">
+                    <h3>Turmas</h3><button class="btn primary" onclick="openClass()">＋ Nova turma</button>
+                </div>
+                <div class="card">
+                    <div class="tablewrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Curso</th>
+                                    <th>Unidade</th>
+                                    <th>Professor</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="classesBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="grades" class="page hidden">
+                <div class="sectionhead">
+                    <h3>Notas</h3><button class="btn primary" onclick="openGrade()">＋ Lançar nota</button>
+                </div>
+                <div class="card">
+                    <div class="tablewrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Aluno</th>
+                                    <th>Disciplina</th>
+                                    <th>Nota</th>
+                                    <th>Situação</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="gradesBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="reports" class="page hidden">
+                <div class="grid2">
+                    <div class="card">
+                        <div class="sectionhead">
+                            <h3>Indicadores de Rendimento</h3>
+                        </div>
+                        <div id="reportContent"></div>
+                        <div class="chartbox tall"><canvas id="reportTrendChart"></canvas></div>
+                    </div>
+                    <div class="card">
+                        <div class="sectionhead">
+                            <h3>Distribuição das Notas</h3>
+                        </div>
+                        <div class="chartbox tall"><canvas id="reportDistributionChart"></canvas></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="users" class="page hidden">
+                <div class="sectionhead">
+                    <h3>Usuários e Perfis</h3><button class="btn primary" onclick="openUser()">＋ Novo usuário</button>
+                </div>
+                <div class="card">
+                    <div class="notice">Perfis disponíveis: ADMIN, GERENTE, PEDAGOGO, PROFESSOR e TI. O menu
+                        administrativo fica restrito ao ADMIN.</div>
+                    <div class="tablewrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Usuário</th>
+                                    <th>Perfil</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="usersBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="data" class="page hidden">
+                <div class="card">
+                    <h3>Importação e Exportação</h3>
+                    <p style="color:var(--muted)">Exporte os dados para backup ou importe alunos em CSV.</p>
+                    <div class="toolbar"><button class="btn primary" onclick="exportBackup()">⬇ Exportar Backup
+                            JSON</button><button class="btn secondary"
+                            onclick="document.getElementById('backupFile').click()">⬆ Importar Backup</button><input
+                            id="backupFile" type="file" accept=".json" class="hidden" onchange="importBackup(this)">
+                    </div>
+                    <hr style="border:0;border-top:1px solid var(--border);margin:25px 0">
+                    <h3>Importar Alunos por CSV</h3>
+                    <p style="font-size:13px;color:var(--muted)">Colunas: nome,email,telefone,curso,unidade,turma,status
+                    </p><input type="file" accept=".csv,text/csv" onchange="importStudentsCSV(this)">
+                    <div class="warning">CSV simples separado por vírgula ou ponto e vírgula. Faça um backup antes de
+                        importar.</div>
+                </div>
+            </div>
+        </main>
+    </section>
+
+    <div id="modal" class="modal">
+        <div class="modalbox">
+            <div class="modalhead">
+                <div>
+                    <h3 id="modalTitle">Cadastro</h3>
+                    <p id="modalText" style="color:var(--muted);font-size:13px;margin:5px 0"></p>
+                </div><button class="close" onclick="closeModal()">×</button>
+            </div>
+            <form id="modalForm"></form>
+        </div>
+    </div>
+
+    <script>
+        const DBNAME = 'educonnect_portatil_v1'; let db, currentUser = null, currentPage = 'dashboard';
+        const meta = { dashboard: ['Dashboard', 'Visão geral da instituição'], students: ['Gestão de Alunos', 'Cadastre e gerencie estudantes'], teachers: ['Gestão de Professores', 'Corpo docente da instituição'], courses: ['Cursos', 'Cadastros acadêmicos'], units: ['Unidades', 'Estrutura organizacional'], classes: ['Turmas', 'Organização acadêmica'], grades: ['Notas', 'Lançamento e acompanhamento'], reports: ['Indicadores', 'KPIs e rendimento'], users: ['Usuários', 'Controle de acessos'], data: ['Dados', 'Importação, exportação e backup'] };
+        function openDB() { return new Promise((resolve, reject) => { let r = indexedDB.open(DBNAME, 1); r.onupgradeneeded = e => { db = e.target.result;['students', 'teachers', 'courses', 'units', 'classes', 'grades', 'users'].forEach(s => db.createObjectStore(s, { keyPath: 'id', autoIncrement: true })); }; r.onsuccess = e => { db = e.target.result; resolve() }; r.onerror = () => reject(r.error) }) }
+        function all(store) { return new Promise((res, rej) => { let r = db.transaction(store).objectStore(store).getAll(); r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error) }) }
+        function put(store, obj) { return new Promise((res, rej) => { let r = db.transaction(store, 'readwrite').objectStore(store).put(obj); r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error) }) }
+        function del(store, id) { return new Promise((res, rej) => { let r = db.transaction(store, 'readwrite').objectStore(store).delete(id); r.onsuccess = () => res(); r.onerror = () => rej(r.error) }) }
+        async function seed() { let users = await all('users'); if (!users.length) { await put('users', { name: 'Administrador do Sistema', username: 'admin', password: 'admin123', role: 'ADMIN' }); await put('courses', { name: 'Ciência de Dados', code: 'CD', hours: 1600 }); await put('units', { name: 'Unidade Centro', city: 'Contagem' }); } }
+        function esc(v) { return String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])) }
+        async function login() { let u = document.getElementById('loginUser').value.trim(), p = document.getElementById('loginPass').value; let users = await all('users'); let found = users.find(x => x.username === u && x.password === p); if (!found) return alert('Usuário ou senha incorretos.'); currentUser = found; sessionStorage.setItem('edu_user', JSON.stringify(found)); document.getElementById('login').classList.add('hidden'); document.getElementById('app').classList.remove('hidden'); setupUser(); showPage('dashboard') }
+        function logout() { sessionStorage.removeItem('edu_user'); location.reload() }
+        function setupUser() { document.getElementById('currentName').textContent = currentUser.name; document.getElementById('currentRole').textContent = currentUser.role; document.getElementById('sideUser').innerHTML = '<b>' + esc(currentUser.name) + '</b><br>' + esc(currentUser.role); document.querySelectorAll('.admin-only').forEach(x => x.classList.toggle('hidden', currentUser.role !== 'ADMIN')) }
+        async function showPage(p) { currentPage = p; document.querySelectorAll('.page').forEach(x => x.classList.add('hidden')); document.getElementById(p).classList.remove('hidden'); document.querySelectorAll('.navitem').forEach(x => x.classList.toggle('active', x.dataset.page === p)); document.getElementById('pageTitle').textContent = meta[p][0]; document.getElementById('pageSubtitle').textContent = meta[p][1]; let f = { dashboard: renderDashboard, students: renderStudents, teachers: renderTeachers, courses: renderCourses, units: renderUnits, classes: renderClasses, grades: renderGrades, reports: renderReports, users: renderUsers }; if (f[p]) await f[p]() }
+        function closeModal() { document.getElementById('modal').classList.remove('show') }
+        function modal(title, text, fields, onSave) { document.getElementById('modalTitle').textContent = title; document.getElementById('modalText').textContent = text; document.getElementById('modalForm').innerHTML = '<div class="formgrid">' + fields + '</div><div class="modalfoot"><button type="button" class="btn secondary" onclick="closeModal()">Cancelar</button><button class="btn primary">Salvar</button></div>'; document.getElementById('modalForm').onsubmit = async e => { e.preventDefault(); await onSave(new FormData(e.target)); closeModal(); showPage(currentPage) }; document.getElementById('modal').classList.add('show') }
+        const opt = (arr, selected = '') => arr.map(x => `<option value="${x.id}" ${String(x.id) === String(selected) ? 'selected' : ''}>${esc(x.name)}</option>`).join('');
+        async function renderDashboard() {
+            let [s, t, c, u, cl, g] = await Promise.all(['students', 'teachers', 'courses', 'units', 'classes', 'grades'].map(all));
+            let active = s.filter(x => x.status === 'ATIVO').length;
+            let avg = g.length ? (g.reduce((a, x) => a + Number(x.value), 0) / g.length) : 0;
+            document.getElementById('kpis').innerHTML = [['🎓', 'Alunos', s.length], ['👨‍🏫', 'Professores', t.length], ['👥', 'Turmas', cl.length], ['📊', 'Média Geral', avg.toFixed(1)]].map(x => `<div class="card kpi"><div class="kpiicon">${x[0]}</div><div><small>${x[1]}</small><strong>${x[2]}</strong></div></div>`).join('');
+            document.getElementById('summary').innerHTML = `<p><b>${active}</b> alunos ativos de ${s.length} cadastrados.</p><p><b>${c.length}</b> cursos e <b>${u.length}</b> unidades cadastradas.</p><p>${g.length ? `Baseado em <b>${g.length}</b> lançamentos de notas.` : 'Nenhuma nota lançada ainda. Cadastre notas para alimentar os gráficos.'}</p>`;
+            renderGradeDistributionChart(g);
+            renderSubjectAverageChart(g);
+        }
+        function prepCanvas(canvas) { const dpr = window.devicePixelRatio || 1; const rect = canvas.getBoundingClientRect(); const w = Math.max(300, rect.width); const h = Math.max(200, rect.height); canvas.width = w * dpr; canvas.height = h * dpr; const ctx = canvas.getContext('2d'); ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, w, h); return { ctx, w, h } }
+        function drawEmpty(canvas, msg = 'Sem dados para exibir') { const box = canvas.parentElement; if (!box) return; box.innerHTML = `<div class="chart-empty">${esc(msg)}</div>` }
+        function renderGradeDistributionChart(g) { const canvas = document.getElementById('gradeDistributionChart'); if (!canvas) return; if (!g.length) { drawEmpty(canvas, 'Nenhuma nota cadastrada'); return } const { ctx, w, h } = prepCanvas(canvas); const groups = [['0–5,9', g.filter(x => Number(x.value) < 6).length], ['6–7,9', g.filter(x => Number(x.value) >= 6 && Number(x.value) < 8).length], ['8–10', g.filter(x => Number(x.value) >= 8).length]]; drawBarChart(ctx, w, h, groups, 'Quantidade de notas') }
+        function renderSubjectAverageChart(g) { const canvas = document.getElementById('subjectAverageChart'); if (!canvas) return; if (!g.length) { drawEmpty(canvas, 'Nenhuma nota cadastrada'); return } const map = {}; g.forEach(x => { const k = x.subject || 'Sem disciplina'; if (!map[k]) map[k] = []; map[k].push(Number(x.value) || 0) }); const rows = Object.entries(map).map(([k, v]) => [k, v.reduce((a, b) => a + b, 0) / v.length]).sort((a, b) => b[1] - a[1]).slice(0, 8); const { ctx, w, h } = prepCanvas(canvas); drawHorizontalBars(ctx, w, h, rows, 'Média') }
+        function drawBarChart(ctx, w, h, data, ylabel) { const pad = { l: 48, r: 18, t: 22, b: 45 }; const plotW = w - pad.l - pad.r, plotH = h - pad.t - pad.b; const max = Math.max(1, ...data.map(x => x[1])); ctx.fillStyle = '#64748b'; ctx.font = '11px Segoe UI, Arial'; ctx.textAlign = 'right'; for (let i = 0; i <= 4; i++) { let y = pad.t + plotH - i * plotH / 4; ctx.strokeStyle = '#e8edf4'; ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(w - pad.r, y); ctx.stroke(); ctx.fillText(Math.round(max * i / 4), pad.l - 8, y + 4) } const bw = Math.min(70, plotW / data.length * .55); data.forEach((d, i) => { const x = pad.l + (i + .5) * plotW / data.length; const bh = d[1] / max * plotH; ctx.fillStyle = '#2563eb'; ctx.fillRect(x - bw / 2, pad.t + plotH - bh, bw, bh); ctx.fillStyle = '#334155'; ctx.textAlign = 'center'; ctx.fillText(d[0], x, h - 15); ctx.fillText(String(d[1]), x, pad.t + plotH - bh - 7) }); }
+        function drawHorizontalBars(ctx, w, h, data) { const pad = { l: 115, r: 35, t: 20, b: 20 }; const plotW = w - pad.l - pad.r, plotH = h - pad.t - pad.b; const max = 10; const rowH = plotH / Math.max(1, data.length); ctx.font = '11px Segoe UI, Arial'; data.forEach((d, i) => { const y = pad.t + i * rowH + rowH * .28; ctx.fillStyle = '#eef2f8'; ctx.fillRect(pad.l, y, plotW, rowH * .42); ctx.fillStyle = '#2563eb'; ctx.fillRect(pad.l, y, plotW * (d[1] / max), rowH * .42); ctx.fillStyle = '#334155'; ctx.textAlign = 'right'; ctx.fillText(String(d[0]).slice(0, 18), pad.l - 8, y + rowH * .31); ctx.textAlign = 'left'; ctx.fillText(d[1].toFixed(1), pad.l + plotW + 8, y + rowH * .31) }); ctx.fillStyle = '#94a3b8'; ctx.textAlign = 'left'; ctx.fillText('0', pad.l, h - 3); ctx.textAlign = 'right'; ctx.fillText('10', w - pad.r, h - 3) }
+        async function renderStudents() { let [s, c, u, cl] = await Promise.all([all('students'), all('courses'), all('units'), all('classes')]); let search = (document.getElementById('studentSearch')?.value || '').toLowerCase(), filter = document.getElementById('studentFilter')?.value || ''; s = s.filter(x => (!search || x.name.toLowerCase().includes(search) || x.registration.includes(search)) && (!filter || x.status === filter)); let map = a => Object.fromEntries(a.map(x => [x.id, x.name])); let cm = map(c), um = map(u), clm = map(cl); document.getElementById('studentsBody').innerHTML = s.length ? s.map(x => `<tr><td><b>${esc(x.registration)}</b></td><td>${esc(x.name)}<br><small>${esc(x.email || '')}</small></td><td>${esc(cm[x.courseId] || '-')}</td><td>${esc(um[x.unitId] || '-')}</td><td>${esc(clm[x.classId] || '-')}</td><td><span class="status ${x.status === 'ATIVO' ? 'ativo' : 'inativo'}">${x.status}</span></td><td class="actions"><button class="iconbtn" onclick="openStudent(${x.id})">✏</button><button class="iconbtn danger" onclick="removeItem('students',${x.id})">🗑</button></td></tr>`).join('') : '<tr><td colspan="7" class="empty">Nenhum aluno encontrado.</td></tr>' }
+        async function openStudent(id) { let [students, c, u, cl] = await Promise.all([all('students'), all('courses'), all('units'), all('classes')]); let x = students.find(a => a.id === id) || { status: 'ATIVO' }; modal(id ? 'Editar aluno' : 'Novo aluno', 'Dados acadêmicos e pessoais', `<div class="full"><label>Nome completo *</label><input name="name" required value="${esc(x.name || '')}"></div><div><label>E-mail</label><input name="email" type="email" value="${esc(x.email || '')}"></div><div><label>Telefone</label><input name="phone" value="${esc(x.phone || '')}"></div><div><label>Curso</label><select name="courseId"><option value="">Selecione</option>${opt(c, x.courseId)}</select></div><div><label>Unidade</label><select name="unitId"><option value="">Selecione</option>${opt(u, x.unitId)}</select></div><div><label>Turma</label><select name="classId"><option value="">Selecione</option>${opt(cl, x.classId)}</select></div><div><label>Status</label><select name="status"><option ${x.status === 'ATIVO' ? 'selected' : ''}>ATIVO</option><option ${x.status === 'INATIVO' ? 'selected' : ''}>INATIVO</option></select></div>`, async f => { let o = { ...x, ...Object.fromEntries(f), courseId: num(f.get('courseId')), unitId: num(f.get('unitId')), classId: num(f.get('classId')) }; if (!id) o.registration = String(new Date().getFullYear()) + String(Math.floor(10000 + Math.random() * 90000)); await put('students', o) }) }
+        function num(v) { return v ? Number(v) : null }
+        async function renderTeachers() { let a = await all('teachers'); document.getElementById('teachersBody').innerHTML = a.length ? a.map(x => `<tr><td>${esc(x.name)}</td><td>${esc(x.email || '-')}</td><td>${esc(x.area || '-')}</td><td><span class="status ${x.status === 'ATIVO' ? 'ativo' : 'inativo'}">${x.status}</span></td><td class="actions"><button class="iconbtn" onclick="openTeacher(${x.id})">✏</button><button class="iconbtn danger" onclick="removeItem('teachers',${x.id})">🗑</button></td></tr>`).join('') : '<tr><td colspan="5" class="empty">Nenhum professor cadastrado.</td></tr>' }
+        async function openTeacher(id) { let a = await all('teachers'), x = a.find(y => y.id === id) || { status: 'ATIVO' }; modal(id ? 'Editar professor' : 'Novo professor', 'Cadastro do corpo docente', `<div class="full"><label>Nome *</label><input name="name" required value="${esc(x.name || '')}"></div><div><label>E-mail</label><input name="email" value="${esc(x.email || '')}"></div><div><label>Área</label><input name="area" value="${esc(x.area || '')}"></div><div><label>Status</label><select name="status"><option ${x.status === 'ATIVO' ? 'selected' : ''}>ATIVO</option><option ${x.status === 'INATIVO' ? 'selected' : ''}>INATIVO</option></select></div>`, async f => put('teachers', { ...x, ...Object.fromEntries(f) })) }
+        async function renderCourses() { let a = await all('courses'); document.getElementById('coursesBody').innerHTML = simpleRows(a, 'course', ['name', 'code', 'hours'], ['Nome', 'Código', 'Carga horária']) }
+        async function renderUnits() { let a = await all('units'); document.getElementById('unitsBody').innerHTML = simpleRows(a, 'unit', ['name', 'city'], ['Nome', 'Cidade']) }
+        function simpleRows(a, type, keys) { return a.length ? a.map(x => `<tr>${keys.map(k => `<td>${esc(x[k] || '-')}</td>`).join('')}<td class="actions"><button class="iconbtn" onclick="openSimple('${type}',${x.id})">✏</button><button class="iconbtn danger" onclick="removeItem('${type === 'course' ? 'courses' : 'units'}',${x.id})">🗑</button></td></tr>`).join('') : `<tr><td colspan="${keys.length + 1}" class="empty">Nenhum registro cadastrado.</td></tr>` }
+        async function openSimple(type, id) { let store = type === 'course' ? 'courses' : 'units', a = await all(store), x = a.find(y => y.id === id) || {}; let fields = type === 'course' ? `<div class="full"><label>Nome *</label><input name="name" required value="${esc(x.name || '')}"></div><div><label>Código</label><input name="code" value="${esc(x.code || '')}"></div><div><label>Carga horária</label><input name="hours" type="number" value="${esc(x.hours || '')}"></div>` : `<div class="full"><label>Nome *</label><input name="name" required value="${esc(x.name || '')}"></div><div class="full"><label>Cidade</label><input name="city" value="${esc(x.city || '')}"></div>`; modal(id ? 'Editar' : 'Novo ' + (type === 'course' ? 'curso' : 'unidade'), 'Cadastro acadêmico', fields, async f => put(store, { ...x, ...Object.fromEntries(f), hours: type === 'course' ? Number(f.get('hours') || 0) : undefined })) }
+        async function renderClasses() { let [a, c, u, t] = await Promise.all([all('classes'), all('courses'), all('units'), all('teachers')]), m = z => Object.fromEntries(z.map(x => [x.id, x.name])); let cm = m(c), um = m(u), tm = m(t); document.getElementById('classesBody').innerHTML = a.length ? a.map(x => `<tr><td>${esc(x.name)}</td><td>${esc(cm[x.courseId] || '-')}</td><td>${esc(um[x.unitId] || '-')}</td><td>${esc(tm[x.teacherId] || '-')}</td><td class="actions"><button class="iconbtn" onclick="openClass(${x.id})">✏</button><button class="iconbtn danger" onclick="removeItem('classes',${x.id})">🗑</button></td></tr>`).join('') : '<tr><td colspan="5" class="empty">Nenhuma turma cadastrada.</td></tr>' }
+        async function openClass(id) { let [a, c, u, t] = await Promise.all([all('classes'), all('courses'), all('units'), all('teachers')]), x = a.find(y => y.id === id) || {}; modal(id ? 'Editar turma' : 'Nova turma', 'Vincule curso, unidade e professor', `<div class="full"><label>Nome *</label><input name="name" required value="${esc(x.name || '')}"></div><div><label>Curso</label><select name="courseId"><option value="">Selecione</option>${opt(c, x.courseId)}</select></div><div><label>Unidade</label><select name="unitId"><option value="">Selecione</option>${opt(u, x.unitId)}</select></div><div class="full"><label>Professor responsável</label><select name="teacherId"><option value="">Selecione</option>${opt(t, x.teacherId)}</select></div>`, async f => put('classes', { ...x, name: f.get('name'), courseId: num(f.get('courseId')), unitId: num(f.get('unitId')), teacherId: num(f.get('teacherId')) })) }
+        async function renderGrades() { let [g, s] = await Promise.all([all('grades'), all('students')]), sm = Object.fromEntries(s.map(x => [x.id, x.name])); document.getElementById('gradesBody').innerHTML = g.length ? g.map(x => `<tr><td>${esc(sm[x.studentId] || 'Aluno removido')}</td><td>${esc(x.subject)}</td><td><b>${Number(x.value).toFixed(1)}</b></td><td><span class="status ${x.value >= 6 ? 'ativo' : 'inativo'}">${x.value >= 6 ? 'APROVADO' : 'RECUPERAÇÃO'}</span></td><td class="actions"><button class="iconbtn" onclick="openGrade(${x.id})">✏</button><button class="iconbtn danger" onclick="removeItem('grades',${x.id})">🗑</button></td></tr>`).join('') : '<tr><td colspan="5" class="empty">Nenhuma nota lançada.</td></tr>' }
+        async function openGrade(id) { let [g, s] = await Promise.all([all('grades'), all('students')]), x = g.find(y => y.id === id) || {}; modal(id ? 'Editar nota' : 'Lançar nota', 'A nota alimentará automaticamente os indicadores', `<div class="full"><label>Aluno *</label><select name="studentId" required><option value="">Selecione</option>${opt(s, x.studentId)}</select></div><div><label>Disciplina *</label><input name="subject" required value="${esc(x.subject || '')}"></div><div><label>Nota (0 a 10) *</label><input name="value" type="number" min="0" max="10" step=".1" required value="${esc(x.value ?? '')}"></div>`, async f => put('grades', { ...x, studentId: Number(f.get('studentId')), subject: f.get('subject'), value: Number(f.get('value')) })) }
+        async function renderReports() { let g = await all('grades'), avg = g.length ? g.reduce((a, x) => a + Number(x.value), 0) / g.length : 0, pass = g.length ? g.filter(x => Number(x.value) >= 6).length / g.length * 100 : 0; document.getElementById('reportContent').innerHTML = `<h1 style="margin:0;font-size:38px">${avg.toFixed(2)}</h1><p>Média geral das notas lançadas</p><p style="margin-top:18px"><b>${pass.toFixed(1)}%</b> dos lançamentos atingem média 6,0.</p>`; const d = document.getElementById('reportDistributionChart'); if (g.length) { const { ctx, w, h } = prepCanvas(d); drawBarChart(ctx, w, h, [['0–5,9', g.filter(x => Number(x.value) < 6).length], ['6–7,9', g.filter(x => Number(x.value) >= 6 && Number(x.value) < 8).length], ['8–10', g.filter(x => Number(x.value) >= 8).length]], 'Quantidade') } else drawEmpty(d, 'Nenhuma nota cadastrada'); const tr = document.getElementById('reportTrendChart'); if (g.length) { const { ctx, w, h } = prepCanvas(tr); const vals = g.map(x => Number(x.value)).filter(Number.isFinite); const bins = [0, 0, 0, 0, 0]; vals.forEach(v => bins[Math.min(4, Math.floor(v / 2))]++); drawLineChart(ctx, w, h, [['0–1,9', bins[0]], ['2–3,9', bins[1]], ['4–5,9', bins[2]], ['6–7,9', bins[3]], ['8–10', bins[4]]]) } else drawEmpty(tr, 'Cadastre notas para gerar o gráfico') }
+        function drawLineChart(ctx, w, h, data) { const pad = { l: 48, r: 18, t: 22, b: 45 }; const plotW = w - pad.l - pad.r, plotH = h - pad.t - pad.b, max = Math.max(1, ...data.map(x => x[1])); ctx.strokeStyle = '#e8edf4'; ctx.fillStyle = '#64748b'; ctx.font = '11px Segoe UI, Arial'; ctx.textAlign = 'right'; for (let i = 0; i <= 4; i++) { let y = pad.t + plotH - i * plotH / 4; ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(w - pad.r, y); ctx.stroke(); ctx.fillText(Math.round(max * i / 4), pad.l - 8, y + 4) } const pts = data.map((d, i) => [pad.l + i * (plotW / (data.length - 1 || 1)), pad.t + plotH - (d[1] / max) * plotH]); ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 3; ctx.beginPath(); pts.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke(); pts.forEach((p, i) => { ctx.fillStyle = '#2563eb'; ctx.beginPath(); ctx.arc(p[0], p[1], 4, 0, Math.PI * 2); ctx.fill(); ctx.fillStyle = '#334155'; ctx.textAlign = 'center'; ctx.fillText(data[i][0], p[0], h - 15); ctx.fillText(String(data[i][1]), p[0], p[1] - 9) }) }
+        async function renderUsers() { let a = await all('users'); document.getElementById('usersBody').innerHTML = a.map(x => { let action = x.id === currentUser.id ? '' : `<button class="iconbtn danger" onclick="removeItem('users',${x.id})">🗑</button>`; return `<tr><td>${esc(x.name)}</td><td>${esc(x.username)}</td><td><span class="status ativo">${esc(x.role)}</span></td><td class="actions">${action}</td></tr>` }).join('') }
+        async function openUser() { modal('Novo usuário', 'Defina o perfil e as credenciais de acesso', `<div class="full"><label>Nome *</label><input name="name" required></div><div><label>Usuário *</label><input name="username" required></div><div><label>Senha *</label><input name="password" type="password" required></div><div class="full"><label>Perfil</label><select name="role"><option>PROFESSOR</option><option>PEDAGOGO</option><option>GERENTE</option><option>TI</option><option>ADMIN</option></select></div>`, async f => { let users = await all('users'); if (users.some(x => x.username === f.get('username'))) throw alert('Este usuário já existe.'); await put('users', Object.fromEntries(f)) }) }
+        async function removeItem(store, id) { if (!confirm('Deseja excluir este registro?')) return; await del(store, id); showPage(currentPage) }
+        async function exportBackup() { let stores = ['students', 'teachers', 'courses', 'units', 'classes', 'grades', 'users'], data = { version: 1, exportedAt: new Date().toISOString() }; for (let s of stores) data[s] = await all(s); let blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' }), a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'educonnect-backup-' + new Date().toISOString().slice(0, 10) + '.json'; a.click(); URL.revokeObjectURL(a.href) }
+        async function importBackup(inp) { let file = inp.files[0]; if (!file) return; if (!confirm('Importar este backup substituirá os dados atuais. Continuar?')) return; try { let data = JSON.parse(await file.text()); let stores = ['students', 'teachers', 'courses', 'units', 'classes', 'grades', 'users']; for (let s of stores) { await new Promise((res, rej) => { let tx = db.transaction(s, 'readwrite'), st = tx.objectStore(s); st.clear(); (data[s] || []).forEach(x => st.put(x)); tx.oncomplete = res; tx.onerror = rej }) } alert('Backup importado. O sistema será reiniciado.'); location.reload() } catch (e) { alert('Arquivo de backup inválido.') } }
+        async function importStudentsCSV(inp) { let file = inp.files[0]; if (!file) return; let txt = (await file.text()).replace(/^\uFEFF/, ''); let lines = txt.split(/\r?\n/).filter(x => x.trim()); if (lines.length < 2) return alert('CSV sem dados.'); let sep = lines[0].includes(';') ? ';' : ','; let headers = lines[0].split(sep).map(x => x.trim().toLowerCase()); let [courses, units, classes] = await Promise.all([all('courses'), all('units'), all('classes')]); let count = 0; for (let line of lines.slice(1)) { let v = line.split(sep).map(x => x.trim()), o = Object.fromEntries(headers.map((h, i) => [h, v[i] || ''])); if (!o.nome) continue; let course = courses.find(x => x.name.toLowerCase() === o.curso.toLowerCase()), unit = units.find(x => x.name.toLowerCase() === o.unidade.toLowerCase()), cl = classes.find(x => x.name.toLowerCase() === o.turma.toLowerCase()); await put('students', { registration: String(new Date().getFullYear()) + String(Math.floor(10000 + Math.random() * 90000)), name: o.nome, email: o.email, phone: o.telefone, status: (o.status || 'ATIVO').toUpperCase(), courseId: course?.id || null, unitId: unit?.id || null, classId: cl?.id || null }); count++ } alert(count + ' aluno(s) importado(s).'); inp.value = ''; showPage('students') }
+        window.addEventListener('resize', () => { if (!currentUser) return; if (currentPage === 'dashboard') renderDashboard(); if (currentPage === 'reports') renderReports() });
+        (async () => { await openDB(); await seed(); let saved = sessionStorage.getItem('edu_user'); if (saved) { currentUser = JSON.parse(saved); document.getElementById('login').classList.add('hidden'); document.getElementById('app').classList.remove('hidden'); setupUser(); showPage('dashboard') } })();
+    </script>
+</body>
+
+</html>
