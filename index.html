@@ -1741,11 +1741,12 @@
                     <p style="color:var(--muted);font-size:13px;margin-bottom:16px;">
                         Faça o download do backup completo contendo todos os cadastros, notas e fichas de inclusão NAI, ou restaure dados previamente exportados.
                     </p>
-                    <div class="toolbar">
+                    <div class="toolbar" style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
                         <button class="btn primary" onclick="exportBackup()">⬇ Exportar Backup Completo (JSON)</button>
                         <button class="btn secondary" onclick="document.getElementById('backupFile').click()">⬆ Restaurar Backup (JSON)</button>
                         <input id="backupFile" type="file" accept=".json" class="hidden" onchange="importBackup(this)">
                     </div>
+                    <div id="backupStatusMsg" style="margin-top:10px;font-size:12px;font-weight:600;"></div>
 
                     <hr style="border:0;border-top:1px solid var(--border);margin:26px 0;">
 
@@ -1755,12 +1756,19 @@
                             <small>Cadastre turmas inteiras a partir de planilhas Excel / LibreOffice</small>
                         </div>
                     </div>
-                    <p style="font-size:13px;color:var(--muted);margin-bottom:10px;">
-                        Colunas esperadas: <code>nome,email,telefone,curso,unidade,turma,status</code>
+                    <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">
+                        Colunas esperadas no cabeçalho: <code>nome,email,telefone,curso,unidade,turma,status</code>
                     </p>
-                    <input type="file" accept=".csv,text/csv" onchange="importStudentsCSV(this)">
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:12px;">
+                        <button class="btn primary" onclick="document.getElementById('csvFileInput').click()">📁 Selecionar Arquivo CSV de Alunos</button>
+                        <a href="alunos_importacao_1000.csv" download="alunos_importacao_1000.csv" class="btn secondary" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;">
+                            <span>📄</span> Baixar Modelo CSV (1000 Alunos)
+                        </a>
+                        <input id="csvFileInput" type="file" accept=".csv,text/csv" class="hidden" onchange="importStudentsCSV(this)">
+                    </div>
+                    <div id="csvImportStatus" style="margin-top:8px;font-size:12px;font-weight:600;"></div>
                     <div style="background:#fffbeb;color:#92400e;padding:12px;border-radius:10px;font-size:12px;margin-top:14px;border:1px solid #fde68a;">
-                        ⚠️ Recomenda-se realizar um backup JSON antes de carregar arquivos CSV volumosos.
+                        ⚠️ <b>Dica de Performance:</b> O importador processa em lote ultra-rápido via transação única no IndexedDB. Recomenda-se realizar um backup JSON prévio para garantir pontos de restauração.
                     </div>
                 </div>
             </div>
@@ -1861,19 +1869,48 @@
 
         function all(store) {
             return new Promise((res, rej) => {
-                const tx = db.transaction(store, 'readonly');
-                const req = tx.objectStore(store).getAll();
-                req.onsuccess = () => res(req.result || []);
-                req.onerror = () => rej(req.error);
+                if (!db || !db.objectStoreNames.contains(store)) return res([]);
+                try {
+                    const tx = db.transaction(store, 'readonly');
+                    const req = tx.objectStore(store).getAll();
+                    req.onsuccess = () => res(req.result || []);
+                    req.onerror = () => rej(req.error);
+                } catch (e) {
+                    console.warn(`Erro ao ler store ${store}:`, e);
+                    res([]);
+                }
             });
         }
 
         function put(store, obj) {
             return new Promise((res, rej) => {
-                const tx = db.transaction(store, 'readwrite');
-                const req = tx.objectStore(store).put(obj);
-                req.onsuccess = () => res(req.result);
-                req.onerror = () => rej(req.error);
+                if (!db || !db.objectStoreNames.contains(store)) return rej(new Error(`Store ${store} não existe no IndexedDB`));
+                try {
+                    const tx = db.transaction(store, 'readwrite');
+                    const req = tx.objectStore(store).put(obj);
+                    req.onsuccess = () => res(req.result);
+                    req.onerror = () => rej(req.error);
+                } catch (e) {
+                    rej(e);
+                }
+            });
+        }
+
+        function putBatch(store, items) {
+            return new Promise((res, rej) => {
+                if (!items || !items.length) return res(0);
+                if (!db || !db.objectStoreNames.contains(store)) return rej(new Error(`Store ${store} não existe`));
+                try {
+                    const tx = db.transaction(store, 'readwrite');
+                    const st = tx.objectStore(store);
+                    for (let i = 0; i < items.length; i++) {
+                        st.put(items[i]);
+                    }
+                    tx.oncomplete = () => res(items.length);
+                    tx.onerror = () => rej(tx.error);
+                } catch (e) {
+                    rej(e);
+                }
             });
         }
 
@@ -3574,92 +3611,248 @@
             showPage(currentPage);
         }
 
+        /* ==================== PARSER DE CSV ROBUSTO (PADRÃO RFC 4180) ==================== */
+        function parseCSV(text) {
+            text = (text || '').replace(/^\uFEFF/, '').trim();
+            if (!text) return { headers: [], rows: [] };
+
+            // Detecta se o delimitador dominante é vírgula ou ponto-e-vírgula
+            const firstLine = text.split(/\r?\n/)[0];
+            const commaCount = (firstLine.match(/,/g) || []).length;
+            const semiCount = (firstLine.match(/;/g) || []).length;
+            const sep = semiCount > commaCount ? ';' : ',';
+
+            const lines = text.split(/\r?\n/).filter(x => x.trim().length > 0);
+            if (!lines.length) return { headers: [], rows: [] };
+
+            function parseLine(line) {
+                const result = [];
+                let cur = '';
+                let inQuotes = false;
+                for (let i = 0; i < line.length; i++) {
+                    const c = line[i];
+                    if (c === '"') {
+                        if (inQuotes && line[i + 1] === '"') {
+                            cur += '"';
+                            i++;
+                        } else {
+                            inQuotes = !inQuotes;
+                        }
+                    } else if (c === sep && !inQuotes) {
+                        result.push(cur.trim());
+                        cur = '';
+                    } else {
+                        cur += c;
+                    }
+                }
+                result.push(cur.trim());
+                return result.map(v => v.replace(/^["']|["']$/g, '').trim());
+            }
+
+            const rawHeaders = parseLine(lines[0]);
+            // Normaliza cabeçalhos removendo acentos e convertendo para minúsculas
+            const headers = rawHeaders.map(h => h.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim());
+
+            const rows = [];
+            for (let i = 1; i < lines.length; i++) {
+                const values = parseLine(lines[i]);
+                if (!values || !values.length || values.every(v => !v)) continue;
+                const row = {};
+                headers.forEach((h, idx) => {
+                    row[h] = values[idx] !== undefined ? values[idx] : '';
+                });
+                rows.push(row);
+            }
+            return { headers, rows };
+        }
+
         /* ==================== IMPORTAÇÃO / EXPORTAÇÃO & BACKUP TOTAL ==================== */
         async function exportBackup() {
-            const stores = ['students', 'teachers', 'courses', 'units', 'classes', 'grades', 'users', 'inclusion', 'interventions', 'alarm_rules'];
-            const data = {
-                version: DBVERSION,
-                exportedAt: new Date().toISOString()
-            };
-            for (const s of stores) {
-                data[s] = await all(s);
+            const statusEl = document.getElementById('backupStatusMsg');
+            if (statusEl) {
+                statusEl.innerHTML = '<span style="color:#0284c7;">⏳ Coletando dados institucionais do IndexedDB...</span>';
             }
-            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-            const a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = `educonnect-backup-completo-${new Date().toISOString().slice(0, 10)}.json`;
-            a.click();
-            URL.revokeObjectURL(a.href);
+
+            try {
+                const stores = ['students', 'teachers', 'courses', 'units', 'classes', 'grades', 'users', 'inclusion', 'interventions', 'alarm_rules'];
+                const data = {
+                    version: DBVERSION,
+                    appName: 'EDUCONNECT',
+                    system: 'Sistema Integrado de Gestão Escolar & BI Educacional SENAI',
+                    exportedAt: new Date().toISOString()
+                };
+
+                for (const s of stores) {
+                    data[s] = await all(s);
+                }
+
+                const jsonStr = JSON.stringify(data, null, 2);
+                const blob = new Blob([jsonStr], { type: 'application/json;charset=utf-8' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.style.display = 'none';
+                a.href = url;
+                a.download = `educonnect-backup-completo-${new Date().toISOString().slice(0, 10)}.json`;
+                document.body.appendChild(a);
+                a.click();
+
+                setTimeout(() => {
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                }, 1500);
+
+                if (statusEl) {
+                    statusEl.innerHTML = `<span style="color:#10b981;">✓ Backup exportado com sucesso (${(blob.size / 1024).toFixed(1)} KB)!</span>`;
+                }
+            } catch (err) {
+                console.error('Erro na exportação de backup:', err);
+                if (statusEl) {
+                    statusEl.innerHTML = `<span style="color:#ef4444;">✕ Erro ao exportar backup: ${esc(err.message)}</span>`;
+                }
+                alert('Erro ao gerar arquivo de backup: ' + err.message);
+            }
         }
 
         async function importBackup(inp) {
-            const file = inp.files[0];
+            const file = inp.files && inp.files[0];
             if (!file) return;
-            if (!confirm('Atenção: A restauração substituirá integralmente os dados atuais pelo conteúdo deste arquivo. Continuar?')) return;
+
+            if (!confirm('Atenção: A restauração substituirá integralmente os dados atuais pelo conteúdo deste arquivo de backup JSON. Deseja continuar?')) {
+                inp.value = '';
+                return;
+            }
+
+            const statusEl = document.getElementById('backupStatusMsg');
+            if (statusEl) {
+                statusEl.innerHTML = '<span style="color:#0284c7;">⏳ Restaurando registros no banco de dados local...</span>';
+            }
 
             try {
                 const text = await file.text();
                 const data = JSON.parse(text);
                 const stores = ['students', 'teachers', 'courses', 'units', 'classes', 'grades', 'users', 'inclusion', 'interventions', 'alarm_rules'];
 
+                let totalRestored = 0;
                 for (const s of stores) {
+                    if (!db.objectStoreNames.contains(s)) continue;
+                    const items = data[s] || [];
                     await new Promise((res, rej) => {
                         const tx = db.transaction(s, 'readwrite');
                         const st = tx.objectStore(s);
                         st.clear();
-                        (data[s] || []).forEach(item => st.put(item));
+                        items.forEach(item => st.put(item));
                         tx.oncomplete = res;
-                        tx.onerror = rej;
+                        tx.onerror = () => rej(tx.error);
                     });
+                    totalRestored += items.length;
                 }
-                alert('Backup restaurado com sucesso! A aplicação será recarregada.');
+
+                if (statusEl) {
+                    statusEl.innerHTML = `<span style="color:#10b981;">✓ ${totalRestored} registros restaurados! Recarregando...</span>`;
+                }
+
+                inp.value = '';
+                alert(`Backup restaurado com sucesso! ${totalRestored} registros foram importados. A aplicação será recarregada.`);
                 location.reload();
             } catch (e) {
-                console.error(e);
-                alert('Arquivo de backup inválido ou incompatível.');
+                console.error('Erro ao restaurar backup:', e);
+                inp.value = '';
+                if (statusEl) {
+                    statusEl.innerHTML = `<span style="color:#ef4444;">✕ Arquivo de backup inválido ou incompatível: ${esc(e.message)}</span>`;
+                }
+                alert('Arquivo de backup inválido ou incompatível: ' + e.message);
             }
         }
 
         async function importStudentsCSV(inp) {
-            const file = inp.files[0];
+            const file = inp.files && inp.files[0];
             if (!file) return;
-            const text = (await file.text()).replace(/^\uFEFF/, '');
-            const lines = text.split(/\r?\n/).filter(x => x.trim());
-            if (lines.length < 2) {
-                alert('O arquivo CSV não possui linhas de dados suficientes.');
-                return;
+
+            const statusEl = document.getElementById('csvImportStatus');
+            if (statusEl) {
+                statusEl.innerHTML = '<span style="color:#0284c7;">⏳ Lendo planilha e processando discentes...</span>';
             }
 
-            const sep = lines[0].includes(';') ? ';' : ',';
-            const headers = lines[0].split(sep).map(x => x.trim().toLowerCase());
-            const [courses, units, classes] = await Promise.all([all('courses'), all('units'), all('classes')]);
+            try {
+                const text = await file.text();
+                const { headers, rows } = parseCSV(text);
 
-            let count = 0;
-            for (const line of lines.slice(1)) {
-                const v = line.split(sep).map(x => x.trim());
-                const o = Object.fromEntries(headers.map((h, i) => [h, v[i] || '']));
-                if (!o.nome) continue;
+                if (!rows.length) {
+                    alert('O arquivo CSV selecionado não contém linhas de dados.');
+                    if (statusEl) statusEl.innerHTML = '';
+                    inp.value = '';
+                    return;
+                }
 
-                const course = courses.find(c => c.name.toLowerCase() === (o.curso || '').toLowerCase());
-                const unit = units.find(u => u.name.toLowerCase() === (o.unidade || '').toLowerCase());
-                const cl = classes.find(c => c.name.toLowerCase() === (o.turma || '').toLowerCase());
+                const [courses, units, classes] = await Promise.all([all('courses'), all('units'), all('classes')]);
 
-                await put('students', {
-                    registration: String(new Date().getFullYear()) + String(Math.floor(10000 + Math.random() * 90000)),
-                    name: o.nome,
-                    email: o.email || '',
-                    phone: o.telefone || '',
-                    status: (o.status || 'ATIVO').toUpperCase(),
-                    courseId: course?.id || null,
-                    unitId: unit?.id || null,
-                    classId: cl?.id || null
-                });
-                count++;
+                const norm = str => String(str || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+
+                const findCourse = val => {
+                    const n = norm(val);
+                    return courses.find(c => norm(c.name) === n || norm(c.code) === n);
+                };
+                const findUnit = val => {
+                    const n = norm(val);
+                    return units.find(u => norm(u.name) === n || norm(u.city) === n);
+                };
+                const findClass = val => {
+                    const n = norm(val);
+                    return classes.find(c => norm(c.name) === n);
+                };
+
+                const studentsToInsert = [];
+                const baseYear = new Date().getFullYear();
+
+                for (let i = 0; i < rows.length; i++) {
+                    const o = rows[i];
+                    // Busca por variações de nome de coluna
+                    const name = o.nome || o.name || o.aluno || o.estudante;
+                    if (!name) continue;
+
+                    const course = findCourse(o.curso || o.course);
+                    const unit = findUnit(o.unidade || o.unit);
+                    const cl = findClass(o.turma || o.class);
+
+                    const reg = o.matricula || o.registration || (String(baseYear) + String(10000 + studentsToInsert.length + Math.floor(Math.random() * 89999)));
+
+                    studentsToInsert.push({
+                        registration: String(reg),
+                        name: name,
+                        email: o.email || '',
+                        phone: o.telefone || o.phone || '',
+                        status: (o.status || 'ATIVO').toUpperCase() === 'INATIVO' ? 'INATIVO' : 'ATIVO',
+                        courseId: course ? course.id : (courses[0]?.id || null),
+                        unitId: unit ? unit.id : (units[0]?.id || null),
+                        classId: cl ? cl.id : (classes[0]?.id || null)
+                    });
+                }
+
+                if (!studentsToInsert.length) {
+                    alert('Nenhum discente válido foi identificado no arquivo CSV. Certifique-se de que o cabeçalho inclui a coluna "nome".');
+                    if (statusEl) statusEl.innerHTML = '';
+                    inp.value = '';
+                    return;
+                }
+
+                // Inserção em Lote ultrarrápida via transação única
+                await putBatch('students', studentsToInsert);
+
+                if (statusEl) {
+                    statusEl.innerHTML = `<span style="color:#10b981;">✓ ${studentsToInsert.length} alunos importados com sucesso! Redirecionando...</span>`;
+                }
+
+                alert(`${studentsToInsert.length} aluno(s) importado(s) com sucesso na plataforma!`);
+                inp.value = '';
+                showPage('students');
+            } catch (err) {
+                console.error('Erro na importação de alunos via CSV:', err);
+                inp.value = '';
+                if (statusEl) {
+                    statusEl.innerHTML = `<span style="color:#ef4444;">✕ Erro ao processar arquivo CSV: ${esc(err.message)}</span>`;
+                }
+                alert('Erro ao processar o arquivo CSV: ' + err.message);
             }
-
-            alert(`${count} aluno(s) importado(s) com sucesso.`);
-            inp.value = '';
-            showPage('students');
         }
 
         /* ==================== NAVEGAÇÃO & CONTROLE DE SESSÃO ==================== */

@@ -6,5 +6,6 @@ package-lock.json
 *.bak
 *.tmp
 *.log
+educonnect-backup-completo-*.json
 temp_edge_cdp_profile/
 test_profile/
