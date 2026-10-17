@@ -1168,6 +1168,10 @@
         return drawer;
     }
 
+    let currentInspectorPageKey = 'dashboard';
+    let currentInspectorCustom = { title: null, objective: null };
+    let activePedagogicalInspection = null;
+
     function toggleInspectorDrawer() {
         const drawer = ensureInspectorDrawer();
         const isOpen = drawer.classList.toggle('open');
@@ -1175,35 +1179,55 @@
         triggerChartResize();
     }
 
-    function setInspectorContext(pageKey, customTitle, customObjective) {
-        const drawer = ensureInspectorDrawer();
+    function renderInspectorDrawer() {
         const titleEl = document.getElementById('drawerTitle');
         const bodyEl = document.getElementById('drawerBody');
         if (!titleEl || !bodyEl) return;
 
-        const info = pedagogicalGuides[pageKey] || {
-            title: customTitle || 'Guia do Módulo',
+        const info = pedagogicalGuides[currentInspectorPageKey] || {
+            title: currentInspectorCustom.title || 'Guia do Módulo',
             badge: 'Diretriz SENAI',
-            objective: customObjective || 'Acompanhamento pedagógico de acordo com os critérios institucionais de formação profissional.',
+            objective: currentInspectorCustom.objective || 'Acompanhamento pedagógico de acordo com os critérios institucionais de formação profissional.',
             metrics: 'Utilize os filtros dinâmicos e gráficos interativos para explorar os dados.',
             charts: 'Todos os cards permitem ordenação, zoom e customização visual.',
             action: 'Consulte os relatórios consolidados para direcionar o planejamento escolar.'
         };
 
         titleEl.textContent = info.title;
+
+        let dynamicHtml = '';
+        if (activePedagogicalInspection) {
+            dynamicHtml = `
+                <div class="active-element-inspection" id="pedagogicalDynamicCard">
+                    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+                        <span style="font-size:11px;font-weight:700;color:#005594;text-transform:uppercase;letter-spacing:0.5px;">🔍 Inspeção Contextual em Tempo Real</span>
+                        <button onclick="eduModules.clearElementInspection()" style="background:none;border:none;color:#64748b;cursor:pointer;font-size:13px;font-weight:700;padding:0 4px;" title="Limpar inspeção">✕</button>
+                    </div>
+                    <b style="font-size:13px;color:var(--text);display:block;margin-bottom:5px;">${window.esc(activePedagogicalInspection.title)}</b>
+                    <div style="font-size:12px;color:var(--text);line-height:1.55;margin-bottom:6px;">
+                        <b>Como Interpretar:</b><br>${window.esc(activePedagogicalInspection.interpretation)}
+                    </div>
+                    <div style="font-size:11px;color:#005594;line-height:1.5;background:rgba(0,85,148,0.08);padding:8px 10px;border-radius:6px;border-left:3px solid #005594;">
+                        <b>💡 Ação Pedagógica SENAI:</b><br>${window.esc(activePedagogicalInspection.action)}
+                    </div>
+                </div>
+            `;
+        }
+
         bodyEl.innerHTML = `
+            ${dynamicHtml}
             <div style="display:flex;align-items:center;justify-content:space-between;">
                 <span class="filter-badge-pill" style="font-size:11px;">${info.badge}</span>
                 <span style="font-size:11px;color:var(--muted);">SENAI Centro 4.0</span>
             </div>
 
             <div class="drawer-card">
-                <b>🎯 Objetivo Pedagógico:</b>
+                <b>🎯 Objetivo Pedagógico do Módulo:</b>
                 <p>${info.objective}</p>
             </div>
 
             <div class="drawer-card">
-                <b>📊 Métricas & Indicadores:</b>
+                <b>📊 Métricas & Indicadores Gerais:</b>
                 <p>${info.metrics}</p>
             </div>
 
@@ -1215,10 +1239,219 @@
             ` : ''}
 
             <div class="drawer-card" style="border-left:3px solid var(--senai-blue);background:var(--senai-blue-light, rgba(0,85,148,0.06));">
-                <b>💡 Ação Recomendada:</b>
+                <b>💡 Ação Recomendada Geral:</b>
                 <p>${info.action}</p>
             </div>
         `;
+
+        if (activePedagogicalInspection) {
+            bodyEl.scrollTop = 0;
+        }
+    }
+
+    function setInspectorContext(pageKey, customTitle, customObjective) {
+        currentInspectorPageKey = pageKey;
+        currentInspectorCustom = { title: customTitle, objective: customObjective };
+        renderInspectorDrawer();
+    }
+
+    function clearElementInspection() {
+        activePedagogicalInspection = null;
+        renderInspectorDrawer();
+    }
+
+    function inspectElementPedagogically(target) {
+        if (!target) return;
+        const drawer = document.getElementById('eduInspectorDrawer');
+        if (!drawer || !drawer.classList.contains('open')) return;
+
+        // Procurar container relevante mais próximo
+        const kpi = target.closest('.kpi-card');
+        const chart = target.closest('.chart-card');
+        const gargalo = target.closest('.gargalo-card');
+        const whatif = target.closest('.whatif-card');
+        const aiBanner = target.closest('.ai-banner-card');
+        const aiRow = target.closest('#aiIndividualTableBody tr');
+        const filterBar = target.closest('.smart-filter-bar, .filter-bar');
+        const table = target.closest('.tablewrap table');
+
+        let data = null;
+
+        if (kpi) {
+            const label = kpi.querySelector('.kpi-label')?.textContent.trim() || 'Indicador KPI';
+            const num = kpi.querySelector('.kpi-number')?.textContent.trim() || '';
+            const sub = kpi.querySelector('.kpi-subtext')?.textContent.trim() || '';
+
+            if (label.includes('Cluster 1')) {
+                data = {
+                    title: `KPI: ${label} (${num})`,
+                    interpretation: `Discentes com rendimento elevado (>= 7.0) e alta assiduidade (>= 75%). Demonstram domínio conceitual e autonomia prática nas oficinas 4.0. ${sub}`,
+                    action: 'Designar como monitores ou líderes em Projetos Integradores. Propor desafios técnicos avançados (Indústria 4.0 e competições SENAI).'
+                };
+            } else if (label.includes('Cluster 2')) {
+                data = {
+                    title: `KPI: ${label} (${num})`,
+                    interpretation: `Discentes com bom engajamento presencial, porém com rendimento oscilante nas unidades curriculares de base tecnológica. ${sub}`,
+                    action: 'Aplicar metodologia de ensino baseada em problemas (PBL) e reforço em bancadas laboratoriais com apoio de instrutor tutor.'
+                };
+            } else if (label.includes('Cluster 3')) {
+                data = {
+                    title: `KPI: ${label} (${num})`,
+                    interpretation: `Discentes com notas medianas, porém com frequência abaixo da meta mínima de 75%. Indicador de absenteísmo precoce. ${sub}`,
+                    action: 'Acionar a Busca Ativa em 48 horas. Investigar motivos de ausência (transporte, jornada de trabalho ou saúde) para evitar abandono escolar.'
+                };
+            } else if (label.includes('Cluster 4') || label.includes('Risco')) {
+                data = {
+                    title: `KPI: ${label} (${num})`,
+                    interpretation: `Discentes em vulnerabilidade crítica (frequência < 75% e nota média < 6.0). Alto risco estatístico de reprovação imediata. ${sub}`,
+                    action: 'Convocação emergencial para Plano Pedagógico Individual (PPI) com envolvimento da família, NAI e conselho pedagógico institucional.'
+                };
+            } else {
+                data = {
+                    title: `Indicador: ${label} (${num})`,
+                    interpretation: `Métrica estratégica da instituição para monitoramento da coorte discente. ${sub}`,
+                    action: 'Utilizar este indicador em conjunto com os filtros cruzados para diagnosticar causas raízes por turma e unidade.'
+                };
+            }
+        } else if (chart) {
+            const heading = chart.querySelector('h3')?.textContent.trim() || 'Gráfico de Desempenho';
+            const small = chart.querySelector('small')?.textContent.trim() || '';
+
+            if (heading.includes('Pearson') || chart.querySelector('#aiPearsonHeatmapChart')) {
+                data = {
+                    title: 'Matriz de Correlação Pearson de Competências',
+                    interpretation: 'Mede a dependência estatística (coeficiente r) entre unidades curriculares. Valores r >= 0.50 revelam forte encadeamento curricular: alunos com defasagem na disciplina de base têm 80% de chance de reprovar na disciplina correlacionada.',
+                    action: 'Realizar reuniões de alinhamento interdisciplinar entre os docentes das disciplinas correlacionadas e implementar oficinas práticas de nivelamento preventivo.'
+                };
+            } else if (heading.includes('Quadrante') || chart.querySelector('#aiQuadrantsScatterChart')) {
+                data = {
+                    title: 'Modelo Preditivo: Frequência vs Rendimento (4 Quadrantes)',
+                    interpretation: 'Mapeamento bidimensional cruzando presença física (corte 75%) e rendimento escolar (meta 7.0). Divide os discentes em 4 quadrantes analíticos: Q1 (Autonomia), Q2 (Dificuldade Pedagógica), Q3 (Risco Crítico) e Q4 (Absenteísmo).',
+                    action: 'Definir o tipo de intervenção conforme o quadrante: busca ativa e acompanhamento psicossocial para Q4; reforço didático para Q2; intervenção intensiva integrada para Q3.'
+                };
+            } else if (heading.includes('K-Means') || chart.querySelector('#aiKMeansChart')) {
+                data = {
+                    title: 'Clusterização Comportamental Discente (K-Means)',
+                    interpretation: 'Algoritmo de Machine Learning não supervisionado que converte vetores de frequência e rendimento em 4 clusters homogêneos. Os centróides representam o perfil típico médio de cada grupo discente.',
+                    action: 'Empregar a segmentação do K-Means para alocar recursos de monitoria e turmas de reforço de maneira otimizada e sem viés de avaliação manual.'
+                };
+            } else if (heading.includes('Normal') || heading.includes('Gauss') || chart.querySelector('#aiGaussChart')) {
+                data = {
+                    title: 'Distribuição Normal das Avaliações (Curva de Gauss)',
+                    interpretation: 'Compara a distribuição real das notas lançadas no SENAI com a curva teórica de Gauss. Assimetrias fortes indicam avaliações descalibradas ou heterogeneidade excessiva na turma.',
+                    action: 'Padronizar critérios avaliativos no Conselho de Classe e capacitar docentes em rubricas de competências quando a variância for excessiva.'
+                };
+            } else {
+                data = {
+                    title: heading,
+                    interpretation: `Visualização analítica de suporte à decisão pedagógica. ${small}`,
+                    action: 'Analise os desvios em relação à meta institucional para planejar intervenções com antecedência.'
+                };
+            }
+        } else if (gargalo) {
+            const title = gargalo.querySelector('b')?.textContent.trim() || 'Gargalo Curricular';
+            const desc = gargalo.querySelector('div[style*="color:#b91c1c"], div[style*="color: rgb(185, 28, 28)"]')?.textContent.trim() || '';
+            data = {
+                title: `Gargalo Identificado: ${title}`,
+                interpretation: `Interdependência curricular severa. ${desc}`,
+                action: 'Criar aulas práticas de revisão da disciplina inicial antes de aplicar as avaliações da disciplina dependente.'
+            };
+        } else if (whatif) {
+            data = {
+                title: 'Simulador Preditivo What-If Interativo',
+                interpretation: 'Permite simular o impacto de intervenções antes que o semestre acabe. O modelo recalcula em tempo real os discentes resgatados e a nova média projetada.',
+                action: 'Apresentar as projeções à equipe pedagógica e definir metas quinzenais para as ações de busca ativa e aulas de reforço.'
+            };
+        } else if (aiBanner) {
+            data = {
+                title: 'Módulo de IA & Anonimização LGPD',
+                interpretation: 'Mecanismo de proteção que anonimiza os dados escolares (remove nomes e contatos, usando apenas vetores e IDs) antes do processamento pelos modelos Gemini e ChatGPT.',
+                action: 'Exporte lotes otimizados (até 40 alunos) para obter diagnósticos prescritivos completos e importe as respostas na plataforma.'
+            };
+        } else if (aiRow) {
+            const name = aiRow.querySelector('td:nth-child(2)')?.textContent.trim() || 'Discente';
+            const diag = aiRow.querySelector('.ai-diag-col')?.textContent.trim() || '';
+            const action = aiRow.querySelector('.ai-action-col')?.textContent.trim() || '';
+            data = {
+                title: `Parecer Individual: ${name}`,
+                interpretation: diag || 'Diagnóstico de desempenho acadêmico com cruzamento de presenças e avaliações.',
+                action: action || 'Encaminhar para tutoria e acompanhar evolução das notas na Matriz de Competências.'
+            };
+        } else if (filterBar) {
+            data = {
+                title: 'Barra de Filtros Inteligentes Cruzados',
+                interpretation: 'Permite segmentar a análise por Unidade, Curso, Turma, Status e Situação de Inclusão (NAI). Todos os gráficos reagem instantaneamente ao recorte.',
+                action: 'Cruze dados de diferentes turmas para verificar se as defasagens são pontuais ou sistêmicas na instituição.'
+            };
+        } else if (table) {
+            data = {
+                title: 'Tabela de Dados Acadêmicos',
+                interpretation: 'Exibe registros detalhados com suporte a ordenação por qualquer coluna e pesquisa em tempo real.',
+                action: 'Clique nas colunas para identificar os extremos de rendimento ou use os botões de ação para abrir o dossiê individual.'
+            };
+        }
+
+        if (data) {
+            activePedagogicalInspection = data;
+            renderInspectorDrawer();
+
+            // Destaque visual temporário no elemento clicado
+            const targetCard = kpi || chart || gargalo || whatif || aiBanner || aiRow || filterBar || target;
+            targetCard.classList.add('active-pedagogical-target');
+            setTimeout(() => targetCard.classList.remove('active-pedagogical-target'), 1400);
+        }
+    }
+
+    /* ===== GESTÃO DE LAYOUT RESPONSIVO (PC, TABLET, CELULAR & AUTO-DETECÇÃO) ===== */
+    let currentDeviceLayout = 'auto'; // 'auto', 'pc', 'tablet', 'mobile'
+
+    function initDeviceLayout() {
+        const saved = localStorage.getItem('edu_device_layout') || 'auto';
+        setLayoutMode(saved, false);
+
+        window.addEventListener('resize', () => {
+            if (currentDeviceLayout === 'auto') {
+                applyDeviceLayoutClass('auto');
+            }
+        });
+    }
+
+    function applyDeviceLayoutClass(mode) {
+        const width = window.innerWidth;
+        let effective = mode;
+        if (mode === 'auto') {
+            effective = width < 768 ? 'mobile' : (width <= 1024 ? 'tablet' : 'pc');
+        }
+        document.body.setAttribute('data-device-layout', effective);
+
+        // Atualizar botões na barra de acessibilidade
+        ['auto', 'pc', 'tablet', 'mobile'].forEach(m => {
+            const btn = document.getElementById(`layoutBtn${m.charAt(0).toUpperCase() + m.slice(1)}`);
+            if (btn) btn.classList.toggle('active', currentDeviceLayout === m);
+        });
+
+        const badge = document.getElementById('accLayoutBadge');
+        if (badge) {
+            if (currentDeviceLayout === 'auto') {
+                badge.textContent = `Auto (${effective.toUpperCase()})`;
+            } else {
+                badge.textContent = `Forçado: ${currentDeviceLayout.toUpperCase()}`;
+            }
+        }
+
+        triggerChartResize();
+    }
+
+    function setLayoutMode(mode, save = true) {
+        currentDeviceLayout = mode;
+        if (save) localStorage.setItem('edu_device_layout', mode);
+        applyDeviceLayoutClass(mode);
+        window.dispatchEvent(new Event('resize'));
+    }
+
+    function toggleMobileNav(force) {
+        const isOpen = typeof force === 'boolean' ? force : !document.body.classList.contains('mobile-sidebar-open');
+        document.body.classList.toggle('mobile-sidebar-open', isOpen);
     }
 
     function initResponsiveObservers() {
@@ -1798,7 +2031,50 @@
         return { clusteredStudents, centroids: naturalCentroids };
     }
 
+    function renderDataScienceApexChart(elementId, config) {
+        const el = document.getElementById(elementId);
+        if (!el || !window.ApexCharts) return;
+
+        if (chartInstances[elementId]) {
+            try { chartInstances[elementId].destroy(); } catch (e) {}
+            delete chartInstances[elementId];
+        }
+
+        el.innerHTML = '';
+        const isDark = accState.theme === 'dark';
+
+        const finalConfig = {
+            ...config,
+            chart: {
+                ...config.chart,
+                background: 'transparent',
+                animations: { enabled: true, easing: 'easeinout', speed: 380 }
+            },
+            theme: {
+                mode: isDark ? 'dark' : 'light'
+            },
+            grid: {
+                borderColor: isDark ? '#334155' : '#f1f5f9',
+                strokeDashArray: 4,
+                ...(config.grid || {})
+            }
+        };
+
+        try {
+            const chart = new ApexCharts(el, finalConfig);
+            chart.render();
+            chartInstances[elementId] = chart;
+        } catch (err) {
+            console.error('Erro ao renderizar gráfico de Ciência de Dados:', elementId, err);
+        }
+    }
+
     async function renderDataSciencePage() {
+        // Inicializar barra de filtros inteligentes se presente
+        if (typeof renderSmartFilterBar === 'function') {
+            renderSmartFilterBar('datascienceSmartFilterBar');
+        }
+
         const container = document.getElementById('datascienceContent');
         if (!container) return;
 
@@ -1818,6 +2094,7 @@
         }
         const scopedIds = new Set(scopedStudents.map(s => s.id));
         const scopedGrades = grades.filter(g => scopedIds.has(g.studentId));
+        const totalScoped = Math.max(1, scopedStudents.length);
 
         // 1. Processar métricas por estudante
         const studentStats = scopedStudents.map(st => {
@@ -1946,7 +2223,8 @@
 
         if (!diagData) {
             // Gerar baseline analítico em tempo real para discentes da amostra
-            const individualPareceres = scopedStudents.slice(0, 15).map(st => {
+            const maxBaseline = Math.min(scopedStudents.length, 50);
+            const individualPareceres = scopedStudents.slice(0, maxBaseline).map(st => {
                 const sGrades = scopedGrades.filter(g => g.studentId === st.id);
                 const avg = sGrades.length ? Number((sGrades.reduce((a, b) => a + Number(b.value), 0) / sGrades.length).toFixed(1)) : 7.0;
                 const inc = incMap[st.id];
@@ -1957,8 +2235,8 @@
 
                 return {
                     id: st.id,
-                    diagnostico: `Média de rendimento ${avg.toFixed(1)} com frequência estimada em ${att}%. ${low.length ? `Defasagem identificada em ${low.join(', ')}.` : 'Desempenho regular sem reprovações iminentes.'}`,
-                    planoAcao: isCrit ? `Tutoria intensiva de nivelamento prático em bancada e busca ativa de assiduidade.` : `Acompanhamento formativo periódico e incentivo a projetos aplicados.`,
+                    diagnostico: `Média de rendimento ${avg.toFixed(1)} com frequência em ${att}%.\n${low.length ? `Defasagem identificada em ${low.join(', ')}.` : 'Desempenho regular sem reprovações iminentes.'}`,
+                    planoAcao: isCrit ? `1. Tutoria intensiva de nivelamento prático em bancada.\n2. Busca ativa de assiduidade em 48h.` : `1. Acompanhamento formativo periódico.\n2. Estímulo a projetos aplicados da Indústria 4.0.`,
                     prioridade: prio,
                     prazoDias: isCrit ? 10 : 20
                 };
@@ -1989,21 +2267,18 @@
                     </div>
                     <h2 style="font-size:22px;color:#fff;margin:4px 0 8px 0;">Ciência de Dados & Diagnósticos Preditivos com IA</h2>
                     <p style="font-size:13px;color:#cbd5e1;max-width:700px;line-height:1.5;">
-                        Exportação segura com <b>anonimização de dados pessoais</b> (apenas IDs e vetores de competências). O Google Gemini avalia correlações, identifica gargalos curriculares e emite pareceres tanto em massa quanto individuais por aluno.
+                        Exportação inteligente e calibrada com <b>anonimização total de dados</b> (apenas IDs e vetores acadêmicos). Escolha entre <b>Google Gemini</b> ou <b>OpenAI ChatGPT</b>, selecione grupos, turmas ou disciplinas específicas e obtenha pareceres institucionais e individuais formatados.
                     </p>
                 </div>
                 <div class="ai-actions-box">
-                    <button class="btn-ai" onclick="eduModules.copyGeminiPrompt()" title="Copiar prompt anonimizado para colar no Google Gemini">
-                        <span>📋</span> Copiar Dados Anonimizados
+                    <button class="btn-ai" onclick="eduModules.openAiExportModal()" title="Exportar dados com filtros por turma, disciplina, grupos e escolha entre Gemini e ChatGPT">
+                        <span>⚡</span> Exportar Dados para IA (Filtros & Modelos)
                     </button>
-                    <button class="btn-ai-secondary" onclick="eduModules.downloadGeminiJson()" title="Baixar arquivo JSON anonimizado (LGPD) contendo apenas IDs">
-                        <span>💾</span> Baixar JSON Anonimizado
-                    </button>
-                    <button class="btn-ai-secondary" onclick="eduModules.openImportGeminiModal()">
+                    <button class="btn-ai-secondary" onclick="eduModules.openImportGeminiModal()" title="Importar parecer JSON retornado pela IA">
                         <span>📥</span> Importar Parecer JSON da IA
                     </button>
-                    <button class="btn-ai-secondary" onclick="eduModules.openGeminiApiKeyModal()">
-                        <span>⚡</span> Executar Direto via Gemini API
+                    <button class="btn-ai-secondary" onclick="eduModules.openGeminiApiKeyModal()" title="Executar direto via Gemini API">
+                        <span>🔑</span> Executar Direto via Gemini API
                     </button>
                 </div>
             </div>
@@ -2013,9 +2288,9 @@
                 <div class="sectionhead">
                     <div>
                         <h3 style="color:#4338ca;display:flex;align-items:center;gap:8px;">🤖 Diagnóstico da Inteligência Artificial</h3>
-                        <small>${isAiImported ? `Processado com Google Gemini · Atualizado em: ${diagData.generatedAt ? new Date(diagData.generatedAt).toLocaleString('pt-BR') : 'Recente'}` : 'Análise Heurística Nativa SENAI (Pronto para exportar e integrar com Google Gemini)'}</small>
+                        <small>${isAiImported ? `Processado com IA · Atualizado em: ${diagData.generatedAt ? new Date(diagData.generatedAt).toLocaleString('pt-BR') : 'Recente'}` : 'Análise Heurística Nativa SENAI (Pronto para exportar e integrar com Gemini ou ChatGPT)'}</small>
                     </div>
-                    ${isAiImported ? `<button class="btn secondary" style="font-size:11px;" onclick="localStorage.removeItem('edu_gemini_advanced_diagnosis');eduModules.renderDataSciencePage();">✕ Limpar Diagnóstico Gemini</button>` : ''}
+                    ${isAiImported ? `<button class="btn secondary" style="font-size:11px;" onclick="localStorage.removeItem('edu_gemini_advanced_diagnosis');eduModules.renderDataSciencePage();">✕ Limpar Diagnóstico IA</button>` : ''}
                 </div>
 
                 <!-- Abas de Navegação do Diagnóstico da IA -->
@@ -2056,16 +2331,16 @@
                             <option value="BAIXA">Prioridade Baixa</option>
                         </select>
                     </div>
-                    <div class="tablewrap" style="max-height:360px;overflow-y:auto;">
+                    <div class="tablewrap" style="max-height:380px;overflow-y:auto;">
                         <table style="width:100%;font-size:12px;">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Aluno / Matrícula</th>
+                                    <th style="width:60px;">ID</th>
+                                    <th style="width:180px;">Aluno / Matrícula</th>
                                     <th>Diagnóstico Individual da IA</th>
                                     <th>Plano de Ação Prescritivo</th>
-                                    <th>Prioridade</th>
-                                    <th>Ação</th>
+                                    <th style="width:90px;">Prioridade</th>
+                                    <th style="width:90px;">Ação</th>
                                 </tr>
                             </thead>
                             <tbody id="aiIndividualTableBody">
@@ -2076,8 +2351,8 @@
                                         <tr data-name="${window.esc(st.name.toLowerCase())}" data-prio="${prio}">
                                             <td><b>#${p.id}</b></td>
                                             <td><b>${window.esc(st.name)}</b><br><small style="color:var(--muted)">${window.esc(st.registration)}</small></td>
-                                            <td style="max-width:260px;">${window.esc(p.diagnostico || 'Sem diagnóstico individual registrado.')}</td>
-                                            <td style="max-width:280px;color:#1e40af;"><b>${window.esc(p.planoAcao || 'Acompanhamento contínuo')}</b><br><small>Prazo: ${p.prazoDias || 15} dias</small></td>
+                                            <td class="ai-diag-col">${window.esc(p.diagnostico || 'Sem diagnóstico individual registrado.')}</td>
+                                            <td class="ai-action-col"><b>${window.esc(p.planoAcao || 'Acompanhamento contínuo')}</b><br><small style="color:#2563eb;">Prazo: ${p.prazoDias || 15} dias</small></td>
                                             <td><span class="priority-pill ${prio}">${window.esc(p.prioridade || 'MÉDIA')}</span></td>
                                             <td><button class="btn secondary" style="font-size:11px;padding:4px 8px;" onclick="eduModules.openIndividualStudentAiDossier(${p.id})">🔍 Detalhes</button></td>
                                         </tr>
@@ -2098,7 +2373,7 @@
                     </div>
                     <div class="kpi-number-row">
                         <span class="kpi-number">${clusterCounts[0]}</span>
-                        <span class="senai-badge senai-apto">${((clusterCounts[0] / scopedStudents.length) * 100).toFixed(0)}%</span>
+                        <span class="senai-badge senai-apto">${((clusterCounts[0] / totalScoped) * 100).toFixed(0)}%</span>
                     </div>
                     <div class="kpi-subtext"><span>Média: ${centroids[0]?.avg || '—'}</span><span>Freq: ${centroids[0]?.attendance || '—'}%</span></div>
                 </div>
@@ -2110,7 +2385,7 @@
                     </div>
                     <div class="kpi-number-row">
                         <span class="kpi-number">${clusterCounts[1]}</span>
-                        <span class="senai-badge" style="background:#eff6ff;color:#2563eb;border:1px solid #bfdbfe;">${((clusterCounts[1] / scopedStudents.length) * 100).toFixed(0)}%</span>
+                        <span class="senai-badge" style="background:#eff6ff;color:#2563eb;border:1px solid #bfdbfe;">${((clusterCounts[1] / totalScoped) * 100).toFixed(0)}%</span>
                     </div>
                     <div class="kpi-subtext"><span>Média: ${centroids[1]?.avg || '—'}</span><span>Freq: ${centroids[1]?.attendance || '—'}%</span></div>
                 </div>
@@ -2122,7 +2397,7 @@
                     </div>
                     <div class="kpi-number-row">
                         <span class="kpi-number">${clusterCounts[2]}</span>
-                        <span class="senai-badge senai-desenvolvimento">${((clusterCounts[2] / scopedStudents.length) * 100).toFixed(0)}%</span>
+                        <span class="senai-badge senai-desenvolvimento">${((clusterCounts[2] / totalScoped) * 100).toFixed(0)}%</span>
                     </div>
                     <div class="kpi-subtext"><span>Média: ${centroids[2]?.avg || '—'}</span><span>Freq: ${centroids[2]?.attendance || '—'}%</span></div>
                 </div>
@@ -2134,7 +2409,7 @@
                     </div>
                     <div class="kpi-number-row">
                         <span class="kpi-number">${clusterCounts[3]}</span>
-                        <span class="senai-badge senai-risco">${((clusterCounts[3] / scopedStudents.length) * 100).toFixed(0)}%</span>
+                        <span class="senai-badge senai-risco">${((clusterCounts[3] / totalScoped) * 100).toFixed(0)}%</span>
                     </div>
                     <div class="kpi-subtext"><span>Média: ${centroids[3]?.avg || '—'}</span><span>Freq: ${centroids[3]?.attendance || '—'}%</span></div>
                 </div>
@@ -2153,7 +2428,7 @@
                     </div>
                     <div id="aiPearsonHeatmapChart" style="height:320px;"></div>
                     <div style="font-size:11px;color:var(--muted);margin-top:8px;">
-                        Valores $r \\ge 0.50$ indicam forte encadeamento curricular. Defasagem na matéria de base projeta 80% de chance de retenção na disciplina dependente.
+                        Valores r ≥ 0.50 indicam forte encadeamento curricular. Defasagem na matéria de base projeta alto risco de retenção na disciplina dependente.
                     </div>
                 </div>
 
@@ -2286,79 +2561,121 @@
         // Executar simulação inicial
         updateWhatIfSimulation();
 
-        // Renderizar Gráficos ApexCharts Interativos
+        // Renderizar Gráficos ApexCharts Especializados de Ciência de Dados
         if (window.ApexCharts) {
             // 1. Heatmap de Correlação Pearson
             const heatmapSeries = allSubjects.map((s1, i) => ({
-                name: s1.slice(0, 18),
+                name: s1.length > 20 ? s1.slice(0, 18) + '...' : s1,
                 data: allSubjects.map((s2, j) => ({
-                    x: s2.slice(0, 18),
+                    x: s2.length > 15 ? s2.slice(0, 13) + '...' : s2,
                     y: matrix[i][j]
                 }))
             }));
 
-            renderCustomizableApexChart('aiPearsonHeatmapChart', 'ai_pearson', {
-                chart: { type: 'heatmap', height: 300, toolbar: { show: false } },
+            renderDataScienceApexChart('aiPearsonHeatmapChart', {
+                chart: { type: 'heatmap', height: 320, toolbar: { show: false } },
                 series: heatmapSeries,
-                dataLabels: { enabled: true, style: { fontSize: '10px' } },
+                dataLabels: { 
+                    enabled: true, 
+                    formatter: val => Number(val).toFixed(2),
+                    style: { fontSize: '10px', colors: ['#ffffff'] } 
+                },
                 plotOptions: {
                     heatmap: {
-                        shadeIntensity: 0.5,
+                        shadeIntensity: 0.6,
                         radius: 4,
+                        useWarmShades: false,
                         colorScale: {
                             ranges: [
-                                { from: -1, to: 0.2, color: '#f87171', name: 'Baixa / Inversa' },
-                                { from: 0.21, to: 0.5, color: '#fbbf24', name: 'Moderada' },
-                                { from: 0.51, to: 0.79, color: '#60a5fa', name: 'Forte' },
-                                { from: 0.8, to: 1.0, color: '#10b981', name: 'Crítica / Muito Alta' }
+                                { from: -1.0, to: 0.19, color: '#ef4444', name: 'Baixa / Inversa (r < 0.20)' },
+                                { from: 0.20, to: 0.49, color: '#f59e0b', name: 'Moderada (0.20 a 0.49)' },
+                                { from: 0.50, to: 0.74, color: '#3b82f6', name: 'Forte (0.50 a 0.74)' },
+                                { from: 0.75, to: 1.0, color: '#10b981', name: 'Crítica / Muito Alta (≥ 0.75)' }
                             ]
                         }
+                    }
+                },
+                xaxis: {
+                    labels: {
+                        rotate: -25,
+                        rotateAlways: true,
+                        style: { fontSize: '10px' }
+                    }
+                },
+                tooltip: {
+                    y: {
+                        formatter: val => `Correlação r = ${val}`
                     }
                 }
             });
 
             // 2. Gráfico de Quadrantes Analíticos
-            const q1Data = studentStats.filter(s => s.quadrant === 'Q1').map(s => ({ x: s.attendance, y: s.avg, name: s.name }));
-            const q2Data = studentStats.filter(s => s.quadrant === 'Q2').map(s => ({ x: s.attendance, y: s.avg, name: s.name }));
-            const q3Data = studentStats.filter(s => s.quadrant === 'Q3').map(s => ({ x: s.attendance, y: s.avg, name: s.name }));
-            const q4Data = studentStats.filter(s => s.quadrant === 'Q4').map(s => ({ x: s.attendance, y: s.avg, name: s.name }));
+            const q1Data = studentStats.filter(s => s.quadrant === 'Q1').map(s => ({ x: s.attendance, y: s.avg, name: s.name, reg: s.registration }));
+            const q2Data = studentStats.filter(s => s.quadrant === 'Q2').map(s => ({ x: s.attendance, y: s.avg, name: s.name, reg: s.registration }));
+            const q3Data = studentStats.filter(s => s.quadrant === 'Q3').map(s => ({ x: s.attendance, y: s.avg, name: s.name, reg: s.registration }));
+            const q4Data = studentStats.filter(s => s.quadrant === 'Q4').map(s => ({ x: s.attendance, y: s.avg, name: s.name, reg: s.registration }));
 
-            renderCustomizableApexChart('aiQuadrantsScatterChart', 'ai_quadrants', {
-                chart: { type: 'scatter', height: 300, toolbar: { show: true } },
+            renderDataScienceApexChart('aiQuadrantsScatterChart', {
+                chart: { type: 'scatter', height: 320, toolbar: { show: true } },
                 series: [
                     { name: 'Q1: Domínio & Autonomia', data: q1Data },
-                    { name: 'Q2: Dificuldade Pedagógica', data: q2Data },
+                    { name: 'Q2: Dificuldade Metodológica', data: q2Data },
                     { name: 'Q3: Risco Crítico / Evasão', data: q3Data },
-                    { name: 'Q4: Absenteísmo', data: q4Data }
+                    { name: 'Q4: Potencial com Absenteísmo', data: q4Data }
                 ],
                 colors: ['#10b981', '#f59e0b', '#ef4444', '#0284c7'],
-                xaxis: { title: { text: 'Frequência do Discente (%)' }, min: 50, max: 100 },
-                yaxis: { title: { text: 'Rendimento Médio' }, min: 0, max: 10 },
+                markers: { size: 6, strokeWidth: 1, hover: { size: 8 } },
+                xaxis: { 
+                    title: { text: 'Frequência do Discente (%)', style: { fontWeight: 600 } }, 
+                    min: 50, 
+                    max: 100,
+                    tickAmount: 5,
+                    labels: { formatter: val => `${Math.round(val)}%` }
+                },
+                yaxis: { 
+                    title: { text: 'Rendimento Médio (0 a 10)', style: { fontWeight: 600 } }, 
+                    min: 0, 
+                    max: 10,
+                    tickAmount: 5,
+                    labels: { formatter: val => typeof val === 'number' ? val.toFixed(1) : val }
+                },
                 annotations: {
-                    xaxis: [{ x: 75, borderColor: '#64748b', strokeDashArray: 4, label: { text: 'Corte Presença (75%)' } }],
-                    yaxis: [{ y: 7.0, borderColor: '#64748b', strokeDashArray: 4, label: { text: 'Meta SENAI (7.0)' } }]
+                    xaxis: [{ 
+                        x: 75, 
+                        borderColor: '#ef4444', 
+                        strokeDashArray: 4, 
+                        label: { borderColor: '#ef4444', style: { color: '#fff', background: '#ef4444' }, text: 'Corte Presença (75%)' } 
+                    }],
+                    yaxis: [{ 
+                        y: 7.0, 
+                        borderColor: '#2563eb', 
+                        strokeDashArray: 4, 
+                        label: { borderColor: '#2563eb', style: { color: '#fff', background: '#2563eb' }, text: 'Meta SENAI (7.0)' } 
+                    }]
                 },
                 tooltip: {
-                    custom: function({ series, seriesIndex, dataPointIndex, w }) {
+                    custom: function({ seriesIndex, dataPointIndex, w }) {
                         const pt = w.config.series[seriesIndex].data[dataPointIndex];
-                        return `<div style="padding:8px 12px;background:#0f172a;color:#fff;border-radius:8px;font-size:12px;">
-                            <b>${window.esc(pt.name || 'Aluno')}</b><br>
-                            Frequência: <b>${pt.x}%</b><br>
-                            Nota Média: <b>${pt.y}</b>
+                        const qTitle = w.config.series[seriesIndex].name;
+                        return `<div style="padding:10px 14px;background:#0f172a;color:#fff;border-radius:8px;font-size:12px;box-shadow:0 4px 12px rgba(0,0,0,0.3);">
+                            <b style="color:#60a5fa;display:block;margin-bottom:2px;">${window.esc(pt.name || 'Aluno')}</b>
+                            <small style="color:#94a3b8;display:block;margin-bottom:6px;">${window.esc(pt.reg || '')} · ${qTitle}</small>
+                            <div>Frequência: <b style="color:#10b981;">${pt.x}%</b></div>
+                            <div>Rendimento: <b style="color:#fbbf24;">${pt.y} pts</b></div>
                         </div>`;
                     }
                 }
             });
 
-            // 3. Gráfico K-Means com Centróides
-            const k1Data = clusteredStudents.filter(s => s.cluster === 0).map(s => [s.attendance, s.avg]);
-            const k2Data = clusteredStudents.filter(s => s.cluster === 1).map(s => [s.attendance, s.avg]);
-            const k3Data = clusteredStudents.filter(s => s.cluster === 2).map(s => [s.attendance, s.avg]);
-            const k4Data = clusteredStudents.filter(s => s.cluster === 3).map(s => [s.attendance, s.avg]);
-            const centData = centroids.map(c => [c.attendance, c.avg]);
+            // 3. Gráfico K-Means com Centróides Reais
+            const k1Data = clusteredStudents.filter(s => s.cluster === 0).map(s => ({ x: s.attendance, y: s.avg, name: s.name }));
+            const k2Data = clusteredStudents.filter(s => s.cluster === 1).map(s => ({ x: s.attendance, y: s.avg, name: s.name }));
+            const k3Data = clusteredStudents.filter(s => s.cluster === 2).map(s => ({ x: s.attendance, y: s.avg, name: s.name }));
+            const k4Data = clusteredStudents.filter(s => s.cluster === 3).map(s => ({ x: s.attendance, y: s.avg, name: s.name }));
+            const centData = centroids.map((c, idx) => ({ x: c.attendance, y: c.avg, name: `Centróide Cluster ${idx + 1}` }));
 
-            renderCustomizableApexChart('aiKMeansChart', 'ai_kmeans', {
-                chart: { type: 'scatter', height: 300 },
+            renderDataScienceApexChart('aiKMeansChart', {
+                chart: { type: 'scatter', height: 320, toolbar: { show: true } },
                 series: [
                     { name: 'Cluster 1: Excelência', data: k1Data },
                     { name: 'Cluster 2: Desenvolvimento', data: k2Data },
@@ -2367,9 +2684,36 @@
                     { name: 'Centróides Calculados ★', data: centData }
                 ],
                 colors: ['#10b981', '#2563eb', '#f59e0b', '#ef4444', '#7c3aed'],
-                markers: { size: [5, 5, 5, 5, 12], shape: ['circle', 'circle', 'circle', 'circle', 'star'] },
-                xaxis: { title: { text: 'Frequência (%)' }, min: 50, max: 100 },
-                yaxis: { title: { text: 'Nota Média' }, min: 0, max: 10 }
+                markers: { 
+                    size: [5, 5, 5, 5, 12], 
+                    shape: ['circle', 'circle', 'circle', 'circle', 'star'],
+                    strokeWidth: [0, 0, 0, 0, 2],
+                    strokeColors: '#ffffff'
+                },
+                xaxis: { 
+                    title: { text: 'Frequência (%)', style: { fontWeight: 600 } }, 
+                    min: 50, 
+                    max: 100,
+                    labels: { formatter: val => `${Math.round(val)}%` }
+                },
+                yaxis: { 
+                    title: { text: 'Nota Média (0 a 10)', style: { fontWeight: 600 } }, 
+                    min: 0, 
+                    max: 10,
+                    labels: { formatter: val => typeof val === 'number' ? val.toFixed(1) : val }
+                },
+                tooltip: {
+                    custom: function({ seriesIndex, dataPointIndex, w }) {
+                        const pt = w.config.series[seriesIndex].data[dataPointIndex];
+                        const group = w.config.series[seriesIndex].name;
+                        const isCent = seriesIndex === 4;
+                        return `<div style="padding:8px 12px;background:#0f172a;color:#fff;border-radius:8px;font-size:12px;">
+                            <b style="color:${isCent ? '#c084fc' : '#60a5fa'};">${isCent ? '★ ' + pt.name : window.esc(pt.name || 'Aluno')}</b><br>
+                            <span style="font-size:11px;color:#94a3b8;">${group}</span><br>
+                            Frequência: <b>${pt.x}%</b> | Média: <b>${pt.y}</b>
+                        </div>`;
+                    }
+                }
             });
 
             // 4. Curva de Distribuição Normal Gaussiana
@@ -2380,16 +2724,26 @@
                 return Number((pdf * totalGrades).toFixed(1));
             });
 
-            renderCustomizableApexChart('aiGaussChart', 'ai_gauss', {
-                chart: { type: 'line', height: 300, toolbar: { show: false } },
+            renderDataScienceApexChart('aiGaussChart', {
+                chart: { height: 320, toolbar: { show: false } },
                 series: [
                     { name: 'Histograma Real de Avaliações', type: 'column', data: bins },
                     { name: 'Curva Normal Gaussiana Teórica', type: 'line', data: normalCurve }
                 ],
                 colors: ['#3b82f6', '#ec4899'],
                 stroke: { width: [0, 3], curve: 'smooth' },
-                xaxis: { categories: gaussLabels, title: { text: 'Faixa de Rendimento' } },
-                yaxis: { title: { text: 'Volume de Notas' } }
+                plotOptions: {
+                    bar: { borderRadius: 4, columnWidth: '55%' }
+                },
+                xaxis: { 
+                    categories: gaussLabels, 
+                    title: { text: 'Faixa de Rendimento Avaliativo', style: { fontWeight: 600 } } 
+                },
+                yaxis: { 
+                    title: { text: 'Volume de Notas Lançadas', style: { fontWeight: 600 } },
+                    labels: { formatter: val => Math.round(val) }
+                },
+                legend: { position: 'top', horizontalAlign: 'right' }
             });
         }
     }
@@ -2578,103 +2932,140 @@
         }
     }
 
-    async function downloadGeminiJson() {
-        const [students, grades, inclusion] = await Promise.all([
-            window.all('students'), window.all('grades'), window.all('inclusion')
+    async function openAiExportModal() {
+        const [students, grades, inclusion, classes, courses, units] = await Promise.all([
+            window.all('students'), window.all('grades'), window.all('inclusion'),
+            window.all('classes'), window.all('courses'), window.all('units')
         ]);
-        const incMap = Object.fromEntries(inclusion.map(x => [x.studentId, x]));
 
-        const anonStudents = students.slice(0, 100).map(st => {
+        const incMap = Object.fromEntries(inclusion.map(x => [x.studentId, x]));
+        const classMap = Object.fromEntries(classes.map(c => [c.id, c.name]));
+        const courseMap = Object.fromEntries(courses.map(c => [c.id, c.name]));
+        const unitMap = Object.fromEntries(units.map(u => [u.id, u.name]));
+        const allSubjects = [...new Set(grades.map(g => g.subject))].sort();
+
+        // Processar estatísticas de cada aluno
+        const fullStudents = students.map(st => {
             const sGrades = grades.filter(g => g.studentId === st.id);
             const avg = sGrades.length ? Number((sGrades.reduce((a, b) => a + Number(b.value), 0) / sGrades.length).toFixed(1)) : 7.0;
             const inc = incMap[st.id];
             const att = inc ? Number(inc.attendance) : Math.min(100, Math.max(55, Math.round(55 + (avg / 10) * 40 + ((st.id * 17) % 12) - 5)));
-            const low = sGrades.filter(g => Number(g.value) < 6.0).map(g => g.subject);
+            const lowGrades = sGrades.filter(g => Number(g.value) < 6.0).map(g => g.subject);
+            const isCrit = avg < 6.0 || att < 75;
+            const isWarn = !isCrit && (avg < 7.0 || att < 80);
+            const isExcellence = avg >= 8.0 && att >= 85;
 
             return {
                 id: st.id,
-                cursoId: st.courseId,
-                mediaGeral: avg,
-                frequencia: att,
-                quadrante: (att >= 75 && avg >= 7.0) ? 'Q1' : ((att >= 75) ? 'Q2' : ((avg < 7.0) ? 'Q3' : 'Q4')),
-                disciplinasAbaixoCorte: low,
-                atendimentoNai: !!inc,
-                diagnosticoNai: inc ? inc.needType : null
+                name: st.name,
+                registration: st.registration,
+                status: st.status || 'ATIVO',
+                classId: st.classId,
+                className: classMap[st.classId] || 'Sem Turma',
+                courseId: st.courseId,
+                courseName: courseMap[st.courseId] || 'Sem Curso',
+                unitId: st.unitId,
+                unitName: unitMap[st.unitId] || 'Sem Unidade',
+                avg,
+                attendance: att,
+                lowGrades,
+                hasNai: !!inc,
+                needType: inc ? inc.needType : null,
+                isCrit,
+                isWarn,
+                isExcellence,
+                grades: sGrades
             };
         });
 
-        const payload = {
-            instituicao: "SENAI Centro 4.0 - Formação Profissional",
-            dataExtracao: new Date().toISOString(),
-            lgpdAnonimizado: true,
-            totalAmostra: anonStudents.length,
-            dadosAlunosAnonimizados: anonStudents,
-            metas: { mediaCorte: 7.0, frequenciaCorte: 75 }
+        // Estado reativo da modal de exportação
+        const exportState = {
+            model: 'gemini', // 'gemini' | 'chatgpt'
+            filterType: 'todos', // 'todos' | 'grupos' | 'turma' | 'disciplina' | 'curso' | 'unidade' | 'manual'
+            selectedGroup: 'risco', // 'risco', 'alerta', 'nai', 'dificuldade', 'excelencia'
+            selectedClassId: classes.length ? classes[0].id : '',
+            selectedSubject: allSubjects.length ? allSubjects[0] : '',
+            subjectOnlyLow: true,
+            selectedCourseId: courses.length ? courses[0].id : '',
+            selectedUnitId: units.length ? units[0].id : '',
+            manualSelectedIds: new Set(fullStudents.filter(s => s.isCrit).slice(0, 30).map(s => s.id)),
+            manualSearch: ''
         };
 
-        const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `senai_alunos_anonimizados_lgpd_${new Date().toISOString().slice(0, 10)}.json`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-    }
-
-    /* Geração de Payload Anonimizado LGPD para Gemini */
-    async function copyGeminiPrompt() {
-        const [students, grades, inclusion] = await Promise.all([
-            window.all('students'), window.all('grades'), window.all('inclusion')
-        ]);
-
-        const incMap = Object.fromEntries(inclusion.map(x => [x.studentId, x]));
-
-        // Amostra anônima de alunos (apenas ID, notas e frequências)
-        const anonStudents = students.slice(0, 80).map(st => {
-            const sGrades = grades.filter(g => g.studentId === st.id);
-            const avg = sGrades.length ? Number((sGrades.reduce((a, b) => a + Number(b.value), 0) / sGrades.length).toFixed(1)) : 7.0;
-            const inc = incMap[st.id];
-            const att = inc ? Number(inc.attendance) : Math.min(100, Math.max(55, Math.round(55 + (avg / 10) * 40 + ((st.id * 17) % 12) - 5)));
-            const low = sGrades.filter(g => Number(g.value) < 6.0).map(g => g.subject);
-
-            return {
-                id: st.id,
-                cursoId: st.courseId,
-                mediaGeral: avg,
-                frequencia: att,
-                quadrante: (att >= 75 && avg >= 7.0) ? 'Q1' : ((att >= 75) ? 'Q2' : ((avg < 7.0) ? 'Q3' : 'Q4')),
-                disciplinasAbaixoCorte: low,
-                atendimentoNai: !!inc,
-                diagnosticoNai: inc ? inc.needType : null
-            };
-        });
-
-        const payload = {
-            instituicao: "SENAI Centro 4.0 - Formação Profissional",
-            totalAlunosInstituicao: students.length,
-            amostraAnonimizadaLGPD: anonStudents,
-            metasInstitucionais: {
-                mediaMinima: 7.0,
-                frequenciaMinima: 75,
-                criterioApto: "Nota >= 8.0"
+        function getFilteredStudents() {
+            switch (exportState.filterType) {
+                case 'todos':
+                    return fullStudents;
+                case 'grupos':
+                    if (exportState.selectedGroup === 'risco') return fullStudents.filter(s => s.isCrit);
+                    if (exportState.selectedGroup === 'alerta') return fullStudents.filter(s => s.attendance < 75);
+                    if (exportState.selectedGroup === 'nai') return fullStudents.filter(s => s.hasNai);
+                    if (exportState.selectedGroup === 'dificuldade') return fullStudents.filter(s => s.attendance >= 75 && s.avg < 7.0);
+                    if (exportState.selectedGroup === 'excelencia') return fullStudents.filter(s => s.isExcellence);
+                    return fullStudents;
+                case 'turma':
+                    return fullStudents.filter(s => String(s.classId) === String(exportState.selectedClassId));
+                case 'disciplina':
+                    return fullStudents.filter(s => {
+                        const g = s.grades.find(x => x.subject === exportState.selectedSubject);
+                        if (!g) return false;
+                        return exportState.subjectOnlyLow ? Number(g.value) < 6.0 : true;
+                    });
+                case 'curso':
+                    return fullStudents.filter(s => String(s.courseId) === String(exportState.selectedCourseId));
+                case 'unidade':
+                    return fullStudents.filter(s => String(s.unitId) === String(exportState.selectedUnitId));
+                case 'manual':
+                    return fullStudents.filter(s => exportState.manualSelectedIds.has(s.id));
+                default:
+                    return fullStudents;
             }
-        };
+        }
 
-        const promptText = `Você é o Especialista em Inteligência de Dados e Coordenador Pedagógico do SENAI Centro 4.0.
-Analise os seguintes dados anonimizados de desempenho escolar (em conformidade com a LGPD, sem nomes):
+        function buildCompactPayload(sample) {
+            return {
+                instituicao: "SENAI Centro 4.0 - Formação Profissional",
+                totalAnalisados: sample.length,
+                modeloAlvo: exportState.model === 'gemini' ? "Google Gemini" : "OpenAI ChatGPT",
+                criteriosSENAI: { mediaMinima: 7.0, presencaMinima: 75, conceitoApto: 8.0 },
+                amostraAnonimizadaLGPD: sample.map(s => ({
+                    id: s.id,
+                    media: s.avg,
+                    freq: s.attendance,
+                    defasagens: s.lowGrades,
+                    nai: s.hasNai ? (s.needType || true) : false
+                }))
+            };
+        }
+
+        function buildAiPromptText(sample) {
+            const isGpt = exportState.model === 'chatgpt';
+            const payload = buildCompactPayload(sample);
+            const modelName = isGpt ? "OpenAI ChatGPT (GPT-4o / GPT-4o-mini)" : "Google Gemini (Gemini 1.5 Pro / Flash)";
+
+            return `Você é um Consultor Pedagógico Sênior do SENAI Centro 4.0, especialista em Inteligência de Dados Educacionais.
+Analise os seguintes dados acadêmicos anonimizados de ${sample.length} alunos (conforme LGPD, indexados exclusivamente pelo seu "id" numérico):
 
 ${JSON.stringify(payload, null, 2)}
 
-Por favor, responda OBRIGATORIAMENTE com um JSON puro no formato abaixo para que nossa plataforma importe diretamente e faça a reassociação por ID com os discentes:
+DIRETRIZES INSTITUCIONAIS SENAI:
+- Média mínima de aprovação: 7.0
+- Frequência mínima exigida: 75%
+- Conceito Apto (Excelência): Nota >= 8.0
+
+INSTRUÇÕES RIGOROSAS DE RESPOSTA (${modelName}):
+1. Responda ESTRITAMENTE com um único objeto JSON válido, sem texto introdutório, saudações ou preâmbulos fora do JSON.
+2. Cada aluno listado no vetor "amostraAnonimizadaLGPD" DEVE ter seu parecer individual correspondente no array "pareceresIndividuais", utilizando o seu "id" exato.
+3. No campo "diagnostico", apresente justificativa técnica com médias e frequências. Utilize quebras de linha (\\n) para separar pontos de diagnóstico e mantê-los legíveis dentro de colunas de tabela.
+4. No campo "planoAcao", defina ações prescritivas concretas do SENAI numeradas (ex: 1. Busca ativa; 2. Tutoria em bancada prática; 3. PPI com apoio do NAI). Utilize quebras de linha (\\n).
+5. A resposta DEVE seguir rigorosamente este formato JSON para importação direta na plataforma Educonnect:
 
 {
   "diagnosticoInstitucional": {
-    "resumo": "Diagnóstico macro da instituição com pontos fortes e fragilidades...",
+    "resumo": "Diagnóstico executivo geral consolidado desta coorte, destacando vulnerabilidades e potencialidades...",
     "gargalos": [
-      "Gargalo 1 identificado entre disciplinas...",
-      "Gargalo 2..."
+      "Gargalo curricular 1 identificado...",
+      "Gargalo curricular 2..."
     ],
     "acoes": [
       "Ação estratégica 1 do SENAI...",
@@ -2682,41 +3073,348 @@ Por favor, responda OBRIGATORIAMENTE com um JSON puro no formato abaixo para que
     ]
   },
   "recomendacoesClusters": {
-    "cluster1": "Ação para alunos de excelência e liderança...",
-    "cluster2": "Ação para alunos estáveis...",
-    "cluster3": "Ação para alunos com vulnerabilidade de presença...",
-    "cluster4": "Ação urgente para alunos em risco crítico..."
+    "cluster1": "Ação formativa para o perfil de excelência e liderança...",
+    "cluster2": "Ação pedagógica para alunos regulares estáveis...",
+    "cluster3": "Ação imediata para discentes com alerta de frequência...",
+    "cluster4": "Intervenção emergencial para discentes em risco crítico de retenção..."
   },
   "pareceresIndividuais": [
     {
-      "id": 1,
-      "diagnostico": "Parecer individual conciso para o aluno #1 com base em suas disciplinas...",
-      "planoAcao": "Intervenção prescritiva recomendada...",
-      "prioridade": "ALTA",
-      "prazoDias": 15
+      "id": ${sample[0]?.id || 1},
+      "diagnostico": "Média de rendimento ${sample[0]?.avg || '5.8'} com assiduidade de ${sample[0]?.attendance || '72'}%.\\nDefasagem identificada em disciplinas técnicas de base.\\nRisco iminente de evasão.",
+      "planoAcao": "1. Convocação para busca ativa em 48h.\\n2. Aulas de nivelamento prático em bancada.\\n3. Acompanhamento formativo no NAI.",
+      "prioridade": "${sample[0]?.isCrit ? 'ALTA' : 'MEDIA'}",
+      "prazoDias": ${sample[0]?.isCrit ? 10 : 20}
     }
   ]
 }`;
-
-        try {
-            await navigator.clipboard.writeText(promptText);
-            alert('Prompt anonimizado (LGPD) copiado para a área de transferência!\n\nNenhum nome de aluno foi exposto. Você pode colar no Google Gemini (gemini.google.com). Ao receber o JSON de volta, clique em "Importar Parecer JSON da IA".');
-            window.open('https://gemini.google.com', '_blank');
-        } catch (e) {
-            prompt('Copie o prompt anonimizado abaixo:', promptText);
         }
+
+        function renderSubFilterPanel() {
+            switch (exportState.filterType) {
+                case 'todos':
+                    return `
+                        <div style="font-size:12px;color:var(--muted);display:flex;align-items:center;gap:8px;">
+                            <span>🌐</span>
+                            <span>Todos os <b>${fullStudents.length} discentes</b> cadastrados na plataforma serão analisados.</span>
+                        </div>
+                    `;
+                case 'grupos':
+                    return `
+                        <div>
+                            <label style="font-size:11px;font-weight:700;color:var(--muted);display:block;margin-bottom:6px;">Selecione o Grupo Analítico:</label>
+                            <select id="aiExportGroupSelect" class="filter-select" style="width:100%;" onchange="window.__aiExportSetGroup(this.value)">
+                                <option value="risco" ${exportState.selectedGroup === 'risco' ? 'selected' : ''}>🚨 Risco Crítico de Retenção (Média < 6.0 ou Freq < 75%) — ${fullStudents.filter(s=>s.isCrit).length} alunos</option>
+                                <option value="alerta" ${exportState.selectedGroup === 'alerta' ? 'selected' : ''}>⚠️ Alerta de Infrequência (Freq < 75%) — ${fullStudents.filter(s=>s.attendance < 75).length} alunos</option>
+                                <option value="nai" ${exportState.selectedGroup === 'nai' ? 'selected' : ''}>♿ Núcleo de Apoio à Inclusão NAI (PCD, TEA, TDAH) — ${fullStudents.filter(s=>s.hasNai).length} alunos</option>
+                                <option value="dificuldade" ${exportState.selectedGroup === 'dificuldade' ? 'selected' : ''}>📉 Dificuldade Metodológica (Freq ≥ 75% e Média < 7.0) — ${fullStudents.filter(s=>s.attendance>=75 && s.avg<7.0).length} alunos</option>
+                                <option value="excelencia" ${exportState.selectedGroup === 'excelencia' ? 'selected' : ''}>★ Excelência & Autonomia (Média ≥ 8.0 e Freq ≥ 85%) — ${fullStudents.filter(s=>s.isExcellence).length} alunos</option>
+                            </select>
+                        </div>
+                    `;
+                case 'turma':
+                    return `
+                        <div>
+                            <label style="font-size:11px;font-weight:700;color:var(--muted);display:block;margin-bottom:6px;">Selecione a Turma:</label>
+                            <select id="aiExportClassSelect" class="filter-select" style="width:100%;" onchange="window.__aiExportSetClass(this.value)">
+                                ${classes.map(c => `
+                                    <option value="${c.id}" ${String(exportState.selectedClassId) === String(c.id) ? 'selected' : ''}>
+                                        ${window.esc(c.name)} (${fullStudents.filter(s=>String(s.classId) === String(c.id)).length} discentes)
+                                    </option>
+                                `).join('')}
+                            </select>
+                        </div>
+                    `;
+                case 'disciplina':
+                    return `
+                        <div style="display:flex;flex-direction:column;gap:8px;">
+                            <label style="font-size:11px;font-weight:700;color:var(--muted);">Selecione a Unidade Curricular:</label>
+                            <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+                                <select id="aiExportSubjectSelect" class="filter-select" style="flex:1;min-width:200px;" onchange="window.__aiExportSetSubject(this.value)">
+                                    ${allSubjects.map(sub => `
+                                        <option value="${window.esc(sub)}" ${exportState.selectedSubject === sub ? 'selected' : ''}>${window.esc(sub)}</option>
+                                    `).join('')}
+                                </select>
+                                <label style="font-size:12px;display:flex;align-items:center;gap:6px;cursor:pointer;">
+                                    <input type="checkbox" id="aiExportSubjectLowCheck" ${exportState.subjectOnlyLow ? 'checked' : ''} onchange="window.__aiExportToggleSubjectLow(this.checked)">
+                                    <span>Apenas com nota < 6.0</span>
+                                </label>
+                            </div>
+                        </div>
+                    `;
+                case 'curso':
+                    return `
+                        <div>
+                            <label style="font-size:11px;font-weight:700;color:var(--muted);display:block;margin-bottom:6px;">Selecione a Habilitação Técnica / Curso:</label>
+                            <select id="aiExportCourseSelect" class="filter-select" style="width:100%;" onchange="window.__aiExportSetCourse(this.value)">
+                                ${courses.map(c => `
+                                    <option value="${c.id}" ${String(exportState.selectedCourseId) === String(c.id) ? 'selected' : ''}>
+                                        ${window.esc(c.name)} (${fullStudents.filter(s=>String(s.courseId) === String(c.id)).length} discentes)
+                                    </option>
+                                `).join('')}
+                            </select>
+                        </div>
+                    `;
+                case 'unidade':
+                    return `
+                        <div>
+                            <label style="font-size:11px;font-weight:700;color:var(--muted);display:block;margin-bottom:6px;">Selecione o Polo / Unidade SENAI:</label>
+                            <select id="aiExportUnitSelect" class="filter-select" style="width:100%;" onchange="window.__aiExportSetUnit(this.value)">
+                                ${units.map(u => `
+                                    <option value="${u.id}" ${String(exportState.selectedUnitId) === String(u.id) ? 'selected' : ''}>
+                                        ${window.esc(u.name)} (${fullStudents.filter(s=>String(s.unitId) === String(u.id)).length} discentes)
+                                    </option>
+                                `).join('')}
+                            </select>
+                        </div>
+                    `;
+                case 'manual':
+                    const query = (exportState.manualSearch || '').toLowerCase();
+                    const visibleList = fullStudents.filter(s => {
+                        if (!query) return true;
+                        return s.name.toLowerCase().includes(query) || s.registration.toLowerCase().includes(query) || String(s.id).includes(query);
+                    });
+                    return `
+                        <div>
+                            <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap;">
+                                <input type="text" id="aiExportManualSearchInput" class="filter-select" style="flex:1;min-width:180px;" placeholder="Buscar aluno por nome ou matrícula..." value="${window.esc(exportState.manualSearch)}" oninput="window.__aiExportManualSearch(this.value)">
+                                <button class="btn secondary" style="font-size:11px;padding:5px 8px;" onclick="window.__aiExportManualSelectAll()">Marcar Todos</button>
+                                <button class="btn secondary" style="font-size:11px;padding:5px 8px;" onclick="window.__aiExportManualClearAll()">Desmarcar Todos</button>
+                                <button class="btn secondary" style="font-size:11px;padding:5px 8px;color:#ef4444;" onclick="window.__aiExportManualSelectTopRisk()">Top 25 Risco</button>
+                            </div>
+                            <div class="ai-student-selector-box">
+                                ${visibleList.map(s => {
+                                    const isChecked = exportState.manualSelectedIds.has(s.id);
+                                    return `
+                                        <div class="ai-student-selector-item" onclick="window.__aiExportToggleStudent(${s.id})">
+                                            <input type="checkbox" ${isChecked ? 'checked' : ''} onclick="event.stopPropagation();window.__aiExportToggleStudent(${s.id})">
+                                            <span style="font-size:11px;font-weight:700;color:var(--muted);width:32px;">#${s.id}</span>
+                                            <span style="font-size:12px;font-weight:600;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${window.esc(s.name)}</span>
+                                            <span style="font-size:11px;color:var(--muted);">${window.esc(s.className)}</span>
+                                            <span class="senai-badge ${s.avg >= 7 ? 'senai-apto' : (s.avg >= 6 ? 'senai-desenvolvimento' : 'senai-risco')}" style="font-size:10px;padding:2px 6px;">${s.avg.toFixed(1)}</span>
+                                            <span style="font-size:11px;color:${s.attendance >= 75 ? '#10b981' : '#ef4444'};font-weight:700;">${s.attendance}%</span>
+                                        </div>
+                                    `;
+                                }).join('')}
+                            </div>
+                        </div>
+                    `;
+                default:
+                    return '';
+            }
+        }
+
+        function renderFullModalHtml() {
+            const currentList = getFilteredStudents();
+            const count = currentList.length;
+
+            let advisorClass = 'optimal';
+            let advisorIcon = '🟢';
+            let advisorText = `<b>Amostra Calibrada (${count} discentes):</b> Tamanho excelente. O retorno JSON completo caberá integralmente no teto de saída (output tokens) de qualquer IA sem cortes.`;
+            if (count > 35 && count <= 60) {
+                advisorClass = 'warning';
+                advisorIcon = '🟡';
+                advisorText = `<b>Amostra Moderada (${count} discentes):</b> Recomendado utilizar <b>GPT-4o</b> ou <b>Gemini 1.5 Pro</b> para garantir que todos os pareceres individuais sejam impressos sem interrupção.`;
+            } else if (count > 60) {
+                advisorClass = 'danger';
+                advisorIcon = '🔴';
+                advisorText = `<b>Amostra Extensa (${count} discentes):</b> IAs gratuitas possuem limite máximo de caracteres na resposta e podem truncar o JSON no final. <i>Recomendamos segmentar por turma ou por grupo de risco (até 35 alunos por lote).</i>`;
+            }
+
+            const modelBadge = exportState.model === 'gemini' ? '🔵 Google Gemini' : '🟢 OpenAI ChatGPT';
+
+            return `
+                <div class="ai-export-modal" id="aiExportModalInner">
+                    <!-- 1. Seleção de Modelo de IA -->
+                    <div>
+                        <label style="font-weight:700;font-size:12px;display:block;margin-bottom:6px;color:var(--text);">1. Escolha a Inteligência Artificial Alvo:</label>
+                        <div class="ai-model-cards-grid">
+                            <div class="ai-model-card ${exportState.model === 'gemini' ? 'active' : ''}" onclick="window.__aiExportSetModel('gemini')">
+                                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+                                    <b style="font-size:14px;color:#2563eb;">🔵 Google Gemini</b>
+                                    <span class="ai-model-tag" style="background:#eff6ff;color:#1d4ed8;">Recomendado</span>
+                                </div>
+                                <p style="font-size:11px;color:var(--muted);line-height:1.4;margin:0;">
+                                    Janela de contexto ultra-ampla (Gemini 1.5 Pro / Flash). Ideal para análise curricular ampla e diagnósticos de turma.
+                                </p>
+                            </div>
+
+                            <div class="ai-model-card ${exportState.model === 'chatgpt' ? 'active' : ''}" onclick="window.__aiExportSetModel('chatgpt')">
+                                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+                                    <b style="font-size:14px;color:#059669;">🟢 OpenAI ChatGPT</b>
+                                    <span class="ai-model-tag" style="background:#ecfdf5;color:#047857;">Popular</span>
+                                </div>
+                                <p style="font-size:11px;color:var(--muted);line-height:1.4;margin:0;">
+                                    Modelos GPT-4o e GPT-4o-mini. Alta precisão prescritiva em formatação de planos de ação estruturados.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Filtros de Segmentação Discente -->
+                    <div>
+                        <label style="font-weight:700;font-size:12px;display:block;margin-bottom:6px;color:var(--text);">2. Filtrar Discentes a Analisar:</label>
+                        <div class="ai-filter-tabs">
+                            <button class="ai-filter-pill ${exportState.filterType === 'todos' ? 'active' : ''}" onclick="window.__aiExportSetFilterType('todos')">🌐 Todos (${fullStudents.length})</button>
+                            <button class="ai-filter-pill ${exportState.filterType === 'grupos' ? 'active' : ''}" onclick="window.__aiExportSetFilterType('grupos')">🚨 Grupos Específicos</button>
+                            <button class="ai-filter-pill ${exportState.filterType === 'turma' ? 'active' : ''}" onclick="window.__aiExportSetFilterType('turma')">👥 Por Turma</button>
+                            <button class="ai-filter-pill ${exportState.filterType === 'disciplina' ? 'active' : ''}" onclick="window.__aiExportSetFilterType('disciplina')">📚 Por Disciplina</button>
+                            <button class="ai-filter-pill ${exportState.filterType === 'curso' ? 'active' : ''}" onclick="window.__aiExportSetFilterType('curso')">🎓 Por Curso</button>
+                            <button class="ai-filter-pill ${exportState.filterType === 'unidade' ? 'active' : ''}" onclick="window.__aiExportSetFilterType('unidade')">🏢 Por Unidade</button>
+                            <button class="ai-filter-pill ${exportState.filterType === 'manual' ? 'active' : ''}" onclick="window.__aiExportSetFilterType('manual')">✍️ Seleção Manual (${exportState.manualSelectedIds.size})</button>
+                        </div>
+
+                        <!-- Sub-painéis de Configuração do Filtro -->
+                        <div style="background:var(--bg);padding:12px;border-radius:8px;border:1px solid var(--border);margin-top:10px;">
+                            ${renderSubFilterPanel()}
+                        </div>
+                    </div>
+
+                    <!-- 3. Token Advisor & Resumo da Amostra -->
+                    <div class="ai-token-advisor ${advisorClass}">
+                        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+                            <span style="font-weight:700;font-size:12px;">${advisorIcon} Discentes Selecionados: ${count} de ${fullStudents.length}</span>
+                            <span style="font-size:11px;font-weight:700;text-transform:uppercase;">Alvo: ${modelBadge}</span>
+                        </div>
+                        <div style="font-size:12px;line-height:1.5;">${advisorText}</div>
+                    </div>
+
+                    <!-- 4. Botões de Ação -->
+                    <div style="display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;margin-top:6px;">
+                        <button class="btn secondary" style="font-size:12px;" onclick="eduModules.openImportGeminiModal()">
+                            <span>📥</span> Abrir Importador de Parecer JSON
+                        </button>
+                        <button class="btn secondary" style="font-size:12px;" onclick="window.__aiExportDownloadJson()">
+                            <span>💾</span> Baixar JSON Anonimizado
+                        </button>
+                        <button class="btn primary" style="font-size:12px;background:linear-gradient(135deg, #2563eb, #7c3aed);border:none;" onclick="window.__aiExportCopyPrompt()">
+                            <span>📋</span> Copiar Prompt para ${exportState.model === 'gemini' ? 'Google Gemini' : 'ChatGPT'}
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function refreshModalUi() {
+            const root = document.getElementById('aiExportModalContainer');
+            if (root) {
+                root.innerHTML = renderFullModalHtml();
+            }
+        }
+
+        // Registrar manipuladores no window para interatividade limpa
+        window.__aiExportSetModel = (m) => { exportState.model = m; refreshModalUi(); };
+        window.__aiExportSetFilterType = (t) => { exportState.filterType = t; refreshModalUi(); };
+        window.__aiExportSetGroup = (g) => { exportState.selectedGroup = g; refreshModalUi(); };
+        window.__aiExportSetClass = (c) => { exportState.selectedClassId = c; refreshModalUi(); };
+        window.__aiExportSetSubject = (s) => { exportState.selectedSubject = s; refreshModalUi(); };
+        window.__aiExportToggleSubjectLow = (v) => { exportState.subjectOnlyLow = v; refreshModalUi(); };
+        window.__aiExportSetCourse = (c) => { exportState.selectedCourseId = c; refreshModalUi(); };
+        window.__aiExportSetUnit = (u) => { exportState.selectedUnitId = u; refreshModalUi(); };
+        window.__aiExportManualSearch = (q) => { 
+            exportState.manualSearch = q; 
+            const container = document.querySelector('.ai-student-selector-box');
+            if (container) {
+                const query = q.toLowerCase();
+                const visible = fullStudents.filter(s => !query || s.name.toLowerCase().includes(query) || s.registration.toLowerCase().includes(query) || String(s.id).includes(query));
+                container.innerHTML = visible.map(s => {
+                    const isChecked = exportState.manualSelectedIds.has(s.id);
+                    return `
+                        <div class="ai-student-selector-item" onclick="window.__aiExportToggleStudent(${s.id})">
+                            <input type="checkbox" ${isChecked ? 'checked' : ''} onclick="event.stopPropagation();window.__aiExportToggleStudent(${s.id})">
+                            <span style="font-size:11px;font-weight:700;color:var(--muted);width:32px;">#${s.id}</span>
+                            <span style="font-size:12px;font-weight:600;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${window.esc(s.name)}</span>
+                            <span style="font-size:11px;color:var(--muted);">${window.esc(s.className)}</span>
+                            <span class="senai-badge ${s.avg >= 7 ? 'senai-apto' : (s.avg >= 6 ? 'senai-desenvolvimento' : 'senai-risco')}" style="font-size:10px;padding:2px 6px;">${s.avg.toFixed(1)}</span>
+                            <span style="font-size:11px;color:${s.attendance >= 75 ? '#10b981' : '#ef4444'};font-weight:700;">${s.attendance}%</span>
+                        </div>
+                    `;
+                }).join('');
+            }
+        };
+        window.__aiExportToggleStudent = (id) => {
+            if (exportState.manualSelectedIds.has(id)) {
+                exportState.manualSelectedIds.delete(id);
+            } else {
+                exportState.manualSelectedIds.add(id);
+            }
+            refreshModalUi();
+        };
+        window.__aiExportManualSelectAll = () => {
+            fullStudents.forEach(s => exportState.manualSelectedIds.add(s.id));
+            refreshModalUi();
+        };
+        window.__aiExportManualClearAll = () => {
+            exportState.manualSelectedIds.clear();
+            refreshModalUi();
+        };
+        window.__aiExportManualSelectTopRisk = () => {
+            exportState.manualSelectedIds.clear();
+            fullStudents.filter(s => s.isCrit).slice(0, 25).forEach(s => exportState.manualSelectedIds.add(s.id));
+            refreshModalUi();
+        };
+
+        window.__aiExportCopyPrompt = async () => {
+            const sample = getFilteredStudents();
+            if (!sample.length) {
+                alert('Nenhum discente selecionado para análise. Por favor, ajuste os filtros.');
+                return;
+            }
+            const promptText = buildAiPromptText(sample);
+            const isGpt = exportState.model === 'chatgpt';
+            const targetUrl = isGpt ? 'https://chatgpt.com' : 'https://gemini.google.com';
+            const targetName = isGpt ? 'ChatGPT (OpenAI)' : 'Google Gemini';
+
+            try {
+                await navigator.clipboard.writeText(promptText);
+                alert(`Prompt otimizado copiado para a área de transferência com sucesso!\n\nForam incluídos dados anonimizados de ${sample.length} alunos formatados para ${targetName}.\n\nAo receber a resposta JSON da IA, clique em "Abrir Importador de Parecer JSON" para integrá-la à plataforma.`);
+                window.open(targetUrl, '_blank');
+            } catch (err) {
+                prompt(`Copie o prompt anonimizado abaixo para colar no ${targetName}:`, promptText);
+            }
+        };
+
+        window.__aiExportDownloadJson = () => {
+            const sample = getFilteredStudents();
+            if (!sample.length) {
+                alert('Nenhum discente selecionado para exportação.');
+                return;
+            }
+            const payload = buildCompactPayload(sample);
+            const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `senai_alunos_ia_${exportState.model}_${new Date().toISOString().slice(0, 10)}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        };
+
+        const modalShell = `<div id="aiExportModalContainer">${renderFullModalHtml()}</div>`;
+        window.modal('Exportar Dados para IA (Gemini & ChatGPT)', 'Central de calibração de amostra discente e conformidade LGPD', modalShell, () => {});
+    }
+
+    /* Aliases e retrocompatibilidade para botões existentes */
+    function copyGeminiPrompt() {
+        openAiExportModal();
+    }
+
+    function downloadGeminiJson() {
+        openAiExportModal();
     }
 
     function openImportGeminiModal() {
         const content = `
             <div style="display:flex;flex-direction:column;gap:12px;">
                 <p style="font-size:13px;color:var(--muted);">
-                    Cole abaixo a resposta em formato JSON retornada pelo Google Gemini. O sistema irá fazer o parse automático e reassociar os IDs com os nomes dos alunos no banco local:
+                    Cole abaixo a resposta em formato JSON retornada pelo <b>Google Gemini</b> ou <b>OpenAI ChatGPT</b>. O sistema irá fazer o parse automático e reassociar os IDs com os nomes dos alunos no banco local:
                 </p>
                 <textarea id="geminiJsonInput" rows="12" class="filter-select" style="font-family:monospace;font-size:11px;width:100%;" placeholder='{\n  "diagnosticoInstitucional": { ... },\n  "pareceresIndividuais": [ ... ]\n}'></textarea>
             </div>
         `;
-        window.modal('Importar Parecer do Google Gemini', 'Carregue diagnósticos institucionais e pareceres individuais indexados por ID', content, () => {
+        window.modal('Importar Parecer da IA (Gemini / ChatGPT)', 'Carregue diagnósticos institucionais e pareceres individuais indexados por ID', content, () => {
             const raw = document.getElementById('geminiJsonInput')?.value.trim();
             if (!raw) return;
             try {
@@ -2727,7 +3425,7 @@ Por favor, responda OBRIGATORIAMENTE com um JSON puro no formato abaixo para que
                 renderDataSciencePage();
                 alert(`Parecer da IA importado com sucesso!\nForam carregadas as análises macro e ${(parsed.pareceresIndividuais || []).length} pareceres individuais indexados por ID.`);
             } catch (e) {
-                alert('O conteúdo inserido não é um JSON válido. Por favor, verifique a formatação retornada pelo Gemini.');
+                alert('O conteúdo inserido não é um JSON válido. Por favor, verifique a formatação retornada pela IA.');
             }
         });
     }
@@ -3103,7 +3801,7 @@ Retorne APENAS um JSON estrito no formato:
        EXPOSIÇÃO DOS MÓDULOS NO ESCOPO GLOBAL
        ========================================================================== */
     window.eduModules = {
-        // Acessibilidade
+        // Acessibilidade & Layout Multi-Dispositivo
         applyAccessibility,
         changeFontSize,
         resetFontSize,
@@ -3113,6 +3811,8 @@ Retorne APENAS um JSON estrito no formato:
         speakText,
         toggleSpeechSummary,
         openAccessibilityModal,
+        setLayoutMode,
+        toggleMobileNav,
 
         // Filtros Cruzados
         renderSmartFilterBar,
@@ -3129,6 +3829,7 @@ Retorne APENAS um JSON estrito no formato:
         // ApexCharts & Cards
         renderAdaptiveChart,
         renderCustomizableApexChart,
+        renderDataScienceApexChart,
         openChartCustomizer,
         toggleChartFullscreen,
         triggerChartResize,
@@ -3140,6 +3841,8 @@ Retorne APENAS um JSON estrito no formato:
         initSortableTables,
         toggleInspectorDrawer,
         setInspectorContext,
+        inspectElementPedagogically,
+        clearElementInspection,
 
         // Gestão Acadêmica Interativa
         selectStudent,
@@ -3153,6 +3856,7 @@ Retorne APENAS um JSON estrito no formato:
 
         // Ciência de Dados & IA
         renderDataSciencePage,
+        openAiExportModal,
         copyGeminiPrompt,
         downloadGeminiJson,
         openImportGeminiModal,
@@ -3185,6 +3889,7 @@ Retorne APENAS um JSON estrito no formato:
         initResponsiveObservers();
         ensureGlobalFilterPopover();
         ensureInspectorDrawer();
+        initDeviceLayout();
 
         // Atalhos de teclado
         window.addEventListener('keydown', e => {
@@ -3200,8 +3905,14 @@ Retorne APENAS um JSON estrito no formato:
             }
         });
 
-        // Fechar popover ao clicar fora
+        // Clique global para inspeção pedagógica dinâmica e fechamento de popovers
         document.addEventListener('click', e => {
+            // Inspeção Pedagógica Dinâmica ao clicar em elementos relevantes
+            if (e.target && !e.target.closest('#eduInspectorDrawer') && !e.target.closest('#btnGuideToggle')) {
+                inspectElementPedagogically(e.target);
+            }
+
+            // Fechar popover de filtros ao clicar fora
             const pop = document.getElementById('globalFilterPopover');
             if (pop && pop.classList.contains('show') && !pop.contains(e.target) && !e.target.closest('.btn-add-filter')) {
                 pop.classList.remove('show');

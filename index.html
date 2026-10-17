@@ -1104,6 +1104,8 @@
                 }
             })();
         </script>
+        <!-- Backdrop do menu mobile -->
+        <div class="mobile-nav-backdrop" id="mobileNavBackdrop" onclick="eduModules.toggleMobileNav(false)"></div>
         <!-- Barra Lateral Fixa -->
         <aside class="sidebar" id="mainSidebar">
             <div class="sidebrand">
@@ -1177,6 +1179,7 @@
             <!-- Barra Superior de Recursos Adaptativos e Acessibilidade (e-MAG / WCAG) -->
             <div class="accessibility-ribbon" role="region" aria-label="Recursos Adaptativos e Acessibilidade">
                 <div class="acc-group">
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="eduModules.toggleMobileNav()" title="Abrir Menu Lateral">☰ Menu</button>
                     <span style="color:#94a3b8;">♿ Acessibilidade:</span>
                     <button class="acc-btn" title="Diminuir Fonte" onclick="eduModules.changeFontSize(-0.05)">A-</button>
                     <span id="accFontLabel" style="font-size:11px;color:#cbd5e1;font-weight:700;">100%</span>
@@ -1188,6 +1191,16 @@
                     <button class="acc-btn" id="btnDynamicBg" title="Alternar Fundo Degradê Dinâmico Suave" onclick="eduModules.toggleDynamicBg()">🌈 Degradê Dinâmico</button>
                     <button class="acc-btn" title="Modo Leitura / Dislexia" onclick="eduModules.toggleDyslexia()">📖 Dislexia</button>
                     <button class="acc-btn" title="Preferências de Inclusão" onclick="eduModules.openAccessibilityModal()">⚙ Opções</button>
+                </div>
+                <div class="acc-group acc-layout-group">
+                    <span style="color:#94a3b8;font-size:11px;">📱 Layout:</span>
+                    <div class="layout-toggle-pill" role="radiogroup" aria-label="Modo de Visualização">
+                        <button class="layout-btn active" id="layoutBtnAuto" onclick="eduModules.setLayoutMode('auto')" title="Detecção Automática do Dispositivo">🔄 Auto</button>
+                        <button class="layout-btn" id="layoutBtnPc" onclick="eduModules.setLayoutMode('pc')" title="Modo Computador / Desktop">🖥️ PC</button>
+                        <button class="layout-btn" id="layoutBtnTablet" onclick="eduModules.setLayoutMode('tablet')" title="Modo Tablet">📟 Tablet</button>
+                        <button class="layout-btn" id="layoutBtnMobile" onclick="eduModules.setLayoutMode('mobile')" title="Modo Celular">📱 Celular</button>
+                    </div>
+                    <span id="accLayoutBadge" class="layout-badge">Auto (PC)</span>
                 </div>
                 <div class="acc-group">
                     <button class="acc-btn btn-guide-toggle" id="btnGuideToggle" title="Abrir Guia Pedagógico e Indicadores" onclick="eduModules.toggleInspectorDrawer()">💡 Guia Pedagógico</button>
