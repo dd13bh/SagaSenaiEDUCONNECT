@@ -1288,7 +1288,10 @@
                                 <button class="chart-btn-tool" onclick="eduModules.toggleChartFullscreen('dashCard1')">⤢</button>
                             </div>
                         </div>
-                        <div class="chartbox"><canvas id="dashStatusDonutChart"></canvas></div>
+                        <div class="chartbox" id="dashBoxStatus">
+                            <div id="dashApexStatus" class="apex-chart-container"></div>
+                            <canvas id="dashStatusDonutChart"></canvas>
+                        </div>
                     </div>
                     <div class="card chart-card" id="dashCard2">
                         <div class="sectionhead">
@@ -1298,12 +1301,15 @@
                                 <small style="display:block;">Médias consolidadas ranqueadas e linha de benchmark (Meta: 7,0)</small>
                             </div>
                             <div class="chart-header-actions">
-                                <span class="chart-tag amber">Meta: 7.0</span>
+                                <span class="chart-tag amber" id="tagDashUnits">Meta: 7.0</span>
                                 <button class="chart-btn-tool" onclick="eduModules.openChartCustomizer('dash_units', 'Desempenho por Unidade')">⚙ Customizar</button>
                                 <button class="chart-btn-tool" onclick="eduModules.toggleChartFullscreen('dashCard2')">⤢</button>
                             </div>
                         </div>
-                        <div class="chartbox"><canvas id="dashUnitRankChart"></canvas></div>
+                        <div class="chartbox" id="dashBoxUnits">
+                            <div id="dashApexUnits" class="apex-chart-container"></div>
+                            <canvas id="dashUnitRankChart"></canvas>
+                        </div>
                     </div>
                 </div>
 
@@ -1317,12 +1323,15 @@
                                 <small style="display:block;">Curva de densidade avaliativa sob a Matriz SENAI</small>
                             </div>
                             <div class="chart-header-actions">
-                                <span class="chart-tag blue">Curva de Bezier</span>
+                                <span class="chart-tag blue" id="tagDashBezier">Distribuição</span>
                                 <button class="chart-btn-tool" onclick="eduModules.openChartCustomizer('dash_bezier', 'Distribuição de Rendimento')">⚙ Customizar</button>
                                 <button class="chart-btn-tool" onclick="eduModules.toggleChartFullscreen('dashCard3')">⤢</button>
                             </div>
                         </div>
-                        <div class="chartbox"><canvas id="dashBezierDistChart"></canvas></div>
+                        <div class="chartbox" id="dashBoxBezier">
+                            <div id="dashApexBezier" class="apex-chart-container"></div>
+                            <canvas id="dashBezierDistChart"></canvas>
+                        </div>
                     </div>
                     <div class="card chart-card" id="dashCard4">
                         <div class="sectionhead">
@@ -1332,12 +1341,15 @@
                                 <small style="display:block;">Volume discente, médias e retenção por grupo</small>
                             </div>
                             <div class="chart-header-actions">
-                                <span class="chart-tag blue">Dispersão</span>
+                                <span class="chart-tag blue" id="tagDashScatter">Dispersão</span>
                                 <button class="chart-btn-tool" onclick="eduModules.openChartCustomizer('dash_scatter', 'Dispersão por Turma')">⚙ Customizar</button>
                                 <button class="chart-btn-tool" onclick="eduModules.toggleChartFullscreen('dashCard4')">⤢</button>
                             </div>
                         </div>
-                        <div class="chartbox"><canvas id="dashScatterClassChart"></canvas></div>
+                        <div class="chartbox" id="dashBoxScatter">
+                            <div id="dashApexScatter" class="apex-chart-container"></div>
+                            <canvas id="dashScatterClassChart"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1411,48 +1423,80 @@
 
                 <!-- Gráficos de Indicadores -->
                 <div class="grid2">
-                    <div class="card chart-card">
+                    <div class="card chart-card" id="repCard1">
                         <div class="sectionhead">
                             <div>
-                                <h3>Desempenho por Disciplina (Ranqueado)</h3>
-                                <small>Médias curriculares ponderadas e alinhamento com a meta SENAI</small>
+                                <span class="drag-handle" title="Arrastar para reordenar">⋮⋮</span>
+                                <h3 style="display:inline-block;margin-left:6px;">Desempenho por Disciplina (Ranqueado)</h3>
+                                <small style="display:block;">Médias curriculares ponderadas e alinhamento com a meta SENAI</small>
                             </div>
-                            <span class="chart-tag amber">Meta: 7,0</span>
+                            <div class="chart-header-actions">
+                                <span class="chart-tag amber" id="tagRepSubjects">Meta: 7.0</span>
+                                <button class="chart-btn-tool" onclick="eduModules.openChartCustomizer('rep_subjects', 'Desempenho por Disciplina')">⚙ Customizar</button>
+                                <button class="chart-btn-tool" onclick="eduModules.toggleChartFullscreen('repCard1')">⤢</button>
+                            </div>
                         </div>
-                        <div class="chartbox tall"><canvas id="reportSubjectRankChart"></canvas></div>
+                        <div class="chartbox tall" id="repBoxSubjects">
+                            <div id="repApexSubjects" class="apex-chart-container"></div>
+                            <canvas id="reportSubjectRankChart"></canvas>
+                        </div>
                     </div>
-                    <div class="card chart-card">
+                    <div class="card chart-card" id="repCard2">
                         <div class="sectionhead">
                             <div>
-                                <h3>Curva de Frequência & Notas Lançadas</h3>
-                                <small>Densidade e dispersão de notas com gradientes translúcidos</small>
+                                <span class="drag-handle" title="Arrastar para reordenar">⋮⋮</span>
+                                <h3 style="display:inline-block;margin-left:6px;">Curva de Frequência & Notas Lançadas</h3>
+                                <small style="display:block;">Densidade e dispersão de notas com gradientes translúcidos</small>
                             </div>
-                            <span class="chart-tag blue">Curva Polinomial</span>
+                            <div class="chart-header-actions">
+                                <span class="chart-tag blue" id="tagRepCurve">Curva</span>
+                                <button class="chart-btn-tool" onclick="eduModules.openChartCustomizer('rep_curve', 'Curva de Frequência & Notas')">⚙ Customizar</button>
+                                <button class="chart-btn-tool" onclick="eduModules.toggleChartFullscreen('repCard2')">⤢</button>
+                            </div>
                         </div>
-                        <div class="chartbox tall"><canvas id="reportCurveTrendChart"></canvas></div>
+                        <div class="chartbox tall" id="repBoxCurve">
+                            <div id="repApexCurve" class="apex-chart-container"></div>
+                            <canvas id="reportCurveTrendChart"></canvas>
+                        </div>
                     </div>
                 </div>
 
                 <div class="grid2" style="margin-top:20px">
-                    <div class="card chart-card">
+                    <div class="card chart-card" id="repCard3">
                         <div class="sectionhead">
                             <div>
-                                <h3>Matriz de Competências (Apto / Em Desenv. / Risco)</h3>
-                                <small>Segmentação por faixas avaliativas institucionais</small>
+                                <span class="drag-handle" title="Arrastar para reordenar">⋮⋮</span>
+                                <h3 style="display:inline-block;margin-left:6px;">Matriz de Competências (Apto / Em Desenv. / Risco)</h3>
+                                <small style="display:block;">Segmentação por faixas avaliativas institucionais</small>
                             </div>
-                            <span class="chart-tag blue">Categorização SENAI</span>
+                            <div class="chart-header-actions">
+                                <span class="chart-tag blue" id="tagRepMatrix">Categorização</span>
+                                <button class="chart-btn-tool" onclick="eduModules.openChartCustomizer('rep_matrix', 'Matriz de Competências')">⚙ Customizar</button>
+                                <button class="chart-btn-tool" onclick="eduModules.toggleChartFullscreen('repCard3')">⤢</button>
+                            </div>
                         </div>
-                        <div class="chartbox tall"><canvas id="reportSenaiMatrixChart"></canvas></div>
+                        <div class="chartbox tall" id="repBoxMatrix">
+                            <div id="repApexMatrix" class="apex-chart-container"></div>
+                            <canvas id="reportSenaiMatrixChart"></canvas>
+                        </div>
                     </div>
-                    <div class="card chart-card">
+                    <div class="card chart-card" id="repCard4">
                         <div class="sectionhead">
                             <div>
-                                <h3>Relação Desempenho x Turma</h3>
-                                <small>Dispersão com tamanho de bolha representativo da turma</small>
+                                <span class="drag-handle" title="Arrastar para reordenar">⋮⋮</span>
+                                <h3 style="display:inline-block;margin-left:6px;">Relação Desempenho x Turma</h3>
+                                <small style="display:block;">Dispersão com tamanho de bolha representativo da turma</small>
                             </div>
-                            <span class="chart-tag purple">Dispersão BI</span>
+                            <div class="chart-header-actions">
+                                <span class="chart-tag purple" id="tagRepClasses">Dispersão BI</span>
+                                <button class="chart-btn-tool" onclick="eduModules.openChartCustomizer('rep_classes', 'Desempenho x Turma')">⚙ Customizar</button>
+                                <button class="chart-btn-tool" onclick="eduModules.toggleChartFullscreen('repCard4')">⤢</button>
+                            </div>
                         </div>
-                        <div class="chartbox tall"><canvas id="reportScatterChart"></canvas></div>
+                        <div class="chartbox tall" id="repBoxClasses">
+                            <div id="repApexClasses" class="apex-chart-container"></div>
+                            <canvas id="reportScatterChart"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1524,6 +1568,7 @@
 
             <!-- Alunos -->
             <div id="students" class="page hidden">
+                <div id="studentsSmartFilterBar"></div>
                 <div id="studentSpotlightSection"></div>
                 <div class="sectionhead">
                     <div>
@@ -1814,6 +1859,7 @@
         let db = null;
         let currentUser = null;
         let currentPage = 'dashboard';
+        window.currentPage = currentPage;
 
         const meta = {
             dashboard: ['Dashboard Executivo', 'Visão geral da instituição e cruzamento de indicadores'],
@@ -2652,16 +2698,28 @@
             const activeInclusion = filteredStudents.filter(s => s.status === 'ATIVO' && !!inclusionMap[s.id]).length;
             const inactive = filteredStudents.filter(s => s.status === 'INATIVO').length;
 
-            drawDonutChart(
-                document.getElementById('dashStatusDonutChart'),
-                [
-                    { label: 'Ativos Regulares', value: activeRegular, color1: '#005594', color2: '#2563eb' },
-                    { label: 'Ativos (PCD / NAI)', value: activeInclusion, color1: '#7c3aed', color2: '#9333ea' },
-                    { label: 'Inativos', value: inactive, color1: '#ef4444', color2: '#dc2626' }
-                ],
-                `${activeCount}`,
-                'DISCENTES ATIVOS'
-            );
+            const dashDonutData = [
+                { label: 'Ativos Regulares', value: activeRegular, color1: '#005594', color2: '#2563eb' },
+                { label: 'Ativos (PCD / NAI)', value: activeInclusion, color1: '#7c3aed', color2: '#9333ea' },
+                { label: 'Inativos', value: inactive, color1: '#ef4444', color2: '#dc2626' }
+            ];
+
+            if (window.eduModules && window.eduModules.renderAdaptiveChart) {
+                window.eduModules.renderAdaptiveChart({
+                    boxId: 'dashBoxStatus',
+                    apexDivId: 'dashApexStatus',
+                    canvasId: 'dashStatusDonutChart',
+                    configKey: 'dash_status',
+                    title: 'Proporção de Alunos & Inclusão',
+                    defaultType: 'donut',
+                    donutData: dashDonutData,
+                    categories: dashDonutData.map(d => d.label),
+                    seriesData: dashDonutData.map(d => d.value),
+                    canvasFallbackFn: () => drawDonutChart(document.getElementById('dashStatusDonutChart'), dashDonutData, `${activeCount}`, 'DISCENTES ATIVOS')
+                });
+            } else {
+                drawDonutChart(document.getElementById('dashStatusDonutChart'), dashDonutData, `${activeCount}`, 'DISCENTES ATIVOS');
+            }
 
             // Gráfico 2: Desempenho por Unidade
             const unitRows = units.map(u => {
@@ -2675,22 +2733,54 @@
                 };
             }).sort((a, b) => b.value - a.value);
 
-            drawRankedBars(document.getElementById('dashUnitRankChart'), unitRows, 10, 7.0);
+            if (window.eduModules && window.eduModules.renderAdaptiveChart) {
+                window.eduModules.renderAdaptiveChart({
+                    boxId: 'dashBoxUnits',
+                    apexDivId: 'dashApexUnits',
+                    canvasId: 'dashUnitRankChart',
+                    tagId: 'tagDashUnits',
+                    configKey: 'dash_units',
+                    title: 'Média por Unidade',
+                    defaultType: 'bar',
+                    defaultBenchmark: 7.0,
+                    categories: unitRows.map(u => u.label),
+                    seriesData: unitRows.map(u => Number(u.value.toFixed(1))),
+                    unitLabel: 'pts',
+                    canvasFallbackFn: () => drawRankedBars(document.getElementById('dashUnitRankChart'), unitRows, 10, 7.0)
+                });
+            } else {
+                drawRankedBars(document.getElementById('dashUnitRankChart'), unitRows, 10, 7.0);
+            }
 
             // Gráfico 3: Distribuição Bezier
             const bVals = filteredGrades.map(g => Number(g.value)).filter(Number.isFinite);
             const bins = [0, 0, 0, 0, 0];
             bVals.forEach(v => bins[Math.min(4, Math.floor(v / 2))]++);
-            drawBezierDistribution(
-                document.getElementById('dashBezierDistChart'),
-                [
-                    { label: '0–1,9 (Crítico)', value: bins[0] },
-                    { label: '2–3,9 (Risco)', value: bins[1] },
-                    { label: '4–5,9 (Recup.)', value: bins[2] },
-                    { label: '6–7,9 (Em Desenv.)', value: bins[3] },
-                    { label: '8–10 (Apto)', value: bins[4] }
-                ]
-            );
+            const bezierCats = ['0–1,9 (Crítico)', '2–3,9 (Risco)', '4–5,9 (Recup.)', '6–7,9 (Em Desenv.)', '8–10 (Apto)'];
+
+            if (window.eduModules && window.eduModules.renderAdaptiveChart) {
+                window.eduModules.renderAdaptiveChart({
+                    boxId: 'dashBoxBezier',
+                    apexDivId: 'dashApexBezier',
+                    canvasId: 'dashBezierDistChart',
+                    tagId: 'tagDashBezier',
+                    configKey: 'dash_bezier',
+                    title: 'Distribuição de Rendimento',
+                    defaultType: 'area',
+                    categories: bezierCats,
+                    seriesData: bins,
+                    unitLabel: 'avaliações',
+                    canvasFallbackFn: () => drawBezierDistribution(
+                        document.getElementById('dashBezierDistChart'),
+                        bezierCats.map((cat, idx) => ({ label: cat, value: bins[idx] }))
+                    )
+                });
+            } else {
+                drawBezierDistribution(
+                    document.getElementById('dashBezierDistChart'),
+                    bezierCats.map((cat, idx) => ({ label: cat, value: bins[idx] }))
+                );
+            }
 
             // Gráfico 4: Dispersão por Turma
             const classItems = classes.map(cl => {
@@ -2705,7 +2795,24 @@
                 };
             }).filter(c => c.studentCount > 0);
 
-            drawScatterClassChart(document.getElementById('dashScatterClassChart'), classItems);
+            if (window.eduModules && window.eduModules.renderAdaptiveChart) {
+                window.eduModules.renderAdaptiveChart({
+                    boxId: 'dashBoxScatter',
+                    apexDivId: 'dashApexScatter',
+                    canvasId: 'dashScatterClassChart',
+                    tagId: 'tagDashScatter',
+                    configKey: 'dash_scatter',
+                    title: 'Média da Turma',
+                    defaultType: 'bar',
+                    defaultBenchmark: 7.0,
+                    categories: classItems.map(c => c.name),
+                    seriesData: classItems.map(c => Number(c.avgGrade.toFixed(1))),
+                    unitLabel: 'pts',
+                    canvasFallbackFn: () => drawScatterClassChart(document.getElementById('dashScatterClassChart'), classItems)
+                });
+            } else {
+                drawScatterClassChart(document.getElementById('dashScatterClassChart'), classItems);
+            }
         }
 
         /* ==================== CONTROLADOR DE INDICADORES (RELATÓRIOS BI) ==================== */
@@ -2815,34 +2922,79 @@
                 value: v.reduce((a, b) => a + b, 0) / v.length
             })).sort((a, b) => b.value - a.value);
 
-            drawRankedBars(document.getElementById('reportSubjectRankChart'), subjRows, 10, 7.0);
+            if (window.eduModules && window.eduModules.renderAdaptiveChart) {
+                window.eduModules.renderAdaptiveChart({
+                    boxId: 'repBoxSubjects',
+                    apexDivId: 'repApexSubjects',
+                    canvasId: 'reportSubjectRankChart',
+                    tagId: 'tagRepSubjects',
+                    configKey: 'rep_subjects',
+                    title: 'Média Curricular',
+                    defaultType: 'bar',
+                    defaultBenchmark: 7.0,
+                    categories: subjRows.map(s => s.label),
+                    seriesData: subjRows.map(s => Number(s.value.toFixed(1))),
+                    unitLabel: 'pts',
+                    canvasFallbackFn: () => drawRankedBars(document.getElementById('reportSubjectRankChart'), subjRows, 10, 7.0)
+                });
+            } else {
+                drawRankedBars(document.getElementById('reportSubjectRankChart'), subjRows, 10, 7.0);
+            }
 
             // Gráfico 2: Curva de Frequência e Notas Lançadas
             const bVals = filteredGrades.map(g => Number(g.value)).filter(Number.isFinite);
             const bins = [0, 0, 0, 0, 0];
             bVals.forEach(v => bins[Math.min(4, Math.floor(v / 2))]++);
-            drawBezierDistribution(
-                document.getElementById('reportCurveTrendChart'),
-                [
-                    { label: '0–1,9', value: bins[0] },
-                    { label: '2–3,9', value: bins[1] },
-                    { label: '4–5,9', value: bins[2] },
-                    { label: '6–7,9', value: bins[3] },
-                    { label: '8–10', value: bins[4] }
-                ]
-            );
+            const curveCats = ['0–1,9', '2–3,9', '4–5,9', '6–7,9', '8–10'];
+
+            if (window.eduModules && window.eduModules.renderAdaptiveChart) {
+                window.eduModules.renderAdaptiveChart({
+                    boxId: 'repBoxCurve',
+                    apexDivId: 'repApexCurve',
+                    canvasId: 'reportCurveTrendChart',
+                    tagId: 'tagRepCurve',
+                    configKey: 'rep_curve',
+                    title: 'Distribuição Avaliativa',
+                    defaultType: 'line',
+                    categories: curveCats,
+                    seriesData: bins,
+                    unitLabel: 'notas',
+                    canvasFallbackFn: () => drawBezierDistribution(
+                        document.getElementById('reportCurveTrendChart'),
+                        curveCats.map((cat, idx) => ({ label: cat, value: bins[idx] }))
+                    )
+                });
+            } else {
+                drawBezierDistribution(
+                    document.getElementById('reportCurveTrendChart'),
+                    curveCats.map((cat, idx) => ({ label: cat, value: bins[idx] }))
+                );
+            }
 
             // Gráfico 3: Matriz de Competências Donut
-            drawDonutChart(
-                document.getElementById('reportSenaiMatrixChart'),
-                [
-                    { label: 'Apto (>= 8.0)', value: aptoCount, color1: '#10b981', color2: '#059669' },
-                    { label: 'Em Desenv. (6.0–7.9)', value: desenvCount, color1: '#f59e0b', color2: '#d97706' },
-                    { label: 'Risco Pedagógico (< 6.0)', value: riscoCount, color1: '#ef4444', color2: '#dc2626' }
-                ],
-                `${filteredGrades.length}`,
-                'AVALIAÇÕES'
-            );
+            const repDonutData = [
+                { label: 'Apto (>= 8.0)', value: aptoCount, color1: '#10b981', color2: '#059669' },
+                { label: 'Em Desenv. (6.0–7.9)', value: desenvCount, color1: '#f59e0b', color2: '#d97706' },
+                { label: 'Risco Pedagógico (< 6.0)', value: riscoCount, color1: '#ef4444', color2: '#dc2626' }
+            ];
+
+            if (window.eduModules && window.eduModules.renderAdaptiveChart) {
+                window.eduModules.renderAdaptiveChart({
+                    boxId: 'repBoxMatrix',
+                    apexDivId: 'repApexMatrix',
+                    canvasId: 'reportSenaiMatrixChart',
+                    tagId: 'tagRepMatrix',
+                    configKey: 'rep_matrix',
+                    title: 'Matriz de Competências',
+                    defaultType: 'donut',
+                    donutData: repDonutData,
+                    categories: repDonutData.map(d => d.label),
+                    seriesData: repDonutData.map(d => d.value),
+                    canvasFallbackFn: () => drawDonutChart(document.getElementById('reportSenaiMatrixChart'), repDonutData, `${filteredGrades.length}`, 'AVALIAÇÕES')
+                });
+            } else {
+                drawDonutChart(document.getElementById('reportSenaiMatrixChart'), repDonutData, `${filteredGrades.length}`, 'AVALIAÇÕES');
+            }
 
             // Gráfico 4: Dispersão de Turmas
             const classItems = classes.map(cl => {
@@ -2857,7 +3009,24 @@
                 };
             }).filter(c => c.studentCount > 0);
 
-            drawScatterClassChart(document.getElementById('reportScatterChart'), classItems);
+            if (window.eduModules && window.eduModules.renderAdaptiveChart) {
+                window.eduModules.renderAdaptiveChart({
+                    boxId: 'repBoxClasses',
+                    apexDivId: 'repApexClasses',
+                    canvasId: 'reportScatterChart',
+                    tagId: 'tagRepClasses',
+                    configKey: 'rep_classes',
+                    title: 'Desempenho por Turma',
+                    defaultType: 'bar',
+                    defaultBenchmark: 7.0,
+                    categories: classItems.map(c => c.name),
+                    seriesData: classItems.map(c => Number(c.avgGrade.toFixed(1))),
+                    unitLabel: 'pts',
+                    canvasFallbackFn: () => drawScatterClassChart(document.getElementById('reportScatterChart'), classItems)
+                });
+            } else {
+                drawScatterClassChart(document.getElementById('reportScatterChart'), classItems);
+            }
         }
 
         /* ==================== MÓDULO DE NECESSIDADES ESPECIAIS & INCLUSÃO (NAI) ==================== */
@@ -3164,8 +3333,11 @@
 
         /* ==================== CONTROLADORES ACADÊMICOS PADRÃO ==================== */
         async function renderStudents() {
-            const [sList, cList, uList, clList, incList] = await Promise.all([
-                all('students'), all('courses'), all('units'), all('classes'), all('inclusion')
+            if (window.eduModules && window.eduModules.renderSmartFilterBar) {
+                await window.eduModules.renderSmartFilterBar('studentsSmartFilterBar');
+            }
+            const [sList, cList, uList, clList, incList, grades] = await Promise.all([
+                all('students'), all('courses'), all('units'), all('classes'), all('inclusion'), all('grades')
             ]);
             const search = (document.getElementById('studentSearch')?.value || '').toLowerCase();
             const filter = document.getElementById('studentFilter')?.value || '';
@@ -3175,7 +3347,12 @@
             const um = Object.fromEntries(uList.map(x => [x.id, x.name]));
             const clm = Object.fromEntries(clList.map(x => [x.id, x.name]));
 
-            const filtered = sList.filter(x => {
+            let smartList = sList;
+            if (window.eduModules && window.eduModules.applySmartFilters) {
+                smartList = window.eduModules.applySmartFilters(sList, incMap, grades);
+            }
+
+            const filtered = smartList.filter(x => {
                 const matchSearch = !search || x.name.toLowerCase().includes(search) || (x.registration || '').includes(search);
                 const matchFilter = !filter || x.status === filter;
                 return matchSearch && matchFilter;
@@ -3891,6 +4068,7 @@
 
         async function showPage(p) {
             currentPage = p;
+            window.currentPage = p;
             if (window.location.hash !== '#' + p) {
                 try { history.replaceState(null, null, '#' + p); } catch (e) {}
             }
@@ -3928,6 +4106,17 @@
                 await pageControllers[p]();
             }
         }
+
+        // Exposição global para reatividade total entre módulos
+        window.renderDashboard = renderDashboard;
+        window.renderReports = renderReports;
+        window.renderStudents = renderStudents;
+        window.showPage = showPage;
+        window.all = all;
+        window.db = db;
+        window.esc = esc;
+        window.modal = modal;
+        window.closeModal = closeModal;
 
         function closeModal() {
             document.getElementById('modal').classList.remove('show');

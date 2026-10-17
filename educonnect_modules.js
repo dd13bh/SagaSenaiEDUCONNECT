@@ -476,88 +476,276 @@
     }
 
     function triggerViewRefresh() {
-        if (window.currentPage === 'dashboard' && window.renderDashboard) window.renderDashboard();
-        if (window.currentPage === 'reports' && window.renderReports) window.renderReports();
-        if (window.currentPage === 'students' && window.renderStudents) window.renderStudents();
-        if (window.currentPage === 'alarms' && eduModules.renderAlarmsPage) eduModules.renderAlarmsPage();
-        if (window.currentPage === 'datascience' && eduModules.renderDataSciencePage) eduModules.renderDataSciencePage();
+        const page = window.currentPage || (window.location.hash ? window.location.hash.replace('#', '') : 'dashboard');
+        window.currentPage = page;
+
+        // Atualizar barra de filtros inteligentes se presente no DOM atual
+        if (page === 'dashboard' && document.getElementById('dashboardSmartFilterBar')) {
+            renderSmartFilterBar('dashboardSmartFilterBar');
+        } else if (page === 'reports' && document.getElementById('reportsSmartFilterBar')) {
+            renderSmartFilterBar('reportsSmartFilterBar');
+        } else if (page === 'students' && document.getElementById('studentsSmartFilterBar')) {
+            renderSmartFilterBar('studentsSmartFilterBar');
+        }
+
+        // Re-executar controladores reativos da visão ativa
+        if (page === 'dashboard' && window.renderDashboard) {
+            window.renderDashboard();
+        } else if (page === 'reports' && window.renderReports) {
+            window.renderReports();
+        } else if (page === 'students' && window.renderStudents) {
+            window.renderStudents();
+        } else if (page === 'alarms' && eduModules.renderAlarmsPage) {
+            eduModules.renderAlarmsPage();
+        } else if (page === 'datascience' && eduModules.renderDataSciencePage) {
+            eduModules.renderDataSciencePage();
+        }
     }
 
     /* ==========================================================================
        3. MÓDULO DE APEXCHARTS DINÂMICO & CUSTOMIZADOR DE CARDS
        ========================================================================== */
-    function renderCustomizableApexChart(elementId, configKey, baseConfig) {
-        const el = document.getElementById(elementId);
-        if (!el) return;
+    function renderAdaptiveChart(options) {
+        const {
+            boxId,
+            apexDivId,
+            canvasId,
+            tagId,
+            configKey,
+            title = 'Indicador',
+            defaultType = 'bar',
+            defaultPalette = 'senai',
+            defaultBenchmark = 7.0,
+            categories = [],
+            seriesData = [],
+            donutData = [],
+            unitLabel = 'pts',
+            canvasFallbackFn = null
+        } = options;
 
-        // Recuperar customização salva pelo usuário
-        const saved = chartCustomConfigs[configKey] || {};
-        const chartType = saved.type || baseConfig.chart?.type || 'bar';
-        const colorPalette = saved.palette || 'senai';
-        const benchmarkRule = saved.benchmark !== undefined ? saved.benchmark : 7.0;
-        const showBenchmark = saved.showBenchmark !== undefined ? saved.showBenchmark : true;
-        const showGroupAvg = saved.showGroupAvg !== undefined ? saved.showGroupAvg : false;
+        const boxEl = document.getElementById(boxId);
+        const apexEl = document.getElementById(apexDivId);
+        const tagEl = tagId ? document.getElementById(tagId) : null;
 
-        // Paletas
-        const palettes = {
-            senai: ['#005594', '#f59e0b', '#10b981', '#ef4444', '#7c3aed', '#06b6d4'],
-            cyber: ['#6366f1', '#a855f7', '#ec4899', '#3b82f6', '#14b8a6'],
-            emerald: ['#059669', '#10b981', '#34d399', '#6ee7b7', '#047857'],
-            alert: ['#ef4444', '#f59e0b', '#eab308', '#3b82f6', '#10b981']
-        };
-
-        const chosenColors = palettes[colorPalette] || palettes.senai;
-
-        // Se ApexCharts não estiver disponível (offline/fallback), desenhar com Canvas
-        if (!window.ApexCharts) {
-            console.warn('ApexCharts library not loaded, using fallback.');
+        if (!boxEl || !apexEl) {
+            if (canvasFallbackFn) canvasFallbackFn();
             return;
         }
 
-        // Anotações de Réguas e Metas SENAI
-        const annotations = { yaxis: [] };
-        if (showBenchmark && (chartType === 'bar' || chartType === 'line' || chartType === 'area')) {
-            annotations.yaxis.push({
-                y: benchmarkRule,
-                borderColor: '#10b981',
-                strokeDashArray: 4,
-                borderWidth: 2,
-                label: {
-                    borderColor: '#10b981',
-                    style: { color: '#fff', background: '#10b981', fontWeight: 700, fontSize: '11px' },
-                    text: `Meta SENAI: ${benchmarkRule.toFixed(1)}`
-                }
-            });
+        // Configurações salvas da personalização (sempre sincronizadas com storage)
+        const storedConfigs = JSON.parse(localStorage.getItem('edu_chart_custom_configs') || '{}');
+        Object.assign(chartCustomConfigs, storedConfigs);
+        const saved = storedConfigs[configKey] || chartCustomConfigs[configKey] || {};
+        const chartType = saved.type || defaultType;
+        const colorPalette = saved.palette || defaultPalette;
+        const benchmarkRule = saved.benchmark !== undefined ? Number(saved.benchmark) : defaultBenchmark;
+        const showBenchmark = saved.showBenchmark !== undefined ? saved.showBenchmark : true;
+
+        // Paletas dinâmicas ricas
+        const palettes = {
+            senai: ['#005594', '#2563eb', '#f59e0b', '#10b981', '#7c3aed', '#06b6d4'],
+            cyber: ['#6366f1', '#a855f7', '#ec4899', '#3b82f6', '#14b8a6', '#f43f5e'],
+            emerald: ['#059669', '#10b981', '#34d399', '#6ee7b7', '#047857', '#0f766e'],
+            alert: ['#ef4444', '#f59e0b', '#eab308', '#3b82f6', '#10b981', '#8b5cf6']
+        };
+        const chosenColors = palettes[colorPalette] || palettes.senai;
+
+        // Atualizar etiqueta/tag indicativa no cabeçalho do card
+        if (tagEl) {
+            if (chartType === 'donut') {
+                tagEl.textContent = 'Rosca Proporcional';
+                tagEl.className = 'chart-tag purple';
+            } else if (chartType === 'radar') {
+                tagEl.textContent = 'Radar Multidimensional';
+                tagEl.className = 'chart-tag blue';
+            } else if (chartType === 'line') {
+                tagEl.textContent = showBenchmark ? `Curva · Meta ${benchmarkRule.toFixed(1)}` : 'Curva Spline';
+                tagEl.className = 'chart-tag blue';
+            } else if (chartType === 'area') {
+                tagEl.textContent = showBenchmark ? `Área · Meta ${benchmarkRule.toFixed(1)}` : 'Área Gradiente';
+                tagEl.className = 'chart-tag blue';
+            } else {
+                tagEl.textContent = showBenchmark ? `Meta: ${benchmarkRule.toFixed(1)}` : `Barras (${colorPalette.toUpperCase()})`;
+                tagEl.className = showBenchmark ? 'chart-tag amber' : 'chart-tag blue';
+            }
         }
 
-        const finalConfig = {
-            ...baseConfig,
-            chart: {
-                ...baseConfig.chart,
-                type: chartType,
-                animations: { enabled: true, easing: 'easeinout', speed: 450 },
-                toolbar: { show: false },
-                background: 'transparent'
-            },
-            colors: chosenColors,
-            annotations: annotations,
-            theme: {
-                mode: accState.theme.includes('dark') ? 'dark' : 'light'
-            }
-        };
-
-        if (chartInstances[elementId]) {
-            chartInstances[elementId].destroy();
+        // Se ApexCharts não estiver disponível, usar canvas fallback
+        if (!window.ApexCharts) {
+            boxEl.classList.remove('has-apex');
+            if (canvasFallbackFn) canvasFallbackFn();
+            return;
         }
 
         try {
-            el.innerHTML = '';
-            const chart = new ApexCharts(el, finalConfig);
+            boxEl.classList.add('has-apex');
+
+            if (chartInstances[apexDivId]) {
+                try { chartInstances[apexDivId].destroy(); } catch (e) {}
+                delete chartInstances[apexDivId];
+            }
+            apexEl.innerHTML = '';
+
+            const isDark = (document.documentElement.getAttribute('data-theme') || '').includes('dark');
+            let finalConfig = {};
+
+            if (chartType === 'donut') {
+                const labels = donutData.length ? donutData.map(d => d.label) : categories;
+                const vals = donutData.length ? donutData.map(d => Number(d.value) || 0) : seriesData.map(v => Number(v) || 0);
+
+                finalConfig = {
+                    chart: {
+                        type: 'donut',
+                        height: 270,
+                        animations: { enabled: true, easing: 'easeinout', speed: 380 },
+                        background: 'transparent'
+                    },
+                    series: vals,
+                    labels: labels,
+                    colors: chosenColors,
+                    stroke: { width: 2, colors: [isDark ? '#1e293b' : '#ffffff'] },
+                    legend: {
+                        position: 'bottom',
+                        labels: { colors: isDark ? '#cbd5e1' : '#475569' }
+                    },
+                    dataLabels: {
+                        enabled: true,
+                        formatter: val => val.toFixed(1) + '%'
+                    },
+                    plotOptions: {
+                        pie: {
+                            donut: {
+                                size: '65%',
+                                labels: {
+                                    show: true,
+                                    name: { color: isDark ? '#f8fafc' : '#0f172a' },
+                                    value: {
+                                        color: isDark ? '#f8fafc' : '#0f172a',
+                                        formatter: val => Number(val).toLocaleString('pt-BR')
+                                    },
+                                    total: {
+                                        show: true,
+                                        label: 'Total',
+                                        color: isDark ? '#94a3b8' : '#64748b',
+                                        formatter: w => w.globals.seriesTotals.reduce((a, b) => a + b, 0).toLocaleString('pt-BR')
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    tooltip: { theme: isDark ? 'dark' : 'light' }
+                };
+            } else if (chartType === 'radar') {
+                finalConfig = {
+                    chart: {
+                        type: 'radar',
+                        height: 270,
+                        animations: { enabled: true, easing: 'easeinout', speed: 380 },
+                        background: 'transparent'
+                    },
+                    series: [{ name: title, data: seriesData }],
+                    xaxis: {
+                        categories: categories,
+                        labels: {
+                            style: { colors: categories.map(() => isDark ? '#94a3b8' : '#64748b') }
+                        }
+                    },
+                    colors: [chosenColors[0] || '#005594'],
+                    markers: { size: 4 },
+                    tooltip: { theme: isDark ? 'dark' : 'light' }
+                };
+            } else {
+                // bar, line, area
+                const annotations = { yaxis: [] };
+                if (showBenchmark && benchmarkRule > 0) {
+                    annotations.yaxis.push({
+                        y: benchmarkRule,
+                        borderColor: '#10b981',
+                        strokeDashArray: 4,
+                        borderWidth: 2,
+                        label: {
+                            borderColor: '#10b981',
+                            style: { color: '#fff', background: '#10b981', fontWeight: 700, fontSize: '11px' },
+                            text: `Meta SENAI: ${benchmarkRule.toFixed(1)}`
+                        }
+                    });
+                }
+
+                finalConfig = {
+                    chart: {
+                        type: chartType,
+                        height: 270,
+                        animations: { enabled: true, easing: 'easeinout', speed: 380 },
+                        toolbar: { show: false },
+                        background: 'transparent'
+                    },
+                    series: [{
+                        name: title,
+                        data: seriesData
+                    }],
+                    xaxis: {
+                        categories: categories,
+                        labels: {
+                            rotate: -20,
+                            rotateAlways: categories.length > 5,
+                            style: { colors: isDark ? '#94a3b8' : '#64748b', fontSize: '11px' }
+                        }
+                    },
+                    yaxis: {
+                        labels: {
+                            style: { colors: isDark ? '#94a3b8' : '#64748b' },
+                            formatter: val => typeof val === 'number' ? val.toFixed(1) : val
+                        }
+                    },
+                    colors: chosenColors,
+                    stroke: {
+                        curve: 'smooth',
+                        width: chartType === 'bar' ? 0 : 3
+                    },
+                    plotOptions: {
+                        bar: {
+                            borderRadius: 6,
+                            columnWidth: '55%',
+                            distributed: chosenColors.length > 1 && chartType === 'bar'
+                        }
+                    },
+                    dataLabels: {
+                        enabled: chartType === 'bar' && categories.length <= 8,
+                        style: { fontSize: '10px' }
+                    },
+                    annotations: annotations,
+                    grid: {
+                        borderColor: isDark ? '#334155' : '#f1f5f9',
+                        strokeDashArray: 4
+                    },
+                    tooltip: {
+                        theme: isDark ? 'dark' : 'light',
+                        y: {
+                            formatter: val => `${val} ${unitLabel}`
+                        }
+                    }
+                };
+            }
+
+            const chart = new ApexCharts(apexEl, finalConfig);
             chart.render();
-            chartInstances[elementId] = chart;
-        } catch (e) {
-            console.error('Error rendering ApexChart:', e);
+            chartInstances[apexDivId] = chart;
+
+        } catch (err) {
+            console.warn('Erro ao renderizar ApexChart, fallback para canvas:', err);
+            boxEl.classList.remove('has-apex');
+            if (canvasFallbackFn) canvasFallbackFn();
         }
+    }
+
+    function renderCustomizableApexChart(elementId, configKey, baseConfig) {
+        renderAdaptiveChart({
+            boxId: elementId,
+            apexDivId: elementId,
+            canvasId: '',
+            configKey: configKey,
+            ...baseConfig
+        });
     }
 
     function openChartCustomizer(configKey, title) {
@@ -1773,8 +1961,10 @@ Retorne APENAS um JSON puro no formato:
         removeFilterChip,
         clearAllFilters,
         applySmartFilters,
+        triggerViewRefresh,
 
         // ApexCharts & Cards
+        renderAdaptiveChart,
         renderCustomizableApexChart,
         openChartCustomizer,
         toggleChartFullscreen,

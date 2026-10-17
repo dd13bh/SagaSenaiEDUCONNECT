@@ -679,3 +679,36 @@ html {
     font-size: 12px;
     font-weight: 700;
 }
+
+/* ===== 9. APEXCHARTS DINÂMICO & CUSTOMIZAÇÃO DE CARDS ===== */
+.apex-chart-container {
+    width: 100%;
+    min-height: 250px;
+    display: none;
+}
+.chartbox.has-apex .apex-chart-container {
+    display: block !important;
+}
+.chartbox.has-apex canvas {
+    display: none !important;
+}
+.chart-fullscreen-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(6px);
+    z-index: 9999;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.chart-fullscreen-modal .chart-card {
+    width: min(1200px, 95vw);
+    max-height: 90vh;
+    overflow-y: auto;
+    background: var(--card);
+}

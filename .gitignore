@@ -8,4 +8,5 @@ package-lock.json
 *.log
 educonnect-backup-completo-*.json
 temp_edge_cdp_profile/
+temp_edge_cdp_profile*/
 test_profile/
