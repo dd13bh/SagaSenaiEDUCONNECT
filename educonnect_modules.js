@@ -188,6 +188,14 @@
                 </div>
 
                 <div>
+                    <b style="font-size:13px;color:var(--text);display:block;margin-bottom:8px;">Efeito Visual de Fundo:</b>
+                    <label style="display:flex;align-items:center;gap:10px;cursor:pointer;">
+                        <input type="checkbox" ${document.body.classList.contains('dynamic-gradient-bg') ? 'checked' : ''} onchange="eduModules.toggleDynamicBg()">
+                        <span>Fundo com variação contínua em degradê dinâmico (tons claros a médios escuros)</span>
+                    </label>
+                </div>
+
+                <div>
                     <b style="font-size:13px;color:var(--text);display:block;margin-bottom:8px;">Atalhos Úteis de Teclado:</b>
                     <div style="font-size:12px;color:var(--muted);background:var(--bg);padding:10px;border-radius:8px;line-height:1.6;">
                         <code>Alt + 1</code>: Dashboard Executivo<br>
@@ -249,11 +257,11 @@
             <div class="smart-filter-bar">
                 <div class="smart-filter-left">
                     <span class="filter-badge-pill">⚡ Filtros Cruzados</span>
-                    <div class="filter-chips-container" id="filterChipsRow">${chipsHtml}</div>
-                    <button class="btn-add-filter" id="btnAddFilterBtn" onclick="eduModules.toggleFilterPopover(event)">
+                    <div class="filter-chips-container">${chipsHtml}</div>
+                    <button class="btn-add-filter" onclick="eduModules.toggleFilterPopover(event)" title="Adicionar novos filtros dinâmicos cruzados">
                         <span>+</span> Adicionar Filtro
                     </button>
-                    ${keys.length ? '<button class="filter-reset-btn" style="height:32px;padding:4px 10px;font-size:11px;" onclick="eduModules.clearAllFilters()">↺ Limpar Todos</button>' : ''}
+                    ${keys.length ? '<button class="filter-reset-btn" style="height:32px;padding:4px 10px;font-size:11px;" onclick="eduModules.clearAllFilters()" title="Remover todos os filtros aplicados">↺ Limpar Todos</button>' : ''}
                 </div>
                 <div class="smart-filter-right">
                     <div class="filter-summary-badge" style="display:inline-flex;">
@@ -264,60 +272,55 @@
                     </div>
                 </div>
             </div>
+        `;
+    }
 
-            <!-- Popover Flutuante -->
-            <div class="filter-popover" id="filterPopover">
+    function ensureGlobalFilterPopover() {
+        let popover = document.getElementById('globalFilterPopover');
+        if (!popover) {
+            popover = document.createElement('div');
+            popover.id = 'globalFilterPopover';
+            popover.className = 'filter-popover';
+            popover.innerHTML = `
                 <div class="filter-popover-header">
                     <b id="filterPopoverTitle">Adicionar Novo Filtro</b>
                     <button class="close" onclick="eduModules.closeFilterPopover()" style="font-size:16px;">×</button>
                 </div>
-                <div id="filterPopoverBody">
-                    <div class="filter-category-item" onclick="eduModules.showFilterOptions('unitId', 'Unidade Operacional')">
-                        <span>🏢 Unidade Operacional</span>
-                        <span>›</span>
-                    </div>
-                    <div class="filter-category-item" onclick="eduModules.showFilterOptions('courseId', 'Curso / Habilitação')">
-                        <span>📚 Curso / Habilitação</span>
-                        <span>›</span>
-                    </div>
-                    <div class="filter-category-item" onclick="eduModules.showFilterOptions('classId', 'Turma / Coorte')">
-                        <span>👥 Turma / Coorte</span>
-                        <span>›</span>
-                    </div>
-                    <div class="filter-category-item" onclick="eduModules.showFilterOptions('status', 'Status Cadastral')">
-                        <span>🎯 Status Cadastral (Ativo/Inativo)</span>
-                        <span>›</span>
-                    </div>
-                    <div class="filter-category-item" onclick="eduModules.showFilterOptions('inclusion', 'Inclusão & NAI (PCD/TDAH)')">
-                        <span>♿ Inclusão & NAI (PCD/TDAH)</span>
-                        <span>›</span>
-                    </div>
-                    <div class="filter-category-item" onclick="eduModules.showFilterOptions('gradeRange', 'Faixa de Rendimento SENAI')">
-                        <span>📊 Faixa de Rendimento (Notas)</span>
-                        <span>›</span>
-                    </div>
-                </div>
-            </div>
-        `;
+                <div id="filterPopoverBody"></div>
+            `;
+            document.body.appendChild(popover);
+            refreshFilterCategories();
+        }
+        return popover;
     }
 
     function toggleFilterPopover(e) {
-        e.stopPropagation();
-        const popover = document.getElementById('filterPopover');
-        if (!popover) return;
-        const btn = document.getElementById('btnAddFilterBtn');
+        if (e && e.stopPropagation) e.stopPropagation();
+        const popover = ensureGlobalFilterPopover();
+        const btn = (e && (e.currentTarget || (e.target && e.target.closest && e.target.closest('.btn-add-filter')))) || document.querySelector('.btn-add-filter');
+        if (!btn) return;
+
+        const isShown = popover.classList.contains('show');
+        if (isShown) {
+            popover.classList.remove('show');
+            return;
+        }
+
+        refreshFilterCategories();
         const rect = btn.getBoundingClientRect();
-        popover.style.top = `${rect.bottom + window.scrollY + 6}px`;
-        popover.style.left = `${rect.left + window.scrollX}px`;
-        popover.classList.toggle('show');
+        popover.style.top = `${Math.round(rect.bottom + window.scrollY + 6)}px`;
+        const idealLeft = rect.left + window.scrollX;
+        popover.style.left = `${Math.round(Math.max(10, Math.min(idealLeft, window.innerWidth - 340)))}px`;
+        popover.classList.add('show');
     }
 
     function closeFilterPopover() {
-        const popover = document.getElementById('filterPopover');
+        const popover = document.getElementById('globalFilterPopover');
         if (popover) popover.classList.remove('show');
     }
 
     async function showFilterOptions(key, label) {
+        ensureGlobalFilterPopover();
         const body = document.getElementById('filterPopoverBody');
         const title = document.getElementById('filterPopoverTitle');
         if (!body || !title) return;
@@ -366,17 +369,17 @@
             options = [
                 { id: 'APTO', text: 'Apto (Nota >= 8.0)', count: students.filter(s => {
                     const sg = grades.filter(g => g.studentId === s.id);
-                    const avg = sg.length ? sg.reduce((a,b)=>a+Number(b.value),0)/sg.length : 0;
+                    const avg = sg.length ? sg.reduce((a, b) => a + Number(b.value), 0) / sg.length : 0;
                     return avg >= 8.0;
                 }).length },
                 { id: 'DESENVOLVIMENTO', text: 'Em Desenvolvimento (6.0 a 7.9)', count: students.filter(s => {
                     const sg = grades.filter(g => g.studentId === s.id);
-                    const avg = sg.length ? sg.reduce((a,b)=>a+Number(b.value),0)/sg.length : 0;
+                    const avg = sg.length ? sg.reduce((a, b) => a + Number(b.value), 0) / sg.length : 0;
                     return avg >= 6.0 && avg < 8.0;
                 }).length },
                 { id: 'RISCO', text: 'Risco Pedagógico (Nota < 6.0)', count: students.filter(s => {
                     const sg = grades.filter(g => g.studentId === s.id);
-                    const avg = sg.length ? sg.reduce((a,b)=>a+Number(b.value),0)/sg.length : 0;
+                    const avg = sg.length ? sg.reduce((a, b) => a + Number(b.value), 0) / sg.length : 0;
                     return avg < 6.0 && sg.length > 0;
                 }).length }
             ];
@@ -395,6 +398,7 @@
     }
 
     function refreshFilterCategories() {
+        const popover = ensureGlobalFilterPopover();
         const title = document.getElementById('filterPopoverTitle');
         const body = document.getElementById('filterPopoverBody');
         if (title) title.textContent = 'Adicionar Novo Filtro';
@@ -479,27 +483,43 @@
         const page = window.currentPage || (window.location.hash ? window.location.hash.replace('#', '') : 'dashboard');
         window.currentPage = page;
 
-        // Atualizar barra de filtros inteligentes se presente no DOM atual
-        if (page === 'dashboard' && document.getElementById('dashboardSmartFilterBar')) {
-            renderSmartFilterBar('dashboardSmartFilterBar');
-        } else if (page === 'reports' && document.getElementById('reportsSmartFilterBar')) {
-            renderSmartFilterBar('reportsSmartFilterBar');
-        } else if (page === 'students' && document.getElementById('studentsSmartFilterBar')) {
-            renderSmartFilterBar('studentsSmartFilterBar');
-        }
+        // Atualizar barra de filtros inteligentes se presente no container da visão ativa
+        const barContainers = [
+            ['dashboard', 'dashboardSmartFilterBar'],
+            ['reports', 'reportsSmartFilterBar'],
+            ['students', 'studentsSmartFilterBar'],
+            ['teachers', 'teachersSmartFilterBar'],
+            ['courses', 'coursesSmartFilterBar'],
+            ['units', 'unitsSmartFilterBar'],
+            ['classes', 'classesSmartFilterBar'],
+            ['grades', 'gradesSmartFilterBar'],
+            ['special_needs', 'inclusionSmartFilterBar'],
+            ['alarms', 'alarmsSmartFilterBar'],
+            ['datascience', 'datascienceSmartFilterBar'],
+            ['users', 'usersSmartFilterBar']
+        ];
+        barContainers.forEach(([pg, cId]) => {
+            if (page === pg && document.getElementById(cId)) {
+                renderSmartFilterBar(cId);
+            }
+        });
 
         // Re-executar controladores reativos da visão ativa
-        if (page === 'dashboard' && window.renderDashboard) {
-            window.renderDashboard();
-        } else if (page === 'reports' && window.renderReports) {
-            window.renderReports();
-        } else if (page === 'students' && window.renderStudents) {
-            window.renderStudents();
-        } else if (page === 'alarms' && eduModules.renderAlarmsPage) {
-            eduModules.renderAlarmsPage();
-        } else if (page === 'datascience' && eduModules.renderDataSciencePage) {
-            eduModules.renderDataSciencePage();
-        }
+        if (page === 'dashboard' && window.renderDashboard) window.renderDashboard();
+        else if (page === 'reports' && window.renderReports) window.renderReports();
+        else if (page === 'students' && window.renderStudents) window.renderStudents();
+        else if (page === 'teachers' && window.renderTeachers) window.renderTeachers();
+        else if (page === 'courses' && window.renderCourses) window.renderCourses();
+        else if (page === 'units' && window.renderUnits) window.renderUnits();
+        else if (page === 'classes' && window.renderClasses) window.renderClasses();
+        else if (page === 'grades' && window.renderGrades) window.renderGrades();
+        else if (page === 'special_needs' && window.renderInclusion) window.renderInclusion();
+        else if (page === 'users' && window.renderUsers) window.renderUsers();
+        else if (page === 'alarms' && eduModules.renderAlarmsPage) eduModules.renderAlarmsPage();
+        else if (page === 'datascience' && eduModules.renderDataSciencePage) eduModules.renderDataSciencePage();
+
+        // Tornar tabelas reclassificáveis / ordenáveis
+        setTimeout(initSortableTables, 150);
     }
 
     /* ==========================================================================
@@ -841,7 +861,378 @@
             Object.values(chartInstances).forEach(c => {
                 try { if (c.resize) c.resize(); } catch (e) {}
             });
-        }, 150);
+        }, 120);
+    }
+
+    /* ==========================================================================
+       SIDEBAR RECOLHÍVEL, DEGRADÊ DINÂMICO, TOOLTIPS, GUIA & TABELAS ORDENÁVEIS
+       ========================================================================== */
+
+    function toggleSidebar() {
+        const isCollapsed = document.body.classList.toggle('sidebar-collapsed');
+        document.getElementById('app')?.classList.toggle('sidebar-collapsed', isCollapsed);
+        const btn = document.getElementById('sidebarToggleBtn');
+        if (btn) {
+            btn.textContent = isCollapsed ? '▶' : '◀';
+            btn.title = isCollapsed ? 'Expandir menu lateral' : 'Recolher menu lateral';
+        }
+        localStorage.setItem('edu_sidebar_collapsed', isCollapsed ? 'true' : 'false');
+        triggerChartResize();
+    }
+
+    function applySavedSidebarState() {
+        if (localStorage.getItem('edu_sidebar_collapsed') === 'true') {
+            document.body.classList.add('sidebar-collapsed');
+            document.getElementById('app')?.classList.add('sidebar-collapsed');
+            const btn = document.getElementById('sidebarToggleBtn');
+            if (btn) {
+                btn.textContent = '▶';
+                btn.title = 'Expandir menu lateral';
+            }
+        }
+    }
+
+    function toggleDynamicBg() {
+        const isActive = document.body.classList.toggle('dynamic-gradient-bg');
+        document.getElementById('app')?.classList.toggle('dynamic-gradient-bg', isActive);
+        localStorage.setItem('edu_dynamic_bg', isActive ? 'true' : 'false');
+
+        const btn = document.getElementById('btnDynamicBg');
+        if (btn) {
+            btn.classList.toggle('gradient-active', isActive);
+            btn.textContent = isActive ? '✨ Degradê Ativo' : '🌈 Degradê Dinâmico';
+        }
+
+        const chk = document.getElementById('accDynamicBgCheck');
+        if (chk) chk.checked = isActive;
+    }
+
+    function applySavedDynamicBg() {
+        const isDynamic = localStorage.getItem('edu_dynamic_bg') === 'true';
+        if (isDynamic) {
+            document.body.classList.add('dynamic-gradient-bg');
+            document.getElementById('app')?.classList.add('dynamic-gradient-bg');
+            const btn = document.getElementById('btnDynamicBg');
+            if (btn) {
+                btn.classList.add('gradient-active');
+                btn.textContent = '✨ Degradê Ativo';
+            }
+            const chk = document.getElementById('accDynamicBgCheck');
+            if (chk) chk.checked = true;
+        }
+    }
+
+    /* Sistema Universal de Tooltips Flutuantes */
+    function initUniversalTooltips() {
+        let tipEl = document.getElementById('eduFloatingTooltip');
+        if (!tipEl) {
+            tipEl = document.createElement('div');
+            tipEl.id = 'eduFloatingTooltip';
+            tipEl.className = 'edu-floating-tooltip';
+            document.body.appendChild(tipEl);
+        }
+
+        const hints = {
+            'btnAddFilterBtn': 'Adicionar novos filtros dinâmicos cruzados por Unidade, Curso ou Rendimento',
+            'btnDynamicBg': 'Habilitar ou desabilitar o fundo dinâmico em degradê suave',
+            'sidebarToggleBtn': 'Recolher ou expandir a barra lateral',
+            'btnGuideToggle': 'Abrir painel com guia e explicação pedagógica dos indicadores',
+            'accPlayBtn': 'Ouvir síntese por voz do resumo da tela',
+            'dashCard1': 'Proporção entre alunos ativos, inativos e alunos assistidos pelo Núcleo de Inclusão (NAI)',
+            'dashCard2': 'Média das notas de cada unidade operacional SENAI com linha de meta institucional',
+            'dashCard3': 'Distribuição da curva avaliativa nas 5 faixas pedagógicas',
+            'dashCard4': 'Dispersão de volume discente e médias por turma',
+            'repCard1': 'Média curricular ranqueada por disciplina e comparação com a meta SENAI',
+            'repCard2': 'Curva de densidade e frequência de notas lançadas',
+            'repCard3': 'Matriz de competências SENAI: Apto (>= 8), Em Desenvolvimento (6 a 7.9) e Risco (< 6)',
+            'repCard4': 'Dispersão e retenção acadêmica por turma e coorte'
+        };
+
+        document.addEventListener('mouseover', e => {
+            const el = e.target.closest('[data-tooltip], [title], .btn, .iconbtn, .chart-btn-tool, .navitem, .acc-btn, .kpi-card, .drag-handle, th.sortable-th');
+            if (!el) {
+                tipEl.classList.remove('show');
+                return;
+            }
+
+            if (el.title) {
+                el.setAttribute('data-tooltip', el.title);
+                el.removeAttribute('title');
+            }
+
+            let text = el.getAttribute('data-tooltip');
+            if (!text && el.id && hints[el.id]) text = hints[el.id];
+            else if (!text && el.classList.contains('chart-btn-tool')) {
+                text = el.textContent.includes('Customizar') ? 'Personalizar tipo de gráfico, paleta de cores e linha de meta' : 'Visualizar gráfico em tela cheia';
+            } else if (!text && el.classList.contains('btn-add-filter')) {
+                text = 'Adicionar filtro dinâmico cruzado';
+            } else if (!text && el.classList.contains('navitem')) {
+                const emText = el.querySelector('em')?.textContent.trim();
+                if (emText) text = `Navegar para seção ${emText}`;
+            }
+
+            if (!text) {
+                tipEl.classList.remove('show');
+                return;
+            }
+
+            tipEl.textContent = text;
+            const rect = el.getBoundingClientRect();
+            let top = rect.bottom + 8;
+            let left = rect.left + (rect.width / 2);
+
+            if (top + 45 > window.innerHeight) {
+                top = rect.top - 36;
+            }
+
+            tipEl.style.top = `${Math.round(top)}px`;
+            tipEl.style.left = `${Math.round(Math.max(12, Math.min(left - 70, window.innerWidth - 320)))}px`;
+            tipEl.classList.add('show');
+        });
+
+        document.addEventListener('mouseout', e => {
+            const el = e.target.closest('[data-tooltip], [title], .btn, .iconbtn, .chart-btn-tool, .navitem, .acc-btn, .kpi-card');
+            if (el) tipEl.classList.remove('show');
+        });
+    }
+
+    /* Sistema Universal de Reclassificação / Ordenação de Tabelas */
+    function initSortableTables() {
+        document.querySelectorAll('table').forEach(table => {
+            const ths = table.querySelectorAll('thead th');
+            ths.forEach((th, colIndex) => {
+                const title = th.textContent.trim().toLowerCase();
+                if (title === 'ações' || title === 'acao' || title === 'ação') return;
+
+                th.classList.add('sortable-th');
+                th.setAttribute('data-tooltip', `Clique para ordenar por ${th.textContent.trim()}`);
+
+                if (th._sortBound) return;
+                th._sortBound = true;
+
+                th.addEventListener('click', () => {
+                    const tbody = table.querySelector('tbody');
+                    if (!tbody) return;
+                    const rows = Array.from(tbody.querySelectorAll('tr'));
+                    if (rows.length <= 1) return;
+                    if (rows[0].querySelector('.empty')) return;
+
+                    const currentDir = th.getAttribute('data-sort-dir') === 'asc' ? 'desc' : 'asc';
+
+                    ths.forEach(otherTh => {
+                        otherTh.removeAttribute('data-sort-dir');
+                        otherTh.classList.remove('sort-asc', 'sort-desc');
+                    });
+
+                    th.setAttribute('data-sort-dir', currentDir);
+                    th.classList.add(currentDir === 'asc' ? 'sort-asc' : 'sort-desc');
+
+                    rows.sort((rowA, rowB) => {
+                        const cellA = rowA.children[colIndex]?.textContent.trim() || '';
+                        const cellB = rowB.children[colIndex]?.textContent.trim() || '';
+
+                        const numA = parseFloat(cellA.replace(',', '.').replace(/[^\d.-]/g, ''));
+                        const numB = parseFloat(cellB.replace(',', '.').replace(/[^\d.-]/g, ''));
+
+                        if (!isNaN(numA) && !isNaN(numB) && !cellA.includes('@') && !cellB.includes('@') && !cellA.includes('/')) {
+                            return currentDir === 'asc' ? numA - numB : numB - numA;
+                        }
+
+                        return currentDir === 'asc'
+                            ? cellA.localeCompare(cellB, 'pt-BR', { numeric: true, sensitivity: 'base' })
+                            : cellB.localeCompare(cellA, 'pt-BR', { numeric: true, sensitivity: 'base' });
+                    });
+
+                    rows.forEach(r => tbody.appendChild(r));
+                });
+            });
+        });
+    }
+
+    /* Painel Lateral Explicativo / Drawer Guia Pedagógico SENAI */
+    const pedagogicalGuides = {
+        dashboard: {
+            title: 'Dashboard Executivo & KPIs',
+            badge: 'Visão Estratégica',
+            objective: 'Monitoramento integrado dos principais indicadores de desempenho da instituição e taxa de atendimento a alunos de inclusão.',
+            metrics: '• <b>Alunos no Recorte:</b> Total de discentes filtrados e percentual de retenção acadêmica.<br>• <b>Inclusão & NAI:</b> Índice de discentes com atendimento individualizado (PCD, TEA, TDAH).<br>• <b>Média de Rendimento:</b> Média ponderada com régua de benchmark institucional (Meta: 7,0).<br>• <b>Avaliações:</b> Volume de notas lançadas na Matriz de Competências.',
+            charts: '• <b>Proporção de Alunos:</b> Segmentação entre regulares, NAI e inativos.<br>• <b>Desempenho por Unidade:</b> Comparativo de médias com anotação da meta SENAI.<br>• <b>Distribuição de Rendimento:</b> Curva contínua avaliativa com gradiente.<br>• <b>Dispersão por Turma:</b> Relação entre volume discente e nota média.',
+            action: 'Recomenda-se aplicar filtros cruzados por Unidade ou Turma para identificar disparidades regionais de desempenho.'
+        },
+        reports: {
+            title: 'Indicadores & Inteligência de Dados (BI)',
+            badge: 'Análise Analítica',
+            objective: 'Avaliação multidimensional de competências curriculares segundo as diretrizes pedagógicas do SENAI Centro 4.0.',
+            metrics: '• <b>Média Geral Ponderada:</b> Média consolidada de todas as disciplinas avaliadas.<br>• <b>Índice de Aptidão:</b> Percentual de notas iguais ou superiores a 8,0 (excelência).<br>• <b>Risco Pedagógico:</b> Volume de notas abaixo de 6,0 que exigem recuperação.',
+            charts: '• <b>Ranqueamento de Disciplinas:</b> Alinhamento de cada UC com a meta pedagógica.<br>• <b>Matriz de Competências:</b> Rosca proporcional dividida em Apto, Em Desenvolvimento e Risco.<br>• <b>Curva de Frequência:</b> Concentração de notas por faixa de rendimento.',
+            action: 'Discentes na faixa de Risco (< 6,0) devem ser priorizados para planos de intervenção pedagógica.'
+        },
+        alarms: {
+            title: 'Central de Alarmes & Gestão Proativa',
+            badge: 'Alerta Precoce',
+            objective: 'Detecção antecipada de fatores de risco de evasão e defasagens de aprendizagem para tomada de decisão imediata.',
+            metrics: '• <b>Limiar Crítico:</b> Nota < 6,0 dispara alarme vermelho.<br>• <b>Frequência Crítica:</b> Presença < 75% indica iminência de reprovação.<br>• <b>Gatilho de Disparidade:</b> Variação maior que 1,5 ponto entre matérias.',
+            charts: 'A central lista os alunos em risco com botão direto para registro de plano de intervenção formativa.',
+            action: 'Registre a intervenção pedagógica realizada e acompanhe a evolução do discente na Matriz de Competências.'
+        },
+        datascience: {
+            title: 'Ciência de Dados & Inteligência Artificial',
+            badge: 'Modelagem Preditiva',
+            objective: 'Cruzamento estatístico e diagnóstico preditivo assistido pela IA generativa Google Gemini.',
+            metrics: '• <b>Matriz de Correlação:</b> Interdependência de notas entre unidades curriculares.<br>• <b>Clusterização Discente:</b> Agrupamento por perfil de rendimento e engajamento.<br>• <b>IA Copilot:</b> Geração automatizada de diagnósticos e recomendações pedagógicas.',
+            charts: 'Gráficos preditivos de regressão e matriz térmica de correlação Pearson.',
+            action: 'Utilize os prompts pedagógicos prontos para gerar pareceres automatizados para conselhos de classe.'
+        },
+        special_needs: {
+            title: 'Núcleo de Apoio à Inclusão (NAI)',
+            badge: 'Acessibilidade & Equidade',
+            objective: 'Garantia de recursos pedagógicos adaptados, tecnologia assistiva e acompanhamento individualizado de discentes PCD e neurodivergentes.',
+            metrics: '• <b>Cobertura NAI:</b> Percentual de alunos com plano de adaptação curricular ativo.<br>• <b>Tipologia:</b> TEA, TDAH, Dislexia, Deficiência Física, Visual e Auditiva.',
+            charts: 'Tabela de acompanhamento com parecer pedagógico qualitativo e histórico de adaptações.',
+            action: 'Mantenha os pareceres atualizados para subsidiar os docentes em sala de aula e oficinas 4.0.'
+        },
+        students: {
+            title: 'Gestão do Corpo Discente',
+            badge: 'Gestão Acadêmica',
+            objective: 'Acompanhamento cadastral, vinculação a turmas e histórico individual do discente.',
+            metrics: 'Clique em qualquer discente na tabela para acionar o Spotlight Cards no topo da página, exibindo seu radar de rendimento instantâneo.',
+            charts: 'A tabela permite ordenar por qualquer coluna (Matrícula, Nome, Curso, Unidade ou Status).',
+            action: 'Filtre por Status ATIVO/INATIVO ou utilize os Filtros Cruzados para segmentar turmas específicas.'
+        },
+        teachers: {
+            title: 'Corpo Docente & Professores',
+            badge: 'Recursos Humanos',
+            objective: 'Gestão dos instrutores de formação profissional, áreas de atuação e turmas vinculadas.',
+            metrics: 'Identificação de professores responsáveis por turmas e alocação nas Unidades Operacionais.',
+            charts: 'Tabela ordenável por Nome, E-mail, Área de Atuação e Status.',
+            action: 'Mantenha as áreas técnicas de atuação atualizadas conforme os módulos formativos.'
+        },
+        courses: {
+            title: 'Cursos & Habilitações Profissionais',
+            badge: 'Estrutura Curricular',
+            objective: 'Catálogo de cursos técnicos, aprendizagem industrial e qualificação profissional do SENAI.',
+            metrics: 'Carga horária total (horas), códigos de identificação e unidades curriculares.',
+            charts: 'Tabela com ordenação por Carga Horária, Nome e Código.',
+            action: 'Verifique a aderência da carga horária às diretrizes nacionais do SENAI.'
+        },
+        units: {
+            title: 'Unidades Operacionais & Polos Regionais',
+            badge: 'Rede Física',
+            objective: 'Centros integrados de formação profissional e tecnologia nos municípios atendidos.',
+            metrics: 'Localização geográfica e vinculação das turmas ativas aos polos regionais.',
+            charts: 'Tabela com ordenação por Unidade e Município.',
+            action: 'Monitore o desempenho comparativo regional através do gráfico de unidades no Dashboard.'
+        },
+        classes: {
+            title: 'Turmas & Coortes de Aprendizagem',
+            badge: 'Organização Escolar',
+            objective: 'Estruturação de turmas, docentes responsáveis e associação a cursos e unidades.',
+            metrics: 'Distribuição dos alunos por período e taxa de retenção por coorte.',
+            charts: 'Tabela ordenável por Turma, Curso, Unidade e Docente Responsável.',
+            action: 'Acompanhe as médias de cada turma no gráfico de dispersão para apoiar os professores.'
+        },
+        grades: {
+            title: 'Lançamento de Avaliações & Notas',
+            badge: 'Matriz Avaliativa',
+            objective: 'Registro contínuo das notas nas Unidades Curriculares com classificação segundo a Matriz SENAI.',
+            metrics: 'Notas de 0 a 10 com classificação automática em Apto (>= 8), Em Desenvolvimento (6 a 7.9) e Risco (< 6).',
+            charts: 'Tabela ordenável por Aluno, Disciplina, Nota e Classificação.',
+            action: 'Lançamentos abaixo de 6,0 alimentam imediatamente a Central de Alarmes.'
+        },
+        users: {
+            title: 'Gestão de Usuários & Acessos',
+            badge: 'Segurança & Governança',
+            objective: 'Controle de credenciais e permissões com base no papel funcional (ADMIN, PROFESSOR, DIRETOR, COORDENADOR).',
+            metrics: 'Níveis de permissão e autenticação para preservação da integridade dos dados escolares.',
+            charts: 'Tabela ordenável com status e papéis de acesso.',
+            action: 'Restrinja os acessos administrativos apenas a gestores e coordenadores pedagógicos.'
+        }
+    };
+
+    function ensureInspectorDrawer() {
+        let drawer = document.getElementById('eduInspectorDrawer');
+        if (!drawer) {
+            drawer = document.createElement('aside');
+            drawer.id = 'eduInspectorDrawer';
+            drawer.className = 'edu-inspector-drawer';
+            drawer.setAttribute('aria-label', 'Guia Pedagógico e Explicação dos Indicadores');
+            drawer.innerHTML = `
+                <div class="drawer-header">
+                    <h3><span>💡</span> <span id="drawerTitle">Guia do Indicador</span></h3>
+                    <button class="drawer-close-btn" onclick="eduModules.toggleInspectorDrawer()" title="Fechar guia">✕</button>
+                </div>
+                <div class="drawer-content" id="drawerBody"></div>
+            `;
+            document.body.appendChild(drawer);
+        }
+        return drawer;
+    }
+
+    function toggleInspectorDrawer() {
+        const drawer = ensureInspectorDrawer();
+        const isOpen = drawer.classList.toggle('open');
+        document.body.classList.toggle('inspector-drawer-open', isOpen);
+        triggerChartResize();
+    }
+
+    function setInspectorContext(pageKey, customTitle, customObjective) {
+        const drawer = ensureInspectorDrawer();
+        const titleEl = document.getElementById('drawerTitle');
+        const bodyEl = document.getElementById('drawerBody');
+        if (!titleEl || !bodyEl) return;
+
+        const info = pedagogicalGuides[pageKey] || {
+            title: customTitle || 'Guia do Módulo',
+            badge: 'Diretriz SENAI',
+            objective: customObjective || 'Acompanhamento pedagógico de acordo com os critérios institucionais de formação profissional.',
+            metrics: 'Utilize os filtros dinâmicos e gráficos interativos para explorar os dados.',
+            charts: 'Todos os cards permitem ordenação, zoom e customização visual.',
+            action: 'Consulte os relatórios consolidados para direcionar o planejamento escolar.'
+        };
+
+        titleEl.textContent = info.title;
+        bodyEl.innerHTML = `
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+                <span class="filter-badge-pill" style="font-size:11px;">${info.badge}</span>
+                <span style="font-size:11px;color:var(--muted);">SENAI Centro 4.0</span>
+            </div>
+
+            <div class="drawer-card">
+                <b>🎯 Objetivo Pedagógico:</b>
+                <p>${info.objective}</p>
+            </div>
+
+            <div class="drawer-card">
+                <b>📊 Métricas & Indicadores:</b>
+                <p>${info.metrics}</p>
+            </div>
+
+            ${info.charts ? `
+            <div class="drawer-card">
+                <b>📈 Como Interpretar os Gráficos:</b>
+                <p>${info.charts}</p>
+            </div>
+            ` : ''}
+
+            <div class="drawer-card" style="border-left:3px solid var(--senai-blue);background:var(--senai-blue-light, rgba(0,85,148,0.06));">
+                <b>💡 Ação Recomendada:</b>
+                <p>${info.action}</p>
+            </div>
+        `;
+    }
+
+    function initResponsiveObservers() {
+        const mainEl = document.querySelector('.main');
+        if (mainEl && window.ResizeObserver) {
+            let resizeTimer;
+            const ro = new ResizeObserver(() => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    triggerChartResize();
+                }, 80);
+            });
+            ro.observe(mainEl);
+        }
     }
 
     /* ==========================================================================
@@ -1970,6 +2361,14 @@ Retorne APENAS um JSON puro no formato:
         toggleChartFullscreen,
         triggerChartResize,
 
+        // Recursos Avançados de Interface & Usabilidade
+        toggleSidebar,
+        toggleDynamicBg,
+        initUniversalTooltips,
+        initSortableTables,
+        toggleInspectorDrawer,
+        setInspectorContext,
+
         // Gestão Acadêmica Interativa
         selectStudent,
         clearStudentSelection,
@@ -2000,7 +2399,14 @@ Retorne APENAS um JSON puro no formato:
     // Inicialização ao carregar
     document.addEventListener('DOMContentLoaded', () => {
         applyAccessibility();
+        applySavedSidebarState();
+        applySavedDynamicBg();
         initDailyExportSchedule();
+        initUniversalTooltips();
+        initSortableTables();
+        initResponsiveObservers();
+        ensureGlobalFilterPopover();
+        ensureInspectorDrawer();
 
         // Atalhos de teclado
         window.addEventListener('keydown', e => {
@@ -2012,14 +2418,14 @@ Retorne APENAS um JSON puro no formato:
                 if (e.key === '5') window.showPage('special_needs');
                 if (e.key.toLowerCase() === 's') toggleSpeechSummary();
                 if (e.key.toLowerCase() === 'a') openAccessibilityModal();
+                if (e.key.toLowerCase() === 'g') toggleInspectorDrawer();
             }
         });
 
         // Fechar popover ao clicar fora
         document.addEventListener('click', e => {
-            const pop = document.getElementById('filterPopover');
-            const btn = document.getElementById('btnAddFilterBtn');
-            if (pop && pop.classList.contains('show') && !pop.contains(e.target) && e.target !== btn) {
+            const pop = document.getElementById('globalFilterPopover');
+            if (pop && pop.classList.contains('show') && !pop.contains(e.target) && !e.target.closest('.btn-add-filter')) {
                 pop.classList.remove('show');
             }
         });

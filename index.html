@@ -1105,13 +1105,14 @@
             })();
         </script>
         <!-- Barra Lateral Fixa -->
-        <aside class="sidebar">
+        <aside class="sidebar" id="mainSidebar">
             <div class="sidebrand">
-                <div class="logo">🎓</div>
+                <div class="logo" title="SENAI EDUCONNECT">🎓</div>
                 <div>
                     <b>EDUCONNECT</b>
                     <small>BI & GESTÃO ESCOLAR</small>
                 </div>
+                <button class="sidebar-toggle-btn" id="sidebarToggleBtn" onclick="eduModules.toggleSidebar()" title="Recolher / Expandir Menu Lateral" aria-label="Recolher menu lateral">◀</button>
             </div>
 
             <div class="navtitle">VISÃO ESTRATÉGICA</div>
@@ -1184,10 +1185,12 @@
                     <span style="color:#475569;margin:0 4px;">|</span>
                     <button class="acc-btn" title="Alternar Alto Contraste Ouro" onclick="eduModules.setTheme(document.documentElement.getAttribute('data-theme') === 'high-contrast-dark' ? 'default' : 'high-contrast-dark')">⚡ Alto Contraste</button>
                     <button class="acc-btn" title="Modo Noturno Slate" onclick="eduModules.setTheme(document.documentElement.getAttribute('data-theme') === 'dark-slate' ? 'default' : 'dark-slate')">🌙 Modo Escuro</button>
+                    <button class="acc-btn" id="btnDynamicBg" title="Alternar Fundo Degradê Dinâmico Suave" onclick="eduModules.toggleDynamicBg()">🌈 Degradê Dinâmico</button>
                     <button class="acc-btn" title="Modo Leitura / Dislexia" onclick="eduModules.toggleDyslexia()">📖 Dislexia</button>
                     <button class="acc-btn" title="Preferências de Inclusão" onclick="eduModules.openAccessibilityModal()">⚙ Opções</button>
                 </div>
                 <div class="acc-group">
+                    <button class="acc-btn btn-guide-toggle" id="btnGuideToggle" title="Abrir Guia Pedagógico e Indicadores" onclick="eduModules.toggleInspectorDrawer()">💡 Guia Pedagógico</button>
                     <div class="acc-audio-player">
                         <span class="acc-audio-pulse" id="accAudioPulse"></span>
                         <button class="acc-btn" id="accPlayBtn" style="border:none;background:none;padding:0;color:#fff;" onclick="eduModules.toggleSpeechSummary()">🔊 Ouvir Resumo</button>
@@ -1195,7 +1198,7 @@
                 </div>
             </div>
 
-            <header class="top">
+            <header class="top sticky-top-header">
                 <div>
                     <h2 id="pageTitle">Dashboard</h2>
                     <p id="pageSubtitle">Visão geral executiva da instituição</p>
@@ -1271,7 +1274,7 @@
                 </div>
 
                 <!-- Cards de KPI com Animações Sutis de Hover -->
-                <div class="grid4" id="dashKPIs"></div>
+                <div class="grid4 sticky-kpis" id="dashKPIs"></div>
 
                 <!-- Gráficos Row 1: Donut (Ativos/Inativos e Inclusão) + Barras de Desempenho por Unidade -->
                 <div class="grid2" style="margin-top:20px">
@@ -1419,7 +1422,7 @@
                 </div>
 
                 <!-- KPIs Analíticos de Rendimento -->
-                <div class="grid4" id="reportKPIs" style="margin-bottom:20px"></div>
+                <div class="grid4 sticky-kpis" id="reportKPIs" style="margin-bottom:20px"></div>
 
                 <!-- Gráficos de Indicadores -->
                 <div class="grid2">
@@ -1503,6 +1506,7 @@
 
             <!-- ==================== PÁGINA 3: NECESSIDADES ESPECIAIS & INCLUSÃO ==================== -->
             <div id="special_needs" class="page hidden">
+                <div id="inclusionSmartFilterBar"></div>
                 <div class="sectionhead">
                     <div>
                         <h3>Núcleo de Acessibilidade & Inclusão (NAI)</h3>
@@ -1512,7 +1516,7 @@
                 </div>
 
                 <!-- KPIs do Módulo de Inclusão -->
-                <div class="grid4" id="inclusionKPIs" style="margin-bottom:20px"></div>
+                <div class="grid4 sticky-kpis" id="inclusionKPIs" style="margin-bottom:20px"></div>
 
                 <div class="card">
                     <div class="toolbar">
@@ -1558,11 +1562,13 @@
             <!-- ==================== PÁGINAS ACADÊMICAS ==================== -->
             <!-- ==================== PÁGINA: CENTRAL DE ALARMES ==================== -->
             <div id="alarms" class="page hidden">
+                <div id="alarmsSmartFilterBar"></div>
                 <div id="alarmsContent"></div>
             </div>
 
             <!-- ==================== PÁGINA: CIÊNCIA DE DADOS & IA ==================== -->
             <div id="datascience" class="page hidden">
+                <div id="datascienceSmartFilterBar"></div>
                 <div id="datascienceContent"></div>
             </div>
 
@@ -1614,6 +1620,7 @@
 
             <!-- Professores -->
             <div id="teachers" class="page hidden">
+                <div id="teachersSmartFilterBar"></div>
                 <div class="sectionhead">
                     <div>
                         <h3>Corpo Docente</h3>
@@ -1641,6 +1648,7 @@
 
             <!-- Cursos -->
             <div id="courses" class="page hidden">
+                <div id="coursesSmartFilterBar"></div>
                 <div class="sectionhead">
                     <div>
                         <h3>Cursos e Habilitações</h3>
@@ -1667,6 +1675,7 @@
 
             <!-- Unidades -->
             <div id="units" class="page hidden">
+                <div id="unitsSmartFilterBar"></div>
                 <div class="sectionhead">
                     <div>
                         <h3>Unidades Operacionais</h3>
@@ -1692,6 +1701,7 @@
 
             <!-- Turmas -->
             <div id="classes" class="page hidden">
+                <div id="classesSmartFilterBar"></div>
                 <div class="sectionhead">
                     <div>
                         <h3>Turmas e Coortes</h3>
@@ -1719,6 +1729,7 @@
 
             <!-- Notas & Avaliações -->
             <div id="grades" class="page hidden">
+                <div id="gradesSmartFilterBar"></div>
                 <div class="sectionhead">
                     <div>
                         <h3>Lançamento de Avaliações</h3>
@@ -1746,6 +1757,7 @@
 
             <!-- Usuários -->
             <div id="users" class="page hidden">
+                <div id="usersSmartFilterBar"></div>
                 <div class="sectionhead">
                     <div>
                         <h3>Controle de Acessos</h3>
@@ -3031,8 +3043,14 @@
 
         /* ==================== MÓDULO DE NECESSIDADES ESPECIAIS & INCLUSÃO (NAI) ==================== */
         async function renderInclusion() {
+            if (window.eduModules && window.eduModules.renderSmartFilterBar) {
+                await window.eduModules.renderSmartFilterBar('inclusionSmartFilterBar');
+            }
             await renderInclusionKPIs();
             await renderInclusionTable();
+            if (window.eduModules && window.eduModules.initSortableTables) {
+                window.eduModules.initSortableTables();
+            }
         }
 
         async function renderInclusionKPIs() {
@@ -3461,6 +3479,9 @@
         }
 
         async function renderTeachers() {
+            if (window.eduModules && window.eduModules.renderSmartFilterBar) {
+                await window.eduModules.renderSmartFilterBar('teachersSmartFilterBar');
+            }
             const list = await all('teachers');
             const tbody = document.getElementById('teachersBody');
             if (!list.length) {
@@ -3479,6 +3500,9 @@
                     </td>
                 </tr>
             `).join('');
+            if (window.eduModules && window.eduModules.initSortableTables) {
+                window.eduModules.initSortableTables();
+            }
         }
 
         async function openTeacher(id = null) {
@@ -3522,6 +3546,9 @@
         }
 
         async function renderCourses() {
+            if (window.eduModules && window.eduModules.renderSmartFilterBar) {
+                await window.eduModules.renderSmartFilterBar('coursesSmartFilterBar');
+            }
             const list = await all('courses');
             const tbody = document.getElementById('coursesBody');
             if (!list.length) {
@@ -3539,9 +3566,15 @@
                     </td>
                 </tr>
             `).join('');
+            if (window.eduModules && window.eduModules.initSortableTables) {
+                window.eduModules.initSortableTables();
+            }
         }
 
         async function renderUnits() {
+            if (window.eduModules && window.eduModules.renderSmartFilterBar) {
+                await window.eduModules.renderSmartFilterBar('unitsSmartFilterBar');
+            }
             const list = await all('units');
             const tbody = document.getElementById('unitsBody');
             if (!list.length) {
@@ -3558,6 +3591,9 @@
                     </td>
                 </tr>
             `).join('');
+            if (window.eduModules && window.eduModules.initSortableTables) {
+                window.eduModules.initSortableTables();
+            }
         }
 
         async function openSimple(type, id = null) {
@@ -3594,6 +3630,9 @@
         }
 
         async function renderClasses() {
+            if (window.eduModules && window.eduModules.renderSmartFilterBar) {
+                await window.eduModules.renderSmartFilterBar('classesSmartFilterBar');
+            }
             const [clList, cList, uList, tList] = await Promise.all([
                 all('classes'), all('courses'), all('units'), all('teachers')
             ]);
@@ -3601,13 +3640,18 @@
             const um = Object.fromEntries(uList.map(x => [x.id, x.name]));
             const tm = Object.fromEntries(tList.map(x => [x.id, x.name]));
 
+            const activeF = window.eduModules ? window.eduModules.getActiveFilters() : {};
+            let filteredClList = clList;
+            if (activeF.courseId) filteredClList = filteredClList.filter(x => String(x.courseId) === String(activeF.courseId.value));
+            if (activeF.unitId) filteredClList = filteredClList.filter(x => String(x.unitId) === String(activeF.unitId.value));
+
             const tbody = document.getElementById('classesBody');
-            if (!clList.length) {
-                tbody.innerHTML = '<tr><td colspan="5" class="empty">Nenhuma turma cadastrada.</td></tr>';
+            if (!filteredClList.length) {
+                tbody.innerHTML = '<tr><td colspan="5" class="empty">Nenhuma turma cadastrada ou encontrada no recorte.</td></tr>';
                 return;
             }
 
-            tbody.innerHTML = clList.map(x => `
+            tbody.innerHTML = filteredClList.map(x => `
                 <tr>
                     <td><b>${esc(x.name)}</b></td>
                     <td>${esc(cm[x.courseId] || '—')}</td>
@@ -3619,6 +3663,9 @@
                     </td>
                 </tr>
             `).join('');
+            if (window.eduModules && window.eduModules.initSortableTables) {
+                window.eduModules.initSortableTables();
+            }
         }
 
         async function openClass(id = null) {
@@ -3669,16 +3716,27 @@
         }
 
         async function renderGrades() {
-            const [gList, sList] = await Promise.all([all('grades'), all('students')]);
+            if (window.eduModules && window.eduModules.renderSmartFilterBar) {
+                await window.eduModules.renderSmartFilterBar('gradesSmartFilterBar');
+            }
+            const [gList, sList, incList] = await Promise.all([all('grades'), all('students'), all('inclusion')]);
+            const incMap = Object.fromEntries(incList.map(x => [x.studentId, x]));
             const sm = Object.fromEntries(sList.map(x => [x.id, x.name]));
 
+            let smartStudents = sList;
+            if (window.eduModules && window.eduModules.applySmartFilters) {
+                smartStudents = window.eduModules.applySmartFilters(sList, incMap, gList);
+            }
+            const allowedStudentIds = new Set(smartStudents.map(s => s.id));
+            const filteredGrades = gList.filter(g => allowedStudentIds.has(g.studentId));
+
             const tbody = document.getElementById('gradesBody');
-            if (!gList.length) {
-                tbody.innerHTML = '<tr><td colspan="5" class="empty">Nenhuma avaliação lançada.</td></tr>';
+            if (!filteredGrades.length) {
+                tbody.innerHTML = '<tr><td colspan="5" class="empty">Nenhuma avaliação encontrada no recorte.</td></tr>';
                 return;
             }
 
-            tbody.innerHTML = gList.map(x => {
+            tbody.innerHTML = filteredGrades.map(x => {
                 const val = Number(x.value) || 0;
                 const senaiStatus = getSenaiStatus(val);
 
@@ -3695,6 +3753,9 @@
                     </tr>
                 `;
             }).join('');
+            if (window.eduModules && window.eduModules.initSortableTables) {
+                window.eduModules.initSortableTables();
+            }
         }
 
         async function openGrade(id = null) {
@@ -3736,6 +3797,9 @@
         }
 
         async function renderUsers() {
+            if (window.eduModules && window.eduModules.renderSmartFilterBar) {
+                await window.eduModules.renderSmartFilterBar('usersSmartFilterBar');
+            }
             const list = await all('users');
             document.getElementById('usersBody').innerHTML = list.map(x => {
                 const action = x.id === currentUser?.id ? '<small style="color:var(--muted)">Sessão Ativa</small>' :
@@ -3749,6 +3813,9 @@
                     </tr>
                 `;
             }).join('');
+            if (window.eduModules && window.eduModules.initSortableTables) {
+                window.eduModules.initSortableTables();
+            }
         }
 
         async function openUser() {
@@ -4050,6 +4117,11 @@
             document.getElementById('login').classList.add('hidden');
             document.getElementById('app').classList.remove('hidden');
             setupUser();
+            if (window.eduModules) {
+                if (window.eduModules.applySavedSidebarState) window.eduModules.applySavedSidebarState();
+                if (window.eduModules.applySavedDynamicBg) window.eduModules.applySavedDynamicBg();
+                if (window.eduModules.initUniversalTooltips) window.eduModules.initUniversalTooltips();
+            }
             showPage('dashboard');
         }
 
@@ -4105,6 +4177,13 @@
             if (pageControllers[p]) {
                 await pageControllers[p]();
             }
+
+            if (window.eduModules) {
+                if (window.eduModules.setInspectorContext) window.eduModules.setInspectorContext(p);
+                if (window.eduModules.initSortableTables) setTimeout(window.eduModules.initSortableTables, 80);
+                if (window.eduModules.initUniversalTooltips) setTimeout(window.eduModules.initUniversalTooltips, 100);
+            }
+            setTimeout(() => window.dispatchEvent(new Event('resize')), 60);
         }
 
         // Exposição global para reatividade total entre módulos
@@ -4165,6 +4244,11 @@
                     document.getElementById('login').classList.add('hidden');
                     document.getElementById('app').classList.remove('hidden');
                     setupUser();
+                    if (window.eduModules) {
+                        if (window.eduModules.applySavedSidebarState) window.eduModules.applySavedSidebarState();
+                        if (window.eduModules.applySavedDynamicBg) window.eduModules.applySavedDynamicBg();
+                        if (window.eduModules.initUniversalTooltips) window.eduModules.initUniversalTooltips();
+                    }
                     const targetPage = hashPage || urlParams.get('page') || 'dashboard';
                     await showPage(targetPage);
                     return;
@@ -4176,6 +4260,11 @@
                     document.getElementById('login').classList.add('hidden');
                     document.getElementById('app').classList.remove('hidden');
                     setupUser();
+                    if (window.eduModules) {
+                        if (window.eduModules.applySavedSidebarState) window.eduModules.applySavedSidebarState();
+                        if (window.eduModules.applySavedDynamicBg) window.eduModules.applySavedDynamicBg();
+                        if (window.eduModules.initUniversalTooltips) window.eduModules.initUniversalTooltips();
+                    }
                     const targetPage = hashPage || urlParams.get('page') || 'dashboard';
                     await showPage(targetPage);
                 } catch (e) {

@@ -712,3 +712,319 @@ html {
     overflow-y: auto;
     background: var(--card);
 }
+
+/* ===== 10. SIDEBAR RECOLHÍVEL & TRANSIÇÃO DE LAYOUT ===== */
+.sidebar {
+    transition: width 0.28s cubic-bezier(0.4, 0, 0.2, 1), padding 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.main {
+    transition: margin-left 0.28s cubic-bezier(0.4, 0, 0.2, 1), margin-right 0.28s cubic-bezier(0.4, 0, 0.2, 1), width 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-toggle-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #cbd5e1;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.2s ease;
+    margin-left: auto;
+}
+.sidebar-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* Transições Fluidas de Layout e Redimensionamento Contínuo */
+.sidebar {
+    transition: width 0.28s cubic-bezier(0.4, 0, 0.2, 1), padding 0.28s ease !important;
+}
+.main {
+    transition: margin-left 0.28s cubic-bezier(0.4, 0, 0.2, 1), margin-right 0.28s cubic-bezier(0.4, 0, 0.2, 1), width 0.28s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Estado Recolhido da Sidebar */
+.sidebar-collapsed .sidebar {
+    width: 72px !important;
+    padding: 16px 8px !important;
+}
+.sidebar-collapsed .sidebar .sidebrand {
+    padding: 4px 0 16px;
+    justify-content: center;
+}
+.sidebar-collapsed .sidebar .sidebrand > div:not(.logo) {
+    display: none !important;
+}
+.sidebar-collapsed .sidebar .sidebar-toggle-btn {
+    margin: 8px auto 0 auto;
+    display: flex;
+}
+.sidebar-collapsed .sidebar .navtitle {
+    display: none !important;
+}
+.sidebar-collapsed .sidebar .navitem {
+    justify-content: center !important;
+    padding: 12px 0 !important;
+    margin: 4px 0 !important;
+}
+.sidebar-collapsed .sidebar .navitem em,
+.sidebar-collapsed .sidebar .navitem .badge-count {
+    display: none !important;
+}
+.sidebar-collapsed .sidebar .navitem span {
+    font-size: 19px !important;
+    margin: 0 !important;
+}
+.sidebar-collapsed .sidebar .sideuser {
+    display: none !important;
+}
+.sidebar-collapsed .main {
+    margin-left: 72px !important;
+    width: calc(100% - 72px) !important;
+}
+
+/* ===== 11. TEMA DEGRADÊ DINÂMICO AMBIENTAL ===== */
+@keyframes ambientDynamicGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+body.dynamic-gradient-bg {
+    background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 25%, #dbeafe 50%, #e0e7ff 75%, #f1f5f9 100%) !important;
+    background-size: 300% 300% !important;
+    animation: ambientDynamicGradient 18s ease infinite !important;
+}
+
+/* Variação em Modo Escuro */
+[data-theme="dark-slate"] body.dynamic-gradient-bg,
+body.dynamic-gradient-bg[data-theme="dark-slate"] {
+    background: linear-gradient(135deg, #0b1329 0%, #0f172a 25%, #1e293b 50%, #172554 75%, #0f172a 100%) !important;
+    background-size: 300% 300% !important;
+    animation: ambientDynamicGradient 18s ease infinite !important;
+}
+
+.acc-btn.gradient-active {
+    background: linear-gradient(90deg, #ec4899, #8b5cf6) !important;
+    color: #fff !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 0 2px 8px rgba(236, 72, 153, 0.35);
+}
+
+/* ===== 12. CABEÇALHO & INDICADORES STICKY NO TOPO ===== */
+.sticky-top-header {
+    position: sticky;
+    top: 36px;
+    z-index: 85;
+    background: rgba(244, 247, 251, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    margin-left: -32px;
+    margin-right: -32px;
+    padding: 12px 32px 14px 32px;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+    margin-bottom: 16px;
+    transition: all 0.2s ease;
+}
+[data-theme="dark-slate"] .sticky-top-header {
+    background: rgba(15, 23, 42, 0.90) !important;
+    border-bottom-color: rgba(51, 65, 85, 0.8) !important;
+}
+
+.sticky-kpis {
+    position: sticky;
+    top: 104px;
+    z-index: 80;
+    background: rgba(244, 247, 251, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    margin-left: -12px;
+    margin-right: -12px;
+    padding: 8px 12px 14px 12px;
+    border-radius: 16px;
+    margin-bottom: 14px;
+    transition: all 0.2s ease;
+}
+[data-theme="dark-slate"] .sticky-kpis {
+    background: rgba(15, 23, 42, 0.92) !important;
+}
+
+/* ===== 13. TOOLTIPS MODERNOS & FLUTUANTES ===== */
+.edu-floating-tooltip {
+    position: fixed;
+    z-index: 100000;
+    pointer-events: none;
+    background: rgba(15, 23, 42, 0.94);
+    color: #f8fafc;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0;
+    transform: translateY(4px) scale(0.96);
+    transition: opacity 0.16s cubic-bezier(0.4, 0, 0.2, 1), transform 0.16s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+    max-width: 320px;
+    line-height: 1.4;
+}
+.edu-floating-tooltip.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* ===== 14. PAINEL LATERAL EXPLICATIVO (DRAWER GUIA SENAI) ===== */
+.edu-inspector-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 370px;
+    height: 100vh;
+    background: var(--card);
+    border-left: 1px solid var(--border);
+    box-shadow: -8px 0 32px rgba(15, 23, 42, 0.12);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%); /* Fechado/recolhido por padrão */
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.edu-inspector-drawer.open {
+    transform: translateX(0);
+}
+
+/* Ajuste automático do main quando drawer está aberto em telas amplas */
+@media (min-width: 1200px) {
+    body.inspector-drawer-open .main {
+        margin-right: 370px !important;
+        width: calc(100% - 260px - 370px) !important;
+    }
+    body.sidebar-collapsed.inspector-drawer-open .main {
+        margin-left: 72px !important;
+        margin-right: 370px !important;
+        width: calc(100% - 72px - 370px) !important;
+    }
+}
+
+.drawer-header {
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg);
+}
+.drawer-header h3 {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.drawer-close-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: var(--muted);
+    cursor: pointer;
+    line-height: 1;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+.drawer-close-btn:hover {
+    color: var(--text);
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.drawer-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 22px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.drawer-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px;
+}
+.drawer-card b {
+    color: var(--text);
+    display: block;
+    margin-bottom: 6px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-guide-toggle {
+    background: #005594;
+    color: #fff;
+    border: 1px solid #003865;
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+.btn-guide-toggle:hover {
+    background: #003865;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 85, 148, 0.25);
+}
+
+/* ===== 15. CABEÇALHOS DE TABELAS ORDENÁVEIS ===== */
+th.sortable-th {
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+th.sortable-th:hover {
+    background: var(--nav-hover);
+    color: #fff;
+}
+th.sortable-th::after {
+    content: " ⇅";
+    font-size: 10px;
+    opacity: 0.4;
+    margin-left: 4px;
+}
+th.sortable-th.sort-asc::after {
+    content: " ▲";
+    opacity: 1;
+    color: #38bdf8;
+}
+th.sortable-th.sort-desc::after {
+    content: " ▼";
+    opacity: 1;
+    color: #38bdf8;
+}
