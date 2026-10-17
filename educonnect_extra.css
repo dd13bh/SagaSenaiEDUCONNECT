@@ -1653,4 +1653,32 @@ body[data-device-layout="mobile"] .mobile-menu-btn {
     }
 }
 
+/* MODO FORÇADO: PC / COMPUTADOR */
+body[data-device-layout="pc"] .sidebar {
+    position: fixed !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 250px !important;
+    display: flex !important;
+    box-shadow: none !important;
+}
+body[data-device-layout="pc"] .main {
+    margin-left: 250px !important;
+    width: calc(100% - 250px) !important;
+    padding: 24px 28px !important;
+}
+body[data-device-layout="pc"] .grid4 {
+    grid-template-columns: repeat(4, 1fr) !important;
+}
+body[data-device-layout="pc"] .grid2 {
+    grid-template-columns: 1fr 1fr !important;
+}
+body[data-device-layout="pc"] .mobile-menu-btn {
+    display: none !important;
+}
+body[data-device-layout="pc"] .mobile-nav-backdrop {
+    display: none !important;
+}
+
 

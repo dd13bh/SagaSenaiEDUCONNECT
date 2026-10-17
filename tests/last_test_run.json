@@ -1,0 +1,144 @@
+{
+  "executedAt": "2026-10-17T19:35:04.114Z",
+  "totalTests": 27,
+  "passedTests": 27,
+  "failedTests": 0,
+  "successRate": "100.0%",
+  "testResults": [
+    {
+      "name": "Arquivo index.html existe e possui conteúdo (193.1 KB)",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "Arquivo educonnect_modules.js existe e possui conteúdo (224.6 KB)",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "Arquivo educonnect_extra.css existe e possui conteúdo (40.8 KB)",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "Arquivo educonnect_seed_data.js existe e possui conteúdo (318.2 KB)",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "Pearson: Correlação Perfeita Positiva r = 1.0",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "Pearson: Correlação Perfeita Inversa r = -1.0",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "Pearson: Proteção para amostra insuficiente (n < 3)",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "Regressão Linear OLS: Cálculo de Inclinação e R² (Acurácia 100%)",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "K-Means: Todos os discentes atribuídos a clusters",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "K-Means: Centróides gerados em escala natural (Frequência % e Média 0-10)",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "Distribuição Normal: Parâmetros Gaussianos válidos (μ=7.25, σ=1.03)",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "Parser IA: Sanitização e parse de blocos Markdown (```json) com sucesso",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "Schema IA: Bloco \"diagnosticoInstitucional\" íntegro",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "Schema IA: Bloco \"pareceresIndividuais\" indexado por ID",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "Formatação de Parecer: Suporte a quebra de linha (\\n) dentro da coluna de tabela",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "CSS: Classe .ai-diag-col configurada com white-space: pre-line",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "CSS: Classe .ai-action-col configurada com word-break: break-word",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "CSS: Suporte a layout forçado Mobile (body[data-device-layout=\"mobile\"])",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "CSS: Suporte a layout forçado Tablet (body[data-device-layout=\"tablet\"])",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "CSS: Suporte a layout forçado PC (body[data-device-layout=\"pc\"])",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "JS: Inicializador de detecção responsiva initDeviceLayout presente",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "JS: Controlador setLayoutMode presente",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "JS: Mecanismo de inspeção contextual inspectElementPedagogically presente",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "HTML/JS: Template de inspeção em tempo real configurado",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "CSS: Destaque visual pulsante .active-pedagogical-target implementado",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "JS: Exportador Star Schema para Power BI presente",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "Star Schema: Tabelas de Dimensões e Fatos estruturadas para o Power BI",
+      "status": "PASS",
+      "details": ""
+    }
+  ]
+}

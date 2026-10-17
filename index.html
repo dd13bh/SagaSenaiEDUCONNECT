@@ -1204,6 +1204,7 @@
                 </div>
                 <div class="acc-group">
                     <button class="acc-btn btn-guide-toggle" id="btnGuideToggle" title="Abrir Guia Pedagógico e Indicadores" onclick="eduModules.toggleInspectorDrawer()">💡 Guia Pedagógico</button>
+                    <button class="acc-btn" id="btnRunDiagnostics" title="Verificar status e executar testes de integridade de todos os módulos" onclick="eduModules.runSystemDiagnostics()">🩺 Testar Sistema</button>
                     <div class="acc-audio-player">
                         <span class="acc-audio-pulse" id="accAudioPulse"></span>
                         <button class="acc-btn" id="accPlayBtn" style="border:none;background:none;padding:0;color:#fff;" onclick="eduModules.toggleSpeechSummary()">🔊 Ouvir Resumo</button>
@@ -1212,9 +1213,12 @@
             </div>
 
             <header class="top sticky-top-header">
-                <div>
-                    <h2 id="pageTitle">Dashboard</h2>
-                    <p id="pageSubtitle">Visão geral executiva da instituição</p>
+                <div style="display:flex;align-items:center;gap:12px;">
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="eduModules.toggleMobileNav()" title="Abrir Menu de Navegação" aria-label="Abrir Menu">☰</button>
+                    <div>
+                        <h2 id="pageTitle">Dashboard</h2>
+                        <p id="pageSubtitle">Visão geral executiva da instituição</p>
+                    </div>
                 </div>
                 <div class="userbadge">
                     <b id="currentName"></b>
