@@ -1,0 +1,1001 @@
+﻿nome,email,telefone,curso,unidade,turma,status
+Camila Siqueira Fernandes,camila.fernandes@aluno.senai.br,(31) 9328-3286,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Carolina Borges Machado,carolina.machado@aluno.senai.br,(31) 9130-2535,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Melissa Martins Campos,melissa.campos@aluno.senai.br,(34) 9818-9928,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Beatriz Barros Costa,beatriz.costa@aluno.senai.br,(34) 9532-6574,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Priscila Alves Ferreira,priscila.ferreira@aluno.senai.br,(35) 9199-6881,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Julia Teixeira Pereira,julia.pereira@aluno.senai.br,(35) 9180-5803,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Larissa Cavalcanti Almeida,larissa.almeida@aluno.senai.br,(31) 9181-4814,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Fernando Costa Andrade,fernando.andrade@aluno.senai.br,(31) 9314-5374,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Bernardo Costa Freitas,bernardo.freitas@aluno.senai.br,(35) 9376-4598,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Barbara Oliveira Rocha,barbara.rocha@aluno.senai.br,(35) 9374-2084,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,INATIVO
+Thais Carvalho Batista,thais.batista@aluno.senai.br,(35) 9505-8517,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Wesley Teixeira Soares,wesley.soares@aluno.senai.br,(34) 9698-8019,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Fernanda Goncalves Ramos,fernanda.ramos@aluno.senai.br,(31) 9873-1771,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Diego Duarte Rodrigues,diego.rodrigues@aluno.senai.br,(35) 9490-8668,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,INATIVO
+Beatriz Macedo Guimaraes,beatriz.guimaraes@aluno.senai.br,(31) 9798-9797,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Henrique Machado Costa,henrique.costa@aluno.senai.br,(35) 9103-5315,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Daniel Pinto Goncalves,daniel.goncalves@aluno.senai.br,(37) 9303-3504,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Lorena Silva Duarte,lorena.duarte@aluno.senai.br,(31) 9600-1319,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,INATIVO
+Patricia Lopes Souza,patricia.souza@aluno.senai.br,(31) 9999-2290,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Giovanna Neves Lima,giovanna.lima@aluno.senai.br,(31) 9775-8787,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Valentina Carvalho Teixeira,valentina.teixeira@aluno.senai.br,(34) 9806-4295,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Helena Mendes Santana,helena.santana@aluno.senai.br,(35) 9223-5061,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Wesley Almeida Borges,wesley.borges@aluno.senai.br,(31) 9107-2163,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Priscila Rodrigues Goncalves,priscila.goncalves@aluno.senai.br,(31) 9385-8953,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Rebeca Castro Cardoso,rebeca.cardoso@aluno.senai.br,(31) 9903-8749,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Diego Nascimento Machado,diego.machado@aluno.senai.br,(35) 9578-1887,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Amanda Lopes Martins,amanda.martins@aluno.senai.br,(31) 9649-8350,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Bernardo Rodrigues Mendes,bernardo.mendes@aluno.senai.br,(37) 9200-1828,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,INATIVO
+Luana Costa Marques,luana.marques@aluno.senai.br,(35) 9592-4502,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,INATIVO
+Lucas Moreira Soares,lucas.soares@aluno.senai.br,(35) 9392-7930,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Felipe Borges Siqueira,felipe.siqueira@aluno.senai.br,(37) 9162-6138,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Marcos Costa Souza,marcos.souza@aluno.senai.br,(37) 9182-4044,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Luana Nunes Pereira,luana.pereira@aluno.senai.br,(37) 9352-1651,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Lorena Rocha Soares,lorena.soares@aluno.senai.br,(31) 9785-6147,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Daniel Freitas Rocha,daniel.rocha@aluno.senai.br,(31) 9109-8508,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Pedro Lima Nascimento,pedro.nascimento@aluno.senai.br,(31) 9350-7054,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Patricia Monteiro Batista,patricia.batista@aluno.senai.br,(37) 9108-5905,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,INATIVO
+Bruno Alves Siqueira,bruno.siqueira@aluno.senai.br,(37) 9259-5462,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Jessica Macedo Pinto,jessica.pinto@aluno.senai.br,(31) 9617-9004,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,INATIVO
+Carolina Pinto Machado,carolina.machado1@aluno.senai.br,(31) 9145-1058,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Renata Costa Siqueira,renata.siqueira@aluno.senai.br,(35) 9664-8007,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Bruna Teixeira Oliveira,bruna.oliveira@aluno.senai.br,(31) 9696-3426,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Mateus Nascimento Carvalho,mateus.carvalho@aluno.senai.br,(34) 9355-2684,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Laura Monteiro Siqueira,laura.siqueira@aluno.senai.br,(31) 9342-3662,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,INATIVO
+Alexandre Marques Cavalcanti,alexandre.cavalcanti@aluno.senai.br,(34) 9930-5065,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Alice Oliveira Cardoso,alice.cardoso@aluno.senai.br,(31) 9304-8541,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Barbara Almeida Santos,barbara.santos@aluno.senai.br,(34) 9297-7528,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Joao Nascimento Batista,joao.batista@aluno.senai.br,(37) 9509-9785,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,INATIVO
+Pedro Ribeiro Borges,pedro.borges@aluno.senai.br,(31) 9139-2776,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Valentina Duarte Goncalves,valentina.goncalves@aluno.senai.br,(31) 9494-4114,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Marcos Teixeira Macedo,marcos.macedo@aluno.senai.br,(34) 9859-4228,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Priscila Monteiro Rocha,priscila.rocha@aluno.senai.br,(34) 9968-3041,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Thais Nunes Figueiredo,thais.figueiredo@aluno.senai.br,(31) 9667-3085,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Gabriela Monteiro Castro,gabriela.castro@aluno.senai.br,(31) 9515-9977,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Patrick Duarte Batista,patrick.batista@aluno.senai.br,(31) 9576-8238,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Rodrigo Cavalcanti Ferreira,rodrigo.ferreira@aluno.senai.br,(31) 9627-6491,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Patricia Almeida Martins,patricia.martins@aluno.senai.br,(31) 9125-1757,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,INATIVO
+Leticia Freitas Marques,leticia.marques@aluno.senai.br,(34) 9689-4185,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Lucas Barros Neves,lucas.neves@aluno.senai.br,(31) 9897-7965,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Lorena Freitas Souza,lorena.souza@aluno.senai.br,(37) 9355-2988,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Marcos Moura Duarte,marcos.duarte@aluno.senai.br,(31) 9873-8251,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Isabela Siqueira Cardoso,isabela.cardoso@aluno.senai.br,(35) 9365-5050,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Luana Fernandes Mendes,luana.mendes@aluno.senai.br,(31) 9830-5681,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Leandro Ferreira Lima,leandro.lima@aluno.senai.br,(31) 9336-7275,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Renan Dias Teixeira,renan.teixeira@aluno.senai.br,(35) 9525-2020,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Patrick Figueiredo Santos,patrick.santos@aluno.senai.br,(37) 9489-8814,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,INATIVO
+Murilo Marques Teixeira,murilo.teixeira@aluno.senai.br,(34) 9852-9947,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Fabio Santos Moreira,fabio.moreira@aluno.senai.br,(31) 9784-7624,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Isadora Teixeira Santos,isadora.santos@aluno.senai.br,(35) 9706-1444,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Marcelo Ribeiro Souza,marcelo.souza@aluno.senai.br,(31) 9488-6363,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Murilo Fernandes Barros,murilo.barros@aluno.senai.br,(35) 9358-2341,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Bianca Almeida Batista,bianca.batista@aluno.senai.br,(31) 9899-1659,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,INATIVO
+Gabriel Monteiro Gomes,gabriel.gomes@aluno.senai.br,(31) 9229-8758,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Pedro Neves Andrade,pedro.andrade@aluno.senai.br,(31) 9720-2876,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,INATIVO
+Gabriel Barbosa Castro,gabriel.castro@aluno.senai.br,(34) 9484-7498,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Luana Alves Figueiredo,luana.figueiredo@aluno.senai.br,(31) 9970-2983,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Fernando Rodrigues Goncalves,fernando.goncalves@aluno.senai.br,(34) 9449-1207,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Fernando Pinto Freitas,fernando.freitas@aluno.senai.br,(34) 9256-8135,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Vanessa Monteiro Teixeira,vanessa.teixeira@aluno.senai.br,(35) 9576-8136,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Rafael Fernandes Mendes,rafael.mendes@aluno.senai.br,(31) 9868-8613,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Vitor Ribeiro Ramos,vitor.ramos@aluno.senai.br,(31) 9463-5232,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Vanessa Moura Silva,vanessa.silva@aluno.senai.br,(37) 9295-2402,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Bernardo Figueiredo Cardoso,bernardo.cardoso@aluno.senai.br,(34) 9828-9041,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Arthur Nunes Figueiredo,arthur.figueiredo@aluno.senai.br,(31) 9413-7046,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Wesley Dias Nascimento,wesley.nascimento@aluno.senai.br,(34) 9564-5438,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Caio Rocha Pereira,caio.pereira@aluno.senai.br,(34) 9648-4033,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Patrick Barros Santana,patrick.santana@aluno.senai.br,(37) 9389-2647,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Daniel Silva Campos,daniel.campos@aluno.senai.br,(37) 9229-5494,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,INATIVO
+Fernanda Pinto Barros,fernanda.barros@aluno.senai.br,(35) 9205-1200,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Eduardo Souza Soares,eduardo.soares@aluno.senai.br,(35) 9216-2070,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Mariana Gomes Castro,mariana.castro@aluno.senai.br,(31) 9187-5066,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Otavio Monteiro Almeida,otavio.almeida@aluno.senai.br,(37) 9489-8381,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Valentina Barbosa Castro,valentina.castro@aluno.senai.br,(37) 9161-2625,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Rafael Costa Lopes,rafael.lopes@aluno.senai.br,(31) 9665-2229,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Otavio Cardoso Vieira,otavio.vieira@aluno.senai.br,(31) 9337-5720,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Arthur Soares Pinto,arthur.pinto@aluno.senai.br,(37) 9777-4241,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Leonardo Fernandes Gomes,leonardo.gomes@aluno.senai.br,(31) 9161-3718,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Aline Mendes Pereira,aline.pereira@aluno.senai.br,(35) 9805-5982,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,INATIVO
+Fabio Mendes Ferreira,fabio.ferreira@aluno.senai.br,(37) 9140-8078,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Arthur Macedo Castro,arthur.castro@aluno.senai.br,(37) 9121-5415,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Marcos Batista Mendes,marcos.mendes@aluno.senai.br,(31) 9285-8141,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,INATIVO
+Renan Dias Rocha,renan.rocha@aluno.senai.br,(34) 9207-3634,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Samuel Barros Moura,samuel.moura@aluno.senai.br,(31) 9565-2442,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Samuel Goncalves Silva,samuel.silva@aluno.senai.br,(34) 9990-9889,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Fernando Monteiro Barros,fernando.barros@aluno.senai.br,(35) 9740-8242,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Aline Mendes Figueiredo,aline.figueiredo@aluno.senai.br,(35) 9224-1472,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Lucas Moura Marques,lucas.marques@aluno.senai.br,(31) 9330-2858,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,INATIVO
+Bruna Ramos Campos,bruna.campos@aluno.senai.br,(31) 9621-5479,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Luana Freitas Moura,luana.moura@aluno.senai.br,(31) 9492-4122,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Renan Dias Goncalves,renan.goncalves@aluno.senai.br,(31) 9940-1042,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Cecilia Cavalcanti Ramos,cecilia.ramos@aluno.senai.br,(31) 9557-9824,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Giovanna Moreira Freitas,giovanna.freitas@aluno.senai.br,(31) 9990-4090,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Renan Oliveira Rocha,renan.rocha1@aluno.senai.br,(34) 9584-7246,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,INATIVO
+Bruna Ramos Oliveira,bruna.oliveira1@aluno.senai.br,(31) 9614-6439,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Marcos Freitas Silva,marcos.silva@aluno.senai.br,(34) 9247-7717,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Renata Dias Monteiro,renata.monteiro@aluno.senai.br,(34) 9507-2315,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Alice Rocha Pinto,alice.pinto@aluno.senai.br,(34) 9877-8994,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Henrique Almeida Siqueira,henrique.siqueira@aluno.senai.br,(31) 9544-2612,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Camila Oliveira Rocha,camila.rocha@aluno.senai.br,(31) 9400-6873,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Renan Castro Macedo,renan.macedo@aluno.senai.br,(31) 9274-3868,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Bernardo Ramos Borges,bernardo.borges@aluno.senai.br,(31) 9337-8555,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Julia Vieira Macedo,julia.macedo@aluno.senai.br,(37) 9261-2210,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,INATIVO
+Patricia Pinto Machado,patricia.machado@aluno.senai.br,(34) 9356-8484,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Ricardo Alves Lopes,ricardo.lopes@aluno.senai.br,(35) 9685-6881,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,INATIVO
+Samuel Fernandes Silva,samuel.silva1@aluno.senai.br,(37) 9985-1803,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Barbara Duarte Nascimento,barbara.nascimento@aluno.senai.br,(31) 9751-4115,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Fernanda Pinto Alves,fernanda.alves@aluno.senai.br,(34) 9761-1645,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Fernando Guimaraes Lima,fernando.lima@aluno.senai.br,(31) 9402-6352,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Leandro Andrade Santana,leandro.santana@aluno.senai.br,(37) 9379-3695,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,INATIVO
+Aline Siqueira Dias,aline.dias@aluno.senai.br,(31) 9579-2233,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Samuel Moura Andrade,samuel.andrade@aluno.senai.br,(31) 9909-7464,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Fernando Macedo Siqueira,fernando.siqueira@aluno.senai.br,(34) 9368-7242,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Gabriel Monteiro Moura,gabriel.moura@aluno.senai.br,(31) 9724-4626,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Daniel Batista Marques,daniel.marques@aluno.senai.br,(31) 9243-1742,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Guilherme Lopes Teixeira,guilherme.teixeira@aluno.senai.br,(31) 9497-8432,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Giovanna Marques Borges,giovanna.borges@aluno.senai.br,(34) 9844-3531,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Isadora Marques Fernandes,isadora.fernandes@aluno.senai.br,(31) 9806-7070,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Helena Alves Macedo,helena.macedo@aluno.senai.br,(31) 9657-6876,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Bruno Freitas Ferreira,bruno.ferreira@aluno.senai.br,(34) 9317-1349,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Thiago Castro Carvalho,thiago.carvalho@aluno.senai.br,(31) 9949-4394,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Leonardo Duarte Silva,leonardo.silva@aluno.senai.br,(31) 9979-3370,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Juliana Cavalcanti Santos,juliana.santos@aluno.senai.br,(31) 9115-6869,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Pedro Souza Lima,pedro.lima@aluno.senai.br,(34) 9531-9619,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Fernando Goncalves Borges,fernando.borges@aluno.senai.br,(31) 9562-9254,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,INATIVO
+Marcos Barbosa Freitas,marcos.freitas@aluno.senai.br,(34) 9131-1996,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Guilherme Ramos Campos,guilherme.campos@aluno.senai.br,(35) 9175-2323,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Joao Monteiro Pinto,joao.pinto@aluno.senai.br,(37) 9661-6327,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,INATIVO
+Julia Goncalves Duarte,julia.duarte@aluno.senai.br,(35) 9201-2874,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Laura Dias Freitas,laura.freitas@aluno.senai.br,(35) 9525-2557,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Helena Gomes Macedo,helena.macedo1@aluno.senai.br,(35) 9168-2494,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Fernando Lima Moura,fernando.moura@aluno.senai.br,(31) 9700-6400,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Valentina Guimaraes Souza,valentina.souza@aluno.senai.br,(31) 9714-6119,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Leonardo Cavalcanti Cardoso,leonardo.cardoso@aluno.senai.br,(31) 9967-2773,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Joao Castro Almeida,joao.almeida@aluno.senai.br,(35) 9965-1430,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Daniel Dias Nascimento,daniel.nascimento@aluno.senai.br,(31) 9285-3347,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Camila Ferreira Siqueira,camila.siqueira@aluno.senai.br,(37) 9320-7163,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Daniel Guimaraes Rocha,daniel.rocha1@aluno.senai.br,(37) 9710-2391,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Mariana Macedo Ferreira,mariana.ferreira@aluno.senai.br,(31) 9553-7947,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Vinicius Barros Goncalves,vinicius.goncalves@aluno.senai.br,(31) 9453-8043,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Yasmin Santana Cavalcanti,yasmin.cavalcanti@aluno.senai.br,(31) 9146-4612,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,INATIVO
+Vinicius Barbosa Carvalho,vinicius.carvalho@aluno.senai.br,(31) 9882-5186,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Diego Ribeiro Lima,diego.lima@aluno.senai.br,(35) 9645-4770,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Larissa Machado Santos,larissa.santos@aluno.senai.br,(35) 9179-6129,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Laura Vieira Pereira,laura.pereira@aluno.senai.br,(35) 9121-6321,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Helena Ferreira Machado,helena.machado@aluno.senai.br,(31) 9349-8138,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Daniel Siqueira Dias,daniel.dias@aluno.senai.br,(31) 9441-3754,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Igor Martins Neves,igor.neves@aluno.senai.br,(31) 9459-3419,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Eduardo Duarte Gomes,eduardo.gomes@aluno.senai.br,(34) 9177-3902,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Cecilia Mendes Macedo,cecilia.macedo@aluno.senai.br,(37) 9758-6295,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Danilo Pinto Barbosa,danilo.barbosa@aluno.senai.br,(31) 9705-1920,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Danilo Oliveira Souza,danilo.souza@aluno.senai.br,(31) 9951-5703,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Carolina Monteiro Duarte,carolina.duarte@aluno.senai.br,(37) 9493-8581,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Nathalia Rocha Duarte,nathalia.duarte@aluno.senai.br,(35) 9613-3471,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Priscila Campos Ferreira,priscila.ferreira1@aluno.senai.br,(37) 9761-3827,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Danilo Santana Monteiro,danilo.monteiro@aluno.senai.br,(31) 9472-7108,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Livia Souza Pinto,livia.pinto@aluno.senai.br,(34) 9442-2079,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Aline Soares Guimaraes,aline.guimaraes@aluno.senai.br,(34) 9717-3463,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Bianca Barbosa Batista,bianca.batista1@aluno.senai.br,(34) 9778-7421,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Patricia Moura Moreira,patricia.moreira@aluno.senai.br,(34) 9910-6381,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Lorena Ferreira Batista,lorena.batista@aluno.senai.br,(34) 9533-9331,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Vinicius Dias Neves,vinicius.neves@aluno.senai.br,(35) 9296-4711,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Guilherme Goncalves Neves,guilherme.neves@aluno.senai.br,(37) 9955-9626,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Isadora Lima Duarte,isadora.duarte@aluno.senai.br,(35) 9257-3658,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Isabela Guimaraes Mendes,isabela.mendes@aluno.senai.br,(31) 9520-6968,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,INATIVO
+Manuela Almeida Teixeira,manuela.teixeira@aluno.senai.br,(31) 9416-8684,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Manuela Freitas Neves,manuela.neves@aluno.senai.br,(31) 9896-7256,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,INATIVO
+Livia Lima Soares,livia.soares@aluno.senai.br,(31) 9756-8873,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Marcos Pereira Vieira,marcos.vieira@aluno.senai.br,(31) 9881-3626,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Diego Ferreira Almeida,diego.almeida@aluno.senai.br,(35) 9457-1436,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Bernardo Moreira Ferreira,bernardo.ferreira@aluno.senai.br,(31) 9329-1461,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,INATIVO
+Priscila Gomes Lima,priscila.lima@aluno.senai.br,(31) 9393-8740,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Breno Silva Ferreira,breno.ferreira@aluno.senai.br,(31) 9362-4533,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Lorena Machado Pereira,lorena.pereira@aluno.senai.br,(31) 9343-5934,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Breno Freitas Rodrigues,breno.rodrigues@aluno.senai.br,(31) 9956-9189,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Bruna Vieira Machado,bruna.machado@aluno.senai.br,(31) 9729-6780,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Rafael Santana Andrade,rafael.andrade@aluno.senai.br,(31) 9638-9914,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Murilo Andrade Soares,murilo.soares@aluno.senai.br,(34) 9116-6850,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Amanda Neves Borges,amanda.borges@aluno.senai.br,(34) 9874-6447,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Gabriela Neves Macedo,gabriela.macedo@aluno.senai.br,(35) 9812-8840,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Marcelo Oliveira Vieira,marcelo.vieira@aluno.senai.br,(31) 9144-4268,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Samuel Teixeira Cardoso,samuel.cardoso@aluno.senai.br,(31) 9137-4131,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Priscila Fernandes Pereira,priscila.pereira@aluno.senai.br,(31) 9547-7553,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,INATIVO
+Eduardo Ramos Figueiredo,eduardo.figueiredo@aluno.senai.br,(35) 9476-9507,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Carolina Machado Duarte,carolina.duarte1@aluno.senai.br,(31) 9658-5813,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Henrique Barbosa Mendes,henrique.mendes@aluno.senai.br,(37) 9834-7981,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Mateus Guimaraes Nascimento,mateus.nascimento@aluno.senai.br,(37) 9545-5498,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Helena Goncalves Siqueira,helena.siqueira@aluno.senai.br,(34) 9263-1510,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Manuela Oliveira Lima,manuela.lima@aluno.senai.br,(31) 9341-7001,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Livia Gomes Macedo,livia.macedo@aluno.senai.br,(35) 9479-7095,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Lorena Andrade Nunes,lorena.nunes@aluno.senai.br,(31) 9765-5566,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,INATIVO
+Eduardo Ramos Santana,eduardo.santana@aluno.senai.br,(35) 9675-2929,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Jessica Monteiro Vieira,jessica.vieira@aluno.senai.br,(34) 9602-4279,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Eduardo Campos Mendes,eduardo.mendes@aluno.senai.br,(31) 9929-6236,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Aline Barbosa Costa,aline.costa@aluno.senai.br,(34) 9826-3852,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Caio Lima Lopes,caio.lopes@aluno.senai.br,(35) 9126-6912,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Fernanda Monteiro Ferreira,fernanda.ferreira@aluno.senai.br,(31) 9416-7523,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Rebeca Rodrigues Lima,rebeca.lima@aluno.senai.br,(31) 9757-2215,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Thiago Neves Moura,thiago.moura@aluno.senai.br,(34) 9701-3981,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Mariana Pereira Santana,mariana.santana@aluno.senai.br,(31) 9411-3697,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Bianca Santana Vieira,bianca.vieira@aluno.senai.br,(31) 9356-4216,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Leandro Ferreira Goncalves,leandro.goncalves@aluno.senai.br,(34) 9272-3526,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Livia Dias Castro,livia.castro@aluno.senai.br,(31) 9945-1464,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Rebeca Soares Batista,rebeca.batista@aluno.senai.br,(31) 9885-7825,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Aline Batista Barbosa,aline.barbosa@aluno.senai.br,(35) 9350-7653,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Isabela Mendes Marques,isabela.marques@aluno.senai.br,(35) 9575-4342,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Vitor Guimaraes Nascimento,vitor.nascimento@aluno.senai.br,(35) 9233-7070,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Joao Mendes Lopes,joao.lopes@aluno.senai.br,(31) 9199-1829,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,INATIVO
+Laura Lopes Costa,laura.costa@aluno.senai.br,(31) 9691-6123,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Igor Freitas Ramos,igor.ramos@aluno.senai.br,(31) 9609-1379,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,INATIVO
+Bernardo Carvalho Borges,bernardo.borges1@aluno.senai.br,(31) 9149-1828,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Clara Vieira Teixeira,clara.teixeira@aluno.senai.br,(31) 9967-2761,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Fernando Barros Nunes,fernando.nunes@aluno.senai.br,(31) 9146-7563,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Wesley Vieira Rodrigues,wesley.rodrigues@aluno.senai.br,(35) 9616-8378,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Isadora Pereira Lima,isadora.lima@aluno.senai.br,(31) 9503-7114,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Leonardo Martins Duarte,leonardo.duarte@aluno.senai.br,(37) 9511-9193,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Alexandre Cardoso Santana,alexandre.santana@aluno.senai.br,(35) 9252-9446,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Isabela Nunes Monteiro,isabela.monteiro@aluno.senai.br,(34) 9962-5902,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Fabio Campos Castro,fabio.castro@aluno.senai.br,(31) 9586-1272,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Renan Borges Barbosa,renan.barbosa@aluno.senai.br,(34) 9993-1436,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Cecilia Castro Almeida,cecilia.almeida@aluno.senai.br,(34) 9152-8871,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Alice Gomes Macedo,alice.macedo@aluno.senai.br,(31) 9132-2800,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Leonardo Marques Figueiredo,leonardo.figueiredo@aluno.senai.br,(31) 9520-9221,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Mariana Campos Lima,mariana.lima@aluno.senai.br,(37) 9312-6325,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Eduardo Freitas Teixeira,eduardo.teixeira@aluno.senai.br,(31) 9659-6804,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Bernardo Fernandes Moura,bernardo.moura@aluno.senai.br,(31) 9330-5876,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Yasmin Rocha Cardoso,yasmin.cardoso@aluno.senai.br,(31) 9673-5480,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Alice Nunes Nascimento,alice.nascimento@aluno.senai.br,(31) 9397-1689,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,INATIVO
+Danilo Batista Soares,danilo.soares@aluno.senai.br,(34) 9590-4505,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Wesley Figueiredo Fernandes,wesley.fernandes@aluno.senai.br,(31) 9211-4920,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Barbara Pinto Almeida,barbara.almeida@aluno.senai.br,(31) 9202-7771,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Thiago Silva Moura,thiago.moura1@aluno.senai.br,(31) 9516-8793,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Aline Rocha Vieira,aline.vieira@aluno.senai.br,(34) 9160-2465,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Larissa Ribeiro Marques,larissa.marques@aluno.senai.br,(31) 9137-7504,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Aline Oliveira Silva,aline.silva@aluno.senai.br,(31) 9681-2758,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Giovanna Santana Ramos,giovanna.ramos@aluno.senai.br,(31) 9971-9261,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Priscila Costa Guimaraes,priscila.guimaraes@aluno.senai.br,(35) 9763-5215,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Henrique Castro Macedo,henrique.macedo@aluno.senai.br,(31) 9279-7643,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Guilherme Ribeiro Lima,guilherme.lima@aluno.senai.br,(35) 9431-5064,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Joao Dias Barbosa,joao.barbosa@aluno.senai.br,(37) 9840-1187,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Mariana Cavalcanti Pereira,mariana.pereira@aluno.senai.br,(35) 9414-3616,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Patricia Figueiredo Pereira,patricia.pereira@aluno.senai.br,(34) 9402-7021,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Leonardo Freitas Siqueira,leonardo.siqueira@aluno.senai.br,(37) 9482-7813,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Jessica Barros Lopes,jessica.lopes@aluno.senai.br,(34) 9872-2341,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Douglas Pereira Souza,douglas.souza@aluno.senai.br,(37) 9617-4312,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Manuela Pereira Macedo,manuela.macedo@aluno.senai.br,(31) 9834-9008,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,INATIVO
+Felipe Freitas Lima,felipe.lima@aluno.senai.br,(37) 9525-8484,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Patricia Guimaraes Santos,patricia.santos@aluno.senai.br,(35) 9360-1049,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Andre Figueiredo Rodrigues,andre.rodrigues@aluno.senai.br,(37) 9161-2130,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Thiago Neves Batista,thiago.batista@aluno.senai.br,(34) 9761-7887,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,INATIVO
+Murilo Moreira Ferreira,murilo.ferreira@aluno.senai.br,(34) 9777-9835,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Eduardo Teixeira Nunes,eduardo.nunes@aluno.senai.br,(37) 9230-4648,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Julia Macedo Guimaraes,julia.guimaraes@aluno.senai.br,(37) 9534-9715,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Andre Gomes Fernandes,andre.fernandes@aluno.senai.br,(31) 9996-2848,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Gabriel Lopes Carvalho,gabriel.carvalho@aluno.senai.br,(31) 9203-1550,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Mariana Lopes Siqueira,mariana.siqueira@aluno.senai.br,(31) 9511-8191,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Mariana Lima Goncalves,mariana.goncalves@aluno.senai.br,(31) 9339-6224,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Lorena Almeida Marques,lorena.marques@aluno.senai.br,(31) 9381-1998,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Fabio Souza Nascimento,fabio.nascimento@aluno.senai.br,(34) 9787-7244,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Daniel Moreira Ribeiro,daniel.ribeiro@aluno.senai.br,(37) 9584-4948,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Julia Souza Moura,julia.moura@aluno.senai.br,(35) 9526-9683,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Alexandre Batista Ferreira,alexandre.ferreira@aluno.senai.br,(35) 9967-7079,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Mariana Fernandes Moreira,mariana.moreira@aluno.senai.br,(34) 9719-1647,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Melissa Carvalho Cardoso,melissa.cardoso@aluno.senai.br,(31) 9990-6455,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,INATIVO
+Caio Siqueira Pereira,caio.pereira1@aluno.senai.br,(34) 9872-8846,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Sophia Lopes Moura,sophia.moura@aluno.senai.br,(31) 9894-5637,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Patricia Soares Andrade,patricia.andrade@aluno.senai.br,(37) 9609-8635,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Thais Carvalho Andrade,thais.andrade@aluno.senai.br,(31) 9523-1749,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Wesley Borges Guimaraes,wesley.guimaraes@aluno.senai.br,(35) 9402-3497,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Bernardo Ramos Moura,bernardo.moura1@aluno.senai.br,(34) 9801-6530,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Fabio Freitas Costa,fabio.costa@aluno.senai.br,(34) 9914-6770,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Gabriela Teixeira Batista,gabriela.batista@aluno.senai.br,(31) 9636-1554,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,INATIVO
+Beatriz Marques Lima,beatriz.lima@aluno.senai.br,(34) 9336-2113,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Fernando Souza Monteiro,fernando.monteiro@aluno.senai.br,(34) 9782-8916,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Laura Silva Santos,laura.santos@aluno.senai.br,(37) 9839-5501,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Valentina Ribeiro Alves,valentina.alves@aluno.senai.br,(31) 9636-3439,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Bianca Fernandes Nunes,bianca.nunes@aluno.senai.br,(31) 9482-7652,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Barbara Barbosa Macedo,barbara.macedo@aluno.senai.br,(31) 9769-1519,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Ricardo Souza Pinto,ricardo.pinto@aluno.senai.br,(31) 9819-3807,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Alexandre Castro Alves,alexandre.alves@aluno.senai.br,(37) 9143-4764,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,INATIVO
+Rebeca Cardoso Fernandes,rebeca.fernandes@aluno.senai.br,(31) 9176-5593,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Camila Carvalho Borges,camila.borges@aluno.senai.br,(31) 9870-7525,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Rebeca Moreira Macedo,rebeca.macedo@aluno.senai.br,(37) 9439-7288,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Carolina Goncalves Siqueira,carolina.siqueira@aluno.senai.br,(31) 9154-2600,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Otavio Neves Monteiro,otavio.monteiro@aluno.senai.br,(37) 9506-6347,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Manuela Ramos Almeida,manuela.almeida@aluno.senai.br,(31) 9666-7150,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Alice Ferreira Neves,alice.neves@aluno.senai.br,(37) 9402-5037,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Leonardo Siqueira Moreira,leonardo.moreira@aluno.senai.br,(31) 9469-2745,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Fernando Barros Fernandes,fernando.fernandes@aluno.senai.br,(31) 9235-2430,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Rafaela Marques Alves,rafaela.alves@aluno.senai.br,(31) 9191-6798,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Alice Silva Vieira,alice.vieira@aluno.senai.br,(35) 9497-2387,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Murilo Costa Lima,murilo.lima@aluno.senai.br,(31) 9408-5397,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Joao Marques Barbosa,joao.barbosa1@aluno.senai.br,(35) 9901-2260,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Fabio Duarte Monteiro,fabio.monteiro@aluno.senai.br,(31) 9568-2752,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Priscila Monteiro Moreira,priscila.moreira@aluno.senai.br,(31) 9550-6484,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Livia Lima Barbosa,livia.barbosa@aluno.senai.br,(31) 9717-4290,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Thais Vieira Siqueira,thais.siqueira@aluno.senai.br,(34) 9748-9044,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Samuel Andrade Pereira,samuel.pereira@aluno.senai.br,(37) 9304-9939,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Julia Campos Carvalho,julia.carvalho@aluno.senai.br,(35) 9916-5773,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Laura Macedo Ramos,laura.ramos@aluno.senai.br,(31) 9748-5961,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Diego Moreira Rodrigues,diego.rodrigues1@aluno.senai.br,(35) 9712-8851,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Laura Teixeira Oliveira,laura.oliveira@aluno.senai.br,(31) 9818-9796,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Andre Costa Batista,andre.batista@aluno.senai.br,(37) 9145-7547,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,INATIVO
+Lucas Alves Soares,lucas.soares1@aluno.senai.br,(31) 9622-9499,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Patrick Figueiredo Goncalves,patrick.goncalves@aluno.senai.br,(31) 9453-1402,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Rafael Pereira Guimaraes,rafael.guimaraes@aluno.senai.br,(31) 9456-6110,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Ricardo Nascimento Cardoso,ricardo.cardoso@aluno.senai.br,(31) 9548-8412,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Bruno Santos Dias,bruno.dias@aluno.senai.br,(34) 9211-3692,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Priscila Moura Machado,priscila.machado@aluno.senai.br,(35) 9337-7636,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Sophia Santos Siqueira,sophia.siqueira@aluno.senai.br,(37) 9302-8365,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Jessica Fernandes Barros,jessica.barros@aluno.senai.br,(34) 9928-2025,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Helena Rocha Martins,helena.martins@aluno.senai.br,(35) 9216-5298,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Livia Moreira Monteiro,livia.monteiro@aluno.senai.br,(35) 9701-2871,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Eduardo Macedo Campos,eduardo.campos@aluno.senai.br,(31) 9729-2388,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Bruno Ribeiro Andrade,bruno.andrade@aluno.senai.br,(34) 9244-9369,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Murilo Machado Ribeiro,murilo.ribeiro@aluno.senai.br,(35) 9750-9804,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Thiago Ribeiro Rocha,thiago.rocha@aluno.senai.br,(35) 9734-1878,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,INATIVO
+Caio Moreira Moura,caio.moura@aluno.senai.br,(37) 9768-9109,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Danilo Ramos Costa,danilo.costa@aluno.senai.br,(31) 9678-1505,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Leandro Vieira Costa,leandro.costa@aluno.senai.br,(35) 9679-9115,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Leandro Andrade Teixeira,leandro.teixeira@aluno.senai.br,(31) 9878-8231,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,INATIVO
+Bernardo Barbosa Oliveira,bernardo.oliveira@aluno.senai.br,(35) 9369-6711,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Luana Carvalho Siqueira,luana.siqueira@aluno.senai.br,(37) 9805-6744,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Vinicius Carvalho Souza,vinicius.souza@aluno.senai.br,(37) 9459-9720,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Henrique Vieira Castro,henrique.castro@aluno.senai.br,(31) 9978-9428,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Laura Souza Fernandes,laura.fernandes@aluno.senai.br,(34) 9229-3174,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Bernardo Barros Macedo,bernardo.macedo@aluno.senai.br,(35) 9601-3329,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Gustavo Pinto Neves,gustavo.neves@aluno.senai.br,(31) 9512-9447,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Julia Ramos Rocha,julia.rocha@aluno.senai.br,(37) 9102-2526,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Leticia Teixeira Nunes,leticia.nunes@aluno.senai.br,(31) 9539-4470,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Priscila Moura Castro,priscila.castro@aluno.senai.br,(31) 9679-8951,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,INATIVO
+Larissa Alves Pinto,larissa.pinto@aluno.senai.br,(35) 9116-3035,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Diego Martins Figueiredo,diego.figueiredo@aluno.senai.br,(31) 9765-5945,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Carolina Batista Andrade,carolina.andrade@aluno.senai.br,(31) 9184-7092,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Barbara Machado Batista,barbara.batista@aluno.senai.br,(31) 9820-2559,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Patrick Almeida Santana,patrick.santana1@aluno.senai.br,(34) 9555-1152,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Valentina Figueiredo Lima,valentina.lima@aluno.senai.br,(35) 9172-4751,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Amanda Rocha Andrade,amanda.andrade@aluno.senai.br,(31) 9240-7270,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Leticia Santana Castro,leticia.castro@aluno.senai.br,(31) 9724-3688,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Leonardo Marques Monteiro,leonardo.monteiro@aluno.senai.br,(34) 9553-4559,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,INATIVO
+Bruno Borges Guimaraes,bruno.guimaraes@aluno.senai.br,(35) 9459-8035,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Rafael Lopes Moura,rafael.moura@aluno.senai.br,(37) 9714-5668,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Patricia Carvalho Santana,patricia.santana@aluno.senai.br,(37) 9621-4090,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Bernardo Ramos Moreira,bernardo.moreira@aluno.senai.br,(31) 9346-9185,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Helena Rocha Lima,helena.lima@aluno.senai.br,(35) 9981-7895,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Ricardo Neves Rodrigues,ricardo.rodrigues@aluno.senai.br,(31) 9701-2106,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Felipe Nunes Goncalves,felipe.goncalves@aluno.senai.br,(31) 9743-9209,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Leandro Teixeira Monteiro,leandro.monteiro@aluno.senai.br,(31) 9384-2369,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Bruna Teixeira Rocha,bruna.rocha@aluno.senai.br,(35) 9700-2083,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Luana Souza Lopes,luana.lopes@aluno.senai.br,(31) 9544-2900,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Eduardo Pereira Silva,eduardo.silva@aluno.senai.br,(34) 9240-1185,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Marcos Guimaraes Soares,marcos.soares@aluno.senai.br,(31) 9480-3079,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Gabriel Dias Machado,gabriel.machado@aluno.senai.br,(31) 9636-2046,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Leticia Ramos Freitas,leticia.freitas@aluno.senai.br,(37) 9468-1908,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Rodrigo Soares Neves,rodrigo.neves@aluno.senai.br,(31) 9687-2889,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Lucas Lopes Oliveira,lucas.oliveira@aluno.senai.br,(35) 9472-7274,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Larissa Moura Campos,larissa.campos@aluno.senai.br,(34) 9771-7870,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Vitor Fernandes Rodrigues,vitor.rodrigues@aluno.senai.br,(37) 9481-2956,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Larissa Nunes Rodrigues,larissa.rodrigues@aluno.senai.br,(35) 9986-5625,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Beatriz Andrade Martins,beatriz.martins@aluno.senai.br,(31) 9677-5979,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Yasmin Neves Martins,yasmin.martins@aluno.senai.br,(34) 9659-5016,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Arthur Teixeira Nascimento,arthur.nascimento@aluno.senai.br,(34) 9959-1157,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Patricia Alves Carvalho,patricia.carvalho@aluno.senai.br,(37) 9343-7878,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,INATIVO
+Bruna Campos Fernandes,bruna.fernandes@aluno.senai.br,(31) 9144-4792,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Rafael Borges Alves,rafael.alves@aluno.senai.br,(37) 9236-7461,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Thiago Lopes Vieira,thiago.vieira@aluno.senai.br,(31) 9971-6161,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Thais Mendes Fernandes,thais.fernandes@aluno.senai.br,(31) 9176-4321,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Bruna Alves Costa,bruna.costa@aluno.senai.br,(35) 9577-6145,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Vinicius Mendes Barbosa,vinicius.barbosa@aluno.senai.br,(35) 9371-2964,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Livia Oliveira Carvalho,livia.carvalho@aluno.senai.br,(31) 9251-2494,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,INATIVO
+Felipe Macedo Barbosa,felipe.barbosa@aluno.senai.br,(31) 9939-3848,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,INATIVO
+Melissa Siqueira Moura,melissa.moura@aluno.senai.br,(31) 9196-8570,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Lucas Souza Neves,lucas.neves1@aluno.senai.br,(31) 9233-4246,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Carolina Borges Soares,carolina.soares@aluno.senai.br,(31) 9122-2056,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,INATIVO
+Thiago Ferreira Dias,thiago.dias@aluno.senai.br,(31) 9143-8552,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Sophia Ramos Santos,sophia.santos@aluno.senai.br,(35) 9799-7990,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Vanessa Fernandes Mendes,vanessa.mendes@aluno.senai.br,(31) 9135-5026,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Clara Souza Ferreira,clara.ferreira@aluno.senai.br,(31) 9492-3248,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Lorena Lopes Pinto,lorena.pinto@aluno.senai.br,(37) 9913-1319,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Leandro Ramos Nascimento,leandro.nascimento@aluno.senai.br,(37) 9614-6269,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Otavio Almeida Santos,otavio.santos@aluno.senai.br,(31) 9159-8728,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Isabela Alves Lopes,isabela.lopes@aluno.senai.br,(34) 9346-5366,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Rebeca Moreira Nascimento,rebeca.nascimento@aluno.senai.br,(31) 9280-4875,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Cecilia Santos Campos,cecilia.campos@aluno.senai.br,(34) 9460-3328,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Yasmin Teixeira Barbosa,yasmin.barbosa@aluno.senai.br,(31) 9602-1621,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Camila Santana Cardoso,camila.cardoso@aluno.senai.br,(31) 9439-4300,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Vitor Souza Santos,vitor.santos@aluno.senai.br,(31) 9700-3320,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Leticia Andrade Campos,leticia.campos@aluno.senai.br,(34) 9505-2655,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Rodrigo Guimaraes Machado,rodrigo.machado@aluno.senai.br,(34) 9598-6198,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Isadora Nascimento Almeida,isadora.almeida@aluno.senai.br,(34) 9703-3872,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Fernanda Ribeiro Guimaraes,fernanda.guimaraes@aluno.senai.br,(31) 9818-7415,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Breno Almeida Pinto,breno.pinto@aluno.senai.br,(37) 9206-9129,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Andre Rocha Costa,andre.costa@aluno.senai.br,(34) 9190-6500,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Gustavo Nascimento Soares,gustavo.soares@aluno.senai.br,(31) 9837-1020,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Isabela Marques Ramos,isabela.ramos@aluno.senai.br,(35) 9459-9946,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Douglas Batista Barros,douglas.barros@aluno.senai.br,(34) 9330-3664,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Aline Santos Rocha,aline.rocha@aluno.senai.br,(31) 9207-2215,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Gustavo Moura Ferreira,gustavo.ferreira@aluno.senai.br,(31) 9708-8909,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Livia Machado Costa,livia.costa@aluno.senai.br,(31) 9203-6424,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,INATIVO
+Wesley Guimaraes Teixeira,wesley.teixeira@aluno.senai.br,(31) 9776-5612,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Douglas Moura Ramos,douglas.ramos@aluno.senai.br,(31) 9155-6911,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Otavio Cardoso Martins,otavio.martins@aluno.senai.br,(31) 9126-4390,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Clara Pereira Barbosa,clara.barbosa@aluno.senai.br,(35) 9582-9013,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Gabriela Andrade Moreira,gabriela.moreira@aluno.senai.br,(31) 9291-8303,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Arthur Fernandes Castro,arthur.castro1@aluno.senai.br,(31) 9254-2584,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Laura Barros Borges,laura.borges@aluno.senai.br,(31) 9666-1999,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Leandro Macedo Cardoso,leandro.cardoso@aluno.senai.br,(37) 9341-8803,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Larissa Goncalves Castro,larissa.castro@aluno.senai.br,(37) 9919-3415,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,INATIVO
+Rodrigo Carvalho Martins,rodrigo.martins@aluno.senai.br,(31) 9143-7936,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,INATIVO
+Leonardo Duarte Soares,leonardo.soares@aluno.senai.br,(31) 9844-2097,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Vitor Fernandes Santana,vitor.santana@aluno.senai.br,(35) 9994-1202,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Douglas Borges Barros,douglas.barros1@aluno.senai.br,(31) 9208-2654,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Laura Soares Moreira,laura.moreira@aluno.senai.br,(34) 9597-8750,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Breno Duarte Macedo,breno.macedo@aluno.senai.br,(34) 9511-1635,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,INATIVO
+Bernardo Souza Siqueira,bernardo.siqueira@aluno.senai.br,(35) 9375-7102,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Patricia Fernandes Ramos,patricia.ramos@aluno.senai.br,(34) 9801-2609,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Manuela Neves Rocha,manuela.rocha@aluno.senai.br,(31) 9846-7828,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Renan Siqueira Ramos,renan.ramos@aluno.senai.br,(37) 9988-7126,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Daniel Campos Goncalves,daniel.goncalves1@aluno.senai.br,(35) 9238-9589,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Nathalia Souza Lopes,nathalia.lopes@aluno.senai.br,(31) 9567-1828,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Marcelo Goncalves Nunes,marcelo.nunes@aluno.senai.br,(34) 9226-1500,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Gabriela Cardoso Borges,gabriela.borges@aluno.senai.br,(37) 9458-6640,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Rafael Vieira Santos,rafael.santos@aluno.senai.br,(35) 9150-3669,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Jessica Fernandes Batista,jessica.batista@aluno.senai.br,(35) 9625-1328,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Eduardo Duarte Silva,eduardo.silva1@aluno.senai.br,(31) 9358-6004,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Andre Freitas Soares,andre.soares@aluno.senai.br,(31) 9577-5950,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Fernando Moura Batista,fernando.batista@aluno.senai.br,(37) 9723-5631,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Alexandre Fernandes Pinto,alexandre.pinto@aluno.senai.br,(31) 9982-5536,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Patricia Martins Gomes,patricia.gomes@aluno.senai.br,(37) 9883-4937,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Livia Nunes Cavalcanti,livia.cavalcanti@aluno.senai.br,(31) 9797-3292,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Renata Marques Nunes,renata.nunes@aluno.senai.br,(35) 9854-1578,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Giovanna Pinto Cardoso,giovanna.cardoso@aluno.senai.br,(34) 9467-9311,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Melissa Ribeiro Vieira,melissa.vieira@aluno.senai.br,(31) 9582-3096,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Gabriela Macedo Dias,gabriela.dias@aluno.senai.br,(34) 9191-4641,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Laura Dias Andrade,laura.andrade@aluno.senai.br,(31) 9699-5817,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Patrick Borges Monteiro,patrick.monteiro@aluno.senai.br,(31) 9583-4187,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Daniel Marques Souza,daniel.souza@aluno.senai.br,(31) 9240-4281,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Julia Gomes Rocha,julia.rocha1@aluno.senai.br,(34) 9284-2324,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Thais Pinto Souza,thais.souza@aluno.senai.br,(31) 9562-5481,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Rodrigo Ramos Barros,rodrigo.barros@aluno.senai.br,(31) 9232-8105,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Alice Silva Oliveira,alice.oliveira@aluno.senai.br,(37) 9304-7112,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,INATIVO
+Lorena Martins Santos,lorena.santos@aluno.senai.br,(34) 9104-5076,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Thiago Alves Moreira,thiago.moreira@aluno.senai.br,(37) 9702-6015,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Henrique Freitas Guimaraes,henrique.guimaraes@aluno.senai.br,(37) 9710-9587,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Fernanda Dias Ramos,fernanda.ramos1@aluno.senai.br,(31) 9868-4087,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,INATIVO
+Sophia Santos Almeida,sophia.almeida@aluno.senai.br,(31) 9844-3149,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Isabela Pereira Andrade,isabela.andrade@aluno.senai.br,(34) 9766-1612,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Leandro Monteiro Souza,leandro.souza@aluno.senai.br,(37) 9149-2771,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Danilo Moreira Pereira,danilo.pereira@aluno.senai.br,(37) 9358-8772,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Beatriz Barbosa Marques,beatriz.marques@aluno.senai.br,(34) 9203-9524,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Laura Alves Goncalves,laura.goncalves@aluno.senai.br,(34) 9732-2928,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Caio Duarte Martins,caio.martins@aluno.senai.br,(31) 9951-9571,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Rodrigo Oliveira Moura,rodrigo.moura@aluno.senai.br,(35) 9312-8875,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Rafael Pereira Castro,rafael.castro@aluno.senai.br,(34) 9605-3443,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Guilherme Soares Batista,guilherme.batista@aluno.senai.br,(31) 9567-5850,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Eduardo Oliveira Vieira,eduardo.vieira@aluno.senai.br,(31) 9920-6123,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Mateus Silva Lima,mateus.lima@aluno.senai.br,(34) 9762-3793,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Breno Fernandes Guimaraes,breno.guimaraes@aluno.senai.br,(31) 9481-6615,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Marcelo Fernandes Moreira,marcelo.moreira@aluno.senai.br,(34) 9971-8835,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Juliana Lima Figueiredo,juliana.figueiredo@aluno.senai.br,(34) 9160-3611,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Rebeca Macedo Mendes,rebeca.mendes@aluno.senai.br,(31) 9725-7221,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Fernanda Cardoso Ramos,fernanda.ramos2@aluno.senai.br,(31) 9521-8220,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Beatriz Campos Macedo,beatriz.macedo@aluno.senai.br,(37) 9885-4669,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Isadora Alves Machado,isadora.machado@aluno.senai.br,(34) 9844-5072,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Alice Gomes Moura,alice.moura@aluno.senai.br,(37) 9155-1190,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Fabio Costa Rodrigues,fabio.rodrigues@aluno.senai.br,(35) 9428-4946,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,INATIVO
+Arthur Moura Batista,arthur.batista@aluno.senai.br,(35) 9512-4850,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Manuela Ferreira Ramos,manuela.ramos@aluno.senai.br,(35) 9423-2944,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Samuel Marques Oliveira,samuel.oliveira@aluno.senai.br,(37) 9662-1002,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Patricia Goncalves Moura,patricia.moura@aluno.senai.br,(31) 9770-8474,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Arthur Freitas Dias,arthur.dias@aluno.senai.br,(37) 9885-8751,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Arthur Silva Dias,arthur.dias1@aluno.senai.br,(31) 9949-5783,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Rodrigo Ramos Lima,rodrigo.lima@aluno.senai.br,(34) 9860-7704,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Bruno Nunes Carvalho,bruno.carvalho@aluno.senai.br,(35) 9944-4122,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Patrick Pereira Neves,patrick.neves@aluno.senai.br,(35) 9568-9260,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,INATIVO
+Felipe Moura Machado,felipe.machado@aluno.senai.br,(37) 9594-9328,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Thiago Alves Moreira,thiago.moreira1@aluno.senai.br,(34) 9714-6273,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Luana Fernandes Nunes,luana.nunes@aluno.senai.br,(31) 9401-8419,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Rafaela Barbosa Figueiredo,rafaela.figueiredo@aluno.senai.br,(37) 9981-6143,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Aline Macedo Nascimento,aline.nascimento@aluno.senai.br,(34) 9235-3913,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Melissa Cardoso Borges,melissa.borges@aluno.senai.br,(37) 9783-7839,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Lucas Santana Alves,lucas.alves@aluno.senai.br,(31) 9490-3381,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Rodrigo Vieira Macedo,rodrigo.macedo@aluno.senai.br,(31) 9249-2016,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Bianca Mendes Alves,bianca.alves@aluno.senai.br,(37) 9988-4675,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Aline Figueiredo Cavalcanti,aline.cavalcanti@aluno.senai.br,(31) 9490-7349,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,INATIVO
+Thais Moura Souza,thais.souza1@aluno.senai.br,(31) 9861-5117,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Manuela Almeida Pinto,manuela.pinto@aluno.senai.br,(34) 9826-7025,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Aline Mendes Ribeiro,aline.ribeiro@aluno.senai.br,(34) 9176-4063,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Mateus Machado Fernandes,mateus.fernandes@aluno.senai.br,(37) 9370-3131,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Alexandre Freitas Campos,alexandre.campos@aluno.senai.br,(31) 9140-3518,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Isadora Cavalcanti Barbosa,isadora.barbosa@aluno.senai.br,(35) 9908-6866,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Arthur Ribeiro Santana,arthur.santana@aluno.senai.br,(31) 9905-9276,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Carolina Nascimento Almeida,carolina.almeida@aluno.senai.br,(31) 9779-6437,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Breno Santana Cardoso,breno.cardoso@aluno.senai.br,(37) 9943-1144,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Breno Monteiro Lopes,breno.lopes@aluno.senai.br,(31) 9798-6258,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,INATIVO
+Alice Soares Teixeira,alice.teixeira@aluno.senai.br,(34) 9389-1404,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Fabio Oliveira Vieira,fabio.vieira@aluno.senai.br,(34) 9297-6248,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,INATIVO
+Leandro Teixeira Silva,leandro.silva@aluno.senai.br,(34) 9167-4453,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Guilherme Carvalho Teixeira,guilherme.teixeira1@aluno.senai.br,(34) 9999-8130,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Marcelo Campos Dias,marcelo.dias@aluno.senai.br,(31) 9189-2200,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Gustavo Castro Almeida,gustavo.almeida@aluno.senai.br,(31) 9517-7357,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Gabriel Moreira Macedo,gabriel.macedo@aluno.senai.br,(31) 9647-1096,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Leticia Nascimento Goncalves,leticia.goncalves@aluno.senai.br,(31) 9396-5937,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Alice Nunes Cavalcanti,alice.cavalcanti@aluno.senai.br,(31) 9585-3561,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Leandro Vieira Pinto,leandro.pinto@aluno.senai.br,(31) 9405-7113,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Juliana Oliveira Silva,juliana.silva@aluno.senai.br,(37) 9710-7456,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Bianca Carvalho Marques,bianca.marques@aluno.senai.br,(34) 9971-9397,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Pedro Martins Pereira,pedro.pereira@aluno.senai.br,(31) 9787-1891,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Gustavo Soares Alves,gustavo.alves@aluno.senai.br,(31) 9843-8982,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Luana Alves Vieira,luana.vieira@aluno.senai.br,(37) 9171-4170,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Daniel Figueiredo Borges,daniel.borges@aluno.senai.br,(31) 9679-6971,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,INATIVO
+Vitor Lopes Almeida,vitor.almeida@aluno.senai.br,(34) 9857-8145,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Alexandre Cardoso Freitas,alexandre.freitas@aluno.senai.br,(35) 9467-6004,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Otavio Ferreira Fernandes,otavio.fernandes@aluno.senai.br,(31) 9651-4218,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Leticia Santos Goncalves,leticia.goncalves1@aluno.senai.br,(34) 9131-7637,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,INATIVO
+Giovanna Teixeira Cardoso,giovanna.cardoso1@aluno.senai.br,(34) 9893-3435,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Cecilia Guimaraes Vieira,cecilia.vieira@aluno.senai.br,(31) 9575-9210,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Bernardo Monteiro Macedo,bernardo.macedo1@aluno.senai.br,(31) 9875-9423,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Douglas Cavalcanti Gomes,douglas.gomes@aluno.senai.br,(34) 9849-8921,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Barbara Rodrigues Soares,barbara.soares@aluno.senai.br,(31) 9339-1701,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Alice Cardoso Freitas,alice.freitas@aluno.senai.br,(31) 9140-6309,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Vanessa Siqueira Soares,vanessa.soares@aluno.senai.br,(37) 9657-3848,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Gustavo Santana Soares,gustavo.soares1@aluno.senai.br,(35) 9328-9460,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Yasmin Cardoso Duarte,yasmin.duarte@aluno.senai.br,(31) 9613-3276,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Joao Carvalho Gomes,joao.gomes@aluno.senai.br,(31) 9261-6934,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Alexandre Guimaraes Pereira,alexandre.pereira@aluno.senai.br,(35) 9791-8844,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Renan Santos Lopes,renan.lopes@aluno.senai.br,(31) 9230-3639,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Douglas Gomes Souza,douglas.souza1@aluno.senai.br,(31) 9364-3949,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Camila Guimaraes Cavalcanti,camila.cavalcanti@aluno.senai.br,(31) 9187-4548,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Ricardo Costa Almeida,ricardo.almeida@aluno.senai.br,(35) 9715-3338,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Rodrigo Guimaraes Macedo,rodrigo.macedo1@aluno.senai.br,(31) 9564-2127,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Gabriel Martins Santana,gabriel.santana@aluno.senai.br,(37) 9800-7877,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Breno Duarte Oliveira,breno.oliveira@aluno.senai.br,(37) 9615-2925,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Otavio Teixeira Silva,otavio.silva@aluno.senai.br,(34) 9764-8069,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Marcos Machado Almeida,marcos.almeida@aluno.senai.br,(35) 9908-7246,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Rebeca Alves Machado,rebeca.machado@aluno.senai.br,(31) 9360-8817,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,INATIVO
+Otavio Teixeira Marques,otavio.marques@aluno.senai.br,(31) 9293-1089,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Lucas Moreira Batista,lucas.batista@aluno.senai.br,(31) 9804-6175,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Patrick Soares Teixeira,patrick.teixeira@aluno.senai.br,(35) 9678-6990,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,INATIVO
+Vinicius Marques Moura,vinicius.moura@aluno.senai.br,(37) 9594-3928,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Daniel Castro Nascimento,daniel.nascimento1@aluno.senai.br,(34) 9507-3262,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Rodrigo Alves Carvalho,rodrigo.carvalho@aluno.senai.br,(37) 9510-6544,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Beatriz Ferreira Gomes,beatriz.gomes@aluno.senai.br,(35) 9714-8133,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Rafael Duarte Oliveira,rafael.oliveira@aluno.senai.br,(34) 9493-7564,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Gabriela Pinto Ramos,gabriela.ramos@aluno.senai.br,(35) 9110-4304,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Rafaela Santana Figueiredo,rafaela.figueiredo1@aluno.senai.br,(31) 9729-3776,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Isabela Ferreira Fernandes,isabela.fernandes@aluno.senai.br,(35) 9461-7474,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Gustavo Ferreira Moura,gustavo.moura@aluno.senai.br,(31) 9843-6703,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,INATIVO
+Otavio Martins Freitas,otavio.freitas@aluno.senai.br,(35) 9688-1076,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Wesley Rodrigues Goncalves,wesley.goncalves@aluno.senai.br,(31) 9448-2917,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Rebeca Soares Figueiredo,rebeca.figueiredo@aluno.senai.br,(35) 9486-8923,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Julia Macedo Freitas,julia.freitas@aluno.senai.br,(37) 9982-1448,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Arthur Macedo Figueiredo,arthur.figueiredo1@aluno.senai.br,(31) 9919-6172,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,INATIVO
+Lucas Figueiredo Soares,lucas.soares2@aluno.senai.br,(31) 9394-2523,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Leticia Moura Ribeiro,leticia.ribeiro@aluno.senai.br,(35) 9421-6792,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,INATIVO
+Caio Ramos Siqueira,caio.siqueira@aluno.senai.br,(31) 9340-4965,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Bernardo Monteiro Nascimento,bernardo.nascimento@aluno.senai.br,(31) 9897-2747,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,INATIVO
+Yasmin Monteiro Silva,yasmin.silva@aluno.senai.br,(37) 9143-8901,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Douglas Fernandes Ramos,douglas.ramos1@aluno.senai.br,(31) 9882-9374,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Fernanda Souza Santana,fernanda.santana@aluno.senai.br,(35) 9589-9859,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Eduardo Freitas Pereira,eduardo.pereira@aluno.senai.br,(34) 9630-8537,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Vinicius Moreira Borges,vinicius.borges@aluno.senai.br,(31) 9433-6924,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Joao Cardoso Monteiro,joao.monteiro@aluno.senai.br,(31) 9474-4013,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Fernando Andrade Nunes,fernando.nunes1@aluno.senai.br,(31) 9561-3947,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,INATIVO
+Amanda Guimaraes Fernandes,amanda.fernandes@aluno.senai.br,(31) 9668-8081,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Bruna Cardoso Silva,bruna.silva@aluno.senai.br,(31) 9531-9185,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,INATIVO
+Lorena Teixeira Guimaraes,lorena.guimaraes@aluno.senai.br,(31) 9904-8972,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Mariana Nunes Alves,mariana.alves@aluno.senai.br,(34) 9267-1983,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Guilherme Mendes Siqueira,guilherme.siqueira@aluno.senai.br,(31) 9366-6914,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Renata Nascimento Santos,renata.santos@aluno.senai.br,(35) 9224-6752,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Giovanna Ribeiro Neves,giovanna.neves@aluno.senai.br,(31) 9463-6326,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Rafael Moreira Monteiro,rafael.monteiro@aluno.senai.br,(31) 9574-3373,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Laura Pinto Monteiro,laura.monteiro@aluno.senai.br,(37) 9514-2168,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Vitor Batista Vieira,vitor.vieira@aluno.senai.br,(34) 9373-7479,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,INATIVO
+Helena Siqueira Borges,helena.borges@aluno.senai.br,(37) 9561-7782,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Bernardo Cavalcanti Soares,bernardo.soares@aluno.senai.br,(34) 9817-2311,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Gustavo Cardoso Moura,gustavo.moura1@aluno.senai.br,(31) 9126-7504,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Carolina Batista Moreira,carolina.moreira@aluno.senai.br,(31) 9334-5053,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Marcos Costa Santos,marcos.santos@aluno.senai.br,(31) 9779-6846,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Leandro Fernandes Moura,leandro.moura@aluno.senai.br,(35) 9238-9835,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Douglas Machado Santana,douglas.santana@aluno.senai.br,(34) 9754-9745,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,INATIVO
+Arthur Ferreira Mendes,arthur.mendes@aluno.senai.br,(31) 9474-7753,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Marcos Barros Lima,marcos.lima@aluno.senai.br,(31) 9393-8687,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Ricardo Barbosa Silva,ricardo.silva@aluno.senai.br,(35) 9917-5799,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Nathalia Marques Moura,nathalia.moura@aluno.senai.br,(35) 9504-5094,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Alice Almeida Soares,alice.soares@aluno.senai.br,(31) 9532-4924,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Vanessa Marques Martins,vanessa.martins@aluno.senai.br,(31) 9286-3238,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Danilo Fernandes Figueiredo,danilo.figueiredo@aluno.senai.br,(37) 9603-4076,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Leandro Santos Ribeiro,leandro.ribeiro@aluno.senai.br,(31) 9388-5410,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Barbara Ferreira Gomes,barbara.gomes@aluno.senai.br,(31) 9605-4558,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Yasmin Andrade Freitas,yasmin.freitas@aluno.senai.br,(34) 9910-1519,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Bruna Souza Fernandes,bruna.fernandes1@aluno.senai.br,(35) 9173-9899,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Renata Moreira Silva,renata.silva@aluno.senai.br,(31) 9886-5078,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Mateus Martins Freitas,mateus.freitas@aluno.senai.br,(34) 9889-2539,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Patricia Rocha Costa,patricia.costa@aluno.senai.br,(34) 9845-1691,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Nathalia Andrade Souza,nathalia.souza@aluno.senai.br,(34) 9323-2850,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Rodrigo Fernandes Borges,rodrigo.borges@aluno.senai.br,(31) 9505-4982,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,INATIVO
+Clara Figueiredo Duarte,clara.duarte@aluno.senai.br,(31) 9480-2466,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Breno Dias Barros,breno.barros@aluno.senai.br,(34) 9161-1979,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Amanda Lima Ramos,amanda.ramos@aluno.senai.br,(31) 9424-6690,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Murilo Nascimento Guimaraes,murilo.guimaraes@aluno.senai.br,(31) 9356-1646,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Giovanna Figueiredo Ramos,giovanna.ramos1@aluno.senai.br,(31) 9680-4057,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Otavio Moura Costa,otavio.costa@aluno.senai.br,(31) 9643-3539,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Fernando Freitas Silva,fernando.silva@aluno.senai.br,(34) 9618-7210,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,INATIVO
+Helena Neves Monteiro,helena.monteiro@aluno.senai.br,(31) 9428-2037,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Melissa Gomes Monteiro,melissa.monteiro@aluno.senai.br,(31) 9430-7714,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Leticia Oliveira Lima,leticia.lima@aluno.senai.br,(31) 9994-1512,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Mateus Castro Batista,mateus.batista@aluno.senai.br,(35) 9773-9026,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Gustavo Silva Carvalho,gustavo.carvalho@aluno.senai.br,(34) 9603-2310,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Wesley Siqueira Marques,wesley.marques@aluno.senai.br,(31) 9913-1955,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Patricia Rodrigues Carvalho,patricia.carvalho1@aluno.senai.br,(37) 9199-2658,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Marcos Cavalcanti Lopes,marcos.lopes@aluno.senai.br,(37) 9740-3931,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Rebeca Nascimento Macedo,rebeca.macedo1@aluno.senai.br,(35) 9819-7997,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Samuel Goncalves Dias,samuel.dias@aluno.senai.br,(34) 9261-9747,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,INATIVO
+Melissa Rocha Andrade,melissa.andrade@aluno.senai.br,(35) 9882-8054,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Jessica Moreira Neves,jessica.neves@aluno.senai.br,(37) 9862-5162,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,INATIVO
+Samuel Silva Guimaraes,samuel.guimaraes@aluno.senai.br,(31) 9391-1267,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,INATIVO
+Daniel Almeida Carvalho,daniel.carvalho@aluno.senai.br,(31) 9122-5521,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Leonardo Lima Soares,leonardo.soares1@aluno.senai.br,(31) 9696-5093,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Douglas Nunes Castro,douglas.castro@aluno.senai.br,(31) 9851-2264,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Douglas Alves Duarte,douglas.duarte@aluno.senai.br,(34) 9407-1612,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Alexandre Nascimento Machado,alexandre.machado@aluno.senai.br,(35) 9988-2974,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Beatriz Pinto Neves,beatriz.neves@aluno.senai.br,(34) 9491-1886,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Douglas Gomes Rocha,douglas.rocha@aluno.senai.br,(37) 9814-4617,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Sophia Mendes Barros,sophia.barros@aluno.senai.br,(37) 9689-9269,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Samuel Gomes Lima,samuel.lima@aluno.senai.br,(31) 9184-8796,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Samuel Goncalves Machado,samuel.machado@aluno.senai.br,(34) 9233-3209,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Douglas Martins Moura,douglas.moura@aluno.senai.br,(37) 9853-9589,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Diego Rocha Macedo,diego.macedo@aluno.senai.br,(37) 9191-2843,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Vitor Nascimento Duarte,vitor.duarte@aluno.senai.br,(34) 9124-5994,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,INATIVO
+Manuela Monteiro Gomes,manuela.gomes@aluno.senai.br,(35) 9145-4825,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Rafael Pereira Siqueira,rafael.siqueira@aluno.senai.br,(31) 9348-3419,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Juliana Barbosa Mendes,juliana.mendes@aluno.senai.br,(35) 9123-6437,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Leandro Santana Barros,leandro.barros@aluno.senai.br,(31) 9661-8913,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Alice Borges Cavalcanti,alice.cavalcanti1@aluno.senai.br,(37) 9144-5185,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Breno Fernandes Souza,breno.souza@aluno.senai.br,(35) 9770-1136,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Fernando Alves Santos,fernando.santos@aluno.senai.br,(31) 9988-7332,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,INATIVO
+Guilherme Rocha Ramos,guilherme.ramos@aluno.senai.br,(37) 9644-2442,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Melissa Campos Santos,melissa.santos@aluno.senai.br,(31) 9353-9673,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Rodrigo Santos Nascimento,rodrigo.nascimento@aluno.senai.br,(34) 9460-6822,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Rafaela Fernandes Souza,rafaela.souza@aluno.senai.br,(34) 9363-7343,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,INATIVO
+Barbara Gomes Dias,barbara.dias@aluno.senai.br,(35) 9772-3248,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Isadora Pinto Macedo,isadora.macedo@aluno.senai.br,(31) 9527-4938,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Otavio Dias Mendes,otavio.mendes@aluno.senai.br,(37) 9234-4387,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Nathalia Lima Barbosa,nathalia.barbosa@aluno.senai.br,(34) 9822-9582,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Bruna Batista Castro,bruna.castro@aluno.senai.br,(31) 9425-2111,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Bruna Guimaraes Santos,bruna.santos@aluno.senai.br,(31) 9523-7737,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Vanessa Gomes Neves,vanessa.neves@aluno.senai.br,(31) 9209-3155,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Isadora Fernandes Duarte,isadora.duarte1@aluno.senai.br,(37) 9727-4783,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Rafael Figueiredo Neves,rafael.neves@aluno.senai.br,(35) 9237-9230,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Murilo Ramos Cardoso,murilo.cardoso@aluno.senai.br,(31) 9267-4166,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Beatriz Fernandes Marques,beatriz.marques1@aluno.senai.br,(31) 9860-4323,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Manuela Monteiro Ramos,manuela.ramos1@aluno.senai.br,(34) 9432-8496,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Livia Siqueira Moreira,livia.moreira@aluno.senai.br,(34) 9420-7457,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Mateus Lopes Santana,mateus.santana@aluno.senai.br,(37) 9505-1643,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Mariana Martins Vieira,mariana.vieira@aluno.senai.br,(35) 9507-5989,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Breno Souza Figueiredo,breno.figueiredo@aluno.senai.br,(37) 9245-8595,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Eduardo Neves Borges,eduardo.borges@aluno.senai.br,(34) 9659-3216,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Eduardo Freitas Borges,eduardo.borges1@aluno.senai.br,(34) 9306-8449,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Isabela Campos Guimaraes,isabela.guimaraes@aluno.senai.br,(31) 9193-2870,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Murilo Guimaraes Goncalves,murilo.goncalves@aluno.senai.br,(37) 9263-7204,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Alexandre Castro Cavalcanti,alexandre.cavalcanti1@aluno.senai.br,(31) 9266-3369,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Daniel Barbosa Guimaraes,daniel.guimaraes@aluno.senai.br,(35) 9395-3960,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,INATIVO
+Beatriz Monteiro Barros,beatriz.barros@aluno.senai.br,(31) 9112-8514,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Beatriz Duarte Ramos,beatriz.ramos@aluno.senai.br,(31) 9322-8794,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Otavio Silva Lopes,otavio.lopes@aluno.senai.br,(37) 9384-4401,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Andre Oliveira Gomes,andre.gomes@aluno.senai.br,(31) 9783-5889,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,INATIVO
+Renan Ribeiro Costa,renan.costa@aluno.senai.br,(34) 9391-3906,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Mateus Ferreira Neves,mateus.neves@aluno.senai.br,(31) 9430-7038,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Melissa Rodrigues Vieira,melissa.vieira1@aluno.senai.br,(35) 9237-2999,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Vinicius Figueiredo Carvalho,vinicius.carvalho1@aluno.senai.br,(37) 9159-2790,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Aline Machado Duarte,aline.duarte@aluno.senai.br,(31) 9365-9608,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,INATIVO
+Yasmin Santana Guimaraes,yasmin.guimaraes@aluno.senai.br,(34) 9609-9069,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,INATIVO
+Henrique Martins Silva,henrique.silva@aluno.senai.br,(31) 9124-8616,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Breno Marques Oliveira,breno.oliveira1@aluno.senai.br,(31) 9458-4478,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Renata Rodrigues Barbosa,renata.barbosa@aluno.senai.br,(31) 9618-6307,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Samuel Guimaraes Castro,samuel.castro@aluno.senai.br,(37) 9129-3877,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Ricardo Cardoso Oliveira,ricardo.oliveira@aluno.senai.br,(34) 9239-8888,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Giovanna Dias Freitas,giovanna.freitas1@aluno.senai.br,(35) 9860-1917,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Melissa Teixeira Santos,melissa.santos1@aluno.senai.br,(31) 9691-6434,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Gabriel Dias Moreira,gabriel.moreira@aluno.senai.br,(34) 9647-3719,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Daniel Campos Rocha,daniel.rocha2@aluno.senai.br,(34) 9132-5448,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Helena Mendes Barbosa,helena.barbosa@aluno.senai.br,(31) 9637-5953,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Nathalia Ferreira Mendes,nathalia.mendes@aluno.senai.br,(37) 9125-8907,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Lorena Barbosa Neves,lorena.neves@aluno.senai.br,(31) 9246-2609,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Murilo Campos Santana,murilo.santana@aluno.senai.br,(31) 9104-6095,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Carolina Dias Freitas,carolina.freitas@aluno.senai.br,(31) 9205-9529,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Jessica Rocha Martins,jessica.martins@aluno.senai.br,(31) 9393-5532,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Vanessa Gomes Costa,vanessa.costa@aluno.senai.br,(31) 9217-1249,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Vitor Fernandes Gomes,vitor.gomes@aluno.senai.br,(34) 9923-5641,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Alexandre Teixeira Mendes,alexandre.mendes@aluno.senai.br,(31) 9233-1475,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,INATIVO
+Murilo Souza Ferreira,murilo.ferreira1@aluno.senai.br,(35) 9501-3932,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Caio Campos Barros,caio.barros@aluno.senai.br,(34) 9928-9740,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,INATIVO
+Julia Castro Lima,julia.lima@aluno.senai.br,(31) 9932-8672,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Julia Cardoso Almeida,julia.almeida@aluno.senai.br,(31) 9247-5227,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Priscila Rocha Freitas,priscila.freitas@aluno.senai.br,(35) 9130-2070,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Rodrigo Vieira Neves,rodrigo.neves1@aluno.senai.br,(31) 9718-3087,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Amanda Rocha Moura,amanda.moura@aluno.senai.br,(34) 9172-5949,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Breno Lopes Moura,breno.moura@aluno.senai.br,(31) 9593-7288,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Cecilia Machado Castro,cecilia.castro@aluno.senai.br,(31) 9657-4869,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Douglas Ramos Pereira,douglas.pereira@aluno.senai.br,(37) 9710-8584,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Gabriela Barbosa Nunes,gabriela.nunes@aluno.senai.br,(31) 9712-2781,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Mariana Ferreira Carvalho,mariana.carvalho@aluno.senai.br,(31) 9694-1003,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Henrique Moreira Monteiro,henrique.monteiro@aluno.senai.br,(37) 9557-4205,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Douglas Macedo Barbosa,douglas.barbosa@aluno.senai.br,(35) 9835-6640,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Rafaela Nunes Lima,rafaela.lima@aluno.senai.br,(31) 9163-7049,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Bianca Pereira Vieira,bianca.vieira1@aluno.senai.br,(31) 9340-8073,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Sophia Moreira Machado,sophia.machado@aluno.senai.br,(37) 9316-3841,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Helena Marques Gomes,helena.gomes@aluno.senai.br,(31) 9993-3056,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Bruna Guimaraes Ramos,bruna.ramos@aluno.senai.br,(34) 9547-3224,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Julia Figueiredo Duarte,julia.duarte1@aluno.senai.br,(35) 9738-3945,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Manuela Moreira Nascimento,manuela.nascimento@aluno.senai.br,(31) 9290-7959,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Luana Campos Goncalves,luana.goncalves@aluno.senai.br,(31) 9520-9948,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Ricardo Campos Andrade,ricardo.andrade@aluno.senai.br,(31) 9694-8889,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Vanessa Freitas Santana,vanessa.santana@aluno.senai.br,(31) 9635-2449,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Leticia Macedo Pinto,leticia.pinto@aluno.senai.br,(37) 9917-6119,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,INATIVO
+Beatriz Cardoso Freitas,beatriz.freitas@aluno.senai.br,(37) 9580-6431,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Aline Vieira Costa,aline.costa1@aluno.senai.br,(31) 9811-5981,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Rodrigo Castro Souza,rodrigo.souza@aluno.senai.br,(34) 9398-1447,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Gustavo Fernandes Soares,gustavo.soares2@aluno.senai.br,(31) 9730-5603,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Bruno Duarte Ribeiro,bruno.ribeiro@aluno.senai.br,(37) 9856-3476,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Bernardo Ramos Ribeiro,bernardo.ribeiro@aluno.senai.br,(37) 9982-1542,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,INATIVO
+Livia Gomes Ramos,livia.ramos@aluno.senai.br,(35) 9888-7277,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Isabela Carvalho Castro,isabela.castro@aluno.senai.br,(34) 9962-6653,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Juliana Souza Costa,juliana.costa@aluno.senai.br,(35) 9508-8802,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Giovanna Almeida Moreira,giovanna.moreira@aluno.senai.br,(34) 9822-7390,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Valentina Silva Vieira,valentina.vieira@aluno.senai.br,(35) 9491-6172,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Bianca Machado Monteiro,bianca.monteiro@aluno.senai.br,(34) 9978-5466,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Renata Batista Borges,renata.borges@aluno.senai.br,(35) 9572-4961,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Gabriela Rocha Moura,gabriela.moura@aluno.senai.br,(31) 9788-1138,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Guilherme Macedo Mendes,guilherme.mendes@aluno.senai.br,(31) 9324-5641,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Rafael Souza Duarte,rafael.duarte@aluno.senai.br,(34) 9955-4552,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Otavio Lima Moreira,otavio.moreira@aluno.senai.br,(34) 9882-4027,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Marcelo Cavalcanti Rodrigues,marcelo.rodrigues@aluno.senai.br,(34) 9564-5528,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Thais Soares Costa,thais.costa@aluno.senai.br,(31) 9383-2022,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Renata Soares Ribeiro,renata.ribeiro@aluno.senai.br,(35) 9171-9056,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Fabio Alves Gomes,fabio.gomes@aluno.senai.br,(37) 9887-8065,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Danilo Campos Soares,danilo.soares1@aluno.senai.br,(31) 9135-2194,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Danilo Santos Ramos,danilo.ramos@aluno.senai.br,(31) 9768-1014,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Alexandre Nunes Castro,alexandre.castro@aluno.senai.br,(31) 9627-9039,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Leticia Teixeira Almeida,leticia.almeida@aluno.senai.br,(31) 9493-8898,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Bianca Dias Macedo,bianca.macedo@aluno.senai.br,(31) 9510-1904,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Priscila Ferreira Freitas,priscila.freitas1@aluno.senai.br,(31) 9763-4327,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Nathalia Barbosa Figueiredo,nathalia.figueiredo@aluno.senai.br,(35) 9209-6886,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Nathalia Lima Oliveira,nathalia.oliveira@aluno.senai.br,(31) 9125-4907,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Patricia Ramos Teixeira,patricia.teixeira@aluno.senai.br,(35) 9116-1606,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Larissa Nunes Pereira,larissa.pereira@aluno.senai.br,(31) 9926-9570,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,INATIVO
+Giovanna Gomes Siqueira,giovanna.siqueira@aluno.senai.br,(37) 9338-2180,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Gabriel Cardoso Monteiro,gabriel.monteiro@aluno.senai.br,(31) 9348-3138,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Daniel Alves Freitas,daniel.freitas@aluno.senai.br,(37) 9274-2047,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Isadora Almeida Rodrigues,isadora.rodrigues@aluno.senai.br,(31) 9536-6527,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Rebeca Teixeira Lima,rebeca.lima1@aluno.senai.br,(31) 9956-4493,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Bruno Fernandes Gomes,bruno.gomes@aluno.senai.br,(35) 9272-7060,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Larissa Lima Alves,larissa.alves@aluno.senai.br,(34) 9727-7162,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Lucas Silva Ribeiro,lucas.ribeiro@aluno.senai.br,(31) 9823-5648,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Clara Figueiredo Lima,clara.lima@aluno.senai.br,(31) 9246-5439,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Isadora Figueiredo Oliveira,isadora.oliveira@aluno.senai.br,(37) 9284-9190,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Bianca Marques Silva,bianca.silva@aluno.senai.br,(37) 9341-4144,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,INATIVO
+Isadora Andrade Barros,isadora.barros@aluno.senai.br,(37) 9619-4592,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Vanessa Souza Martins,vanessa.martins1@aluno.senai.br,(31) 9915-3444,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Mateus Souza Batista,mateus.batista1@aluno.senai.br,(31) 9391-4433,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Julia Oliveira Alves,julia.alves@aluno.senai.br,(34) 9153-9804,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Igor Pereira Rodrigues,igor.rodrigues@aluno.senai.br,(31) 9838-8287,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Thais Almeida Neves,thais.neves@aluno.senai.br,(31) 9433-4731,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Caio Moreira Almeida,caio.almeida@aluno.senai.br,(31) 9582-8936,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,INATIVO
+Breno Freitas Ribeiro,breno.ribeiro@aluno.senai.br,(35) 9482-3234,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Vanessa Martins Dias,vanessa.dias@aluno.senai.br,(31) 9132-1977,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Julia Marques Costa,julia.costa@aluno.senai.br,(31) 9325-5835,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Isadora Costa Castro,isadora.castro@aluno.senai.br,(37) 9975-4763,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Jessica Borges Cardoso,jessica.cardoso@aluno.senai.br,(35) 9385-1237,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Vitor Machado Borges,vitor.borges@aluno.senai.br,(31) 9705-3440,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Ricardo Guimaraes Neves,ricardo.neves@aluno.senai.br,(37) 9134-7974,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Amanda Mendes Ramos,amanda.ramos1@aluno.senai.br,(31) 9185-1203,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,INATIVO
+Henrique Lopes Batista,henrique.batista@aluno.senai.br,(31) 9116-8860,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Douglas Siqueira Borges,douglas.borges@aluno.senai.br,(31) 9565-8598,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Fernando Pinto Freitas,fernando.freitas1@aluno.senai.br,(34) 9748-1022,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Lorena Oliveira Vieira,lorena.vieira@aluno.senai.br,(35) 9870-5420,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Alexandre Siqueira Souza,alexandre.souza@aluno.senai.br,(37) 9790-6963,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Breno Oliveira Andrade,breno.andrade@aluno.senai.br,(31) 9279-2097,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Leandro Pereira Batista,leandro.batista@aluno.senai.br,(35) 9855-4437,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Rafaela Macedo Machado,rafaela.machado@aluno.senai.br,(31) 9155-2038,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Marcos Pereira Cardoso,marcos.cardoso@aluno.senai.br,(34) 9644-9730,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Gustavo Martins Freitas,gustavo.freitas@aluno.senai.br,(31) 9182-7400,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Amanda Costa Fernandes,amanda.fernandes1@aluno.senai.br,(31) 9813-3424,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Gabriel Vieira Marques,gabriel.marques@aluno.senai.br,(34) 9654-3163,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Gabriel Vieira Martins,gabriel.martins@aluno.senai.br,(31) 9122-4806,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Vitor Ramos Borges,vitor.borges1@aluno.senai.br,(34) 9813-9686,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Patricia Costa Soares,patricia.soares@aluno.senai.br,(31) 9595-7093,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Andre Vieira Freitas,andre.freitas@aluno.senai.br,(31) 9733-3634,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Leonardo Costa Lopes,leonardo.lopes@aluno.senai.br,(31) 9142-6187,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Vinicius Moura Campos,vinicius.campos@aluno.senai.br,(31) 9781-6192,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Rodrigo Teixeira Barbosa,rodrigo.barbosa@aluno.senai.br,(31) 9125-7628,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Thais Gomes Silva,thais.silva@aluno.senai.br,(34) 9659-9313,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Henrique Barros Castro,henrique.castro1@aluno.senai.br,(34) 9250-8243,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Larissa Lima Macedo,larissa.macedo@aluno.senai.br,(37) 9219-6047,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Manuela Nascimento Ferreira,manuela.ferreira@aluno.senai.br,(31) 9156-4197,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Nathalia Santos Ferreira,nathalia.ferreira@aluno.senai.br,(37) 9969-8298,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,INATIVO
+Fabio Rocha Duarte,fabio.duarte@aluno.senai.br,(37) 9623-1918,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Valentina Andrade Moreira,valentina.moreira@aluno.senai.br,(31) 9112-5663,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Melissa Ferreira Carvalho,melissa.carvalho@aluno.senai.br,(34) 9554-7809,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Valentina Guimaraes Marques,valentina.marques@aluno.senai.br,(31) 9955-2410,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Marcos Dias Rodrigues,marcos.rodrigues@aluno.senai.br,(37) 9874-7156,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Vanessa Marques Ribeiro,vanessa.ribeiro@aluno.senai.br,(37) 9573-3243,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Wesley Ramos Oliveira,wesley.oliveira@aluno.senai.br,(31) 9954-5979,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Gabriel Silva Gomes,gabriel.gomes1@aluno.senai.br,(31) 9407-8742,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Laura Ribeiro Ramos,laura.ramos1@aluno.senai.br,(34) 9760-5009,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Gustavo Duarte Siqueira,gustavo.siqueira@aluno.senai.br,(31) 9695-8872,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Clara Figueiredo Pereira,clara.pereira@aluno.senai.br,(31) 9624-1287,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Vitor Freitas Figueiredo,vitor.figueiredo@aluno.senai.br,(31) 9465-3675,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Andre Souza Vieira,andre.vieira@aluno.senai.br,(31) 9642-2258,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Guilherme Duarte Barros,guilherme.barros@aluno.senai.br,(31) 9656-6285,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Patricia Fernandes Macedo,patricia.macedo@aluno.senai.br,(34) 9804-6939,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Leonardo Silva Lima,leonardo.lima@aluno.senai.br,(37) 9388-7111,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Isabela Alves Carvalho,isabela.carvalho@aluno.senai.br,(31) 9615-4622,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Lorena Teixeira Campos,lorena.campos@aluno.senai.br,(37) 9819-2867,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Thiago Santos Cardoso,thiago.cardoso@aluno.senai.br,(31) 9419-6940,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Livia Santana Barros,livia.barros@aluno.senai.br,(31) 9276-5991,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Thiago Figueiredo Gomes,thiago.gomes@aluno.senai.br,(34) 9332-6036,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Valentina Figueiredo Barros,valentina.barros@aluno.senai.br,(31) 9179-1308,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Guilherme Oliveira Cavalcanti,guilherme.cavalcanti@aluno.senai.br,(37) 9707-1971,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Gustavo Barbosa Cavalcanti,gustavo.cavalcanti@aluno.senai.br,(31) 9872-2581,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,INATIVO
+Caio Ribeiro Cavalcanti,caio.cavalcanti@aluno.senai.br,(31) 9129-2487,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Cecilia Nascimento Costa,cecilia.costa@aluno.senai.br,(37) 9899-4962,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Beatriz Santana Carvalho,beatriz.carvalho@aluno.senai.br,(34) 9296-5617,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,INATIVO
+Amanda Carvalho Goncalves,amanda.goncalves@aluno.senai.br,(34) 9586-7004,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Gabriela Nascimento Moreira,gabriela.moreira1@aluno.senai.br,(35) 9319-9425,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Thais Pereira Freitas,thais.freitas@aluno.senai.br,(31) 9632-3226,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Melissa Guimaraes Oliveira,melissa.oliveira@aluno.senai.br,(31) 9435-9088,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Daniel Macedo Mendes,daniel.mendes@aluno.senai.br,(31) 9667-7672,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,INATIVO
+Gustavo Cardoso Macedo,gustavo.macedo@aluno.senai.br,(31) 9283-1209,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Marcos Cavalcanti Macedo,marcos.macedo1@aluno.senai.br,(31) 9222-3348,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Amanda Siqueira Costa,amanda.costa@aluno.senai.br,(31) 9472-4261,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Sophia Pereira Almeida,sophia.almeida1@aluno.senai.br,(35) 9842-9177,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Cecilia Fernandes Barros,cecilia.barros@aluno.senai.br,(34) 9509-6834,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Yasmin Goncalves Fernandes,yasmin.fernandes@aluno.senai.br,(31) 9886-8448,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Arthur Pinto Lima,arthur.lima@aluno.senai.br,(31) 9201-1865,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Eduardo Moreira Duarte,eduardo.duarte@aluno.senai.br,(34) 9434-3502,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Gustavo Cavalcanti Barros,gustavo.barros@aluno.senai.br,(37) 9885-9064,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Yasmin Goncalves Soares,yasmin.soares@aluno.senai.br,(37) 9451-9856,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,INATIVO
+Diego Pereira Moreira,diego.moreira@aluno.senai.br,(35) 9422-7165,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Wesley Cavalcanti Neves,wesley.neves@aluno.senai.br,(31) 9823-3689,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Murilo Ramos Barros,murilo.barros1@aluno.senai.br,(31) 9682-9037,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Rafaela Souza Nunes,rafaela.nunes@aluno.senai.br,(31) 9606-7189,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Felipe Santos Borges,felipe.borges@aluno.senai.br,(31) 9231-7003,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Priscila Moreira Alves,priscila.alves@aluno.senai.br,(35) 9453-6855,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Luana Lopes Batista,luana.batista@aluno.senai.br,(31) 9706-2391,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Rodrigo Santos Teixeira,rodrigo.teixeira@aluno.senai.br,(31) 9138-8551,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Vanessa Santos Figueiredo,vanessa.figueiredo@aluno.senai.br,(35) 9702-1364,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Douglas Alves Ramos,douglas.ramos2@aluno.senai.br,(31) 9807-4373,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Priscila Costa Monteiro,priscila.monteiro@aluno.senai.br,(31) 9472-8143,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Leticia Teixeira Carvalho,leticia.carvalho@aluno.senai.br,(31) 9371-1778,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,INATIVO
+Arthur Monteiro Siqueira,arthur.siqueira@aluno.senai.br,(31) 9834-2552,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Lorena Cardoso Machado,lorena.machado@aluno.senai.br,(31) 9455-2256,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Leandro Rocha Martins,leandro.martins@aluno.senai.br,(35) 9511-5116,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Camila Pinto Campos,camila.campos@aluno.senai.br,(37) 9983-4056,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Julia Fernandes Pinto,julia.pinto@aluno.senai.br,(37) 9928-8106,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Leonardo Lopes Gomes,leonardo.gomes1@aluno.senai.br,(34) 9801-5919,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Leticia Pinto Carvalho,leticia.carvalho1@aluno.senai.br,(35) 9373-5702,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Sophia Lopes Pereira,sophia.pereira@aluno.senai.br,(31) 9296-1453,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Fabio Moura Machado,fabio.machado@aluno.senai.br,(35) 9762-1606,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Pedro Fernandes Cavalcanti,pedro.cavalcanti@aluno.senai.br,(37) 9280-1691,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Rafael Rocha Duarte,rafael.duarte1@aluno.senai.br,(31) 9987-2041,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,INATIVO
+Carolina Nunes Guimaraes,carolina.guimaraes@aluno.senai.br,(31) 9341-2833,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Lorena Soares Ramos,lorena.ramos@aluno.senai.br,(31) 9343-3003,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Alice Siqueira Lopes,alice.lopes@aluno.senai.br,(35) 9323-3363,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Manuela Marques Soares,manuela.soares@aluno.senai.br,(37) 9157-9034,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Leandro Machado Cardoso,leandro.cardoso1@aluno.senai.br,(34) 9352-5550,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Patricia Santos Batista,patricia.batista1@aluno.senai.br,(37) 9135-1895,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Fernando Macedo Pereira,fernando.pereira@aluno.senai.br,(37) 9987-4872,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Sophia Soares Barbosa,sophia.barbosa@aluno.senai.br,(31) 9942-4857,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Manuela Pinto Rocha,manuela.rocha1@aluno.senai.br,(34) 9516-1555,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Yasmin Cardoso Siqueira,yasmin.siqueira@aluno.senai.br,(35) 9961-6451,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Isabela Figueiredo Soares,isabela.soares@aluno.senai.br,(37) 9167-6764,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Thais Freitas Figueiredo,thais.figueiredo1@aluno.senai.br,(31) 9880-1853,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Fernanda Silva Nunes,fernanda.nunes@aluno.senai.br,(31) 9743-6006,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Bernardo Santana Campos,bernardo.campos@aluno.senai.br,(34) 9881-3131,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Ricardo Siqueira Lima,ricardo.lima@aluno.senai.br,(31) 9277-6367,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Eduardo Nunes Moreira,eduardo.moreira@aluno.senai.br,(37) 9329-1339,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,INATIVO
+Barbara Ferreira Freitas,barbara.freitas@aluno.senai.br,(31) 9368-3764,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Pedro Gomes Ferreira,pedro.ferreira@aluno.senai.br,(31) 9274-2922,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Marcelo Macedo Ramos,marcelo.ramos@aluno.senai.br,(31) 9329-4328,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,INATIVO
+Vanessa Vieira Siqueira,vanessa.siqueira@aluno.senai.br,(35) 9491-3133,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Aline Guimaraes Macedo,aline.macedo@aluno.senai.br,(31) 9528-3955,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Pedro Lopes Monteiro,pedro.monteiro@aluno.senai.br,(35) 9354-7056,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Vitor Figueiredo Nunes,vitor.nunes@aluno.senai.br,(34) 9317-7283,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Guilherme Moura Souza,guilherme.souza@aluno.senai.br,(31) 9440-4847,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,INATIVO
+Livia Campos Siqueira,livia.siqueira@aluno.senai.br,(31) 9105-5155,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Fernando Lima Moura,fernando.moura1@aluno.senai.br,(31) 9694-3938,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Alexandre Freitas Lima,alexandre.lima@aluno.senai.br,(31) 9424-9690,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Mateus Lima Ramos,mateus.ramos@aluno.senai.br,(31) 9865-6907,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Isadora Barros Soares,isadora.soares@aluno.senai.br,(37) 9420-8139,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Bruna Moura Cavalcanti,bruna.cavalcanti@aluno.senai.br,(34) 9917-8208,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Eduardo Oliveira Cardoso,eduardo.cardoso@aluno.senai.br,(31) 9267-8653,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Yasmin Oliveira Mendes,yasmin.mendes@aluno.senai.br,(31) 9826-8949,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Bruna Pereira Nascimento,bruna.nascimento@aluno.senai.br,(31) 9308-5654,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Vanessa Castro Cavalcanti,vanessa.cavalcanti@aluno.senai.br,(37) 9317-1067,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Fabio Macedo Alves,fabio.alves@aluno.senai.br,(31) 9126-5657,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Amanda Rocha Gomes,amanda.gomes@aluno.senai.br,(31) 9183-8540,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Livia Cavalcanti Silva,livia.silva@aluno.senai.br,(31) 9144-8423,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,INATIVO
+Rebeca Lima Carvalho,rebeca.carvalho@aluno.senai.br,(31) 9920-5635,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Melissa Duarte Moreira,melissa.moreira@aluno.senai.br,(31) 9508-5180,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Sophia Ferreira Santos,sophia.santos1@aluno.senai.br,(31) 9266-7365,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Bruna Pereira Barbosa,bruna.barbosa@aluno.senai.br,(35) 9920-8083,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,INATIVO
+Bianca Cavalcanti Alves,bianca.alves1@aluno.senai.br,(31) 9624-4274,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Joao Castro Duarte,joao.duarte@aluno.senai.br,(35) 9192-7922,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Diego Ferreira Oliveira,diego.oliveira@aluno.senai.br,(37) 9449-8594,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Yasmin Santana Pinto,yasmin.pinto@aluno.senai.br,(34) 9637-2375,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Ricardo Barbosa Gomes,ricardo.gomes@aluno.senai.br,(31) 9800-5921,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Felipe Moura Rodrigues,felipe.rodrigues@aluno.senai.br,(31) 9625-2763,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Douglas Soares Nascimento,douglas.nascimento@aluno.senai.br,(31) 9699-2339,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Gabriela Ribeiro Nunes,gabriela.nunes1@aluno.senai.br,(31) 9185-7819,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Manuela Monteiro Soares,manuela.soares1@aluno.senai.br,(31) 9992-4066,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Livia Soares Macedo,livia.macedo1@aluno.senai.br,(31) 9544-9755,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Rodrigo Batista Cardoso,rodrigo.cardoso@aluno.senai.br,(35) 9808-7637,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Isadora Andrade Figueiredo,isadora.figueiredo@aluno.senai.br,(34) 9806-7471,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Caio Pereira Santos,caio.santos@aluno.senai.br,(34) 9292-1439,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Bernardo Machado Pinto,bernardo.pinto@aluno.senai.br,(37) 9295-2410,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Diego Santos Pereira,diego.pereira@aluno.senai.br,(31) 9256-8295,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Cecilia Lopes Martins,cecilia.martins@aluno.senai.br,(31) 9683-7418,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Diego Marques Ramos,diego.ramos@aluno.senai.br,(34) 9692-5764,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Patrick Guimaraes Monteiro,patrick.monteiro1@aluno.senai.br,(34) 9936-8993,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Valentina Castro Rocha,valentina.rocha@aluno.senai.br,(37) 9165-5388,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,INATIVO
+Breno Batista Nascimento,breno.nascimento@aluno.senai.br,(35) 9814-8147,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Clara Nascimento Mendes,clara.mendes@aluno.senai.br,(31) 9619-4599,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,INATIVO
+Julia Lima Vieira,julia.vieira@aluno.senai.br,(34) 9828-7395,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Helena Cardoso Costa,helena.costa@aluno.senai.br,(37) 9312-5627,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Caio Costa Duarte,caio.duarte@aluno.senai.br,(35) 9203-7815,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Felipe Santos Nascimento,felipe.nascimento@aluno.senai.br,(31) 9465-3598,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Larissa Rodrigues Dias,larissa.dias@aluno.senai.br,(35) 9216-4714,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Alexandre Nascimento Neves,alexandre.neves@aluno.senai.br,(31) 9888-5382,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Livia Cavalcanti Alves,livia.alves@aluno.senai.br,(34) 9151-8173,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,INATIVO
+Amanda Monteiro Alves,amanda.alves@aluno.senai.br,(37) 9142-9311,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Vinicius Andrade Costa,vinicius.costa@aluno.senai.br,(34) 9399-8233,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Fernando Dias Lima,fernando.lima1@aluno.senai.br,(31) 9968-4307,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,INATIVO
+Beatriz Lopes Cardoso,beatriz.cardoso@aluno.senai.br,(31) 9393-9274,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Renan Andrade Pinto,renan.pinto@aluno.senai.br,(34) 9351-3483,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Diego Marques Freitas,diego.freitas@aluno.senai.br,(37) 9913-6927,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Lorena Rodrigues Ferreira,lorena.ferreira@aluno.senai.br,(31) 9422-7580,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Mateus Cavalcanti Batista,mateus.batista2@aluno.senai.br,(31) 9688-1947,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Melissa Barbosa Guimaraes,melissa.guimaraes@aluno.senai.br,(34) 9421-6638,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Isadora Gomes Figueiredo,isadora.figueiredo1@aluno.senai.br,(35) 9556-4360,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Sophia Neves Martins,sophia.martins@aluno.senai.br,(31) 9186-1605,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Fernanda Santana Teixeira,fernanda.teixeira@aluno.senai.br,(31) 9318-2520,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Isabela Santos Teixeira,isabela.teixeira@aluno.senai.br,(37) 9364-4954,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Juliana Guimaraes Souza,juliana.souza@aluno.senai.br,(31) 9365-9314,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Juliana Mendes Barbosa,juliana.barbosa@aluno.senai.br,(37) 9854-1085,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Patrick Castro Campos,patrick.campos@aluno.senai.br,(34) 9781-9737,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Douglas Macedo Lima,douglas.lima@aluno.senai.br,(34) 9486-9514,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Caio Neves Andrade,caio.andrade@aluno.senai.br,(35) 9200-3401,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Felipe Machado Lima,felipe.lima1@aluno.senai.br,(35) 9319-8309,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Cecilia Moura Santana,cecilia.santana@aluno.senai.br,(35) 9992-5320,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Yasmin Guimaraes Marques,yasmin.marques@aluno.senai.br,(31) 9247-9286,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Igor Santana Pereira,igor.pereira@aluno.senai.br,(34) 9317-8461,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Wesley Andrade Pereira,wesley.pereira@aluno.senai.br,(37) 9972-7694,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Larissa Santana Gomes,larissa.gomes@aluno.senai.br,(31) 9480-5995,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Leonardo Gomes Borges,leonardo.borges@aluno.senai.br,(35) 9149-5999,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Yasmin Silva Pereira,yasmin.pereira@aluno.senai.br,(37) 9457-2106,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Rebeca Mendes Dias,rebeca.dias@aluno.senai.br,(35) 9586-3175,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Danilo Cavalcanti Mendes,danilo.mendes@aluno.senai.br,(31) 9987-6328,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Laura Moreira Almeida,laura.almeida@aluno.senai.br,(35) 9447-9863,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,INATIVO
+Vanessa Batista Ferreira,vanessa.ferreira@aluno.senai.br,(31) 9824-1406,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Wesley Ferreira Martins,wesley.martins@aluno.senai.br,(37) 9654-1866,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Gabriel Pereira Cavalcanti,gabriel.cavalcanti@aluno.senai.br,(37) 9284-1310,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Patrick Mendes Ferreira,patrick.ferreira@aluno.senai.br,(37) 9721-6249,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Gabriel Dias Machado,gabriel.machado1@aluno.senai.br,(31) 9524-1394,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Guilherme Teixeira Costa,guilherme.costa@aluno.senai.br,(31) 9247-3992,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Renan Macedo Costa,renan.costa1@aluno.senai.br,(31) 9729-6329,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Murilo Alves Rocha,murilo.rocha@aluno.senai.br,(31) 9522-6311,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Juliana Souza Martins,juliana.martins@aluno.senai.br,(31) 9870-4874,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Bruno Fernandes Souza,bruno.souza@aluno.senai.br,(31) 9575-7669,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Arthur Santos Fernandes,arthur.fernandes@aluno.senai.br,(37) 9700-2663,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Fernanda Barbosa Castro,fernanda.castro@aluno.senai.br,(35) 9556-2374,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Leandro Costa Lopes,leandro.lopes@aluno.senai.br,(37) 9533-8401,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Breno Vieira Batista,breno.batista@aluno.senai.br,(31) 9100-1985,Tecnólogo em Ciência de Dados,Unidade Belo Horizonte,TCD-2026-02,ATIVO
+Murilo Nascimento Pinto,murilo.pinto@aluno.senai.br,(31) 9699-9361,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Rebeca Rodrigues Barbosa,rebeca.barbosa@aluno.senai.br,(31) 9504-3014,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Valentina Carvalho Monteiro,valentina.monteiro@aluno.senai.br,(37) 9921-6215,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,ATIVO
+Manuela Fernandes Lopes,manuela.lopes@aluno.senai.br,(34) 9429-6597,Engenharia de Controle e Automação,Unidade Belo Horizonte,ECA-2026-02,ATIVO
+Camila Figueiredo Lima,camila.lima@aluno.senai.br,(34) 9102-8807,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,INATIVO
+Laura Moura Figueiredo,laura.figueiredo@aluno.senai.br,(34) 9600-7435,Engenharia de Controle e Automação,Unidade Contagem,ECA-2026-01,ATIVO
+Leticia Teixeira Santos,leticia.santos@aluno.senai.br,(34) 9555-3022,Tecnólogo em Ciência de Dados,Unidade Contagem,TCD-2026-01,INATIVO
