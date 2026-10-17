@@ -1060,6 +1060,11 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="educonnect_extra.css">
+    <script src="educonnect_seed_data.js"></script>
+    <script src="apexcharts.min.js"></script>
+    <script src="jszip.min.js"></script>
+    <script src="educonnect_modules.js"></script>
 </head>
 
 <body>
@@ -1090,6 +1095,15 @@
 
     <!-- Aplicação Principal -->
     <section id="app" class="hidden">
+        <script>
+            (function() {
+                const p = new URLSearchParams(window.location.search);
+                if (p.get('demo') === 'admin' || p.get('auto') === '1' || window.location.hash || localStorage.getItem('edu_user') || sessionStorage.getItem('edu_user')) {
+                    document.getElementById('login').classList.add('hidden');
+                    document.getElementById('app').classList.remove('hidden');
+                }
+            })();
+        </script>
         <!-- Barra Lateral Fixa -->
         <aside class="sidebar">
             <div class="sidebrand">
@@ -1106,6 +1120,13 @@
             </button>
             <button class="navitem" data-page="reports" onclick="showPage('reports')">
                 <span>📈</span><em>Indicadores (BI)</em>
+            </button>
+            <button class="navitem" data-page="alarms" onclick="showPage('alarms')">
+                <span>🚨</span><em>Alarmes & Indicadores</em>
+                <span class="badge-count" id="alarmBadgeCount" style="background:#ef4444;color:#fff;">0</span>
+            </button>
+            <button class="navitem" data-page="datascience" onclick="showPage('datascience')">
+                <span>🧠</span><em>Ciência de Dados & IA</em>
             </button>
 
             <div class="navtitle">INCLUSÃO & ACESSIBILIDADE</div>
@@ -1152,6 +1173,28 @@
 
         <!-- Área Principal de Visualização -->
         <main class="main">
+            <!-- Barra Superior de Recursos Adaptativos e Acessibilidade (e-MAG / WCAG) -->
+            <div class="accessibility-ribbon" role="region" aria-label="Recursos Adaptativos e Acessibilidade">
+                <div class="acc-group">
+                    <span style="color:#94a3b8;">♿ Acessibilidade:</span>
+                    <button class="acc-btn" title="Diminuir Fonte" onclick="eduModules.changeFontSize(-0.05)">A-</button>
+                    <span id="accFontLabel" style="font-size:11px;color:#cbd5e1;font-weight:700;">100%</span>
+                    <button class="acc-btn" title="Aumentar Fonte" onclick="eduModules.changeFontSize(0.05)">A+</button>
+                    <button class="acc-btn" title="Resetar Fonte" onclick="eduModules.resetFontSize()">Reset</button>
+                    <span style="color:#475569;margin:0 4px;">|</span>
+                    <button class="acc-btn" title="Alternar Alto Contraste Ouro" onclick="eduModules.setTheme(document.documentElement.getAttribute('data-theme') === 'high-contrast-dark' ? 'default' : 'high-contrast-dark')">⚡ Alto Contraste</button>
+                    <button class="acc-btn" title="Modo Noturno Slate" onclick="eduModules.setTheme(document.documentElement.getAttribute('data-theme') === 'dark-slate' ? 'default' : 'dark-slate')">🌙 Modo Escuro</button>
+                    <button class="acc-btn" title="Modo Leitura / Dislexia" onclick="eduModules.toggleDyslexia()">📖 Dislexia</button>
+                    <button class="acc-btn" title="Preferências de Inclusão" onclick="eduModules.openAccessibilityModal()">⚙ Opções</button>
+                </div>
+                <div class="acc-group">
+                    <div class="acc-audio-player">
+                        <span class="acc-audio-pulse" id="accAudioPulse"></span>
+                        <button class="acc-btn" id="accPlayBtn" style="border:none;background:none;padding:0;color:#fff;" onclick="eduModules.toggleSpeechSummary()">🔊 Ouvir Resumo</button>
+                    </div>
+                </div>
+            </div>
+
             <header class="top">
                 <div>
                     <h2 id="pageTitle">Dashboard</h2>
@@ -1165,8 +1208,9 @@
 
             <!-- ==================== PÁGINA 1: DASHBOARD ==================== -->
             <div id="dashboard" class="page">
+                <div id="dashboardSmartFilterBar"></div>
                 <!-- Barra de Filtros Dinâmicos Multidimensionais -->
-                <div class="filter-bar">
+                <div class="filter-bar" style="display:none;">
                     <div class="filter-header">
                         <div class="filter-title-wrap">
                             <div class="filter-badge-icon">⚡</div>
@@ -1231,23 +1275,33 @@
 
                 <!-- Gráficos Row 1: Donut (Ativos/Inativos e Inclusão) + Barras de Desempenho por Unidade -->
                 <div class="grid2" style="margin-top:20px">
-                    <div class="card chart-card">
+                    <div class="card chart-card" id="dashCard1">
                         <div class="sectionhead">
                             <div>
-                                <h3>Proporção de Alunos & Inclusão</h3>
-                                <small>Relação entre discentes ativos/inativos e cobertura NAI (PCD/TDAH)</small>
+                                <span class="drag-handle" title="Arrastar para reordenar">⋮⋮</span>
+                                <h3 style="display:inline-block;margin-left:6px;">Proporção de Alunos & Inclusão</h3>
+                                <small style="display:block;">Relação entre discentes ativos/inativos e cobertura NAI (PCD/TDAH)</small>
                             </div>
-                            <span class="chart-tag purple">Status & Inclusão</span>
+                            <div class="chart-header-actions">
+                                <span class="chart-tag purple">Status & Inclusão</span>
+                                <button class="chart-btn-tool" onclick="eduModules.openChartCustomizer('dash_status', 'Proporção de Alunos & Inclusão')">⚙ Customizar</button>
+                                <button class="chart-btn-tool" onclick="eduModules.toggleChartFullscreen('dashCard1')">⤢</button>
+                            </div>
                         </div>
                         <div class="chartbox"><canvas id="dashStatusDonutChart"></canvas></div>
                     </div>
-                    <div class="card chart-card">
+                    <div class="card chart-card" id="dashCard2">
                         <div class="sectionhead">
                             <div>
-                                <h3>Desempenho por Unidade (SENAI)</h3>
-                                <small>Médias consolidadas ranqueadas e linha de benchmark (Meta: 7,0)</small>
+                                <span class="drag-handle" title="Arrastar para reordenar">⋮⋮</span>
+                                <h3 style="display:inline-block;margin-left:6px;">Desempenho por Unidade (SENAI)</h3>
+                                <small style="display:block;">Médias consolidadas ranqueadas e linha de benchmark (Meta: 7,0)</small>
                             </div>
-                            <span class="chart-tag amber">Meta Institucional: 7.0</span>
+                            <div class="chart-header-actions">
+                                <span class="chart-tag amber">Meta: 7.0</span>
+                                <button class="chart-btn-tool" onclick="eduModules.openChartCustomizer('dash_units', 'Desempenho por Unidade')">⚙ Customizar</button>
+                                <button class="chart-btn-tool" onclick="eduModules.toggleChartFullscreen('dashCard2')">⤢</button>
+                            </div>
                         </div>
                         <div class="chartbox"><canvas id="dashUnitRankChart"></canvas></div>
                     </div>
@@ -1255,23 +1309,33 @@
 
                 <!-- Gráficos Row 2: Distribuição de Notas (Bezier) + Dispersão por Turma -->
                 <div class="grid2" style="margin-top:20px">
-                    <div class="card chart-card">
+                    <div class="card chart-card" id="dashCard3">
                         <div class="sectionhead">
                             <div>
-                                <h3>Distribuição de Rendimento Acadêmico</h3>
-                                <small>Curva suave de densidade avaliativa sob a Matriz SENAI</small>
+                                <span class="drag-handle" title="Arrastar para reordenar">⋮⋮</span>
+                                <h3 style="display:inline-block;margin-left:6px;">Distribuição de Rendimento Acadêmico</h3>
+                                <small style="display:block;">Curva de densidade avaliativa sob a Matriz SENAI</small>
                             </div>
-                            <span class="chart-tag blue">Curva de Bezier</span>
+                            <div class="chart-header-actions">
+                                <span class="chart-tag blue">Curva de Bezier</span>
+                                <button class="chart-btn-tool" onclick="eduModules.openChartCustomizer('dash_bezier', 'Distribuição de Rendimento')">⚙ Customizar</button>
+                                <button class="chart-btn-tool" onclick="eduModules.toggleChartFullscreen('dashCard3')">⤢</button>
+                            </div>
                         </div>
                         <div class="chartbox"><canvas id="dashBezierDistChart"></canvas></div>
                     </div>
-                    <div class="card chart-card">
+                    <div class="card chart-card" id="dashCard4">
                         <div class="sectionhead">
                             <div>
-                                <h3>Dispersão de Desempenho por Turma</h3>
-                                <small>Cruzamento de volume discente, médias e retenção por grupo</small>
+                                <span class="drag-handle" title="Arrastar para reordenar">⋮⋮</span>
+                                <h3 style="display:inline-block;margin-left:6px;">Dispersão de Desempenho por Turma</h3>
+                                <small style="display:block;">Volume discente, médias e retenção por grupo</small>
                             </div>
-                            <span class="chart-tag blue">Dispersão Analítica</span>
+                            <div class="chart-header-actions">
+                                <span class="chart-tag blue">Dispersão</span>
+                                <button class="chart-btn-tool" onclick="eduModules.openChartCustomizer('dash_scatter', 'Dispersão por Turma')">⚙ Customizar</button>
+                                <button class="chart-btn-tool" onclick="eduModules.toggleChartFullscreen('dashCard4')">⤢</button>
+                            </div>
                         </div>
                         <div class="chartbox"><canvas id="dashScatterClassChart"></canvas></div>
                     </div>
@@ -1280,8 +1344,9 @@
 
             <!-- ==================== PÁGINA 2: INDICADORES (RELATÓRIOS BI) ==================== -->
             <div id="reports" class="page hidden">
+                <div id="reportsSmartFilterBar"></div>
                 <!-- Barra de Filtros Sincronizada -->
-                <div class="filter-bar">
+                <div class="filter-bar" style="display:none;">
                     <div class="filter-header">
                         <div class="filter-title-wrap">
                             <div class="filter-badge-icon">📊</div>
@@ -1447,8 +1512,19 @@
             </div>
 
             <!-- ==================== PÁGINAS ACADÊMICAS ==================== -->
+            <!-- ==================== PÁGINA: CENTRAL DE ALARMES ==================== -->
+            <div id="alarms" class="page hidden">
+                <div id="alarmsContent"></div>
+            </div>
+
+            <!-- ==================== PÁGINA: CIÊNCIA DE DADOS & IA ==================== -->
+            <div id="datascience" class="page hidden">
+                <div id="datascienceContent"></div>
+            </div>
+
             <!-- Alunos -->
             <div id="students" class="page hidden">
+                <div id="studentSpotlightSection"></div>
                 <div class="sectionhead">
                     <div>
                         <h3>Gestão de Alunos</h3>
@@ -1654,6 +1730,7 @@
 
             <!-- Importação & Exportação -->
             <div id="data" class="page hidden">
+                <div id="powerBiAutomationSection"></div>
                 <div class="card">
                     <div class="sectionhead">
                         <div>
@@ -1725,7 +1802,7 @@
     <script>
         /* ==================== CONFIGURAÇÃO DO BANCO INDEXEDDB ==================== */
         const DBNAME = 'educonnect_portatil_v1';
-        const DBVERSION = 2; // Version 2 para suporte nativo à store 'inclusion'
+        const DBVERSION = 3; // Version 2 para suporte nativo à store 'inclusion'
         let db = null;
         let currentUser = null;
         let currentPage = 'dashboard';
@@ -1733,6 +1810,8 @@
         const meta = {
             dashboard: ['Dashboard Executivo', 'Visão geral da instituição e cruzamento de indicadores'],
             reports: ['Indicadores & BI', 'Análise aprofundada de rendimento segundo a Matriz SENAI'],
+            alarms: ['Central de Alarmes & Gatilhos', 'Monitoramento proativo de riscos de evasão e defasagens pedagógicas'],
+            datascience: ['Ciência de Dados & Predições com IA', 'Modelagem estatística, correlações e diagnósticos preditivos com Google Gemini'],
             special_needs: ['Necessidades Especiais (NAI)', 'Acompanhamento de adaptações, PCD, TDAH e tecnologia assistiva'],
             students: ['Gestão de Alunos', 'Cadastro discente e status cadastral'],
             teachers: ['Corpo Docente', 'Instrutores e professores cadastrados'],
@@ -1749,7 +1828,7 @@
                 const req = indexedDB.open(DBNAME, DBVERSION);
                 req.onupgradeneeded = e => {
                     const database = e.target.result;
-                    const stores = ['students', 'teachers', 'courses', 'units', 'classes', 'grades', 'users', 'inclusion'];
+                    const stores = ['students', 'teachers', 'courses', 'units', 'classes', 'grades', 'users', 'inclusion', 'interventions', 'alarm_rules'];
                     stores.forEach(s => {
                         if (!database.objectStoreNames.contains(s)) {
                             database.createObjectStore(s, { keyPath: 'id', autoIncrement: true });
@@ -1758,7 +1837,23 @@
                 };
                 req.onsuccess = e => {
                     db = e.target.result;
+                    db.onversionchange = () => {
+                        db.close();
+                    };
+                    window.db = db;
+                    window.all = all;
+                    window.put = put;
+                    window.del = del;
+                    window.esc = esc;
+                    window.num = num;
+                    window.getSenaiStatus = getSenaiStatus;
+                    window.showPage = showPage;
+                    window.modal = modal;
+                    window.closeModal = closeModal;
                     resolve(db);
+                };
+                req.onblocked = () => {
+                    console.warn('IndexedDB bloqueado temporariamente aguardando fechamento de conexões antigas.');
                 };
                 req.onerror = () => reject(req.error);
             });
@@ -1793,6 +1888,19 @@
 
         /* ==================== SEEDING & DADOS DEMO INICIAIS ==================== */
         async function seed() {
+            const existingStudents = await all('students');
+            if (!existingStudents.length && window.EDUCONNECT_SEED_DATA) {
+                const data = window.EDUCONNECT_SEED_DATA;
+                const stores = ['students', 'teachers', 'courses', 'units', 'classes', 'grades', 'users', 'inclusion'];
+                for (const s of stores) {
+                    if (data[s] && data[s].length) {
+                        const tx = db.transaction(s, 'readwrite');
+                        const st = tx.objectStore(s);
+                        data[s].forEach(item => st.put(item));
+                        await new Promise(res => tx.oncomplete = res);
+                    }
+                }
+            }
             const users = await all('users');
             if (!users.length) {
                 await put('users', { name: 'Administrador do Sistema', username: 'admin', password: 'admin123', role: 'ADMIN' });
@@ -1957,7 +2065,10 @@
             });
         }
 
-        function applyCrossFilters(students, inclusionMap) {
+        function applyCrossFilters(students, inclusionMap, grades = null) {
+            if (window.eduModules && window.eduModules.applySmartFilters) {
+                return window.eduModules.applySmartFilters(students, inclusionMap, grades);
+            }
             return students.filter(s => {
                 const mCourse = !currentFilters.courseId || String(s.courseId) === String(currentFilters.courseId);
                 const mUnit = !currentFilters.unitId || String(s.unitId) === String(currentFilters.unitId);
@@ -2404,6 +2515,9 @@
 
         /* ==================== CONTROLADOR DO DASHBOARD ==================== */
         async function renderDashboard() {
+            if (window.eduModules && window.eduModules.renderSmartFilterBar) {
+                await window.eduModules.renderSmartFilterBar('dashboardSmartFilterBar');
+            }
             const [students, teachers, courses, units, classes, grades, inclusion] = await Promise.all([
                 all('students'), all('teachers'), all('courses'), all('units'), all('classes'), all('grades'), all('inclusion')
             ]);
@@ -2412,7 +2526,7 @@
             document.getElementById('inclusionBadgeCount').textContent = inclusion.length;
 
             const inclusionMap = Object.fromEntries(inclusion.map(x => [x.studentId, x]));
-            const filteredStudents = applyCrossFilters(students, inclusionMap);
+            const filteredStudents = applyCrossFilters(students, inclusionMap, grades);
             const filteredStudentIds = new Set(filteredStudents.map(s => s.id));
             const filteredGrades = grades.filter(g => filteredStudentIds.has(g.studentId));
 
@@ -2559,13 +2673,16 @@
 
         /* ==================== CONTROLADOR DE INDICADORES (RELATÓRIOS BI) ==================== */
         async function renderReports() {
+            if (window.eduModules && window.eduModules.renderSmartFilterBar) {
+                await window.eduModules.renderSmartFilterBar('reportsSmartFilterBar');
+            }
             const [students, teachers, courses, units, classes, grades, inclusion] = await Promise.all([
                 all('students'), all('teachers'), all('courses'), all('units'), all('classes'), all('grades'), all('inclusion')
             ]);
 
             populateFilterSelects(courses, units, classes);
             const inclusionMap = Object.fromEntries(inclusion.map(x => [x.studentId, x]));
-            const filteredStudents = applyCrossFilters(students, inclusionMap);
+            const filteredStudents = applyCrossFilters(students, inclusionMap, grades);
             const filteredStudentIds = new Set(filteredStudents.map(s => s.id));
             const filteredGrades = grades.filter(g => filteredStudentIds.has(g.studentId));
 
@@ -2847,7 +2964,7 @@
                                 <b style="color:${status.color};font-size:12px;">${prog.toFixed(1)}</b>
                             </div>
                         </td>
-                        <td class="actions">
+                        <td class="actions" onclick="event.stopPropagation()">
                             <button class="iconbtn purple" title="Ver Dossiê Completo" onclick="viewInclusionDossier(${x.id})">👁</button>
                             <button class="iconbtn" title="Editar Ficha" onclick="openInclusionModal(${x.id})">✏</button>
                             <button class="iconbtn danger" title="Remover" onclick="removeInclusion(${x.id})">🗑</button>
@@ -3033,12 +3150,16 @@
                 return;
             }
 
+            if (window.eduModules && window.eduModules.renderStudentSpotlight) {
+                window.eduModules.renderStudentSpotlight();
+            }
+
             tbody.innerHTML = filtered.map(x => {
                 const inc = incMap[x.id];
-                const incBadge = inc ? `<span class="inclusion-badge" title="Ver ficha NAI" style="cursor:pointer;" onclick="viewInclusionDossier(${inc.id})">♿ ${esc(inc.needType)}</span>` : '<span style="color:var(--muted);font-size:11px;">Regular</span>';
+                const incBadge = inc ? `<span class="inclusion-badge" title="Ver ficha NAI" style="cursor:pointer;" onclick="event.stopPropagation();viewInclusionDossier(${inc.id})">♿ ${esc(inc.needType)}</span>` : '<span style="color:var(--muted);font-size:11px;">Regular</span>';
 
                 return `
-                    <tr>
+                    <tr id="studentRow-${x.id}" class="tr-clickable" onclick="eduModules.selectStudent(${x.id})">
                         <td><b>${esc(x.registration)}</b></td>
                         <td>${esc(x.name)}<br><small style="color:var(--muted)">${esc(x.email || '')}</small></td>
                         <td>${esc(cm[x.courseId] || '—')}</td>
@@ -3046,7 +3167,7 @@
                         <td>${esc(clm[x.classId] || '—')}</td>
                         <td>${incBadge}</td>
                         <td><span class="status ${x.status === 'ATIVO' ? 'ativo' : 'inativo'}">${x.status}</span></td>
-                        <td class="actions">
+                        <td class="actions" onclick="event.stopPropagation()">
                             <button class="iconbtn" title="Editar Aluno" onclick="openStudent(${x.id})">✏</button>
                             <button class="iconbtn danger" title="Excluir" onclick="removeItem('students', ${x.id})">🗑</button>
                         </td>
@@ -3138,7 +3259,7 @@
                     <td>${esc(x.email || '—')}</td>
                     <td>${esc(x.area || '—')}</td>
                     <td><span class="status ${x.status === 'ATIVO' ? 'ativo' : 'inativo'}">${x.status}</span></td>
-                    <td class="actions">
+                    <td class="actions" onclick="event.stopPropagation()">
                         <button class="iconbtn" onclick="openTeacher(${x.id})">✏</button>
                         <button class="iconbtn danger" onclick="removeItem('teachers', ${x.id})">🗑</button>
                     </td>
@@ -3198,7 +3319,7 @@
                     <td><b>${esc(x.name)}</b></td>
                     <td><code>${esc(x.code || '—')}</code></td>
                     <td>${Number(x.hours || 0).toLocaleString('pt-BR')} h</td>
-                    <td class="actions">
+                    <td class="actions" onclick="event.stopPropagation()">
                         <button class="iconbtn" onclick="openSimple('course', ${x.id})">✏</button>
                         <button class="iconbtn danger" onclick="removeItem('courses', ${x.id})">🗑</button>
                     </td>
@@ -3217,7 +3338,7 @@
                 <tr>
                     <td><b>${esc(x.name)}</b></td>
                     <td>${esc(x.city || '—')}</td>
-                    <td class="actions">
+                    <td class="actions" onclick="event.stopPropagation()">
                         <button class="iconbtn" onclick="openSimple('unit', ${x.id})">✏</button>
                         <button class="iconbtn danger" onclick="removeItem('units', ${x.id})">🗑</button>
                     </td>
@@ -3278,7 +3399,7 @@
                     <td>${esc(cm[x.courseId] || '—')}</td>
                     <td>${esc(um[x.unitId] || '—')}</td>
                     <td>${esc(tm[x.teacherId] || '—')}</td>
-                    <td class="actions">
+                    <td class="actions" onclick="event.stopPropagation()">
                         <button class="iconbtn" onclick="openClass(${x.id})">✏</button>
                         <button class="iconbtn danger" onclick="removeItem('classes', ${x.id})">🗑</button>
                     </td>
@@ -3353,7 +3474,7 @@
                         <td>${esc(x.subject)}</td>
                         <td><b style="font-size:15px;color:${senaiStatus.color}">${val.toFixed(1)}</b></td>
                         <td>${senaiStatus.badge}</td>
-                        <td class="actions">
+                        <td class="actions" onclick="event.stopPropagation()">
                             <button class="iconbtn" onclick="openGrade(${x.id})">✏</button>
                             <button class="iconbtn danger" onclick="removeItem('grades', ${x.id})">🗑</button>
                         </td>
@@ -3410,7 +3531,7 @@
                         <td><b>${esc(x.name)}</b></td>
                         <td><code>${esc(x.username)}</code></td>
                         <td><span class="status ativo">${esc(x.role)}</span></td>
-                        <td class="actions">${action}</td>
+                        <td class="actions" onclick="event.stopPropagation()">${action}</td>
                     </tr>
                 `;
             }).join('');
@@ -3455,7 +3576,7 @@
 
         /* ==================== IMPORTAÇÃO / EXPORTAÇÃO & BACKUP TOTAL ==================== */
         async function exportBackup() {
-            const stores = ['students', 'teachers', 'courses', 'units', 'classes', 'grades', 'users', 'inclusion'];
+            const stores = ['students', 'teachers', 'courses', 'units', 'classes', 'grades', 'users', 'inclusion', 'interventions', 'alarm_rules'];
             const data = {
                 version: DBVERSION,
                 exportedAt: new Date().toISOString()
@@ -3479,7 +3600,7 @@
             try {
                 const text = await file.text();
                 const data = JSON.parse(text);
-                const stores = ['students', 'teachers', 'courses', 'units', 'classes', 'grades', 'users', 'inclusion'];
+                const stores = ['students', 'teachers', 'courses', 'units', 'classes', 'grades', 'users', 'inclusion', 'interventions', 'alarm_rules'];
 
                 for (const s of stores) {
                     await new Promise((res, rej) => {
@@ -3555,6 +3676,7 @@
 
             currentUser = found;
             sessionStorage.setItem('edu_user', JSON.stringify(found));
+            localStorage.setItem('edu_user', JSON.stringify(found));
             document.getElementById('login').classList.add('hidden');
             document.getElementById('app').classList.remove('hidden');
             setupUser();
@@ -3563,6 +3685,7 @@
 
         function logout() {
             sessionStorage.removeItem('edu_user');
+            localStorage.removeItem('edu_user');
             location.reload();
         }
 
@@ -3575,6 +3698,9 @@
 
         async function showPage(p) {
             currentPage = p;
+            if (window.location.hash !== '#' + p) {
+                try { history.replaceState(null, null, '#' + p); } catch (e) {}
+            }
             document.querySelectorAll('.page').forEach(x => x.classList.add('hidden'));
             const targetEl = document.getElementById(p);
             if (targetEl) targetEl.classList.remove('hidden');
@@ -3588,6 +3714,8 @@
             const pageControllers = {
                 dashboard: renderDashboard,
                 reports: renderReports,
+                alarms: () => window.eduModules && window.eduModules.renderAlarmsPage ? window.eduModules.renderAlarmsPage() : null,
+                datascience: () => window.eduModules && window.eduModules.renderDataSciencePage ? window.eduModules.renderDataSciencePage() : null,
                 special_needs: renderInclusion,
                 students: renderStudents,
                 teachers: renderTeachers,
@@ -3595,7 +3723,12 @@
                 units: renderUnits,
                 classes: renderClasses,
                 grades: renderGrades,
-                users: renderUsers
+                users: renderUsers,
+                data: async () => {
+                    if (window.eduModules && window.eduModules.renderDataPageExtra) {
+                        window.eduModules.renderDataPageExtra();
+                    }
+                }
             };
 
             if (pageControllers[p]) {
@@ -3635,19 +3768,45 @@
         (async () => {
             await openDB();
             await seed();
-            const saved = sessionStorage.getItem('edu_user');
+            if (window.eduModules && window.eduModules.checkAndAutoSeedFullData) {
+                await window.eduModules.checkAndAutoSeedFullData();
+            }
+            const hashPage = window.location.hash ? window.location.hash.replace('#', '') : null;
+            const urlParams = new URLSearchParams(window.location.search);
+            const saved = sessionStorage.getItem('edu_user') || localStorage.getItem('edu_user');
+            if (urlParams.get('demo') === 'admin' || urlParams.get('auto') === '1' || hashPage) {
+                const users = await all('users');
+                const admin = users.find(u => u.role === 'ADMIN') || users[0];
+                if (admin) {
+                    currentUser = admin;
+                    localStorage.setItem('edu_user', JSON.stringify(admin));
+                    document.getElementById('login').classList.add('hidden');
+                    document.getElementById('app').classList.remove('hidden');
+                    setupUser();
+                    const targetPage = hashPage || urlParams.get('page') || 'dashboard';
+                    await showPage(targetPage);
+                    return;
+                }
+            }
             if (saved) {
                 try {
                     currentUser = JSON.parse(saved);
                     document.getElementById('login').classList.add('hidden');
                     document.getElementById('app').classList.remove('hidden');
                     setupUser();
-                    showPage('dashboard');
+                    const targetPage = hashPage || urlParams.get('page') || 'dashboard';
+                    await showPage(targetPage);
                 } catch (e) {
                     sessionStorage.removeItem('edu_user');
+                    localStorage.removeItem('edu_user');
                 }
             }
         })();
+
+        window.addEventListener('hashchange', () => {
+            const p = window.location.hash.slice(1);
+            if (p && meta[p]) showPage(p);
+        });
     </script>
 </body>
 

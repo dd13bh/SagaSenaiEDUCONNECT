@@ -1,0 +1,10 @@
+# Dependências locais de desenvolvimento
+node_modules/
+package-lock.json
+
+# Backups e arquivos temporários locais
+*.bak
+*.tmp
+*.log
+temp_edge_cdp_profile/
+test_profile/
